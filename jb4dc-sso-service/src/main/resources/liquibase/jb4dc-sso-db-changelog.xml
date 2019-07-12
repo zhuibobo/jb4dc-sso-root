@@ -43,7 +43,7 @@
             <column name="ORGAN_PARENT_ID" type="NVARCHAR(100)" remarks="父节点ID" />
             <column name="ORGAN_PARENT_ID_LIST" type="NVARCHAR(1200)" remarks="父节点列表" />
             <column name="ORGAN_STATUS" type="NVARCHAR(10)" remarks="状态:启用,禁用" />
-            <column name="ORGAN_CREATER_ORG_ID" type="NVARCHAR(100)" remarks="创建组织者ID"/>
+            <column name="ORGAN_CREATOR_ORG_ID" type="NVARCHAR(100)" remarks="创建组织者ID"/>
             <column name="ORGAN_MAIN_IMAGE_ID" remarks="主题Logo:关联到TFS_FILE_INFO表的FILE_ID" type="NVARCHAR(100)"/>
             <column name="ORGAN_DESC" type="NVARCHAR(2000)" remarks="组织机构备注" />
         </createTable>
@@ -60,7 +60,7 @@
             <column name="DEPT_IS_VIRTUAL" type="NVARCHAR(10)" remarks="是否虚拟" />
             <column name="DEPT_CHILD_COUNT" type="INT" remarks="子节点数量" />
             <column name="DEPT_CREATE_TIME" type="datetime(6)" remarks="创建时间" />
-            <column name="DEPT_CREATE_USER_ID" type="NVARCHAR(100)" remarks="创建用户ID" />
+            <column name="DEPT_CREATOR_ID" type="NVARCHAR(100)" remarks="创建用户ID" />
             <column name="DEPT_ORDER_NUM" type="INT" remarks="排序号" />
             <column name="DEPT_IS_ROOT" type="NVARCHAR(10)" remarks="是否根节点:根节点在组织创建时自动创建" />
             <column name="DEPT_PARENT_ID" type="NVARCHAR(100)" remarks="父节点ID:根节点的ParentId为0" />
@@ -80,7 +80,7 @@
             <column name="DU_TITLE" type="NVARCHAR(100)" remarks="部门用户职位"/>
             <column name="DU_DESC" type="NVARCHAR(2000)" remarks="部门用户备注"/>
             <column name="DU_CREATE_TIME" type="datetime(6)" remarks="创建时间" />
-            <column name="DU_CREATE_USER_ID" type="NVARCHAR(100)" remarks="创建用户ID" />
+            <column name="DU_CREATOR_ID" type="NVARCHAR(100)" remarks="创建用户ID" />
             <column name="DU_STATUS" type="NVARCHAR(10)" remarks="状态:启用,禁用" />
             <column name="DU_ORDER_NUM" type="INT" remarks="排序号" />
         </createTable>
@@ -98,7 +98,7 @@
             <column name="USER_ORGAN_ID" type="NVARCHAR(100)" remarks="所属组织ID" />
             <column name="USER_DESC" type="NVARCHAR(2000)" remarks="用户备注"/>
             <column name="USER_CREATE_TIME" type="datetime(6)" remarks="创建时间" />
-            <column name="USER_CREATE_USER_ID" type="NVARCHAR(100)" remarks="创建用户ID" />
+            <column name="USER_CREATOR_ID" type="NVARCHAR(100)" remarks="创建用户ID" />
             <column name="USER_STATUS" type="NVARCHAR(10)" remarks="状态:启用,禁用" />
             <column name="USER_ORDER_NUM" type="INT" remarks="排序号" />
             <column name="USER_TYPE" type="NVARCHAR(30)" remarks="用户类型:平台管理员,组织机构管理员,一般用户" />
@@ -114,13 +114,13 @@
             <column name="ROLE_GROUP_DESC" type="NVARCHAR(500)" remarks="备注" />
             <column name="ROLE_GROUP_STATUS" type="NVARCHAR(10)" remarks="状态" />
             <column name="ROLE_GROUP_PARENT_ID" type="NVARCHAR(100)" remarks="父节点ID" />
-            <column name="ROLE_GROUP_ISSYSTEM" type="NVARCHAR(10)" remarks="是否系统" />
+            <column name="ROLE_GROUP_IS_SYSTEM" type="NVARCHAR(10)" remarks="是否系统" />
             <column name="ROLE_GROUP_DEL_ENABLE" type="NVARCHAR(10)" remarks="能否删除" />
             <column name="ROLE_GROUP_PID_LIST" type="NVARCHAR(1200)" remarks="父节点列表" >
                 <constraints nullable="false"/>
             </column>
             <column name="ROLE_GROUP_CHILD_COUNT" type="INT" remarks="子节点数量" />
-            <column name="ROLE_GROUP_CREATER_ID" type="NVARCHAR(100)" remarks="创建者的ID" />
+            <column name="ROLE_GROUP_CREATOR_ID" type="NVARCHAR(100)" remarks="创建者的ID" />
             <column name="ROLE_GROUP_ORGAN_ID" type="NVARCHAR(100)" remarks="创建组织ID" />
         </createTable>
 
@@ -135,7 +135,7 @@
             <column name="ROLE_CREATE_TIME" type="datetime(6)" remarks="创建时间" />
             <column name="ROLE_DESC" type="NVARCHAR(500)" remarks="备注" />
             <column name="ROLE_STATUS" type="NVARCHAR(10)" remarks="状态" />
-            <column name="ROLE_CREATER_ID" type="NVARCHAR(100)" remarks="创建者的ID" />
+            <column name="ROLE_CREATOR_ID" type="NVARCHAR(100)" remarks="创建者的ID" />
             <column name="ROLE_ORGAN_ID" type="NVARCHAR(100)" remarks="创建组织ID" />
         </createTable>
 
@@ -154,7 +154,7 @@
             </column>
             <column name="BIND_CREATE_TIME" type="datetime(6)" remarks="创建时间">
             </column>
-            <column name="BIND_CREATER_ID" type="NVARCHAR(100)" remarks="创建者的ID" />
+            <column name="BIND_CREATOR_ID" type="NVARCHAR(100)" remarks="创建者的ID" />
             <column name="BIND_ORGAN_ID" type="NVARCHAR(100)" remarks="组织ID" />
         </createTable>
 
@@ -191,7 +191,7 @@
             <column name="APP_ORDER_NUM" type="INT" remarks="排序号" />
             <column name="APP_CREATE_TIME" type="datetime(6)" remarks="创建时间" />
             <column name="APP_STATUS" type="NVARCHAR(10)" remarks="状态" />
-            <column name="APP_CREATER_ID" type="NVARCHAR(100)" remarks="创建者的ID" />
+            <column name="APP_CREATOR_ID" type="NVARCHAR(100)" remarks="创建者的ID" />
             <column name="APP_ORGAN_ID" type="NVARCHAR(100)" remarks="创建组织ID" />
         </createTable>
 
@@ -209,7 +209,7 @@
             <column name="INTERFACE_ORDER_NUM" type="INT" remarks="排序号" />
             <column name="INTERFACE_CREATE_TIME" type="datetime(6)" remarks="创建时间" />
             <column name="INTERFACE_STATUS" type="NVARCHAR(10)" remarks="状态" />
-            <column name="INTERFACE_CREATER_ID" type="NVARCHAR(100)" remarks="创建者的ID" />
+            <column name="INTERFACE_CREATOR_ID" type="NVARCHAR(100)" remarks="创建者的ID" />
             <column name="INTERFACE_ORGAN_ID" type="NVARCHAR(100)" remarks="创建组织ID" />
         </createTable>
 
@@ -224,7 +224,7 @@
             <column name="APP_FILE_ORDER_NUM" type="INT" remarks="排序号" />
             <column name="APP_FILE_CREATE_TIME" type="datetime(6)" remarks="创建时间" />
             <column name="APP_FILE_STATUS" type="NVARCHAR(10)" remarks="状态" />
-            <column name="APP_FILE_CREATER_ID" type="NVARCHAR(100)" remarks="创建者的ID" />
+            <column name="APP_FILE_CREATOR_ID" type="NVARCHAR(100)" remarks="创建者的ID" />
             <column name="APP_FILE_ORGAN_ID" type="NVARCHAR(100)" remarks="创建组织ID" />
             <column name="APP_FILE_CNT_FILE_ID" type="NVARCHAR(100)" remarks="存储的文件ID:关联到TFS_FILE_INFO表的FILE_ID" />
         </createTable>
@@ -237,7 +237,7 @@
             <column name="MAPPING_ACCOUNT" type="NVARCHAR(100)" remarks="账号" />
             <column name="MAPPING_PASSWORD" type="NVARCHAR(100)" remarks="密码" />
             <column name="MAPPING_CREATE_TIME" type="datetime(6)" remarks="创建时间" />
-            <column name="MAPPING_CREATER_ID" type="NVARCHAR(100)" remarks="创建者的ID" />
+            <column name="MAPPING_CREATOR_ID" type="NVARCHAR(100)" remarks="创建者的ID" />
             <column name="MAPPING_ORGAN_ID" type="NVARCHAR(100)" remarks="创建组织ID" />
         </createTable>
     </changeSet>

@@ -2,7 +2,7 @@ package com.jb4dc.sso.service.role;
 
 
 import com.jb4dc.base.service.IBaseService;
-import com.jb4dc.sso.dbentities.RoleEntity;
+import com.jb4dc.sso.dbentities.role.RoleEntity;
 
 public interface IRoleService extends IBaseService<RoleEntity> {
     int countInRoleGroup(String groupId);

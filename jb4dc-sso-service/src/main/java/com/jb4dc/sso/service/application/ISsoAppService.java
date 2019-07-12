@@ -4,7 +4,7 @@ import com.jb4dc.base.service.IBaseService;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.sso.bo.SSOAppVo;
-import com.jb4dc.sso.dbentities.SsoAppEntity;
+import com.jb4dc.sso.dbentities.application.SsoAppEntity;
 
 import java.util.List;
 

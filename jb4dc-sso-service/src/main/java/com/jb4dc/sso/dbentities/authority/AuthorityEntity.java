@@ -1,4 +1,4 @@
-package com.jb4dc.sso.dbentities;
+package com.jb4dc.sso.dbentities.authority;
 
 
 import com.jb4dc.base.dbaccess.anno.DBKeyField;

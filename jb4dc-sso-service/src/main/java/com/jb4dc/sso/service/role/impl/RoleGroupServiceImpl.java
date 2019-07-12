@@ -7,7 +7,7 @@ import com.jb4dc.base.ymls.JBuild4DCYaml;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.sso.dao.role.RoleGroupMapper;
-import com.jb4dc.sso.dbentities.RoleGroupEntity;
+import com.jb4dc.sso.dbentities.role.RoleGroupEntity;
 import com.jb4dc.sso.service.role.IRoleGroupService;
 import com.jb4dc.sso.service.role.IRoleService;
 

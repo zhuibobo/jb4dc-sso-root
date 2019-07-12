@@ -1,8 +1,8 @@
 package com.jb4dc.sso.bo;
 
 
-import com.jb4dc.sso.dbentities.SsoAppEntity;
-import com.jb4dc.sso.dbentities.SsoAppInterfaceEntity;
+import com.jb4dc.sso.dbentities.application.SsoAppEntity;
+import com.jb4dc.sso.dbentities.application.SsoAppInterfaceEntity;
 
 import java.util.List;
 

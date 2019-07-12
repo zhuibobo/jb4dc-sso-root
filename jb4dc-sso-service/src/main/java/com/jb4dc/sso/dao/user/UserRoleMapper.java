@@ -1,7 +1,7 @@
 package com.jb4dc.sso.dao.user;
 
 import com.jb4dc.base.dbaccess.dao.BaseMapper;
-import com.jb4dc.sso.dbentities.UserRoleEntity;
+import com.jb4dc.sso.dbentities.user.UserRoleEntity;
 import org.apache.ibatis.annotations.Param;
 
 public interface UserRoleMapper extends BaseMapper<UserRoleEntity> {

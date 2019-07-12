@@ -2,7 +2,7 @@ package com.jb4dc.sso.service.user;
 
 import com.github.pagehelper.PageInfo;
 import com.jb4dc.base.service.IBaseService;
-import com.jb4dc.sso.dbentities.UserEntity;
+import com.jb4dc.sso.dbentities.user.UserEntity;
 
 public interface IUserService extends IBaseService<UserEntity> {
     public static final String USER_TYPE_MANAGER = "平台管理员";

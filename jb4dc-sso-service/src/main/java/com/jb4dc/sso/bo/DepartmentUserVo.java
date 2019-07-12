@@ -1,10 +1,10 @@
 package com.jb4dc.sso.bo;
 
 
-import com.jb4dc.sso.dbentities.DepartmentEntity;
-import com.jb4dc.sso.dbentities.DepartmentUserEntity;
-import com.jb4dc.sso.dbentities.OrganEntity;
-import com.jb4dc.sso.dbentities.UserEntity;
+import com.jb4dc.sso.dbentities.department.DepartmentEntity;
+import com.jb4dc.sso.dbentities.department.DepartmentUserEntity;
+import com.jb4dc.sso.dbentities.organ.OrganEntity;
+import com.jb4dc.sso.dbentities.user.UserEntity;
 
 public class DepartmentUserVo {
     private DepartmentUserEntity departmentUserEntity;

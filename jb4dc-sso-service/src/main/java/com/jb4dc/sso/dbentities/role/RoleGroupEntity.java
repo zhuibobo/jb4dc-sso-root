@@ -1,4 +1,4 @@
-package com.jb4dc.sso.dbentities;
+package com.jb4dc.sso.dbentities.role;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.jb4dc.base.dbaccess.anno.DBKeyField;

@@ -4,7 +4,7 @@ import com.github.pagehelper.PageInfo;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.sso.bo.DepartmentUserVo;
-import com.jb4dc.sso.dbentities.DepartmentUserEntity;
+import com.jb4dc.sso.dbentities.department.DepartmentUserEntity;
 
 import java.util.List;
 import java.util.Map;

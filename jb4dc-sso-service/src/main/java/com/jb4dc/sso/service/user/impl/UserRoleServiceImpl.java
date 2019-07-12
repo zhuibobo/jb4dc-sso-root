@@ -1,15 +1,13 @@
 package com.jb4dc.sso.service.user.impl;
 
 import com.jb4dc.base.service.IAddBefore;
-import com.jb4dc.base.service.ISQLBuilderService;
 import com.jb4dc.base.service.impl.BaseServiceImpl;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.core.base.tools.UUIDUtility;
 import com.jb4dc.sso.dao.user.UserRoleMapper;
-import com.jb4dc.sso.dbentities.UserRoleEntity;
+import com.jb4dc.sso.dbentities.user.UserRoleEntity;
 import com.jb4dc.sso.service.user.IUserRoleService;
-import org.mybatis.spring.SqlSessionTemplate;
 
 import java.util.Date;
 import java.util.List;

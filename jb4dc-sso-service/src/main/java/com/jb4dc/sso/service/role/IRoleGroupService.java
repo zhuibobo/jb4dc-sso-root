@@ -3,7 +3,7 @@ package com.jb4dc.sso.service.role;
 import com.jb4dc.base.service.IBaseService;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
-import com.jb4dc.sso.dbentities.RoleGroupEntity;
+import com.jb4dc.sso.dbentities.role.RoleGroupEntity;
 
 import java.util.List;
 

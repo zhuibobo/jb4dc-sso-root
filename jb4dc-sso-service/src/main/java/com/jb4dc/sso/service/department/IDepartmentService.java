@@ -2,7 +2,7 @@ package com.jb4dc.sso.service.department;
 
 import com.jb4dc.base.service.IBaseService;
 import com.jb4dc.core.base.session.JB4DCSession;
-import com.jb4dc.sso.dbentities.DepartmentEntity;
+import com.jb4dc.sso.dbentities.department.DepartmentEntity;
 
 import java.util.List;
 

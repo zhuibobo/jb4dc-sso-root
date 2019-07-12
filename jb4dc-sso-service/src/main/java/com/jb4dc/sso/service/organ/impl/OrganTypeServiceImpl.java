@@ -2,16 +2,14 @@ package com.jb4dc.sso.service.organ.impl;
 
 import com.jb4dc.base.dbaccess.exenum.EnableTypeEnum;
 import com.jb4dc.base.service.IAddBefore;
-import com.jb4dc.base.service.ISQLBuilderService;
 import com.jb4dc.base.service.IUpdateBefore;
 import com.jb4dc.base.service.impl.BaseServiceImpl;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.core.base.tools.StringUtility;
 import com.jb4dc.sso.dao.organ.OrganTypeMapper;
-import com.jb4dc.sso.dbentities.OrganTypeEntity;
+import com.jb4dc.sso.dbentities.organ.OrganTypeEntity;
 import com.jb4dc.sso.service.organ.IOrganTypeService;
-import org.mybatis.spring.SqlSessionTemplate;
 
 import java.util.Date;
 

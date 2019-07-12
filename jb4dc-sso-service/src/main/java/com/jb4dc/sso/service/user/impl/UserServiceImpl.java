@@ -8,7 +8,7 @@ import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.core.base.tools.StringUtility;
 import com.jb4dc.sso.dao.user.UserMapper;
-import com.jb4dc.sso.dbentities.UserEntity;
+import com.jb4dc.sso.dbentities.user.UserEntity;
 import com.jb4dc.sso.service.user.IUserService;
 
 import java.util.List;

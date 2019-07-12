@@ -6,7 +6,7 @@ import com.jb4dc.base.service.impl.BaseServiceImpl;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.sso.dao.application.SsoAppInterfaceMapper;
-import com.jb4dc.sso.dbentities.SsoAppInterfaceEntity;
+import com.jb4dc.sso.dbentities.application.SsoAppInterfaceEntity;
 import com.jb4dc.sso.service.application.ISsoAppInterfaceService;
 
 import java.util.Date;

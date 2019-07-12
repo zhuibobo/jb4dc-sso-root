@@ -5,7 +5,7 @@ import com.jb4dc.base.service.impl.BaseServiceImpl;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.sso.dao.application.SsoAppUserMappingMapper;
-import com.jb4dc.sso.dbentities.SsoAppUserMappingEntity;
+import com.jb4dc.sso.dbentities.application.SsoAppUserMappingEntity;
 import com.jb4dc.sso.service.application.ISsoAppUserMappingService;
 
 public class SsoAppUserMappingServiceImpl extends BaseServiceImpl<SsoAppUserMappingEntity> implements ISsoAppUserMappingService

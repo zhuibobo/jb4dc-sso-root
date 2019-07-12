@@ -5,7 +5,7 @@ import com.jb4dc.base.service.impl.BaseServiceImpl;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.sso.dao.role.RoleMapper;
-import com.jb4dc.sso.dbentities.RoleEntity;
+import com.jb4dc.sso.dbentities.role.RoleEntity;
 import com.jb4dc.sso.service.role.IRoleService;
 
 import java.util.Date;
