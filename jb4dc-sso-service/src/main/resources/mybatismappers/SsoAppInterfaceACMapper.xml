@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jbuild4d.base.dbaccess.dao.sso.SsoAppInterfaceMapper">
+    <resultMap id="BaseResultMap" type="com.jbuild4d.base.dbaccess.dbentities.sso.SsoAppInterfaceEntity">
+        <constructor>
+            <idArg column="INTERFACE_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="INTERFACE_BELONG_APP_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="INTERFACE_CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="INTERFACE_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="INTERFACE_URL" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="INTERFACE_PARAS" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="INTERFACE_FORMAT" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="INTERFACE_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="INTERFACE_ORDER_NUM" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <arg column="INTERFACE_CREATE_TIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+            <arg column="INTERFACE_STATUS" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="INTERFACE_CREATER_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="INTERFACE_ORGAN_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
+        INTERFACE_ID, INTERFACE_BELONG_APP_ID, INTERFACE_CODE, INTERFACE_NAME, INTERFACE_URL,
+        INTERFACE_PARAS, INTERFACE_FORMAT, INTERFACE_DESC, INTERFACE_ORDER_NUM, INTERFACE_CREATE_TIME,
+        INTERFACE_STATUS, INTERFACE_CREATER_ID, INTERFACE_ORGAN_ID
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from TSSO_SSO_APP_INTERFACE
+        where INTERFACE_ID = #{interfaceId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from TSSO_SSO_APP_INTERFACE
+        where INTERFACE_ID = #{interfaceId,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.jbuild4d.base.dbaccess.dbentities.sso.SsoAppInterfaceEntity">
+        insert into TSSO_SSO_APP_INTERFACE (INTERFACE_ID, INTERFACE_BELONG_APP_ID,
+                                            INTERFACE_CODE, INTERFACE_NAME, INTERFACE_URL,
+                                            INTERFACE_PARAS, INTERFACE_FORMAT, INTERFACE_DESC,
+                                            INTERFACE_ORDER_NUM, INTERFACE_CREATE_TIME,
+                                            INTERFACE_STATUS, INTERFACE_CREATER_ID, INTERFACE_ORGAN_ID
+                )
+        values (#{interfaceId,jdbcType=VARCHAR}, #{interfaceBelongAppId,jdbcType=VARCHAR},
+                #{interfaceCode,jdbcType=VARCHAR}, #{interfaceName,jdbcType=VARCHAR}, #{interfaceUrl,jdbcType=VARCHAR},
+                #{interfaceParas,jdbcType=VARCHAR}, #{interfaceFormat,jdbcType=VARCHAR}, #{interfaceDesc,jdbcType=VARCHAR},
+                #{interfaceOrderNum,jdbcType=INTEGER}, #{interfaceCreateTime,jdbcType=TIMESTAMP},
+                #{interfaceStatus,jdbcType=VARCHAR}, #{interfaceCreaterId,jdbcType=VARCHAR}, #{interfaceOrganId,jdbcType=VARCHAR}
+                       )
+    </insert>
+    <insert id="insertSelective" parameterType="com.jbuild4d.base.dbaccess.dbentities.sso.SsoAppInterfaceEntity">
+        insert into TSSO_SSO_APP_INTERFACE
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="interfaceId != null">
+                INTERFACE_ID,
+            </if>
+            <if test="interfaceBelongAppId != null">
+                INTERFACE_BELONG_APP_ID,
+            </if>
+            <if test="interfaceCode != null">
+                INTERFACE_CODE,
+            </if>
+            <if test="interfaceName != null">
+                INTERFACE_NAME,
+            </if>
+            <if test="interfaceUrl != null">
+                INTERFACE_URL,
+            </if>
+            <if test="interfaceParas != null">
+                INTERFACE_PARAS,
+            </if>
+            <if test="interfaceFormat != null">
+                INTERFACE_FORMAT,
+            </if>
+            <if test="interfaceDesc != null">
+                INTERFACE_DESC,
+            </if>
+            <if test="interfaceOrderNum != null">
+                INTERFACE_ORDER_NUM,
+            </if>
+            <if test="interfaceCreateTime != null">
+                INTERFACE_CREATE_TIME,
+            </if>
+            <if test="interfaceStatus != null">
+                INTERFACE_STATUS,
+            </if>
+            <if test="interfaceCreaterId != null">
+                INTERFACE_CREATER_ID,
+            </if>
+            <if test="interfaceOrganId != null">
+                INTERFACE_ORGAN_ID,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="interfaceId != null">
+                #{interfaceId,jdbcType=VARCHAR},
+            </if>
+            <if test="interfaceBelongAppId != null">
+                #{interfaceBelongAppId,jdbcType=VARCHAR},
+            </if>
+            <if test="interfaceCode != null">
+                #{interfaceCode,jdbcType=VARCHAR},
+            </if>
+            <if test="interfaceName != null">
+                #{interfaceName,jdbcType=VARCHAR},
+            </if>
+            <if test="interfaceUrl != null">
+                #{interfaceUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="interfaceParas != null">
+                #{interfaceParas,jdbcType=VARCHAR},
+            </if>
+            <if test="interfaceFormat != null">
+                #{interfaceFormat,jdbcType=VARCHAR},
+            </if>
+            <if test="interfaceDesc != null">
+                #{interfaceDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="interfaceOrderNum != null">
+                #{interfaceOrderNum,jdbcType=INTEGER},
+            </if>
+            <if test="interfaceCreateTime != null">
+                #{interfaceCreateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="interfaceStatus != null">
+                #{interfaceStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="interfaceCreaterId != null">
+                #{interfaceCreaterId,jdbcType=VARCHAR},
+            </if>
+            <if test="interfaceOrganId != null">
+                #{interfaceOrganId,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.jbuild4d.base.dbaccess.dbentities.sso.SsoAppInterfaceEntity">
+        update TSSO_SSO_APP_INTERFACE
+        <set>
+            <if test="interfaceBelongAppId != null">
+                INTERFACE_BELONG_APP_ID = #{interfaceBelongAppId,jdbcType=VARCHAR},
+            </if>
+            <if test="interfaceCode != null">
+                INTERFACE_CODE = #{interfaceCode,jdbcType=VARCHAR},
+            </if>
+            <if test="interfaceName != null">
+                INTERFACE_NAME = #{interfaceName,jdbcType=VARCHAR},
+            </if>
+            <if test="interfaceUrl != null">
+                INTERFACE_URL = #{interfaceUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="interfaceParas != null">
+                INTERFACE_PARAS = #{interfaceParas,jdbcType=VARCHAR},
+            </if>
+            <if test="interfaceFormat != null">
+                INTERFACE_FORMAT = #{interfaceFormat,jdbcType=VARCHAR},
+            </if>
+            <if test="interfaceDesc != null">
+                INTERFACE_DESC = #{interfaceDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="interfaceOrderNum != null">
+                INTERFACE_ORDER_NUM = #{interfaceOrderNum,jdbcType=INTEGER},
+            </if>
+            <if test="interfaceCreateTime != null">
+                INTERFACE_CREATE_TIME = #{interfaceCreateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="interfaceStatus != null">
+                INTERFACE_STATUS = #{interfaceStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="interfaceCreaterId != null">
+                INTERFACE_CREATER_ID = #{interfaceCreaterId,jdbcType=VARCHAR},
+            </if>
+            <if test="interfaceOrganId != null">
+                INTERFACE_ORGAN_ID = #{interfaceOrganId,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where INTERFACE_ID = #{interfaceId,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.jbuild4d.base.dbaccess.dbentities.sso.SsoAppInterfaceEntity">
+        update TSSO_SSO_APP_INTERFACE
+        set INTERFACE_BELONG_APP_ID = #{interfaceBelongAppId,jdbcType=VARCHAR},
+            INTERFACE_CODE = #{interfaceCode,jdbcType=VARCHAR},
+            INTERFACE_NAME = #{interfaceName,jdbcType=VARCHAR},
+            INTERFACE_URL = #{interfaceUrl,jdbcType=VARCHAR},
+            INTERFACE_PARAS = #{interfaceParas,jdbcType=VARCHAR},
+            INTERFACE_FORMAT = #{interfaceFormat,jdbcType=VARCHAR},
+            INTERFACE_DESC = #{interfaceDesc,jdbcType=VARCHAR},
+            INTERFACE_ORDER_NUM = #{interfaceOrderNum,jdbcType=INTEGER},
+            INTERFACE_CREATE_TIME = #{interfaceCreateTime,jdbcType=TIMESTAMP},
+            INTERFACE_STATUS = #{interfaceStatus,jdbcType=VARCHAR},
+            INTERFACE_CREATER_ID = #{interfaceCreaterId,jdbcType=VARCHAR},
+            INTERFACE_ORGAN_ID = #{interfaceOrganId,jdbcType=VARCHAR}
+        where INTERFACE_ID = #{interfaceId,jdbcType=VARCHAR}
+    </update>
+</mapper>

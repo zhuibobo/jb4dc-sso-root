@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: JB4DC-SSO-WEB-SERVER
+    inetutils:
+      #客户端的IP
+      preferred-networks: 192.168.3.153
+  liquibase:
+    enabled: false
+  thymeleaf:
+    prefix: classpath:/static/HTML/
+    suffix: .html
+    enabled: true
+
+server:
+  port: 9101
+  servlet:
+    session:
+      timeout: 7200
+    context-path: /SSO
+
+eureka:
+  client:
+    serviceUrl:
+      #服务端的地址
+      defaultZone: http://127.0.0.1:9092/eureka/
+  instance:
+    prefer-ip-address: true
+    instanceId: ${spring.cloud.inetutils.preferred-networks}:${server.port}
+
+logging:
+  level:
+    com:
+      jb4dc:
+        system:
+          setting:
+            dao: TRACE

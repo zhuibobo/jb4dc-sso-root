@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jbuild4d.base.dbaccess.dao.sso.OrganMapper">
+    <select id="selectAll" resultMap="BaseResultMap">select<include refid="Base_Column_List"/> from TSSO_ORGAN ORDER by ORGAN_ORDER_NUM ASC</select>
+    <delete id="deleteAll">delete from TSSO_ORGAN</delete>
+    <select id="nextOrderNum" resultType="integer">select case when max(ORGAN_ORDER_NUM) is null then 1 else max(ORGAN_ORDER_NUM)+1 end ORDERNUM from TSSO_ORGAN</select>
+    <select id="selectBySearch" parameterType="java.util.Map" resultMap="BaseResultMap">select<include refid="Base_Column_List"/>from TSSO_ORGAN<where>
+        <if test="organName !=null and organName !=''"> and ORGAN_NAME like #{organName} </if>
+        <if test="organShortName !=null and organShortName !=''"> and ORGAN_SHORT_NAME like #{organShortName} </if>
+        <if test="organNo !=null and organNo !=''"> and ORGAN_NO like #{organNo} </if>
+        <if test="organCode !=null and organCode !=''"> and ORGAN_CODE like #{organCode} </if>
+        <if test="organPhone !=null and organPhone !=''"> and ORGAN_PHONE like #{organPhone} </if>
+        <if test="organPost !=null and organPost !=''"> and ORGAN_POST like #{organPost} </if>
+        <if test="organTypeValue !=null and organTypeValue !=''"> and ORGAN_TYPE_VALUE like #{organTypeValue} </if>
+        <if test="organAddress !=null and organAddress !=''"> and ORGAN_ADDRESS like #{organAddress} </if>
+        <if test="organContacts !=null and organContacts !=''"> and ORGAN_CONTACTS like #{organContacts} </if>
+        <if test="organContactsMobile !=null and organContactsMobile !=''"> and ORGAN_CONTACTS_MOBILE like #{organContactsMobile} </if>
+        <if test="organWebSite !=null and organWebSite !=''"> and ORGAN_WEB_SITE like #{organWebSite} </if>
+        <if test="organFax !=null and organFax !=''"> and ORGAN_FAX like #{organFax} </if>
+        <if test="organIsVirtual !=null and organIsVirtual !=''"> and ORGAN_IS_VIRTUAL like #{organIsVirtual} </if>
+        <if test="organParentId !=null and organParentId !=''"> and ORGAN_PARENT_ID like #{organParentId} </if>
+        <if test="organParentIdList !=null and organParentIdList !=''"> and ORGAN_PARENT_ID_LIST like #{organParentIdList} </if>
+        <if test="organStatus !=null and organStatus !=''"> and ORGAN_STATUS like #{organStatus} </if>
+        <if test="organCreaterOrgId !=null and organCreaterOrgId !=''"> and ORGAN_CREATER_ORG_ID like #{organCreaterOrgId} </if>
+        <if test="organMainImageId !=null and organMainImageId !=''"> and ORGAN_MAIN_IMAGE_ID like #{organMainImageId} </if>
+        <if test="organDesc !=null and organDesc !=''"> and ORGAN_DESC like #{organDesc} </if>
+    </where>ORDER by ORGAN_ORDER_NUM ASC</select>
+    <select id="selectLessThanRecord" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <![CDATA[
+        select
+            *
+        from TSSO_ORGAN
+        where ORGAN_ORDER_NUM = (select max(ORGAN_ORDER_NUM) from TSSO_ORGAN where ORGAN_ORDER_NUM<(select ORGAN_ORDER_NUM from TSSO_ORGAN where ORGAN_ID=#{id,jdbcType=NVARCHAR}) and ORGAN_PARENT_ID=#{parentId,jdbcType=NVARCHAR}) and ORGAN_PARENT_ID=#{parentId,jdbcType=NVARCHAR}
+        ]]>
+    </select>
+    <select id="selectGreaterThanRecord" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <![CDATA[
+        select
+            *
+        from TSSO_ORGAN
+        where ORGAN_ORDER_NUM = (select min(ORGAN_ORDER_NUM) from TSSO_ORGAN where ORGAN_ORDER_NUM>(select ORGAN_ORDER_NUM from TSSO_ORGAN where ORGAN_ID=#{id,jdbcType=NVARCHAR} ) and ORGAN_PARENT_ID=#{parentId,jdbcType=NVARCHAR}) and ORGAN_PARENT_ID=#{parentId,jdbcType=NVARCHAR}
+        ]]>
+    </select>
+
+    <delete id="deleteByOrganName">
+        delete from TSSO_ORGAN
+        where ORGAN_NAME = #{organName,jdbcType=VARCHAR}
+    </delete>
+
+    <select id="countChildsOrgan" resultType="int">select count(ORGAN_ID) from TSSO_ORGAN where ORGAN_PARENT_ID=#{id,jdbcType=NVARCHAR}</select>
+</mapper>
