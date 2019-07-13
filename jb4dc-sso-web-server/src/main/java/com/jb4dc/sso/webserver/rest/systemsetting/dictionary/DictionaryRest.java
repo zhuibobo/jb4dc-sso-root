@@ -1,0 +1,40 @@
+package com.jb4dc.sso.webserver.rest.systemsetting.dictionary;
+
+import com.jb4dc.base.service.IBaseService;
+import com.jb4dc.base.service.general.JB4DCSessionUtility;
+import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
+import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
+import com.jb4dc.feb.dist.webserver.rest.base.GeneralRest;
+import com.jb4dc.system.setting.dbentities.DictionaryEntity;
+import com.jb4dc.system.setting.service.IDictionaryService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+@RequestMapping(value = "/Rest/SystemSetting/Dictionary")
+public class DictionaryRest extends GeneralRest<DictionaryEntity> {
+
+    @Autowired
+    IDictionaryService dictionaryService;
+
+    @Override
+    protected IBaseService<DictionaryEntity> getBaseService() {
+        return dictionaryService;
+    }
+
+    @RequestMapping(value = "/GetListDataByGroupId", method = RequestMethod.POST)
+    public JBuild4DCResponseVo getListDataByGroupId(String groupId) {
+        List<DictionaryEntity> dictionaryEntityList=dictionaryService.getListDataByGroupId(JB4DCSessionUtility.getSession(),groupId);
+        return JBuild4DCResponseVo.success("",dictionaryEntityList);
+    }
+
+    @RequestMapping(value = "/SetSelected", method = RequestMethod.POST)
+    public JBuild4DCResponseVo setSelected(String recordId) throws JBuild4DCGenerallyException {
+        dictionaryService.setSelected(JB4DCSessionUtility.getSession(),recordId);
+        return JBuild4DCResponseVo.opSuccess();
+    }
+}

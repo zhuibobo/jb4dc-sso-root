@@ -94,17 +94,17 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         //根菜单->系统设置分组->数据字典分组
         createMenu(jb4DSession,systemSettingRootMenu.getMenuId(),"systemSettingDictionaryManagerId",
                 "数据字典","数据字典","数据字典",
-                "System/Dictionary/DictionaryManager.html","");
+                "/HTML/SystemSetting/Dictionary/DictionaryManager.html","");
 
         //根菜单->系统设置分组->操作日志
         createMenu(jb4DSession,systemSettingRootMenu.getMenuId(),"JB4DSystemSettingOperationLog",
                 "操作日志","操作日志","操作日志",
-                "System/OperationLog/OperationLogList.html","");
+                "/HTML/SystemSetting/OperationLog/OperationLogList.html","");
 
         //根菜单->系统设置分组->参数设置
         createMenu(jb4DSession,systemSettingRootMenu.getMenuId(),"JB4DSystemSettingParasSetting",
                 "参数设置","参数设置","参数设置",
-                "System/ParasSetting/ParasSettingList.html","");
+                "/HTML/SystemSetting/ParasSetting/ParasSettingList.html","");
 
         //根菜单->统一用户与单点登录
         MenuEntity ssoRootMenu=createMenu(jb4DSession,rootMenu.getMenuId(),"JB4DSSORootMenu",

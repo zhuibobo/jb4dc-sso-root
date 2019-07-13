@@ -18,7 +18,7 @@ const replaceBlockObj=require("./replaceBlock.js");
 const sourcePath = "static";
 const distPath = "../resources/static";
 
-gulp.task('sso-html-only',()=>{
+gulp.task('html-only',()=>{
     //gulp.src(jarFromResourcePath+"/HTML/**/*", {base:jarFromResourcePath+"/HTML"}).pipe(gulp.dest(jarToResourcePath+"/HTML"))
     return copyAndResolveHtml(sourcePath + "/HTML/**/*.html",sourcePath + "/HTML",distPath + "/HTML");
     /*return gulp.src(jarFromResourcePath+"/HTML/!**!/!*.html", {base:jarFromResourcePath+"/HTML"}).pipe(htmlmin({
@@ -30,7 +30,7 @@ gulp.task('sso-html-only',()=>{
 });
 
 gulp.task('dist-watch', function() {
-    gulp.watch(sourcePath+"/HTML/**/*", gulp.series('system-setting-html-only'));
+    gulp.watch(sourcePath+"/HTML/**/*", gulp.series('html-only'));
 });
 
 //endregion
