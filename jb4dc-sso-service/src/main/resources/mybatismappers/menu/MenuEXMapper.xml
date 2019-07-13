@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jb4dc.sso.dao.menu.MenuMapper">
+    <select id="selectAll" resultMap="BaseResultMap">select<include refid="Base_Column_List"/> from TSSO_MENU ORDER by MENU_ORDER_NUM DESC</select>
+    <select id="selectAllASC" resultMap="BaseResultMap">select<include refid="Base_Column_List"/> from TSSO_MENU ORDER by MENU_ORDER_NUM ASC</select>
+    <delete id="deleteAll">delete from TSSO_MENU</delete>
+    <select id="nextOrderNum" resultType="integer">select case when max(MENU_ORDER_NUM) is null then 1 else max(MENU_ORDER_NUM)+1 end ORDERNUM from TSSO_MENU</select>
+    <select id="selectBySearch" parameterType="java.util.Map" resultMap="BaseResultMap">select<include refid="Base_Column_List"/>from TSSO_MENU<where>
+        <if test="menuName !=null and menuName !=''"> and MENU_NAME like #{menuName} </if>
+        <if test="menuSystemId !=null and menuSystemId !=''"> and MENU_SYSTEM_ID like #{menuSystemId} </if>
+        <if test="menuText !=null and menuText !=''"> and MENU_TEXT like #{menuText} </if>
+        <if test="menuValue !=null and menuValue !=''"> and MENU_VALUE like #{menuValue} </if>
+        <if test="menuType !=null and menuType !=''"> and MENU_TYPE like #{menuType} </if>
+        <if test="menuCreatorId !=null and menuCreatorId !=''"> and MENU_CREATOR_ID like #{menuCreatorId} </if>
+        <if test="menuOrganId !=null and menuOrganId !=''"> and MENU_ORGAN_ID like #{menuOrganId} </if>
+        <if test="menuOrganName !=null and menuOrganName !=''"> and MENU_ORGAN_NAME like #{menuOrganName} </if>
+        <if test="menuIsExpand !=null and menuIsExpand !=''"> and MENU_IS_EXPAND like #{menuIsExpand} </if>
+        <if test="menuIsSystem !=null and menuIsSystem !=''"> and MENU_IS_SYSTEM like #{menuIsSystem} </if>
+        <if test="menuLeftUrl !=null and menuLeftUrl !=''"> and MENU_LEFT_URL like #{menuLeftUrl} </if>
+        <if test="menuLeftUrlPara !=null and menuLeftUrlPara !=''"> and MENU_LEFT_URL_PARA like #{menuLeftUrlPara} </if>
+        <if test="menuRightUrl !=null and menuRightUrl !=''"> and MENU_RIGHT_URL like #{menuRightUrl} </if>
+        <if test="menuRightUrlPara !=null and menuRightUrlPara !=''"> and MENU_RIGHT_URL_PARA like #{menuRightUrlPara} </if>
+        <if test="menuParentId !=null and menuParentId !=''"> and MENU_PARENT_ID like #{menuParentId} </if>
+        <if test="menuParentIdList !=null and menuParentIdList !=''"> and MENU_PARENT_ID_LIST like #{menuParentIdList} </if>
+        <if test="menuTarget !=null and menuTarget !=''"> and MENU_TARGET like #{menuTarget} </if>
+        <if test="menuUpdater !=null and menuUpdater !=''"> and MENU_UPDATER like #{menuUpdater} </if>
+        <if test="menuUseOrganName !=null and menuUseOrganName !=''"> and MENU_USE_ORGAN_NAME like #{menuUseOrganName} </if>
+        <if test="menuUseOrganId !=null and menuUseOrganId !=''"> and MENU_USE_ORGAN_ID like #{menuUseOrganId} </if>
+        <if test="menuUseOrganTypeName !=null and menuUseOrganTypeName !=''"> and MENU_USE_ORGAN_TYPE_NAME like #{menuUseOrganTypeName} </if>
+        <if test="menuUseOrganTypeId !=null and menuUseOrganTypeId !=''"> and MENU_USE_ORGAN_TYPE_ID like #{menuUseOrganTypeId} </if>
+        <if test="menuClassName !=null and menuClassName !=''"> and MENU_CLASS_NAME like #{menuClassName} </if>
+        <if test="menuClassNameHover !=null and menuClassNameHover !=''"> and MENU_CLASS_NAME_HOVER like #{menuClassNameHover} </if>
+        <if test="menuClassNameSelected !=null and menuClassNameSelected !=''"> and MENU_CLASS_NAME_SELECTED like #{menuClassNameSelected} </if>
+        <if test="menuDescription !=null and menuDescription !=''"> and MENU_DESCRIPTION like #{menuDescription} </if>
+        <if test="menuStatus !=null and menuStatus !=''"> and MENU_STATUS like #{menuStatus} </if>
+        <if test="menuJsExpression !=null and menuJsExpression !=''"> and MENU_JS_EXPRESSION like #{menuJsExpression} </if>
+    </where>ORDER by MENU_ORDER_NUM DESC</select>
+    <select id="selectLessThanRecord" parameterType="java.lang.String" resultMap="BaseResultMap"><![CDATA[select * from TSSO_MENU
+ where MENU_ORDER_NUM = (select max(MENU_ORDER_NUM) from TSSO_MENU where MENU_ORDER_NUM<(select MENU_ORDER_NUM from TSSO_MENU where MENU_ID=#{Id,jdbcType=NVARCHAR}))]]></select>
+    <select id="selectGreaterThanRecord" parameterType="java.lang.String" resultMap="BaseResultMap"><![CDATA[select * from TSSO_MENU
+ where MENU_ORDER_NUM = (select min(MENU_ORDER_NUM) from TSSO_MENU where MENU_ORDER_NUM>(select MENU_ORDER_NUM from TSSO_MENU where MENU_ID=#{Id,jdbcType=NVARCHAR}))]]></select>
+</mapper>

@@ -6,9 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="jb4dc-system-setting-client" />
+        <module name="jb4dc-system-setting-service" />
+        <module name="jb4dc-sso-service" />
         <module name="jb4dc-sso-client" />
         <module name="jb4dc-sso-web-server" />
-        <module name="jb4dc-sso-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -16,6 +18,8 @@
       <module name="jb4dc-sso-root" target="1.8" />
       <module name="jb4dc-sso-service" target="1.8" />
       <module name="jb4dc-sso-web-server" target="1.8" />
+      <module name="jb4dc-system-setting-client" target="1.8" />
+      <module name="jb4dc-system-setting-service" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
