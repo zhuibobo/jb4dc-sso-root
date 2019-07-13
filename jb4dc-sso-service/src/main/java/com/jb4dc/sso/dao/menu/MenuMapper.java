@@ -10,4 +10,7 @@ import com.jb4dc.sso.dbentities.menu.MenuEntity;
  * To change this template use File | Settings | File Templates.
  */
 public interface MenuMapper  extends BaseMapper<MenuEntity> {
+    MenuEntity selectLessThanRecord(String id);
+
+    MenuEntity selectGreaterThanRecord(String id);
 }

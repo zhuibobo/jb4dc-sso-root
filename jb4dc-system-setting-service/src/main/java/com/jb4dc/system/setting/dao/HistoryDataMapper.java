@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
  * Date: 2019/2/25
  * To change this template use File | Settings | File Templates.
  */
-
+@Repository
 public interface HistoryDataMapper extends BaseMapper<HistoryDataEntity> {
 }

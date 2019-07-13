@@ -5,6 +5,7 @@ import com.jb4dc.base.service.general.JB4DCSessionUtility;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
+import com.jb4dc.sso.service.menu.IMenuService;
 import com.jb4dc.system.setting.service.IDictionaryGroupService;
 import com.jb4dc.system.setting.service.IDictionaryService;
 import com.jb4dc.system.setting.service.IOperationLogService;
@@ -38,6 +39,9 @@ public class InitializationSystemRest {
     @Autowired
     private IOperationLogService operationLogService;
 
+    @Autowired
+    private IMenuService menuService;
+
     @RequestMapping(value = "/Running", method = RequestMethod.POST)
     @ResponseBody
     public JBuild4DCResponseVo running(String createTestData) throws JBuild4DCGenerallyException, JsonProcessingException {
@@ -51,6 +55,8 @@ public class InitializationSystemRest {
 
         //初始化操作日志
         operationLogService.initSystemData(jb4DSession);
+
+        menuService.initSystemData(jb4DSession);
 
         if(createTestData!=null&&createTestData.toLowerCase().equals("true")){
             //创建测试的表分组
