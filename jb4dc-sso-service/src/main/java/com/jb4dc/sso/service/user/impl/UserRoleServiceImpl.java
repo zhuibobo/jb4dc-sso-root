@@ -28,7 +28,7 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleEntity> impleme
 
                 sourceEntity.setBindOrderNum(userRoleMapper.nextOrderNum());
                 sourceEntity.setBindCreateTime(new Date());
-                sourceEntity.setBindCreaterId(jb4DSession.getUserId());
+                sourceEntity.setBindCreatorId(jb4DSession.getUserId());
                 sourceEntity.setBindOrganId(jb4DSession.getOrganId());
                 //设置排序,以及其他参数--nextOrderNum()
                 return sourceEntity;

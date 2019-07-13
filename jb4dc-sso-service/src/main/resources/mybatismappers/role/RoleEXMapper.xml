@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.jbuild4d.base.dbaccess.dao.sso.RoleMapper">
+<mapper namespace="com.jb4dc.sso.dao.role.RoleMapper">
     <select id="selectAll" resultMap="BaseResultMap">select<include refid="Base_Column_List"/> from TSSO_ROLE ORDER by ROLE_ORDER_NUM DESC</select>
     <delete id="deleteAll">delete from TSSO_ROLE</delete>
     <select id="nextOrderNum" resultType="integer">select case when max(ROLE_ORDER_NUM) is null then 1 else max(ROLE_ORDER_NUM)+1 end ORDERNUM from TSSO_ROLE</select>
@@ -10,7 +10,7 @@
         <if test="roleGroupId !=null and roleGroupId !=''"> and ROLE_GROUP_ID like #{roleGroupId} </if>
         <if test="roleDesc !=null and roleDesc !=''"> and ROLE_DESC like #{roleDesc} </if>
         <if test="roleStatus !=null and roleStatus !=''"> and ROLE_STATUS like #{roleStatus} </if>
-        <if test="roleCreaterId !=null and roleCreaterId !=''"> and ROLE_CREATER_ID like #{roleCreaterId} </if>
+        <if test="roleCreatorId !=null and roleCreatorId !=''"> and ROLE_CREATOR_ID like #{roleCreatorId} </if>
         <if test="roleOrganId !=null and roleOrganId !=''"> and ROLE_ORGAN_ID like #{roleOrganId} </if>
     </where>ORDER by ROLE_ORDER_NUM DESC</select>
 

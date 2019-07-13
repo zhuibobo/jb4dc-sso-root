@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.jbuild4d.base.dbaccess.dao.sso.RoleMapper">
-    <resultMap id="BaseResultMap" type="com.jbuild4d.base.dbaccess.dbentities.sso.RoleEntity">
+<mapper namespace="com.jb4dc.sso.dao.role.RoleMapper">
+    <resultMap id="BaseResultMap" type="com.jb4dc.sso.dbentities.role.RoleEntity">
         <constructor>
-            <idArg column="ROLE_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <arg column="ROLE_KEY" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <arg column="ROLE_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <arg column="ROLE_GROUP_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <idArg column="ROLE_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="ROLE_KEY" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="ROLE_NAME" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="ROLE_GROUP_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
             <arg column="ROLE_ORDER_NUM" javaType="java.lang.Integer" jdbcType="INTEGER" />
             <arg column="ROLE_CREATE_TIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-            <arg column="ROLE_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <arg column="ROLE_STATUS" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <arg column="ROLE_CREATER_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <arg column="ROLE_ORGAN_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="ROLE_DESC" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="ROLE_STATUS" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="ROLE_CREATOR_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="ROLE_ORGAN_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
         </constructor>
     </resultMap>
     <sql id="Base_Column_List">
-        ROLE_ID, ROLE_KEY, ROLE_NAME, ROLE_GROUP_ID, ROLE_ORDER_NUM, ROLE_CREATE_TIME, ROLE_DESC,
-        ROLE_STATUS, ROLE_CREATER_ID, ROLE_ORGAN_ID
-    </sql>
+    ROLE_ID, ROLE_KEY, ROLE_NAME, ROLE_GROUP_ID, ROLE_ORDER_NUM, ROLE_CREATE_TIME, ROLE_DESC,
+    ROLE_STATUS, ROLE_CREATOR_ID, ROLE_ORGAN_ID
+  </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List" />
         from TSSO_ROLE
-        where ROLE_ID = #{roleId,jdbcType=VARCHAR}
+        where ROLE_ID = #{roleId,jdbcType=NVARCHAR}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-        delete from TSSO_ROLE
-        where ROLE_ID = #{roleId,jdbcType=VARCHAR}
-    </delete>
-    <insert id="insert" parameterType="com.jbuild4d.base.dbaccess.dbentities.sso.RoleEntity">
-        insert into TSSO_ROLE (ROLE_ID, ROLE_KEY, ROLE_NAME,
-                               ROLE_GROUP_ID, ROLE_ORDER_NUM, ROLE_CREATE_TIME,
-                               ROLE_DESC, ROLE_STATUS, ROLE_CREATER_ID,
-                               ROLE_ORGAN_ID)
-        values (#{roleId,jdbcType=VARCHAR}, #{roleKey,jdbcType=VARCHAR}, #{roleName,jdbcType=VARCHAR},
-                #{roleGroupId,jdbcType=VARCHAR}, #{roleOrderNum,jdbcType=INTEGER}, #{roleCreateTime,jdbcType=TIMESTAMP},
-                #{roleDesc,jdbcType=VARCHAR}, #{roleStatus,jdbcType=VARCHAR}, #{roleCreaterId,jdbcType=VARCHAR},
-                #{roleOrganId,jdbcType=VARCHAR})
-    </insert>
-    <insert id="insertSelective" parameterType="com.jbuild4d.base.dbaccess.dbentities.sso.RoleEntity">
+    delete from TSSO_ROLE
+    where ROLE_ID = #{roleId,jdbcType=NVARCHAR}
+  </delete>
+    <insert id="insert" parameterType="com.jb4dc.sso.dbentities.role.RoleEntity">
+    insert into TSSO_ROLE (ROLE_ID, ROLE_KEY, ROLE_NAME,
+      ROLE_GROUP_ID, ROLE_ORDER_NUM, ROLE_CREATE_TIME,
+      ROLE_DESC, ROLE_STATUS, ROLE_CREATOR_ID,
+      ROLE_ORGAN_ID)
+    values (#{roleId,jdbcType=NVARCHAR}, #{roleKey,jdbcType=NVARCHAR}, #{roleName,jdbcType=NVARCHAR},
+      #{roleGroupId,jdbcType=NVARCHAR}, #{roleOrderNum,jdbcType=INTEGER}, #{roleCreateTime,jdbcType=TIMESTAMP},
+      #{roleDesc,jdbcType=NVARCHAR}, #{roleStatus,jdbcType=NVARCHAR}, #{roleCreatorId,jdbcType=NVARCHAR},
+      #{roleOrganId,jdbcType=NVARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.jb4dc.sso.dbentities.role.RoleEntity">
         insert into TSSO_ROLE
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="roleId != null">
@@ -66,8 +66,8 @@
             <if test="roleStatus != null">
                 ROLE_STATUS,
             </if>
-            <if test="roleCreaterId != null">
-                ROLE_CREATER_ID,
+            <if test="roleCreatorId != null">
+                ROLE_CREATOR_ID,
             </if>
             <if test="roleOrganId != null">
                 ROLE_ORGAN_ID,
@@ -75,16 +75,16 @@
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="roleId != null">
-                #{roleId,jdbcType=VARCHAR},
+                #{roleId,jdbcType=NVARCHAR},
             </if>
             <if test="roleKey != null">
-                #{roleKey,jdbcType=VARCHAR},
+                #{roleKey,jdbcType=NVARCHAR},
             </if>
             <if test="roleName != null">
-                #{roleName,jdbcType=VARCHAR},
+                #{roleName,jdbcType=NVARCHAR},
             </if>
             <if test="roleGroupId != null">
-                #{roleGroupId,jdbcType=VARCHAR},
+                #{roleGroupId,jdbcType=NVARCHAR},
             </if>
             <if test="roleOrderNum != null">
                 #{roleOrderNum,jdbcType=INTEGER},
@@ -93,30 +93,30 @@
                 #{roleCreateTime,jdbcType=TIMESTAMP},
             </if>
             <if test="roleDesc != null">
-                #{roleDesc,jdbcType=VARCHAR},
+                #{roleDesc,jdbcType=NVARCHAR},
             </if>
             <if test="roleStatus != null">
-                #{roleStatus,jdbcType=VARCHAR},
+                #{roleStatus,jdbcType=NVARCHAR},
             </if>
-            <if test="roleCreaterId != null">
-                #{roleCreaterId,jdbcType=VARCHAR},
+            <if test="roleCreatorId != null">
+                #{roleCreatorId,jdbcType=NVARCHAR},
             </if>
             <if test="roleOrganId != null">
-                #{roleOrganId,jdbcType=VARCHAR},
+                #{roleOrganId,jdbcType=NVARCHAR},
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.jbuild4d.base.dbaccess.dbentities.sso.RoleEntity">
+    <update id="updateByPrimaryKeySelective" parameterType="com.jb4dc.sso.dbentities.role.RoleEntity">
         update TSSO_ROLE
         <set>
             <if test="roleKey != null">
-                ROLE_KEY = #{roleKey,jdbcType=VARCHAR},
+                ROLE_KEY = #{roleKey,jdbcType=NVARCHAR},
             </if>
             <if test="roleName != null">
-                ROLE_NAME = #{roleName,jdbcType=VARCHAR},
+                ROLE_NAME = #{roleName,jdbcType=NVARCHAR},
             </if>
             <if test="roleGroupId != null">
-                ROLE_GROUP_ID = #{roleGroupId,jdbcType=VARCHAR},
+                ROLE_GROUP_ID = #{roleGroupId,jdbcType=NVARCHAR},
             </if>
             <if test="roleOrderNum != null">
                 ROLE_ORDER_NUM = #{roleOrderNum,jdbcType=INTEGER},
@@ -125,31 +125,31 @@
                 ROLE_CREATE_TIME = #{roleCreateTime,jdbcType=TIMESTAMP},
             </if>
             <if test="roleDesc != null">
-                ROLE_DESC = #{roleDesc,jdbcType=VARCHAR},
+                ROLE_DESC = #{roleDesc,jdbcType=NVARCHAR},
             </if>
             <if test="roleStatus != null">
-                ROLE_STATUS = #{roleStatus,jdbcType=VARCHAR},
+                ROLE_STATUS = #{roleStatus,jdbcType=NVARCHAR},
             </if>
-            <if test="roleCreaterId != null">
-                ROLE_CREATER_ID = #{roleCreaterId,jdbcType=VARCHAR},
+            <if test="roleCreatorId != null">
+                ROLE_CREATOR_ID = #{roleCreatorId,jdbcType=NVARCHAR},
             </if>
             <if test="roleOrganId != null">
-                ROLE_ORGAN_ID = #{roleOrganId,jdbcType=VARCHAR},
+                ROLE_ORGAN_ID = #{roleOrganId,jdbcType=NVARCHAR},
             </if>
         </set>
-        where ROLE_ID = #{roleId,jdbcType=VARCHAR}
+        where ROLE_ID = #{roleId,jdbcType=NVARCHAR}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.jbuild4d.base.dbaccess.dbentities.sso.RoleEntity">
-        update TSSO_ROLE
-        set ROLE_KEY = #{roleKey,jdbcType=VARCHAR},
-            ROLE_NAME = #{roleName,jdbcType=VARCHAR},
-            ROLE_GROUP_ID = #{roleGroupId,jdbcType=VARCHAR},
-            ROLE_ORDER_NUM = #{roleOrderNum,jdbcType=INTEGER},
-            ROLE_CREATE_TIME = #{roleCreateTime,jdbcType=TIMESTAMP},
-            ROLE_DESC = #{roleDesc,jdbcType=VARCHAR},
-            ROLE_STATUS = #{roleStatus,jdbcType=VARCHAR},
-            ROLE_CREATER_ID = #{roleCreaterId,jdbcType=VARCHAR},
-            ROLE_ORGAN_ID = #{roleOrganId,jdbcType=VARCHAR}
-        where ROLE_ID = #{roleId,jdbcType=VARCHAR}
-    </update>
+    <update id="updateByPrimaryKey" parameterType="com.jb4dc.sso.dbentities.role.RoleEntity">
+    update TSSO_ROLE
+    set ROLE_KEY = #{roleKey,jdbcType=NVARCHAR},
+      ROLE_NAME = #{roleName,jdbcType=NVARCHAR},
+      ROLE_GROUP_ID = #{roleGroupId,jdbcType=NVARCHAR},
+      ROLE_ORDER_NUM = #{roleOrderNum,jdbcType=INTEGER},
+      ROLE_CREATE_TIME = #{roleCreateTime,jdbcType=TIMESTAMP},
+      ROLE_DESC = #{roleDesc,jdbcType=NVARCHAR},
+      ROLE_STATUS = #{roleStatus,jdbcType=NVARCHAR},
+      ROLE_CREATOR_ID = #{roleCreatorId,jdbcType=NVARCHAR},
+      ROLE_ORGAN_ID = #{roleOrganId,jdbcType=NVARCHAR}
+    where ROLE_ID = #{roleId,jdbcType=NVARCHAR}
+  </update>
 </mapper>

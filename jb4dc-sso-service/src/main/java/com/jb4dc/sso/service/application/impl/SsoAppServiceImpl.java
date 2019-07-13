@@ -34,7 +34,7 @@ public class SsoAppServiceImpl extends BaseServiceImpl<SsoAppEntity> implements 
             public SsoAppEntity run(JB4DCSession jb4DSession,SsoAppEntity sourceEntity) throws JBuild4DCGenerallyException {
                 sourceEntity.setAppOrderNum(ssoAppMapper.nextOrderNum());
                 sourceEntity.setAppCreateTime(new Date());
-                sourceEntity.setAppCreaterId(jb4DSession.getUserId());
+                sourceEntity.setAppCreatorId(jb4DSession.getUserId());
                 sourceEntity.setAppOrganId(jb4DSession.getOrganId());
                 return sourceEntity;
             }

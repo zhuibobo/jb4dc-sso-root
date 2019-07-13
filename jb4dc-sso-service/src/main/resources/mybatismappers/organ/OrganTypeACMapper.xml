@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.jbuild4d.base.dbaccess.dao.sso.OrganTypeMapper">
-    <resultMap id="BaseResultMap" type="com.jbuild4d.base.dbaccess.dbentities.sso.OrganTypeEntity">
+<mapper namespace="com.jb4dc.sso.dao.organ.OrganTypeMapper">
+    <resultMap id="BaseResultMap" type="com.jb4dc.sso.dbentities.organ.OrganTypeEntity">
         <constructor>
-            <idArg column="ORGAN_TYPE_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <arg column="ORGAN_TYPE_VALUE" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <arg column="ORGAN_TYPE_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <arg column="ORGAN_TYPE_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <idArg column="ORGAN_TYPE_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="ORGAN_TYPE_VALUE" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="ORGAN_TYPE_NAME" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="ORGAN_TYPE_DESC" javaType="java.lang.String" jdbcType="NVARCHAR" />
             <arg column="ORGAN_TYPE_ORDER_NUM" javaType="java.lang.Integer" jdbcType="INTEGER" />
-            <arg column="ORGAN_TYPE_STATUS" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="ORGAN_TYPE_STATUS" javaType="java.lang.String" jdbcType="NVARCHAR" />
             <arg column="ORGAN_TYPE_CREATE_TIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
         </constructor>
     </resultMap>
     <sql id="Base_Column_List">
-        ORGAN_TYPE_ID, ORGAN_TYPE_VALUE, ORGAN_TYPE_NAME, ORGAN_TYPE_DESC, ORGAN_TYPE_ORDER_NUM,
-        ORGAN_TYPE_STATUS, ORGAN_TYPE_CREATE_TIME
-    </sql>
+    ORGAN_TYPE_ID, ORGAN_TYPE_VALUE, ORGAN_TYPE_NAME, ORGAN_TYPE_DESC, ORGAN_TYPE_ORDER_NUM,
+    ORGAN_TYPE_STATUS, ORGAN_TYPE_CREATE_TIME
+  </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List" />
         from TSSO_ORGAN_TYPE
-        where ORGAN_TYPE_ID = #{organTypeId,jdbcType=VARCHAR}
+        where ORGAN_TYPE_ID = #{organTypeId,jdbcType=NVARCHAR}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-        delete from TSSO_ORGAN_TYPE
-        where ORGAN_TYPE_ID = #{organTypeId,jdbcType=VARCHAR}
-    </delete>
-    <insert id="insert" parameterType="com.jbuild4d.base.dbaccess.dbentities.sso.OrganTypeEntity">
-        insert into TSSO_ORGAN_TYPE (ORGAN_TYPE_ID, ORGAN_TYPE_VALUE, ORGAN_TYPE_NAME,
-                                     ORGAN_TYPE_DESC, ORGAN_TYPE_ORDER_NUM, ORGAN_TYPE_STATUS,
-                                     ORGAN_TYPE_CREATE_TIME)
-        values (#{organTypeId,jdbcType=VARCHAR}, #{organTypeValue,jdbcType=VARCHAR}, #{organTypeName,jdbcType=VARCHAR},
-                #{organTypeDesc,jdbcType=VARCHAR}, #{organTypeOrderNum,jdbcType=INTEGER}, #{organTypeStatus,jdbcType=VARCHAR},
-                #{organTypeCreateTime,jdbcType=TIMESTAMP})
-    </insert>
-    <insert id="insertSelective" parameterType="com.jbuild4d.base.dbaccess.dbentities.sso.OrganTypeEntity">
+    delete from TSSO_ORGAN_TYPE
+    where ORGAN_TYPE_ID = #{organTypeId,jdbcType=NVARCHAR}
+  </delete>
+    <insert id="insert" parameterType="com.jb4dc.sso.dbentities.organ.OrganTypeEntity">
+    insert into TSSO_ORGAN_TYPE (ORGAN_TYPE_ID, ORGAN_TYPE_VALUE, ORGAN_TYPE_NAME,
+      ORGAN_TYPE_DESC, ORGAN_TYPE_ORDER_NUM, ORGAN_TYPE_STATUS,
+      ORGAN_TYPE_CREATE_TIME)
+    values (#{organTypeId,jdbcType=NVARCHAR}, #{organTypeValue,jdbcType=NVARCHAR}, #{organTypeName,jdbcType=NVARCHAR},
+      #{organTypeDesc,jdbcType=NVARCHAR}, #{organTypeOrderNum,jdbcType=INTEGER}, #{organTypeStatus,jdbcType=NVARCHAR},
+      #{organTypeCreateTime,jdbcType=TIMESTAMP})
+  </insert>
+    <insert id="insertSelective" parameterType="com.jb4dc.sso.dbentities.organ.OrganTypeEntity">
         insert into TSSO_ORGAN_TYPE
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="organTypeId != null">
@@ -61,60 +61,60 @@
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="organTypeId != null">
-                #{organTypeId,jdbcType=VARCHAR},
+                #{organTypeId,jdbcType=NVARCHAR},
             </if>
             <if test="organTypeValue != null">
-                #{organTypeValue,jdbcType=VARCHAR},
+                #{organTypeValue,jdbcType=NVARCHAR},
             </if>
             <if test="organTypeName != null">
-                #{organTypeName,jdbcType=VARCHAR},
+                #{organTypeName,jdbcType=NVARCHAR},
             </if>
             <if test="organTypeDesc != null">
-                #{organTypeDesc,jdbcType=VARCHAR},
+                #{organTypeDesc,jdbcType=NVARCHAR},
             </if>
             <if test="organTypeOrderNum != null">
                 #{organTypeOrderNum,jdbcType=INTEGER},
             </if>
             <if test="organTypeStatus != null">
-                #{organTypeStatus,jdbcType=VARCHAR},
+                #{organTypeStatus,jdbcType=NVARCHAR},
             </if>
             <if test="organTypeCreateTime != null">
                 #{organTypeCreateTime,jdbcType=TIMESTAMP},
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.jbuild4d.base.dbaccess.dbentities.sso.OrganTypeEntity">
+    <update id="updateByPrimaryKeySelective" parameterType="com.jb4dc.sso.dbentities.organ.OrganTypeEntity">
         update TSSO_ORGAN_TYPE
         <set>
             <if test="organTypeValue != null">
-                ORGAN_TYPE_VALUE = #{organTypeValue,jdbcType=VARCHAR},
+                ORGAN_TYPE_VALUE = #{organTypeValue,jdbcType=NVARCHAR},
             </if>
             <if test="organTypeName != null">
-                ORGAN_TYPE_NAME = #{organTypeName,jdbcType=VARCHAR},
+                ORGAN_TYPE_NAME = #{organTypeName,jdbcType=NVARCHAR},
             </if>
             <if test="organTypeDesc != null">
-                ORGAN_TYPE_DESC = #{organTypeDesc,jdbcType=VARCHAR},
+                ORGAN_TYPE_DESC = #{organTypeDesc,jdbcType=NVARCHAR},
             </if>
             <if test="organTypeOrderNum != null">
                 ORGAN_TYPE_ORDER_NUM = #{organTypeOrderNum,jdbcType=INTEGER},
             </if>
             <if test="organTypeStatus != null">
-                ORGAN_TYPE_STATUS = #{organTypeStatus,jdbcType=VARCHAR},
+                ORGAN_TYPE_STATUS = #{organTypeStatus,jdbcType=NVARCHAR},
             </if>
             <if test="organTypeCreateTime != null">
                 ORGAN_TYPE_CREATE_TIME = #{organTypeCreateTime,jdbcType=TIMESTAMP},
             </if>
         </set>
-        where ORGAN_TYPE_ID = #{organTypeId,jdbcType=VARCHAR}
+        where ORGAN_TYPE_ID = #{organTypeId,jdbcType=NVARCHAR}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.jbuild4d.base.dbaccess.dbentities.sso.OrganTypeEntity">
-        update TSSO_ORGAN_TYPE
-        set ORGAN_TYPE_VALUE = #{organTypeValue,jdbcType=VARCHAR},
-            ORGAN_TYPE_NAME = #{organTypeName,jdbcType=VARCHAR},
-            ORGAN_TYPE_DESC = #{organTypeDesc,jdbcType=VARCHAR},
-            ORGAN_TYPE_ORDER_NUM = #{organTypeOrderNum,jdbcType=INTEGER},
-            ORGAN_TYPE_STATUS = #{organTypeStatus,jdbcType=VARCHAR},
-            ORGAN_TYPE_CREATE_TIME = #{organTypeCreateTime,jdbcType=TIMESTAMP}
-        where ORGAN_TYPE_ID = #{organTypeId,jdbcType=VARCHAR}
-    </update>
+    <update id="updateByPrimaryKey" parameterType="com.jb4dc.sso.dbentities.organ.OrganTypeEntity">
+    update TSSO_ORGAN_TYPE
+    set ORGAN_TYPE_VALUE = #{organTypeValue,jdbcType=NVARCHAR},
+      ORGAN_TYPE_NAME = #{organTypeName,jdbcType=NVARCHAR},
+      ORGAN_TYPE_DESC = #{organTypeDesc,jdbcType=NVARCHAR},
+      ORGAN_TYPE_ORDER_NUM = #{organTypeOrderNum,jdbcType=INTEGER},
+      ORGAN_TYPE_STATUS = #{organTypeStatus,jdbcType=NVARCHAR},
+      ORGAN_TYPE_CREATE_TIME = #{organTypeCreateTime,jdbcType=TIMESTAMP}
+    where ORGAN_TYPE_ID = #{organTypeId,jdbcType=NVARCHAR}
+  </update>
 </mapper>

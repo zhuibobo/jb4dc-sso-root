@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.jbuild4d.base.dbaccess.dao.sso.RoleGroupMapper">
+<mapper namespace="com.jb4dc.sso.dao.role.RoleGroupMapper">
     <select id="selectAll" resultMap="BaseResultMap">select<include refid="Base_Column_List"/> from TSSO_ROLE_GROUP ORDER by ROLE_GROUP_ORDER_NUM DESC</select>
     <select id="selectAllOrderByAsc" resultMap="BaseResultMap">select<include refid="Base_Column_List"/> from TSSO_ROLE_GROUP ORDER by ROLE_GROUP_ORDER_NUM ASC</select>
     <delete id="deleteAll">delete from TSSO_ROLE_GROUP</delete>
@@ -10,10 +10,10 @@
         <if test="roleGroupDesc !=null and roleGroupDesc !=''"> and ROLE_GROUP_DESC like #{roleGroupDesc} </if>
         <if test="roleGroupStatus !=null and roleGroupStatus !=''"> and ROLE_GROUP_STATUS like #{roleGroupStatus} </if>
         <if test="roleGroupParentId !=null and roleGroupParentId !=''"> and ROLE_GROUP_PARENT_ID like #{roleGroupParentId} </if>
-        <if test="roleGroupIssystem !=null and roleGroupIssystem !=''"> and ROLE_GROUP_ISSYSTEM like #{roleGroupIssystem} </if>
+        <if test="roleGroupIsSystem !=null and roleGroupIsSystem !=''"> and ROLE_GROUP_IS_SYSTEM like #{roleGroupIsSystem} </if>
         <if test="roleGroupDelEnable !=null and roleGroupDelEnable !=''"> and ROLE_GROUP_DEL_ENABLE like #{roleGroupDelEnable} </if>
         <if test="roleGroupPidList !=null and roleGroupPidList !=''"> and ROLE_GROUP_PID_LIST like #{roleGroupPidList} </if>
-        <if test="roleGroupCreaterId !=null and roleGroupCreaterId !=''"> and ROLE_GROUP_CREATER_ID like #{roleGroupCreaterId} </if>
+        <if test="roleGroupCreatorId !=null and roleGroupCreatorId !=''"> and ROLE_GROUP_CREATOR_ID like #{roleGroupCreatorId} </if>
         <if test="roleGroupOrganId !=null and roleGroupOrganId !=''"> and ROLE_GROUP_ORGAN_ID like #{roleGroupOrganId} </if>
     </where>ORDER by ROLE_GROUP_ORDER_NUM DESC</select>
 

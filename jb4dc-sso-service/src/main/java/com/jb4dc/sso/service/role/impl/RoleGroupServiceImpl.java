@@ -54,7 +54,7 @@ public class RoleGroupServiceImpl extends BaseServiceImpl<RoleGroupEntity> imple
                 }
                 sourceEntity.setRoleGroupPidList(parentIdList+"*"+sourceEntity.getRoleGroupId());
 
-                sourceEntity.setRoleGroupCreaterId(jb4DSession.getUserId());
+                sourceEntity.setRoleGroupCreatorId(jb4DSession.getUserId());
                 sourceEntity.setRoleGroupOrganId(jb4DSession.getOrganId());
 
                 //设置排序,以及其他参数--nextOrderNum()
@@ -69,7 +69,7 @@ public class RoleGroupServiceImpl extends BaseServiceImpl<RoleGroupEntity> imple
         RoleGroupEntity rootEntity=new RoleGroupEntity();
         rootEntity.setRoleGroupId(rootId);
         rootEntity.setRoleGroupParentId(rootParentId);
-        rootEntity.setRoleGroupIssystem(TrueFalseEnum.True.getDisplayName());
+        rootEntity.setRoleGroupIsSystem(TrueFalseEnum.True.getDisplayName());
         rootEntity.setRoleGroupName("角色组分组");
         rootEntity.setRoleGroupDelEnable(TrueFalseEnum.False.getDisplayName());
         this.saveSimple(jb4DSession,rootEntity.getRoleGroupId(),rootEntity);

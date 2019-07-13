@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.jbuild4d.base.dbaccess.dao.sso.UserMapper">
-    <resultMap id="BaseResultMap" type="com.jbuild4d.base.dbaccess.dbentities.sso.UserEntity">
+<mapper namespace="com.jb4dc.sso.dao.user.UserMapper">
+    <resultMap id="BaseResultMap" type="com.jb4dc.sso.dbentities.user.UserEntity">
         <constructor>
-            <idArg column="USER_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <arg column="USER_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <arg column="USER_ACCOUNT" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <arg column="USER_PASSWORD" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <arg column="USER_EMAIL" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <arg column="USER_PHONE_NUMBER" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <arg column="USER_HEAD_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <arg column="USER_ORGAN_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <arg column="USER_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <idArg column="USER_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="USER_NAME" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="USER_ACCOUNT" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="USER_PASSWORD" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="USER_EMAIL" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="USER_PHONE_NUMBER" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="USER_HEAD_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="USER_ORGAN_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="USER_DESC" javaType="java.lang.String" jdbcType="NVARCHAR" />
             <arg column="USER_CREATE_TIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-            <arg column="USER_CREATE_USER_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <arg column="USER_STATUS" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="USER_CREATOR_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="USER_STATUS" javaType="java.lang.String" jdbcType="NVARCHAR" />
             <arg column="USER_ORDER_NUM" javaType="java.lang.Integer" jdbcType="INTEGER" />
-            <arg column="USER_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="USER_TYPE" javaType="java.lang.String" jdbcType="NVARCHAR" />
         </constructor>
     </resultMap>
     <sql id="Base_Column_List">
-        USER_ID, USER_NAME, USER_ACCOUNT, USER_PASSWORD, USER_EMAIL, USER_PHONE_NUMBER, USER_HEAD_ID,
-        USER_ORGAN_ID, USER_DESC, USER_CREATE_TIME, USER_CREATE_USER_ID, USER_STATUS, USER_ORDER_NUM,
-        USER_TYPE
-    </sql>
+    USER_ID, USER_NAME, USER_ACCOUNT, USER_PASSWORD, USER_EMAIL, USER_PHONE_NUMBER, USER_HEAD_ID,
+    USER_ORGAN_ID, USER_DESC, USER_CREATE_TIME, USER_CREATOR_ID, USER_STATUS, USER_ORDER_NUM,
+    USER_TYPE
+  </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List" />
         from TSSO_USER
-        where USER_ID = #{userId,jdbcType=VARCHAR}
+        where USER_ID = #{userId,jdbcType=NVARCHAR}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-        delete from TSSO_USER
-        where USER_ID = #{userId,jdbcType=VARCHAR}
-    </delete>
-    <insert id="insert" parameterType="com.jbuild4d.base.dbaccess.dbentities.sso.UserEntity">
-        insert into TSSO_USER (USER_ID, USER_NAME, USER_ACCOUNT,
-                               USER_PASSWORD, USER_EMAIL, USER_PHONE_NUMBER,
-                               USER_HEAD_ID, USER_ORGAN_ID, USER_DESC,
-                               USER_CREATE_TIME, USER_CREATE_USER_ID, USER_STATUS,
-                               USER_ORDER_NUM, USER_TYPE)
-        values (#{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{userAccount,jdbcType=VARCHAR},
-                #{userPassword,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, #{userPhoneNumber,jdbcType=VARCHAR},
-                #{userHeadId,jdbcType=VARCHAR}, #{userOrganId,jdbcType=VARCHAR}, #{userDesc,jdbcType=VARCHAR},
-                #{userCreateTime,jdbcType=TIMESTAMP}, #{userCreateUserId,jdbcType=VARCHAR}, #{userStatus,jdbcType=VARCHAR},
-                #{userOrderNum,jdbcType=INTEGER}, #{userType,jdbcType=VARCHAR})
-    </insert>
-    <insert id="insertSelective" parameterType="com.jbuild4d.base.dbaccess.dbentities.sso.UserEntity">
+    delete from TSSO_USER
+    where USER_ID = #{userId,jdbcType=NVARCHAR}
+  </delete>
+    <insert id="insert" parameterType="com.jb4dc.sso.dbentities.user.UserEntity">
+    insert into TSSO_USER (USER_ID, USER_NAME, USER_ACCOUNT,
+      USER_PASSWORD, USER_EMAIL, USER_PHONE_NUMBER,
+      USER_HEAD_ID, USER_ORGAN_ID, USER_DESC,
+      USER_CREATE_TIME, USER_CREATOR_ID, USER_STATUS,
+      USER_ORDER_NUM, USER_TYPE)
+    values (#{userId,jdbcType=NVARCHAR}, #{userName,jdbcType=NVARCHAR}, #{userAccount,jdbcType=NVARCHAR},
+      #{userPassword,jdbcType=NVARCHAR}, #{userEmail,jdbcType=NVARCHAR}, #{userPhoneNumber,jdbcType=NVARCHAR},
+      #{userHeadId,jdbcType=NVARCHAR}, #{userOrganId,jdbcType=NVARCHAR}, #{userDesc,jdbcType=NVARCHAR},
+      #{userCreateTime,jdbcType=TIMESTAMP}, #{userCreatorId,jdbcType=NVARCHAR}, #{userStatus,jdbcType=NVARCHAR},
+      #{userOrderNum,jdbcType=INTEGER}, #{userType,jdbcType=NVARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.jb4dc.sso.dbentities.user.UserEntity">
         insert into TSSO_USER
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="userId != null">
@@ -79,8 +79,8 @@
             <if test="userCreateTime != null">
                 USER_CREATE_TIME,
             </if>
-            <if test="userCreateUserId != null">
-                USER_CREATE_USER_ID,
+            <if test="userCreatorId != null">
+                USER_CREATOR_ID,
             </if>
             <if test="userStatus != null">
                 USER_STATUS,
@@ -94,109 +94,109 @@
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="userId != null">
-                #{userId,jdbcType=VARCHAR},
+                #{userId,jdbcType=NVARCHAR},
             </if>
             <if test="userName != null">
-                #{userName,jdbcType=VARCHAR},
+                #{userName,jdbcType=NVARCHAR},
             </if>
             <if test="userAccount != null">
-                #{userAccount,jdbcType=VARCHAR},
+                #{userAccount,jdbcType=NVARCHAR},
             </if>
             <if test="userPassword != null">
-                #{userPassword,jdbcType=VARCHAR},
+                #{userPassword,jdbcType=NVARCHAR},
             </if>
             <if test="userEmail != null">
-                #{userEmail,jdbcType=VARCHAR},
+                #{userEmail,jdbcType=NVARCHAR},
             </if>
             <if test="userPhoneNumber != null">
-                #{userPhoneNumber,jdbcType=VARCHAR},
+                #{userPhoneNumber,jdbcType=NVARCHAR},
             </if>
             <if test="userHeadId != null">
-                #{userHeadId,jdbcType=VARCHAR},
+                #{userHeadId,jdbcType=NVARCHAR},
             </if>
             <if test="userOrganId != null">
-                #{userOrganId,jdbcType=VARCHAR},
+                #{userOrganId,jdbcType=NVARCHAR},
             </if>
             <if test="userDesc != null">
-                #{userDesc,jdbcType=VARCHAR},
+                #{userDesc,jdbcType=NVARCHAR},
             </if>
             <if test="userCreateTime != null">
                 #{userCreateTime,jdbcType=TIMESTAMP},
             </if>
-            <if test="userCreateUserId != null">
-                #{userCreateUserId,jdbcType=VARCHAR},
+            <if test="userCreatorId != null">
+                #{userCreatorId,jdbcType=NVARCHAR},
             </if>
             <if test="userStatus != null">
-                #{userStatus,jdbcType=VARCHAR},
+                #{userStatus,jdbcType=NVARCHAR},
             </if>
             <if test="userOrderNum != null">
                 #{userOrderNum,jdbcType=INTEGER},
             </if>
             <if test="userType != null">
-                #{userType,jdbcType=VARCHAR},
+                #{userType,jdbcType=NVARCHAR},
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.jbuild4d.base.dbaccess.dbentities.sso.UserEntity">
+    <update id="updateByPrimaryKeySelective" parameterType="com.jb4dc.sso.dbentities.user.UserEntity">
         update TSSO_USER
         <set>
             <if test="userName != null">
-                USER_NAME = #{userName,jdbcType=VARCHAR},
+                USER_NAME = #{userName,jdbcType=NVARCHAR},
             </if>
             <if test="userAccount != null">
-                USER_ACCOUNT = #{userAccount,jdbcType=VARCHAR},
+                USER_ACCOUNT = #{userAccount,jdbcType=NVARCHAR},
             </if>
             <if test="userPassword != null">
-                USER_PASSWORD = #{userPassword,jdbcType=VARCHAR},
+                USER_PASSWORD = #{userPassword,jdbcType=NVARCHAR},
             </if>
             <if test="userEmail != null">
-                USER_EMAIL = #{userEmail,jdbcType=VARCHAR},
+                USER_EMAIL = #{userEmail,jdbcType=NVARCHAR},
             </if>
             <if test="userPhoneNumber != null">
-                USER_PHONE_NUMBER = #{userPhoneNumber,jdbcType=VARCHAR},
+                USER_PHONE_NUMBER = #{userPhoneNumber,jdbcType=NVARCHAR},
             </if>
             <if test="userHeadId != null">
-                USER_HEAD_ID = #{userHeadId,jdbcType=VARCHAR},
+                USER_HEAD_ID = #{userHeadId,jdbcType=NVARCHAR},
             </if>
             <if test="userOrganId != null">
-                USER_ORGAN_ID = #{userOrganId,jdbcType=VARCHAR},
+                USER_ORGAN_ID = #{userOrganId,jdbcType=NVARCHAR},
             </if>
             <if test="userDesc != null">
-                USER_DESC = #{userDesc,jdbcType=VARCHAR},
+                USER_DESC = #{userDesc,jdbcType=NVARCHAR},
             </if>
             <if test="userCreateTime != null">
                 USER_CREATE_TIME = #{userCreateTime,jdbcType=TIMESTAMP},
             </if>
-            <if test="userCreateUserId != null">
-                USER_CREATE_USER_ID = #{userCreateUserId,jdbcType=VARCHAR},
+            <if test="userCreatorId != null">
+                USER_CREATOR_ID = #{userCreatorId,jdbcType=NVARCHAR},
             </if>
             <if test="userStatus != null">
-                USER_STATUS = #{userStatus,jdbcType=VARCHAR},
+                USER_STATUS = #{userStatus,jdbcType=NVARCHAR},
             </if>
             <if test="userOrderNum != null">
                 USER_ORDER_NUM = #{userOrderNum,jdbcType=INTEGER},
             </if>
             <if test="userType != null">
-                USER_TYPE = #{userType,jdbcType=VARCHAR},
+                USER_TYPE = #{userType,jdbcType=NVARCHAR},
             </if>
         </set>
-        where USER_ID = #{userId,jdbcType=VARCHAR}
+        where USER_ID = #{userId,jdbcType=NVARCHAR}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.jbuild4d.base.dbaccess.dbentities.sso.UserEntity">
-        update TSSO_USER
-        set USER_NAME = #{userName,jdbcType=VARCHAR},
-            USER_ACCOUNT = #{userAccount,jdbcType=VARCHAR},
-            USER_PASSWORD = #{userPassword,jdbcType=VARCHAR},
-            USER_EMAIL = #{userEmail,jdbcType=VARCHAR},
-            USER_PHONE_NUMBER = #{userPhoneNumber,jdbcType=VARCHAR},
-            USER_HEAD_ID = #{userHeadId,jdbcType=VARCHAR},
-            USER_ORGAN_ID = #{userOrganId,jdbcType=VARCHAR},
-            USER_DESC = #{userDesc,jdbcType=VARCHAR},
-            USER_CREATE_TIME = #{userCreateTime,jdbcType=TIMESTAMP},
-            USER_CREATE_USER_ID = #{userCreateUserId,jdbcType=VARCHAR},
-            USER_STATUS = #{userStatus,jdbcType=VARCHAR},
-            USER_ORDER_NUM = #{userOrderNum,jdbcType=INTEGER},
-            USER_TYPE = #{userType,jdbcType=VARCHAR}
-        where USER_ID = #{userId,jdbcType=VARCHAR}
-    </update>
+    <update id="updateByPrimaryKey" parameterType="com.jb4dc.sso.dbentities.user.UserEntity">
+    update TSSO_USER
+    set USER_NAME = #{userName,jdbcType=NVARCHAR},
+      USER_ACCOUNT = #{userAccount,jdbcType=NVARCHAR},
+      USER_PASSWORD = #{userPassword,jdbcType=NVARCHAR},
+      USER_EMAIL = #{userEmail,jdbcType=NVARCHAR},
+      USER_PHONE_NUMBER = #{userPhoneNumber,jdbcType=NVARCHAR},
+      USER_HEAD_ID = #{userHeadId,jdbcType=NVARCHAR},
+      USER_ORGAN_ID = #{userOrganId,jdbcType=NVARCHAR},
+      USER_DESC = #{userDesc,jdbcType=NVARCHAR},
+      USER_CREATE_TIME = #{userCreateTime,jdbcType=TIMESTAMP},
+      USER_CREATOR_ID = #{userCreatorId,jdbcType=NVARCHAR},
+      USER_STATUS = #{userStatus,jdbcType=NVARCHAR},
+      USER_ORDER_NUM = #{userOrderNum,jdbcType=INTEGER},
+      USER_TYPE = #{userType,jdbcType=NVARCHAR}
+    where USER_ID = #{userId,jdbcType=NVARCHAR}
+  </update>
 </mapper>

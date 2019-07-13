@@ -50,7 +50,7 @@ public class DepartmentServiceImpl extends BaseServiceImpl<DepartmentEntity> imp
 
                 sourceEntity.setDeptParentIdList(parentIdList + "*" + sourceEntity.getDeptId());
                 sourceEntity.setDeptOrganId(parentDepartmentEntity.getDeptOrganId());
-                sourceEntity.setDeptCreateUserId(jb4DSession.getUserId());
+                sourceEntity.setDeptCreatorId(jb4DSession.getUserId());
                 sourceEntity.setDeptIsRoot(TrueFalseEnum.False.getDisplayName());
 
                 return sourceEntity;
@@ -108,7 +108,7 @@ public class DepartmentServiceImpl extends BaseServiceImpl<DepartmentEntity> imp
             departmentEntity.setDeptIsVirtual(TrueFalseEnum.True.getDisplayName());
             departmentEntity.setDeptChildCount(0);
             departmentEntity.setDeptCreateTime(new Date());
-            departmentEntity.setDeptCreateUserId(jb4DSession.getUserId());
+            departmentEntity.setDeptCreatorId(jb4DSession.getUserId());
             departmentEntity.setDeptOrderNum(departmentMapper.nextOrderNum());
             departmentEntity.setDeptIsRoot(TrueFalseEnum.True.getDisplayName());
             departmentEntity.setDeptParentId("0");

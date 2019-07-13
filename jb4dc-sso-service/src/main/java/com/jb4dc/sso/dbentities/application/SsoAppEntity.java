@@ -62,8 +62,8 @@ public class SsoAppEntity {
     //APP_STATUS:状态
     private String appStatus;
 
-    //APP_CREATER_ID:创建者的ID
-    private String appCreaterId;
+    //APP_CREATOR_ID:创建者的ID
+    private String appCreatorId;
 
     //APP_ORGAN_ID:创建组织ID
     private String appOrganId;
@@ -86,10 +86,10 @@ public class SsoAppEntity {
      * @param appOrderNum 排序号
      * @param appCreateTime 创建时间
      * @param appStatus 状态
-     * @param appCreaterId 创建者的ID
+     * @param appCreatorId 创建者的ID
      * @param appOrganId 创建组织ID
      **/
-    public SsoAppEntity(String appId, String appCode, String appName, String appPublicKey, String appPrivateKey, String appDomain, String appIndexUrl, String appIntegratedType, String appMainImageId, String appType, String appMainId, String appCategory, String appDesc, Integer appOrderNum, Date appCreateTime, String appStatus, String appCreaterId, String appOrganId) {
+    public SsoAppEntity(String appId, String appCode, String appName, String appPublicKey, String appPrivateKey, String appDomain, String appIndexUrl, String appIntegratedType, String appMainImageId, String appType, String appMainId, String appCategory, String appDesc, Integer appOrderNum, Date appCreateTime, String appStatus, String appCreatorId, String appOrganId) {
         this.appId = appId;
         this.appCode = appCode;
         this.appName = appName;
@@ -106,7 +106,7 @@ public class SsoAppEntity {
         this.appOrderNum = appOrderNum;
         this.appCreateTime = appCreateTime;
         this.appStatus = appStatus;
-        this.appCreaterId = appCreaterId;
+        this.appCreatorId = appCreatorId;
         this.appOrganId = appOrganId;
     }
 
@@ -374,16 +374,16 @@ public class SsoAppEntity {
      * 创建者的ID
      * @return java.lang.String
      **/
-    public String getAppCreaterId() {
-        return appCreaterId;
+    public String getAppCreatorId() {
+        return appCreatorId;
     }
 
     /**
      * 创建者的ID
-     * @param appCreaterId 创建者的ID
+     * @param appCreatorId 创建者的ID
      **/
-    public void setAppCreaterId(String appCreaterId) {
-        this.appCreaterId = appCreaterId == null ? null : appCreaterId.trim();
+    public void setAppCreatorId(String appCreatorId) {
+        this.appCreatorId = appCreatorId == null ? null : appCreatorId.trim();
     }
 
     /**

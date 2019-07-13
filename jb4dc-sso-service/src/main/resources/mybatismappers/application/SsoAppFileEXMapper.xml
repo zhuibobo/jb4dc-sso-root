@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.jbuild4d.base.dbaccess.dao.sso.SsoAppFileMapper">
+<mapper namespace="com.jb4dc.sso.dao.application.SsoAppFileMapper">
     <select id="selectAll" resultMap="BaseResultMap">select<include refid="Base_Column_List"/> from TSSO_SSO_APP_FILE ORDER by APP_FILE_ORDER_NUM DESC</select>
     <delete id="deleteAll">delete from TSSO_SSO_APP_FILE</delete>
     <select id="nextOrderNum" resultType="integer">select case when max(APP_FILE_ORDER_NUM) is null then 1 else max(APP_FILE_ORDER_NUM)+1 end ORDERNUM from TSSO_SSO_APP_FILE</select>
@@ -10,7 +10,7 @@
         <if test="appFileIsMain !=null and appFileIsMain !=''"> and APP_FILE_IS_MAIN like #{appFileIsMain} </if>
         <if test="appFileDesc !=null and appFileDesc !=''"> and APP_FILE_DESC like #{appFileDesc} </if>
         <if test="appFileStatus !=null and appFileStatus !=''"> and APP_FILE_STATUS like #{appFileStatus} </if>
-        <if test="appFileCreaterId !=null and appFileCreaterId !=''"> and APP_FILE_CREATER_ID like #{appFileCreaterId} </if>
+        <if test="appFileCreatorId !=null and appFileCreatorId !=''"> and APP_FILE_CREATOR_ID like #{appFileCreatorId} </if>
         <if test="appFileOrganId !=null and appFileOrganId !=''"> and APP_FILE_ORGAN_ID like #{appFileOrganId} </if>
         <if test="appFileCntFileId !=null and appFileCntFileId !=''"> and APP_FILE_CNT_FILE_ID like #{appFileCntFileId} </if>
     </where>ORDER by APP_FILE_ORDER_NUM DESC</select>

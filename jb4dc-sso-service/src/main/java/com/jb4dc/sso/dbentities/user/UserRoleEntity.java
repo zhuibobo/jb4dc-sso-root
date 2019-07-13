@@ -2,18 +2,17 @@ package com.jb4dc.sso.dbentities.user;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.jb4dc.base.dbaccess.anno.DBKeyField;
-
 import java.util.Date;
 
 /**
  *
- * This class was generated JBuild4D Creater,Custom By MyBatis Generator.
- * This class corresponds to the database table :TSSO_USER_role
+ * This class was generated JBuild4DC.
+ * This class corresponds to the database table :TSSO_USER_ROLE
  *
- * @mbg.generated do_not_delete_during_merge
+ * JBuild4DC do_not_delete_during_merge
  */
 public class UserRoleEntity {
-    //BIND_ID:
+    //BIND_ID:主键:UUID
     @DBKeyField
     private String bindId;
 
@@ -30,19 +29,29 @@ public class UserRoleEntity {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date bindCreateTime;
 
-    //BIND_CREATER_ID:创建者的ID
-    private String bindCreaterId;
+    //BIND_CREATOR_ID:创建者的ID
+    private String bindCreatorId;
 
     //BIND_ORGAN_ID:组织ID
     private String bindOrganId;
 
-    public UserRoleEntity(String bindId, String bindRoleId, String bindUserId, Integer bindOrderNum, Date bindCreateTime, String bindCreaterId, String bindOrganId) {
+    /**
+     * 构造函数
+     * @param bindId 主键
+     * @param bindRoleId 角色ID
+     * @param bindUserId 角色ID
+     * @param bindOrderNum 排序号
+     * @param bindCreateTime 创建时间
+     * @param bindCreatorId 创建者的ID
+     * @param bindOrganId 组织ID
+     **/
+    public UserRoleEntity(String bindId, String bindRoleId, String bindUserId, Integer bindOrderNum, Date bindCreateTime, String bindCreatorId, String bindOrganId) {
         this.bindId = bindId;
         this.bindRoleId = bindRoleId;
         this.bindUserId = bindUserId;
         this.bindOrderNum = bindOrderNum;
         this.bindCreateTime = bindCreateTime;
-        this.bindCreaterId = bindCreaterId;
+        this.bindCreatorId = bindCreatorId;
         this.bindOrganId = bindOrganId;
     }
 
@@ -50,58 +59,114 @@ public class UserRoleEntity {
         super();
     }
 
+    /**
+     * 主键:UUID
+     * @return java.lang.String
+     **/
     public String getBindId() {
         return bindId;
     }
 
+    /**
+     * 主键:UUID
+     * @param bindId 主键
+     **/
     public void setBindId(String bindId) {
         this.bindId = bindId == null ? null : bindId.trim();
     }
 
+    /**
+     * 角色ID
+     * @return java.lang.String
+     **/
     public String getBindRoleId() {
         return bindRoleId;
     }
 
+    /**
+     * 角色ID
+     * @param bindRoleId 角色ID
+     **/
     public void setBindRoleId(String bindRoleId) {
         this.bindRoleId = bindRoleId == null ? null : bindRoleId.trim();
     }
 
+    /**
+     * 角色ID
+     * @return java.lang.String
+     **/
     public String getBindUserId() {
         return bindUserId;
     }
 
+    /**
+     * 角色ID
+     * @param bindUserId 角色ID
+     **/
     public void setBindUserId(String bindUserId) {
         this.bindUserId = bindUserId == null ? null : bindUserId.trim();
     }
 
+    /**
+     * 排序号
+     * @return java.lang.Integer
+     **/
     public Integer getBindOrderNum() {
         return bindOrderNum;
     }
 
+    /**
+     * 排序号
+     * @param bindOrderNum 排序号
+     **/
     public void setBindOrderNum(Integer bindOrderNum) {
         this.bindOrderNum = bindOrderNum;
     }
 
+    /**
+     * 创建时间
+     * @return java.util.Date
+     **/
     public Date getBindCreateTime() {
         return bindCreateTime;
     }
 
+    /**
+     * 创建时间
+     * @param bindCreateTime 创建时间
+     **/
     public void setBindCreateTime(Date bindCreateTime) {
         this.bindCreateTime = bindCreateTime;
     }
 
-    public String getBindCreaterId() {
-        return bindCreaterId;
+    /**
+     * 创建者的ID
+     * @return java.lang.String
+     **/
+    public String getBindCreatorId() {
+        return bindCreatorId;
     }
 
-    public void setBindCreaterId(String bindCreaterId) {
-        this.bindCreaterId = bindCreaterId == null ? null : bindCreaterId.trim();
+    /**
+     * 创建者的ID
+     * @param bindCreatorId 创建者的ID
+     **/
+    public void setBindCreatorId(String bindCreatorId) {
+        this.bindCreatorId = bindCreatorId == null ? null : bindCreatorId.trim();
     }
 
+    /**
+     * 组织ID
+     * @return java.lang.String
+     **/
     public String getBindOrganId() {
         return bindOrganId;
     }
 
+    /**
+     * 组织ID
+     * @param bindOrganId 组织ID
+     **/
     public void setBindOrganId(String bindOrganId) {
         this.bindOrganId = bindOrganId == null ? null : bindOrganId.trim();
     }

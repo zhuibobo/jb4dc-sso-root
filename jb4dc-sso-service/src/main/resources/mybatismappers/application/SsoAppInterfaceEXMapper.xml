@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.jbuild4d.base.dbaccess.dao.sso.SsoAppInterfaceMapper">
+<mapper namespace="com.jb4dc.sso.dao.application.SsoAppInterfaceMapper">
     <select id="selectAll" resultMap="BaseResultMap">select<include refid="Base_Column_List"/> from TSSO_SSO_APP_INTERFACE ORDER by INTERFACE_ORDER_NUM DESC</select>
 
     <select id="selectAppInterfaces" resultMap="BaseResultMap">select<include refid="Base_Column_List"/> from TSSO_SSO_APP_INTERFACE where INTERFACE_BELONG_APP_ID=#{appId} ORDER by INTERFACE_ORDER_NUM DESC</select>
@@ -15,7 +15,7 @@
         <if test="interfaceFormat !=null and interfaceFormat !=''"> and INTERFACE_FORMAT like #{interfaceFormat} </if>
         <if test="interfaceDesc !=null and interfaceDesc !=''"> and INTERFACE_DESC like #{interfaceDesc} </if>
         <if test="interfaceStatus !=null and interfaceStatus !=''"> and INTERFACE_STATUS like #{interfaceStatus} </if>
-        <if test="interfaceCreaterId !=null and interfaceCreaterId !=''"> and INTERFACE_CREATER_ID like #{interfaceCreaterId} </if>
+        <if test="interfaceCreatorId !=null and interfaceCreatorId !=''"> and INTERFACE_CREATOR_ID like #{interfaceCreatorId} </if>
         <if test="interfaceOrganId !=null and interfaceOrganId !=''"> and INTERFACE_ORGAN_ID like #{interfaceOrganId} </if>
     </where>ORDER by INTERFACE_ORDER_NUM DESC</select>
     <select id="selectLessThanRecord" parameterType="java.lang.String" resultMap="BaseResultMap"><![CDATA[select * from TSSO_SSO_APP_INTERFACE

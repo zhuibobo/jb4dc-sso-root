@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.jbuild4d.base.dbaccess.dao.sso.DepartmentMapper">
+<mapper namespace="com.jb4dc.sso.dao.department.DepartmentMapper">
     <select id="selectAll" resultMap="BaseResultMap">select<include refid="Base_Column_List"/> from TSSO_DEPARTMENT ORDER by DEPT_ORDER_NUM DESC</select>
     <delete id="deleteAll">delete from TSSO_DEPARTMENT</delete>
     <select id="nextOrderNum" resultType="integer">select case when max(DEPT_ORDER_NUM) is null then 1 else max(DEPT_ORDER_NUM)+1 end ORDERNUM from TSSO_DEPARTMENT</select>
@@ -11,7 +11,7 @@
         <if test="deptPerCharge !=null and deptPerCharge !=''"> and DEPT_PER_CHARGE like #{deptPerCharge} </if>
         <if test="deptPerChargePhone !=null and deptPerChargePhone !=''"> and DEPT_PER_CHARGE_PHONE like #{deptPerChargePhone} </if>
         <if test="deptIsVirtual !=null and deptIsVirtual !=''"> and DEPT_IS_VIRTUAL like #{deptIsVirtual} </if>
-        <if test="deptCreateUserId !=null and deptCreateUserId !=''"> and DEPT_CREATE_USER_ID like #{deptCreateUserId} </if>
+        <if test="deptCreatorId !=null and deptCreatorId !=''"> and DEPT_CREATOR_ID like #{deptCreatorId} </if>
         <if test="deptIsRoot !=null and deptIsRoot !=''"> and DEPT_IS_ROOT like #{deptIsRoot} </if>
         <if test="deptParentId !=null and deptParentId !=''"> and DEPT_PARENT_ID like #{deptParentId} </if>
         <if test="deptParentIdList !=null and deptParentIdList !=''"> and DEPT_PARENT_ID_LIST like #{deptParentIdList} </if>

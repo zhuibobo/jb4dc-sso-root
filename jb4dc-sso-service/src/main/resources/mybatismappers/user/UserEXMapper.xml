@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.jbuild4d.base.dbaccess.dao.sso.UserMapper">
+<mapper namespace="com.jb4dc.sso.dao.user.UserMapper">
     <select id="selectAll" resultMap="BaseResultMap">select<include refid="Base_Column_List"/> from TSSO_USER ORDER by USER_ORDER_NUM DESC</select>
     <delete id="deleteAll">delete from TSSO_USER</delete>
     <select id="nextOrderNum" resultType="integer">select case when max(USER_ORDER_NUM) is null then 1 else max(USER_ORDER_NUM)+1 end ORDERNUM from TSSO_USER</select>
@@ -13,7 +13,7 @@
         <if test="userHeadId !=null and userHeadId !=''"> and USER_HEAD_ID like #{userHeadId} </if>
         <if test="userOrganId !=null and userOrganId !=''"> and USER_ORGAN_ID like #{userOrganId} </if>
         <if test="userDesc !=null and userDesc !=''"> and USER_DESC like #{userDesc} </if>
-        <if test="userCreateUserId !=null and userCreateUserId !=''"> and USER_CREATE_USER_ID like #{userCreateUserId} </if>
+        <if test="userCreatorId !=null and userCreatorId !=''"> and USER_CREATOR_ID like #{userCreatorId} </if>
         <if test="userStatus !=null and userStatus !=''"> and USER_STATUS like #{userStatus} </if>
         <if test="userType !=null and userType !=''"> and USER_TYPE like #{userType} </if>
     </where>ORDER by USER_ORDER_NUM DESC</select>

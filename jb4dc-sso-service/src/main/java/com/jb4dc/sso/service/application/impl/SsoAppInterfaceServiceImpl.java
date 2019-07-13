@@ -30,7 +30,7 @@ public class SsoAppInterfaceServiceImpl extends BaseServiceImpl<SsoAppInterfaceE
                 sourceEntity.setInterfaceOrderNum(ssoAppInterfaceMapper.nextOrderNum());
                 sourceEntity.setInterfaceCreateTime(new Date());
                 sourceEntity.setInterfaceStatus(EnableTypeEnum.enable.getDisplayName());
-                sourceEntity.setInterfaceCreaterId(jb4DSession.getUserId());
+                sourceEntity.setInterfaceCreatorId(jb4DSession.getUserId());
                 sourceEntity.setInterfaceOrganId(jb4DSession.getOrganId());
                 return sourceEntity;
             }

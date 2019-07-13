@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.jbuild4d.base.dbaccess.dao.sso.SsoAppUserMappingMapper">
-    <resultMap id="BaseResultMap" type="com.jbuild4d.base.dbaccess.dbentities.sso.SsoAppUserMappingEntity">
+<mapper namespace="com.jb4dc.sso.dao.application.SsoAppUserMappingMapper">
+    <resultMap id="BaseResultMap" type="com.jb4dc.sso.dbentities.application.SsoAppUserMappingEntity">
         <constructor>
-            <idArg column="MAPPING_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <arg column="MAPPING_BELONG_APP_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <arg column="MAPPING_ACCOUNT" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <arg column="MAPPING_PASSWORD" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <idArg column="MAPPING_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="MAPPING_BELONG_APP_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="MAPPING_ACCOUNT" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="MAPPING_PASSWORD" javaType="java.lang.String" jdbcType="NVARCHAR" />
             <arg column="MAPPING_CREATE_TIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-            <arg column="MAPPING_CREATER_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <arg column="MAPPING_ORGAN_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="MAPPING_CREATOR_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="MAPPING_ORGAN_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
         </constructor>
     </resultMap>
     <sql id="Base_Column_List">
-        MAPPING_ID, MAPPING_BELONG_APP_ID, MAPPING_ACCOUNT, MAPPING_PASSWORD, MAPPING_CREATE_TIME,
-        MAPPING_CREATER_ID, MAPPING_ORGAN_ID
-    </sql>
+    MAPPING_ID, MAPPING_BELONG_APP_ID, MAPPING_ACCOUNT, MAPPING_PASSWORD, MAPPING_CREATE_TIME,
+    MAPPING_CREATOR_ID, MAPPING_ORGAN_ID
+  </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List" />
         from TSSO_SSO_APP_USER_MAPPING
-        where MAPPING_ID = #{mappingId,jdbcType=VARCHAR}
+        where MAPPING_ID = #{mappingId,jdbcType=NVARCHAR}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-        delete from TSSO_SSO_APP_USER_MAPPING
-        where MAPPING_ID = #{mappingId,jdbcType=VARCHAR}
-    </delete>
-    <insert id="insert" parameterType="com.jbuild4d.base.dbaccess.dbentities.sso.SsoAppUserMappingEntity">
-        insert into TSSO_SSO_APP_USER_MAPPING (MAPPING_ID, MAPPING_BELONG_APP_ID, MAPPING_ACCOUNT,
-                                               MAPPING_PASSWORD, MAPPING_CREATE_TIME, MAPPING_CREATER_ID,
-                                               MAPPING_ORGAN_ID)
-        values (#{mappingId,jdbcType=VARCHAR}, #{mappingBelongAppId,jdbcType=VARCHAR}, #{mappingAccount,jdbcType=VARCHAR},
-                #{mappingPassword,jdbcType=VARCHAR}, #{mappingCreateTime,jdbcType=TIMESTAMP}, #{mappingCreaterId,jdbcType=VARCHAR},
-                #{mappingOrganId,jdbcType=VARCHAR})
-    </insert>
-    <insert id="insertSelective" parameterType="com.jbuild4d.base.dbaccess.dbentities.sso.SsoAppUserMappingEntity">
+    delete from TSSO_SSO_APP_USER_MAPPING
+    where MAPPING_ID = #{mappingId,jdbcType=NVARCHAR}
+  </delete>
+    <insert id="insert" parameterType="com.jb4dc.sso.dbentities.application.SsoAppUserMappingEntity">
+    insert into TSSO_SSO_APP_USER_MAPPING (MAPPING_ID, MAPPING_BELONG_APP_ID,
+      MAPPING_ACCOUNT, MAPPING_PASSWORD, MAPPING_CREATE_TIME,
+      MAPPING_CREATOR_ID, MAPPING_ORGAN_ID)
+    values (#{mappingId,jdbcType=NVARCHAR}, #{mappingBelongAppId,jdbcType=NVARCHAR},
+      #{mappingAccount,jdbcType=NVARCHAR}, #{mappingPassword,jdbcType=NVARCHAR}, #{mappingCreateTime,jdbcType=TIMESTAMP},
+      #{mappingCreatorId,jdbcType=NVARCHAR}, #{mappingOrganId,jdbcType=NVARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.jb4dc.sso.dbentities.application.SsoAppUserMappingEntity">
         insert into TSSO_SSO_APP_USER_MAPPING
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="mappingId != null">
@@ -52,8 +52,8 @@
             <if test="mappingCreateTime != null">
                 MAPPING_CREATE_TIME,
             </if>
-            <if test="mappingCreaterId != null">
-                MAPPING_CREATER_ID,
+            <if test="mappingCreatorId != null">
+                MAPPING_CREATOR_ID,
             </if>
             <if test="mappingOrganId != null">
                 MAPPING_ORGAN_ID,
@@ -61,60 +61,60 @@
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="mappingId != null">
-                #{mappingId,jdbcType=VARCHAR},
+                #{mappingId,jdbcType=NVARCHAR},
             </if>
             <if test="mappingBelongAppId != null">
-                #{mappingBelongAppId,jdbcType=VARCHAR},
+                #{mappingBelongAppId,jdbcType=NVARCHAR},
             </if>
             <if test="mappingAccount != null">
-                #{mappingAccount,jdbcType=VARCHAR},
+                #{mappingAccount,jdbcType=NVARCHAR},
             </if>
             <if test="mappingPassword != null">
-                #{mappingPassword,jdbcType=VARCHAR},
+                #{mappingPassword,jdbcType=NVARCHAR},
             </if>
             <if test="mappingCreateTime != null">
                 #{mappingCreateTime,jdbcType=TIMESTAMP},
             </if>
-            <if test="mappingCreaterId != null">
-                #{mappingCreaterId,jdbcType=VARCHAR},
+            <if test="mappingCreatorId != null">
+                #{mappingCreatorId,jdbcType=NVARCHAR},
             </if>
             <if test="mappingOrganId != null">
-                #{mappingOrganId,jdbcType=VARCHAR},
+                #{mappingOrganId,jdbcType=NVARCHAR},
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.jbuild4d.base.dbaccess.dbentities.sso.SsoAppUserMappingEntity">
+    <update id="updateByPrimaryKeySelective" parameterType="com.jb4dc.sso.dbentities.application.SsoAppUserMappingEntity">
         update TSSO_SSO_APP_USER_MAPPING
         <set>
             <if test="mappingBelongAppId != null">
-                MAPPING_BELONG_APP_ID = #{mappingBelongAppId,jdbcType=VARCHAR},
+                MAPPING_BELONG_APP_ID = #{mappingBelongAppId,jdbcType=NVARCHAR},
             </if>
             <if test="mappingAccount != null">
-                MAPPING_ACCOUNT = #{mappingAccount,jdbcType=VARCHAR},
+                MAPPING_ACCOUNT = #{mappingAccount,jdbcType=NVARCHAR},
             </if>
             <if test="mappingPassword != null">
-                MAPPING_PASSWORD = #{mappingPassword,jdbcType=VARCHAR},
+                MAPPING_PASSWORD = #{mappingPassword,jdbcType=NVARCHAR},
             </if>
             <if test="mappingCreateTime != null">
                 MAPPING_CREATE_TIME = #{mappingCreateTime,jdbcType=TIMESTAMP},
             </if>
-            <if test="mappingCreaterId != null">
-                MAPPING_CREATER_ID = #{mappingCreaterId,jdbcType=VARCHAR},
+            <if test="mappingCreatorId != null">
+                MAPPING_CREATOR_ID = #{mappingCreatorId,jdbcType=NVARCHAR},
             </if>
             <if test="mappingOrganId != null">
-                MAPPING_ORGAN_ID = #{mappingOrganId,jdbcType=VARCHAR},
+                MAPPING_ORGAN_ID = #{mappingOrganId,jdbcType=NVARCHAR},
             </if>
         </set>
-        where MAPPING_ID = #{mappingId,jdbcType=VARCHAR}
+        where MAPPING_ID = #{mappingId,jdbcType=NVARCHAR}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.jbuild4d.base.dbaccess.dbentities.sso.SsoAppUserMappingEntity">
-        update TSSO_SSO_APP_USER_MAPPING
-        set MAPPING_BELONG_APP_ID = #{mappingBelongAppId,jdbcType=VARCHAR},
-            MAPPING_ACCOUNT = #{mappingAccount,jdbcType=VARCHAR},
-            MAPPING_PASSWORD = #{mappingPassword,jdbcType=VARCHAR},
-            MAPPING_CREATE_TIME = #{mappingCreateTime,jdbcType=TIMESTAMP},
-            MAPPING_CREATER_ID = #{mappingCreaterId,jdbcType=VARCHAR},
-            MAPPING_ORGAN_ID = #{mappingOrganId,jdbcType=VARCHAR}
-        where MAPPING_ID = #{mappingId,jdbcType=VARCHAR}
-    </update>
+    <update id="updateByPrimaryKey" parameterType="com.jb4dc.sso.dbentities.application.SsoAppUserMappingEntity">
+    update TSSO_SSO_APP_USER_MAPPING
+    set MAPPING_BELONG_APP_ID = #{mappingBelongAppId,jdbcType=NVARCHAR},
+      MAPPING_ACCOUNT = #{mappingAccount,jdbcType=NVARCHAR},
+      MAPPING_PASSWORD = #{mappingPassword,jdbcType=NVARCHAR},
+      MAPPING_CREATE_TIME = #{mappingCreateTime,jdbcType=TIMESTAMP},
+      MAPPING_CREATOR_ID = #{mappingCreatorId,jdbcType=NVARCHAR},
+      MAPPING_ORGAN_ID = #{mappingOrganId,jdbcType=NVARCHAR}
+    where MAPPING_ID = #{mappingId,jdbcType=NVARCHAR}
+  </update>
 </mapper>

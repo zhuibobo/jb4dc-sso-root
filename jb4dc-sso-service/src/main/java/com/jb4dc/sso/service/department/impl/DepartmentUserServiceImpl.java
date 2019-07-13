@@ -75,7 +75,7 @@ public class DepartmentUserServiceImpl implements IDepartmentUserService
                 UserEntity addUser = record.getUserEntity();
                 addUser.setUserPassword(MD5Utility.GetMD5Code(accountPassword, true));
                 addUser.setUserCreateTime(new Date());
-                addUser.setUserCreateUserId(jb4DSession.getUserId());
+                addUser.setUserCreatorId(jb4DSession.getUserId());
                 addUser.setUserStatus(EnableTypeEnum.enable.getDisplayName());
                 addUser.setUserOrderNum(userService.getNextOrderNum(jb4DSession));
                 userService.saveSimple(jb4DSession, addUser.getUserId(), addUser);
@@ -86,7 +86,7 @@ public class DepartmentUserServiceImpl implements IDepartmentUserService
                 addDepartmentUserEntity.setDuUserId(addUser.getUserId());
                 addDepartmentUserEntity.setDuIsMain(TrueFalseEnum.True.getDisplayName());
                 addDepartmentUserEntity.setDuCreateTime(new Date());
-                addDepartmentUserEntity.setDuCreateUserId(jb4DSession.getUserId());
+                addDepartmentUserEntity.setDuCreatorId(jb4DSession.getUserId());
                 addDepartmentUserEntity.setDuStatus(EnableTypeEnum.enable.getDisplayName());
                 addDepartmentUserEntity.setDuOrderNum(departmentUserMapper.nextOrderNum());
                 departmentUserMapper.insert(addDepartmentUserEntity);

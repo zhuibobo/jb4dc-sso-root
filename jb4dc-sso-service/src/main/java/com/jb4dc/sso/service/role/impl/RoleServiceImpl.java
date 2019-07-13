@@ -25,7 +25,7 @@ public class RoleServiceImpl extends BaseServiceImpl<RoleEntity> implements IRol
             public RoleEntity run(JB4DCSession jb4DSession,RoleEntity sourceEntity) throws JBuild4DCGenerallyException {
                 sourceEntity.setRoleOrderNum(roleMapper.nextOrderNum());
                 sourceEntity.setRoleCreateTime(new Date());
-                sourceEntity.setRoleCreaterId(jb4DSession.getUserId());
+                sourceEntity.setRoleCreatorId(jb4DSession.getUserId());
                 sourceEntity.setRoleOrganId(jb4DSession.getOrganId());
                 return sourceEntity;
             }
