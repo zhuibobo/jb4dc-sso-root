@@ -4,6 +4,10 @@
     <resultMap id="BaseResultMap" type="com.jb4dc.system.setting.dbentities.HistoryDataEntity">
         <constructor>
             <idArg column="HISTORY_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="HISTORY_SYSTEM_NAME" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="HISTORY_SYSTEM_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="HISTORY_MODULE_NAME" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="HISTORY_MODULE_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
             <arg column="HISTORY_RECORD" javaType="java.lang.String" jdbcType="VARCHAR" />
             <arg column="HISTORY_ORGAN_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
             <arg column="HISTORY_ORGAN_NAME" javaType="java.lang.String" jdbcType="NVARCHAR" />
@@ -15,9 +19,10 @@
         </constructor>
     </resultMap>
     <sql id="Base_Column_List">
-                HISTORY_ID, HISTORY_RECORD, HISTORY_ORGAN_ID, HISTORY_ORGAN_NAME, HISTORY_USER_ID,
-                HISTORY_USER_NAME, HISTORY_CREATE_TIME, HISTORY_TABLE_NAME, HISTORY_RECORD_ID
-    </sql>
+    HISTORY_ID, HISTORY_SYSTEM_NAME, HISTORY_SYSTEM_ID, HISTORY_MODULE_NAME, HISTORY_MODULE_ID,
+    HISTORY_RECORD, HISTORY_ORGAN_ID, HISTORY_ORGAN_NAME, HISTORY_USER_ID, HISTORY_USER_NAME,
+    HISTORY_CREATE_TIME, HISTORY_TABLE_NAME, HISTORY_RECORD_ID
+  </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List" />
@@ -25,24 +30,38 @@
         where HISTORY_ID = #{historyId,jdbcType=NVARCHAR}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-        delete from TSYS_HISTORY_DATA
-        where HISTORY_ID = #{historyId,jdbcType=NVARCHAR}
-    </delete>
+    delete from TSYS_HISTORY_DATA
+    where HISTORY_ID = #{historyId,jdbcType=NVARCHAR}
+  </delete>
     <insert id="insert" parameterType="com.jb4dc.system.setting.dbentities.HistoryDataEntity">
-        insert into TSYS_HISTORY_DATA (HISTORY_ID, HISTORY_RECORD, HISTORY_ORGAN_ID,
-                                       HISTORY_ORGAN_NAME, HISTORY_USER_ID, HISTORY_USER_NAME,
-                                       HISTORY_CREATE_TIME, HISTORY_TABLE_NAME,
-                                       HISTORY_RECORD_ID)
-        values (#{historyId,jdbcType=NVARCHAR}, #{historyRecord,jdbcType=VARCHAR}, #{historyOrganId,jdbcType=NVARCHAR},
-                #{historyOrganName,jdbcType=NVARCHAR}, #{historyUserId,jdbcType=NVARCHAR}, #{historyUserName,jdbcType=NVARCHAR},
-                #{historyCreateTime,jdbcType=TIMESTAMP}, #{historyTableName,jdbcType=NVARCHAR},
-                #{historyRecordId,jdbcType=NVARCHAR})
-    </insert>
+    insert into TSYS_HISTORY_DATA (HISTORY_ID, HISTORY_SYSTEM_NAME, HISTORY_SYSTEM_ID,
+      HISTORY_MODULE_NAME, HISTORY_MODULE_ID, HISTORY_RECORD,
+      HISTORY_ORGAN_ID, HISTORY_ORGAN_NAME, HISTORY_USER_ID,
+      HISTORY_USER_NAME, HISTORY_CREATE_TIME,
+      HISTORY_TABLE_NAME, HISTORY_RECORD_ID)
+    values (#{historyId,jdbcType=NVARCHAR}, #{historySystemName,jdbcType=NVARCHAR}, #{historySystemId,jdbcType=NVARCHAR},
+      #{historyModuleName,jdbcType=NVARCHAR}, #{historyModuleId,jdbcType=NVARCHAR}, #{historyRecord,jdbcType=VARCHAR},
+      #{historyOrganId,jdbcType=NVARCHAR}, #{historyOrganName,jdbcType=NVARCHAR}, #{historyUserId,jdbcType=NVARCHAR},
+      #{historyUserName,jdbcType=NVARCHAR}, #{historyCreateTime,jdbcType=TIMESTAMP},
+      #{historyTableName,jdbcType=NVARCHAR}, #{historyRecordId,jdbcType=NVARCHAR})
+  </insert>
     <insert id="insertSelective" parameterType="com.jb4dc.system.setting.dbentities.HistoryDataEntity">
         insert into TSYS_HISTORY_DATA
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="historyId != null">
                 HISTORY_ID,
+            </if>
+            <if test="historySystemName != null">
+                HISTORY_SYSTEM_NAME,
+            </if>
+            <if test="historySystemId != null">
+                HISTORY_SYSTEM_ID,
+            </if>
+            <if test="historyModuleName != null">
+                HISTORY_MODULE_NAME,
+            </if>
+            <if test="historyModuleId != null">
+                HISTORY_MODULE_ID,
             </if>
             <if test="historyRecord != null">
                 HISTORY_RECORD,
@@ -73,6 +92,18 @@
             <if test="historyId != null">
                 #{historyId,jdbcType=NVARCHAR},
             </if>
+            <if test="historySystemName != null">
+                #{historySystemName,jdbcType=NVARCHAR},
+            </if>
+            <if test="historySystemId != null">
+                #{historySystemId,jdbcType=NVARCHAR},
+            </if>
+            <if test="historyModuleName != null">
+                #{historyModuleName,jdbcType=NVARCHAR},
+            </if>
+            <if test="historyModuleId != null">
+                #{historyModuleId,jdbcType=NVARCHAR},
+            </if>
             <if test="historyRecord != null">
                 #{historyRecord,jdbcType=VARCHAR},
             </if>
@@ -102,6 +133,18 @@
     <update id="updateByPrimaryKeySelective" parameterType="com.jb4dc.system.setting.dbentities.HistoryDataEntity">
         update TSYS_HISTORY_DATA
         <set>
+            <if test="historySystemName != null">
+                HISTORY_SYSTEM_NAME = #{historySystemName,jdbcType=NVARCHAR},
+            </if>
+            <if test="historySystemId != null">
+                HISTORY_SYSTEM_ID = #{historySystemId,jdbcType=NVARCHAR},
+            </if>
+            <if test="historyModuleName != null">
+                HISTORY_MODULE_NAME = #{historyModuleName,jdbcType=NVARCHAR},
+            </if>
+            <if test="historyModuleId != null">
+                HISTORY_MODULE_ID = #{historyModuleId,jdbcType=NVARCHAR},
+            </if>
             <if test="historyRecord != null">
                 HISTORY_RECORD = #{historyRecord,jdbcType=VARCHAR},
             </if>
@@ -130,15 +173,19 @@
         where HISTORY_ID = #{historyId,jdbcType=NVARCHAR}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.jb4dc.system.setting.dbentities.HistoryDataEntity">
-        update TSYS_HISTORY_DATA
-        set HISTORY_RECORD = #{historyRecord,jdbcType=VARCHAR},
-            HISTORY_ORGAN_ID = #{historyOrganId,jdbcType=NVARCHAR},
-            HISTORY_ORGAN_NAME = #{historyOrganName,jdbcType=NVARCHAR},
-            HISTORY_USER_ID = #{historyUserId,jdbcType=NVARCHAR},
-            HISTORY_USER_NAME = #{historyUserName,jdbcType=NVARCHAR},
-            HISTORY_CREATE_TIME = #{historyCreateTime,jdbcType=TIMESTAMP},
-            HISTORY_TABLE_NAME = #{historyTableName,jdbcType=NVARCHAR},
-            HISTORY_RECORD_ID = #{historyRecordId,jdbcType=NVARCHAR}
-        where HISTORY_ID = #{historyId,jdbcType=NVARCHAR}
-    </update>
+    update TSYS_HISTORY_DATA
+    set HISTORY_SYSTEM_NAME = #{historySystemName,jdbcType=NVARCHAR},
+      HISTORY_SYSTEM_ID = #{historySystemId,jdbcType=NVARCHAR},
+      HISTORY_MODULE_NAME = #{historyModuleName,jdbcType=NVARCHAR},
+      HISTORY_MODULE_ID = #{historyModuleId,jdbcType=NVARCHAR},
+      HISTORY_RECORD = #{historyRecord,jdbcType=VARCHAR},
+      HISTORY_ORGAN_ID = #{historyOrganId,jdbcType=NVARCHAR},
+      HISTORY_ORGAN_NAME = #{historyOrganName,jdbcType=NVARCHAR},
+      HISTORY_USER_ID = #{historyUserId,jdbcType=NVARCHAR},
+      HISTORY_USER_NAME = #{historyUserName,jdbcType=NVARCHAR},
+      HISTORY_CREATE_TIME = #{historyCreateTime,jdbcType=TIMESTAMP},
+      HISTORY_TABLE_NAME = #{historyTableName,jdbcType=NVARCHAR},
+      HISTORY_RECORD_ID = #{historyRecordId,jdbcType=NVARCHAR}
+    where HISTORY_ID = #{historyId,jdbcType=NVARCHAR}
+  </update>
 </mapper>

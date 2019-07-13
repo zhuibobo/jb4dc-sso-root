@@ -11,6 +11,8 @@ import com.jb4dc.system.setting.dao.DictionaryMapper;
 import com.jb4dc.system.setting.dbentities.DictionaryEntity;
 import com.jb4dc.system.setting.service.IDictionaryService;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
@@ -21,10 +23,13 @@ import java.util.List;
  * Date: 2018/7/5
  * To change this template use File | Settings | File Templates.
  */
+
+@Service
 public class DictionaryServiceImpl extends BaseServiceImpl<DictionaryEntity> implements IDictionaryService {
 
     DictionaryMapper dictionaryMapper;
 
+    @Autowired
     public DictionaryServiceImpl(DictionaryMapper _defaultBaseMapper){
         super(_defaultBaseMapper);
         dictionaryMapper=_defaultBaseMapper;

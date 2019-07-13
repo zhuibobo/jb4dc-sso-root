@@ -13,6 +13,8 @@ import com.jb4dc.system.setting.dao.OperationLogMapper;
 import com.jb4dc.system.setting.dbentities.OperationLogEntity;
 import com.jb4dc.system.setting.service.IOperationLogService;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
@@ -23,10 +25,13 @@ import java.util.Date;
  * Date: 2018/7/24
  * To change this template use File | Settings | File Templates.
  */
+
+@Service
 public class OperationLogServiceImpl extends BaseServiceImpl<OperationLogEntity> implements IOperationLogService {
 
     OperationLogMapper operationLogMapper;
 
+    @Autowired
     public OperationLogServiceImpl(OperationLogMapper _defaultBaseMapper) {
         super(_defaultBaseMapper);
         operationLogMapper=_defaultBaseMapper;

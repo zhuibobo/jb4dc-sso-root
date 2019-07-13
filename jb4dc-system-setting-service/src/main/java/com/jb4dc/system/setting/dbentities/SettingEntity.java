@@ -19,8 +19,14 @@ public class SettingEntity {
     //SETTING_SYSTEM_NAME:系统名称
     private String settingSystemName;
 
+    //SETTING_SYSTEM_ID:所属系统ID
+    private String settingSystemId;
+
     //SETTING_MODULE_NAME:模块名称
     private String settingModuleName;
+
+    //SETTING_MODULE_ID:模块ID
+    private String settingModuleId;
 
     //SETTING_KEY:配置的Key:必须唯一
     private String settingKey;
@@ -66,7 +72,9 @@ public class SettingEntity {
      * 构造函数
      * @param settingId 配置的ID
      * @param settingSystemName 系统名称
+     * @param settingSystemId 所属系统ID
      * @param settingModuleName 模块名称
+     * @param settingModuleId 模块ID
      * @param settingKey 配置的Key
      * @param settingName 配置的名称
      * @param settingValue 配置的值
@@ -81,10 +89,12 @@ public class SettingEntity {
      * @param settingIsSystem 是否系统所有
      * @param settingOrderNum 排序号
      **/
-    public SettingEntity(String settingId, String settingSystemName, String settingModuleName, String settingKey, String settingName, String settingValue, String settingStatus, String settingDesc, Date settingCreateTime, String settingUserId, String settingUserName, String settingOrganId, String settingOrganName, String settingApi, String settingIsSystem, Integer settingOrderNum) {
+    public SettingEntity(String settingId, String settingSystemName, String settingSystemId, String settingModuleName, String settingModuleId, String settingKey, String settingName, String settingValue, String settingStatus, String settingDesc, Date settingCreateTime, String settingUserId, String settingUserName, String settingOrganId, String settingOrganName, String settingApi, String settingIsSystem, Integer settingOrderNum) {
         this.settingId = settingId;
         this.settingSystemName = settingSystemName;
+        this.settingSystemId = settingSystemId;
         this.settingModuleName = settingModuleName;
+        this.settingModuleId = settingModuleId;
         this.settingKey = settingKey;
         this.settingName = settingName;
         this.settingValue = settingValue;
@@ -137,6 +147,22 @@ public class SettingEntity {
     }
 
     /**
+     * 所属系统ID
+     * @return java.lang.String
+     **/
+    public String getSettingSystemId() {
+        return settingSystemId;
+    }
+
+    /**
+     * 所属系统ID
+     * @param settingSystemId 所属系统ID
+     **/
+    public void setSettingSystemId(String settingSystemId) {
+        this.settingSystemId = settingSystemId == null ? null : settingSystemId.trim();
+    }
+
+    /**
      * 模块名称
      * @return java.lang.String
      **/
@@ -150,6 +176,22 @@ public class SettingEntity {
      **/
     public void setSettingModuleName(String settingModuleName) {
         this.settingModuleName = settingModuleName == null ? null : settingModuleName.trim();
+    }
+
+    /**
+     * 模块ID
+     * @return java.lang.String
+     **/
+    public String getSettingModuleId() {
+        return settingModuleId;
+    }
+
+    /**
+     * 模块ID
+     * @param settingModuleId 模块ID
+     **/
+    public void setSettingModuleId(String settingModuleId) {
+        this.settingModuleId = settingModuleId == null ? null : settingModuleId.trim();
     }
 
     /**

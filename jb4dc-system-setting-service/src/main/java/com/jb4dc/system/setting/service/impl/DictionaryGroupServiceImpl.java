@@ -15,6 +15,8 @@ import com.jb4dc.system.setting.dbentities.DictionaryGroupEntity;
 import com.jb4dc.system.setting.service.IDictionaryGroupService;
 import com.jb4dc.system.setting.service.IDictionaryService;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
@@ -25,10 +27,12 @@ import java.util.List;
  * Date: 2018/7/5
  * To change this template use File | Settings | File Templates.
  */
+@Service
 public class DictionaryGroupServiceImpl extends BaseServiceImpl<DictionaryGroupEntity> implements IDictionaryGroupService {
 
     DictionaryGroupMapper dictionaryGroupMapper;
 
+    @Autowired
     public DictionaryGroupServiceImpl(DictionaryGroupMapper _defaultBaseMapper) {
         super(_defaultBaseMapper);
         dictionaryGroupMapper=_defaultBaseMapper;

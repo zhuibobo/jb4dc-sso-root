@@ -26,8 +26,14 @@ public class OperationLogEntity {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date logCreateTime;
 
+    //LOG_SYSTEM_ID:所属系统ID
+    private String logSystemId;
+
     //LOG_SYSTEM_NAME:系统名称
     private String logSystemName;
+
+    //LOG_MODULE_ID:模块ID
+    private String logModuleId;
 
     //LOG_MODULE_NAME:模块名称
     private String logModuleName;
@@ -68,7 +74,9 @@ public class OperationLogEntity {
      * @param logText 操作内容
      * @param logOrderNum 排序号
      * @param logCreateTime 创建时间
+     * @param logSystemId 所属系统ID
      * @param logSystemName 系统名称
+     * @param logModuleId 模块ID
      * @param logModuleName 模块名称
      * @param logActionName 动作名称
      * @param logData 日志数据
@@ -81,12 +89,14 @@ public class OperationLogEntity {
      * @param logClassName 类名
      * @param logStatus 状态
      **/
-    public OperationLogEntity(String logId, String logText, Integer logOrderNum, Date logCreateTime, String logSystemName, String logModuleName, String logActionName, String logData, String logUserId, String logUserName, String logOrganId, String logOrganName, String logIp, String logType, String logClassName, String logStatus) {
+    public OperationLogEntity(String logId, String logText, Integer logOrderNum, Date logCreateTime, String logSystemId, String logSystemName, String logModuleId, String logModuleName, String logActionName, String logData, String logUserId, String logUserName, String logOrganId, String logOrganName, String logIp, String logType, String logClassName, String logStatus) {
         this.logId = logId;
         this.logText = logText;
         this.logOrderNum = logOrderNum;
         this.logCreateTime = logCreateTime;
+        this.logSystemId = logSystemId;
         this.logSystemName = logSystemName;
+        this.logModuleId = logModuleId;
         this.logModuleName = logModuleName;
         this.logActionName = logActionName;
         this.logData = logData;
@@ -169,6 +179,22 @@ public class OperationLogEntity {
     }
 
     /**
+     * 所属系统ID
+     * @return java.lang.String
+     **/
+    public String getLogSystemId() {
+        return logSystemId;
+    }
+
+    /**
+     * 所属系统ID
+     * @param logSystemId 所属系统ID
+     **/
+    public void setLogSystemId(String logSystemId) {
+        this.logSystemId = logSystemId == null ? null : logSystemId.trim();
+    }
+
+    /**
      * 系统名称
      * @return java.lang.String
      **/
@@ -182,6 +208,22 @@ public class OperationLogEntity {
      **/
     public void setLogSystemName(String logSystemName) {
         this.logSystemName = logSystemName == null ? null : logSystemName.trim();
+    }
+
+    /**
+     * 模块ID
+     * @return java.lang.String
+     **/
+    public String getLogModuleId() {
+        return logModuleId;
+    }
+
+    /**
+     * 模块ID
+     * @param logModuleId 模块ID
+     **/
+    public void setLogModuleId(String logModuleId) {
+        this.logModuleId = logModuleId == null ? null : logModuleId.trim();
     }
 
     /**

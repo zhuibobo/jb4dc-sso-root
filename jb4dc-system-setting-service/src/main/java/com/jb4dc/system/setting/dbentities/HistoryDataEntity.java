@@ -16,6 +16,18 @@ public class HistoryDataEntity {
     @DBKeyField
     private String historyId;
 
+    //HISTORY_SYSTEM_NAME:系统名称
+    private String historySystemName;
+
+    //HISTORY_SYSTEM_ID:所属系统ID
+    private String historySystemId;
+
+    //HISTORY_MODULE_NAME:模块名称
+    private String historyModuleName;
+
+    //HISTORY_MODULE_ID:模块ID
+    private String historyModuleId;
+
     //HISTORY_RECORD:被删除数据的json格式数据
     private String historyRecord;
 
@@ -44,6 +56,10 @@ public class HistoryDataEntity {
     /**
      * 构造函数
      * @param historyId 随机生成
+     * @param historySystemName 系统名称
+     * @param historySystemId 所属系统ID
+     * @param historyModuleName 模块名称
+     * @param historyModuleId 模块ID
      * @param historyRecord 被删除数据的json格式数据
      * @param historyOrganId 删除用户所在的组织id
      * @param historyOrganName 删除用户所在的组织名称
@@ -53,8 +69,12 @@ public class HistoryDataEntity {
      * @param historyTableName 删除记录的表名
      * @param historyRecordId 删除记录的主键值
      **/
-    public HistoryDataEntity(String historyId, String historyRecord, String historyOrganId, String historyOrganName, String historyUserId, String historyUserName, Date historyCreateTime, String historyTableName, String historyRecordId) {
+    public HistoryDataEntity(String historyId, String historySystemName, String historySystemId, String historyModuleName, String historyModuleId, String historyRecord, String historyOrganId, String historyOrganName, String historyUserId, String historyUserName, Date historyCreateTime, String historyTableName, String historyRecordId) {
         this.historyId = historyId;
+        this.historySystemName = historySystemName;
+        this.historySystemId = historySystemId;
+        this.historyModuleName = historyModuleName;
+        this.historyModuleId = historyModuleId;
         this.historyRecord = historyRecord;
         this.historyOrganId = historyOrganId;
         this.historyOrganName = historyOrganName;
@@ -83,6 +103,70 @@ public class HistoryDataEntity {
      **/
     public void setHistoryId(String historyId) {
         this.historyId = historyId == null ? null : historyId.trim();
+    }
+
+    /**
+     * 系统名称
+     * @return java.lang.String
+     **/
+    public String getHistorySystemName() {
+        return historySystemName;
+    }
+
+    /**
+     * 系统名称
+     * @param historySystemName 系统名称
+     **/
+    public void setHistorySystemName(String historySystemName) {
+        this.historySystemName = historySystemName == null ? null : historySystemName.trim();
+    }
+
+    /**
+     * 所属系统ID
+     * @return java.lang.String
+     **/
+    public String getHistorySystemId() {
+        return historySystemId;
+    }
+
+    /**
+     * 所属系统ID
+     * @param historySystemId 所属系统ID
+     **/
+    public void setHistorySystemId(String historySystemId) {
+        this.historySystemId = historySystemId == null ? null : historySystemId.trim();
+    }
+
+    /**
+     * 模块名称
+     * @return java.lang.String
+     **/
+    public String getHistoryModuleName() {
+        return historyModuleName;
+    }
+
+    /**
+     * 模块名称
+     * @param historyModuleName 模块名称
+     **/
+    public void setHistoryModuleName(String historyModuleName) {
+        this.historyModuleName = historyModuleName == null ? null : historyModuleName.trim();
+    }
+
+    /**
+     * 模块ID
+     * @return java.lang.String
+     **/
+    public String getHistoryModuleId() {
+        return historyModuleId;
+    }
+
+    /**
+     * 模块ID
+     * @param historyModuleId 模块ID
+     **/
+    public void setHistoryModuleId(String historyModuleId) {
+        this.historyModuleId = historyModuleId == null ? null : historyModuleId.trim();
     }
 
     /**

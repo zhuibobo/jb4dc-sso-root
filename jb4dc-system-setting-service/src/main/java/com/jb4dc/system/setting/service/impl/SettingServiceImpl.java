@@ -14,6 +14,8 @@ import com.jb4dc.system.setting.dao.SettingMapper;
 import com.jb4dc.system.setting.dbentities.SettingEntity;
 import com.jb4dc.system.setting.service.ISettingService;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
@@ -23,14 +25,18 @@ import java.util.Date;
  * Date: 2018/7/5
  * To change this template use File | Settings | File Templates.
  */
+
+@Service
 public class SettingServiceImpl extends BaseServiceImpl<SettingEntity> implements ISettingService {
 
     SettingMapper settingMapper;
 
+    @Autowired
     public SettingServiceImpl(SettingMapper _defaultBaseMapper) {
         super(_defaultBaseMapper);
         settingMapper = _defaultBaseMapper;
     }
+
 
     public static String getValueExistErrorMsg(String value){
         return String.format("已经存在值为:%s的设置项!", value);

@@ -7,6 +7,8 @@ import com.jb4dc.system.setting.dao.HistoryDataMapper;
 import com.jb4dc.system.setting.dbentities.HistoryDataEntity;
 import com.jb4dc.system.setting.service.IHistoryDataService;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
@@ -16,9 +18,13 @@ import java.util.Date;
  * Date: 2019/2/25
  * To change this template use File | Settings | File Templates.
  */
+
+@Service
 public class HistoryDataServiceImpl implements IHistoryDataService
 {
     HistoryDataMapper historyDataMapper;
+
+    @Autowired
     public HistoryDataServiceImpl(HistoryDataMapper _defaultBaseMapper){
         historyDataMapper=_defaultBaseMapper;
     }

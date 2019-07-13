@@ -5,7 +5,9 @@
     <constructor>
       <idArg column="SETTING_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
       <arg column="SETTING_SYSTEM_NAME" javaType="java.lang.String" jdbcType="NVARCHAR" />
+      <arg column="SETTING_SYSTEM_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
       <arg column="SETTING_MODULE_NAME" javaType="java.lang.String" jdbcType="NVARCHAR" />
+      <arg column="SETTING_MODULE_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
       <arg column="SETTING_KEY" javaType="java.lang.String" jdbcType="NVARCHAR" />
       <arg column="SETTING_NAME" javaType="java.lang.String" jdbcType="NVARCHAR" />
       <arg column="SETTING_VALUE" javaType="java.lang.String" jdbcType="NVARCHAR" />
@@ -22,10 +24,10 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-            SETTING_ID, SETTING_SYSTEM_NAME, SETTING_MODULE_NAME, SETTING_KEY, SETTING_NAME,
-            SETTING_VALUE, SETTING_STATUS, SETTING_DESC, SETTING_CREATE_TIME, SETTING_USER_ID,
-            SETTING_USER_NAME, SETTING_ORGAN_ID, SETTING_ORGAN_NAME, SETTING_API, SETTING_IS_SYSTEM,
-            SETTING_ORDER_NUM
+    SETTING_ID, SETTING_SYSTEM_NAME, SETTING_SYSTEM_ID, SETTING_MODULE_NAME, SETTING_MODULE_ID,
+    SETTING_KEY, SETTING_NAME, SETTING_VALUE, SETTING_STATUS, SETTING_DESC, SETTING_CREATE_TIME,
+    SETTING_USER_ID, SETTING_USER_NAME, SETTING_ORGAN_ID, SETTING_ORGAN_NAME, SETTING_API,
+    SETTING_IS_SYSTEM, SETTING_ORDER_NUM
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
@@ -38,18 +40,20 @@
     where SETTING_ID = #{settingId,jdbcType=NVARCHAR}
   </delete>
   <insert id="insert" parameterType="com.jb4dc.system.setting.dbentities.SettingEntity">
-    insert into TSYS_SETTING (SETTING_ID, SETTING_SYSTEM_NAME, SETTING_MODULE_NAME,
-                              SETTING_KEY, SETTING_NAME, SETTING_VALUE,
-                              SETTING_STATUS, SETTING_DESC, SETTING_CREATE_TIME,
-                              SETTING_USER_ID, SETTING_USER_NAME, SETTING_ORGAN_ID,
-                              SETTING_ORGAN_NAME, SETTING_API, SETTING_IS_SYSTEM,
-                              SETTING_ORDER_NUM)
-    values (#{settingId,jdbcType=NVARCHAR}, #{settingSystemName,jdbcType=NVARCHAR}, #{settingModuleName,jdbcType=NVARCHAR},
-            #{settingKey,jdbcType=NVARCHAR}, #{settingName,jdbcType=NVARCHAR}, #{settingValue,jdbcType=NVARCHAR},
-            #{settingStatus,jdbcType=NVARCHAR}, #{settingDesc,jdbcType=NVARCHAR}, #{settingCreateTime,jdbcType=TIMESTAMP},
-            #{settingUserId,jdbcType=NVARCHAR}, #{settingUserName,jdbcType=NVARCHAR}, #{settingOrganId,jdbcType=NVARCHAR},
-            #{settingOrganName,jdbcType=NVARCHAR}, #{settingApi,jdbcType=NVARCHAR}, #{settingIsSystem,jdbcType=NVARCHAR},
-            #{settingOrderNum,jdbcType=INTEGER})
+    insert into TSYS_SETTING (SETTING_ID, SETTING_SYSTEM_NAME, SETTING_SYSTEM_ID,
+      SETTING_MODULE_NAME, SETTING_MODULE_ID, SETTING_KEY,
+      SETTING_NAME, SETTING_VALUE, SETTING_STATUS,
+      SETTING_DESC, SETTING_CREATE_TIME, SETTING_USER_ID,
+      SETTING_USER_NAME, SETTING_ORGAN_ID, SETTING_ORGAN_NAME,
+      SETTING_API, SETTING_IS_SYSTEM, SETTING_ORDER_NUM
+      )
+    values (#{settingId,jdbcType=NVARCHAR}, #{settingSystemName,jdbcType=NVARCHAR}, #{settingSystemId,jdbcType=NVARCHAR},
+      #{settingModuleName,jdbcType=NVARCHAR}, #{settingModuleId,jdbcType=NVARCHAR}, #{settingKey,jdbcType=NVARCHAR},
+      #{settingName,jdbcType=NVARCHAR}, #{settingValue,jdbcType=NVARCHAR}, #{settingStatus,jdbcType=NVARCHAR},
+      #{settingDesc,jdbcType=NVARCHAR}, #{settingCreateTime,jdbcType=TIMESTAMP}, #{settingUserId,jdbcType=NVARCHAR},
+      #{settingUserName,jdbcType=NVARCHAR}, #{settingOrganId,jdbcType=NVARCHAR}, #{settingOrganName,jdbcType=NVARCHAR},
+      #{settingApi,jdbcType=NVARCHAR}, #{settingIsSystem,jdbcType=NVARCHAR}, #{settingOrderNum,jdbcType=INTEGER}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.jb4dc.system.setting.dbentities.SettingEntity">
     insert into TSYS_SETTING
@@ -60,8 +64,14 @@
       <if test="settingSystemName != null">
         SETTING_SYSTEM_NAME,
       </if>
+      <if test="settingSystemId != null">
+        SETTING_SYSTEM_ID,
+      </if>
       <if test="settingModuleName != null">
         SETTING_MODULE_NAME,
+      </if>
+      <if test="settingModuleId != null">
+        SETTING_MODULE_ID,
       </if>
       <if test="settingKey != null">
         SETTING_KEY,
@@ -110,8 +120,14 @@
       <if test="settingSystemName != null">
         #{settingSystemName,jdbcType=NVARCHAR},
       </if>
+      <if test="settingSystemId != null">
+        #{settingSystemId,jdbcType=NVARCHAR},
+      </if>
       <if test="settingModuleName != null">
         #{settingModuleName,jdbcType=NVARCHAR},
+      </if>
+      <if test="settingModuleId != null">
+        #{settingModuleId,jdbcType=NVARCHAR},
       </if>
       <if test="settingKey != null">
         #{settingKey,jdbcType=NVARCHAR},
@@ -160,8 +176,14 @@
       <if test="settingSystemName != null">
         SETTING_SYSTEM_NAME = #{settingSystemName,jdbcType=NVARCHAR},
       </if>
+      <if test="settingSystemId != null">
+        SETTING_SYSTEM_ID = #{settingSystemId,jdbcType=NVARCHAR},
+      </if>
       <if test="settingModuleName != null">
         SETTING_MODULE_NAME = #{settingModuleName,jdbcType=NVARCHAR},
+      </if>
+      <if test="settingModuleId != null">
+        SETTING_MODULE_ID = #{settingModuleId,jdbcType=NVARCHAR},
       </if>
       <if test="settingKey != null">
         SETTING_KEY = #{settingKey,jdbcType=NVARCHAR},
@@ -208,20 +230,22 @@
   <update id="updateByPrimaryKey" parameterType="com.jb4dc.system.setting.dbentities.SettingEntity">
     update TSYS_SETTING
     set SETTING_SYSTEM_NAME = #{settingSystemName,jdbcType=NVARCHAR},
-        SETTING_MODULE_NAME = #{settingModuleName,jdbcType=NVARCHAR},
-        SETTING_KEY = #{settingKey,jdbcType=NVARCHAR},
-        SETTING_NAME = #{settingName,jdbcType=NVARCHAR},
-        SETTING_VALUE = #{settingValue,jdbcType=NVARCHAR},
-        SETTING_STATUS = #{settingStatus,jdbcType=NVARCHAR},
-        SETTING_DESC = #{settingDesc,jdbcType=NVARCHAR},
-        SETTING_CREATE_TIME = #{settingCreateTime,jdbcType=TIMESTAMP},
-        SETTING_USER_ID = #{settingUserId,jdbcType=NVARCHAR},
-        SETTING_USER_NAME = #{settingUserName,jdbcType=NVARCHAR},
-        SETTING_ORGAN_ID = #{settingOrganId,jdbcType=NVARCHAR},
-        SETTING_ORGAN_NAME = #{settingOrganName,jdbcType=NVARCHAR},
-        SETTING_API = #{settingApi,jdbcType=NVARCHAR},
-        SETTING_IS_SYSTEM = #{settingIsSystem,jdbcType=NVARCHAR},
-        SETTING_ORDER_NUM = #{settingOrderNum,jdbcType=INTEGER}
+      SETTING_SYSTEM_ID = #{settingSystemId,jdbcType=NVARCHAR},
+      SETTING_MODULE_NAME = #{settingModuleName,jdbcType=NVARCHAR},
+      SETTING_MODULE_ID = #{settingModuleId,jdbcType=NVARCHAR},
+      SETTING_KEY = #{settingKey,jdbcType=NVARCHAR},
+      SETTING_NAME = #{settingName,jdbcType=NVARCHAR},
+      SETTING_VALUE = #{settingValue,jdbcType=NVARCHAR},
+      SETTING_STATUS = #{settingStatus,jdbcType=NVARCHAR},
+      SETTING_DESC = #{settingDesc,jdbcType=NVARCHAR},
+      SETTING_CREATE_TIME = #{settingCreateTime,jdbcType=TIMESTAMP},
+      SETTING_USER_ID = #{settingUserId,jdbcType=NVARCHAR},
+      SETTING_USER_NAME = #{settingUserName,jdbcType=NVARCHAR},
+      SETTING_ORGAN_ID = #{settingOrganId,jdbcType=NVARCHAR},
+      SETTING_ORGAN_NAME = #{settingOrganName,jdbcType=NVARCHAR},
+      SETTING_API = #{settingApi,jdbcType=NVARCHAR},
+      SETTING_IS_SYSTEM = #{settingIsSystem,jdbcType=NVARCHAR},
+      SETTING_ORDER_NUM = #{settingOrderNum,jdbcType=INTEGER}
     where SETTING_ID = #{settingId,jdbcType=NVARCHAR}
   </update>
 </mapper>
