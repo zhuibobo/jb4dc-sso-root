@@ -42,8 +42,8 @@
         },
         data: {
             acInterface:{
-                getDataUrl:"/PlatFormRest/SSO/OrganType/GetDetailData",
-                saveDataUrl:"/PlatFormRest/SSO/OrganType/SaveEdit"
+                getDataUrl:"/Rest/SSO/Org/OrganType/GetDetailData",
+                saveDataUrl:"/Rest/SSO/Org/OrganType/SaveEdit"
             },
             recordId:BaseUtility.GetUrlParaValue("recordId"),
             /*Js Bean*/
@@ -82,8 +82,8 @@
                                 //debugger;
                                 window.OpenerWindowObj.appList.reloadData();
                                 DialogUtility.Frame_CloseDialog(window);
-                            });
-                        }, "json");
+                            },this);
+                        }, this);
                     } else {
                         this.$Message.error('Fail!');
                     }

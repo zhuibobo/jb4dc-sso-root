@@ -10,6 +10,8 @@ import com.jb4dc.core.base.tools.StringUtility;
 import com.jb4dc.sso.dao.organ.OrganTypeMapper;
 import com.jb4dc.sso.dbentities.organ.OrganTypeEntity;
 import com.jb4dc.sso.service.organ.IOrganTypeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
@@ -19,6 +21,8 @@ import java.util.Date;
  * Date: 2018/7/27
  * To change this template use File | Settings | File Templates.
  */
+
+@Service
 public class OrganTypeServiceImpl extends BaseServiceImpl<OrganTypeEntity> implements IOrganTypeService
 {
     public static String getValueExistErrorMsg(String value){
@@ -26,6 +30,8 @@ public class OrganTypeServiceImpl extends BaseServiceImpl<OrganTypeEntity> imple
     }
 
     OrganTypeMapper organTypeMapper;
+
+    @Autowired
     public OrganTypeServiceImpl(OrganTypeMapper _defaultBaseMapper){
         super(_defaultBaseMapper);
         organTypeMapper=_defaultBaseMapper;
