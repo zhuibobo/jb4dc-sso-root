@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/Rest/SystemSetting/OperationLog")
+@RequestMapping(value = "/Rest/SystemSetting/Oper/OperationLog")
 public class OperationLogRest extends GeneralRest<OperationLogEntity> {
 
     @Autowired

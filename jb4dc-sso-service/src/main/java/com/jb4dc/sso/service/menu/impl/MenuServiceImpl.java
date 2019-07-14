@@ -113,23 +113,23 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
 
         createMenu(jb4DSession,ssoRootMenu.getMenuId(),"JB4DOrganTypeManage",
                 "组织类型","组织类型","组织类型",
-                "SSO/OrganType/OrganTypeList.html","");
+                "/HTML/SSO/OrganType/OrganTypeList.html","");
 
         createMenu(jb4DSession,ssoRootMenu.getMenuId(),"JB4DOrganManage",
                 "组织机构","组织机构","组织机构",
-                "SSO/Organ/OrganList.html","");
+                "/HTML/SSO/Organ/OrganList.html","");
 
         createMenu(jb4DSession,ssoRootMenu.getMenuId(),"JB4DDepartmentManage",
                 "部门管理","部门管理","部门管理",
-                "SSO/Department/DepartmentManager.html","");
+                "/HTML/SSO/Department/DepartmentManager.html","");
 
         createMenu(jb4DSession,ssoRootMenu.getMenuId(),"JB4DRoleManage",
                 "角色管理","角色管理","角色管理",
-                "SSO/Role/RoleManager.html","");
+                "/HTML/SSO/Role/RoleManager.html","");
 
         createMenu(jb4DSession,ssoRootMenu.getMenuId(),"JB4DAppManage",
                 "应用管理","应用管理","应用管理",
-                "SSO/Application/ApplicationManager.html","");
+                "/HTML/SSO/Application/ApplicationManager.html","");
     }
 
     public MenuEntity getMenu(String parentId,String id,String name,String text,String value,String type,String leftUrl,String rightUrl,String iconClassName,String systemId){

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/Rest/SystemSetting/ParasSetting")
+@RequestMapping(value = "/Rest/SystemSetting/Para/ParasSetting")
 public class ParasSettingRest extends GeneralRest<SettingEntity> {
     @Autowired
     ISettingService settingService;
