@@ -14,10 +14,12 @@ import com.jb4dc.sso.service.department.IDepartmentService;
 import com.jb4dc.sso.service.department.IDepartmentUserService;
 import com.jb4dc.sso.service.organ.IOnOrganChangeAware;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
 
+@Service
 public class DepartmentServiceImpl extends BaseServiceImpl<DepartmentEntity> implements IDepartmentService, IOnOrganChangeAware
 {
     DepartmentMapper departmentMapper;
@@ -25,9 +27,11 @@ public class DepartmentServiceImpl extends BaseServiceImpl<DepartmentEntity> imp
     @Autowired
     IDepartmentUserService departmentUserService;
 
+    @Autowired
     public DepartmentServiceImpl(DepartmentMapper _defaultBaseMapper){
         super(_defaultBaseMapper);
         departmentMapper=_defaultBaseMapper;
+        //departmentUserService=_departmentUserService;
         //departmentUserService=_departmentUserService;
     }
 

@@ -85,10 +85,10 @@
         data: {
             acInterface: {
                 editView: "/HTML/SSO/Organ/OrganEdit.html",
-                reloadData: '/PlatFormRest/SSO/Organ/GetListData',
-                delete: '/PlatFormRest/SSO/Organ/Delete',
-                statusChange: '/PlatFormRest/SSO/Organ/StatusChange',
-                move: '/PlatFormRest/SSO/Organ/Move'
+                reloadData: '/Rest/SSO/Org/Organ/GetListData',
+                delete: '/Rest/SSO/Org/Organ/Delete',
+                statusChange: '/Rest/SSO/Org/Organ/StatusChange',
+                move: '/Rest/SSO/Org/Organ/Move'
             },
             treeTableObject: null,
             treeTableConfig: {
@@ -104,7 +104,6 @@
                         Title: "组织名称",
                         FieldName: "organName",
                         TitleCellClassName: "TitleCell",
-                        Renderer: "Lable",
                         Hidden: false,
                         TitleCellAttrs: {},
                         Width: "40"
@@ -112,7 +111,6 @@
                         Title: "简称",
                         FieldName: "organShortName",
                         TitleCellClassName: "TitleCell",
-                        Renderer: "Lable",
                         Hidden: false,
                         TitleCellAttrs: {},
                         Width: "40",
@@ -130,7 +128,6 @@
                         Title: "状态",
                         FieldName: "organStatus",
                         TitleCellClassName: "TitleCell",
-                        Renderer: "Lable",
                         Hidden: false,
                         TitleCellAttrs: {},
                         Width: "10%",
@@ -146,7 +143,7 @@
         methods: {
             <!--Dictionary-->
             reloadTreeTableData: function () {
-                var _self = this;
+                //var _self = this;
                 var sendData = {pageSize: 2000, pageNum: 1};
                 AjaxUtility.Post(this.acInterface.reloadData, sendData, function (result) {
                     if (result.success) {
@@ -160,14 +157,14 @@
                             ChildFieldName: "Nodes"
                         }, result.data.list, "0");
                         $("#divTreeTable").html("");
-                        _self.treeTableObject = Object.create(TreeTable);
-                        _self.treeTableObject.Initialization(_self.treeTableConfig);
-                        _self.treeTableObject.LoadJsonData(treeData);
+                        this.treeTableObject = Object.create(TreeTable);
+                        this.treeTableObject.Initialization(this.treeTableConfig);
+                        this.treeTableObject.LoadJsonData(treeData);
                     }
                     else {
                         DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, null);
                     }
-                }, "json");
+                }, this);
             },
             mareSureSelectedTreeTableRow: function (actionText) {
                 var nodeData = this.treeTableObject.GetSelectedRowData();
@@ -223,18 +220,17 @@
                     var recordId = nodeData[this.treeTableConfig.IdField];
                     var _self = this;
                     DialogUtility.Confirm(window, "确认要删除选定的节点吗？", function () {
-                        AjaxUtility.Post(_self.acInterface.delete, {recordId: recordId}, function (result) {
+                        AjaxUtility.Delete(_self.acInterface.delete, {recordId: recordId}, function (result) {
                             if (result.success) {
                                 DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, function () {
-                                    _self.treeTableObject.DeleteRow(recordId);
-
-                                });
+                                    this.treeTableObject.DeleteRow(recordId);
+                                },this);
                             }
                             else {
                                 DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, null);
                             }
-                        }, "json");
-                    });
+                        },this);
+                    },this);
                 })
             },
             view: function () {
@@ -258,13 +254,13 @@
                         if (result.success) {
                             DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, function () {
                                 nodeData.organStatus = statusName;
-                                _self.treeTableObject.UpdateToRow(nodeData[appList.treeTableConfig.IdField], nodeData);
-                            });
+                                this.treeTableObject.UpdateToRow(nodeData[appList.treeTableConfig.IdField], nodeData);
+                            },this);
                         }
                         else {
                             DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, null);
                         }
-                    }, "json");
+                    }, this);
                 });
             },
             move: function (type) {
@@ -275,16 +271,16 @@
                         if (result.success) {
                             DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, function () {
                                 if (type == "down") {
-                                    _self.treeTableObject.MoveDownRow(nodeData[appList.treeTableConfig.IdField]);
+                                    this.treeTableObject.MoveDownRow(nodeData[appList.treeTableConfig.IdField]);
                                 } else {
-                                    _self.treeTableObject.MoveUpRow(nodeData[appList.treeTableConfig.IdField]);
+                                    this.treeTableObject.MoveUpRow(nodeData[appList.treeTableConfig.IdField]);
                                 }
-                            });
+                            },this);
                         }
                         else {
                             DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, null);
                         }
-                    }, "json");
+                    }, this);
                 });
             },
             newTreeTableNode: function (newData) {
@@ -303,7 +299,7 @@
                     else {
                         DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, null);
                     }
-                }, "json");
+                }, this);
             }
         }
     });

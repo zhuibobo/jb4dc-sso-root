@@ -42,7 +42,7 @@ public class OrganServiceImpl extends BaseServiceImpl<OrganEntity> implements IO
     private String rootId="0";
     private String rootParentId="-1";
 
-    String configResource= "/config/OrganInitConfig.xml";
+    String configResource= "/config/organ-init-config.xml";
     Document xmlDocument=null;
 
     OrganMapper organMapper;

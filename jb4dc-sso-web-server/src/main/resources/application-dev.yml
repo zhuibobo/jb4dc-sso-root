@@ -16,7 +16,7 @@ server:
   servlet:
     session:
       timeout: 7200
-    context-path: /SSO
+    context-path: /SSOSystem
 
 eureka:
   client:
@@ -34,3 +34,5 @@ logging:
         system:
           setting:
             dao: TRACE
+        sso:
+          dao: TRACE

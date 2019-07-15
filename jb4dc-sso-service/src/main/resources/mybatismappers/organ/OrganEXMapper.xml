@@ -21,9 +21,12 @@
         <if test="organParentId !=null and organParentId !=''"> and ORGAN_PARENT_ID like #{organParentId} </if>
         <if test="organParentIdList !=null and organParentIdList !=''"> and ORGAN_PARENT_ID_LIST like #{organParentIdList} </if>
         <if test="organStatus !=null and organStatus !=''"> and ORGAN_STATUS like #{organStatus} </if>
-        <if test="organCreaterOrgId !=null and organCreaterOrgId !=''"> and ORGAN_CREATER_ORG_ID like #{organCreaterOrgId} </if>
+        <if test="organCreatorOrgId !=null and organCreatorOrgId !=''"> and ORGAN_CREATOR_ORG_ID like #{organCreatorOrgId} </if>
         <if test="organMainImageId !=null and organMainImageId !=''"> and ORGAN_MAIN_IMAGE_ID like #{organMainImageId} </if>
         <if test="organDesc !=null and organDesc !=''"> and ORGAN_DESC like #{organDesc} </if>
+        <![CDATA[
+        and ORGAN_STATUS <> '删除'
+         ]]>
     </where>ORDER by ORGAN_ORDER_NUM ASC</select>
     <select id="selectLessThanRecord" parameterType="java.lang.String" resultMap="BaseResultMap">
         <![CDATA[

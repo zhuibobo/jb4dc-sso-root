@@ -56,3 +56,4 @@ public class InitializationSystemRestTest extends RestTestBase {
         Assert.assertTrue(responseVo.isSuccess());
     }
 }
+

@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping(value = "/PlatFormRest/SSO/Organ")
+@RequestMapping(value = "/Rest/SSO/Org/Organ")
 public class OrganRest extends GeneralRest<OrganEntity> {
 
     byte[] defaultImageByte=null;

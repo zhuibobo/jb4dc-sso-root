@@ -10,9 +10,11 @@ import com.jb4dc.core.base.tools.StringUtility;
 import com.jb4dc.sso.dao.user.UserMapper;
 import com.jb4dc.sso.dbentities.user.UserEntity;
 import com.jb4dc.sso.service.user.IUserService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UserServiceImpl extends BaseServiceImpl<UserEntity> implements IUserService
 {
     UserMapper userMapper;

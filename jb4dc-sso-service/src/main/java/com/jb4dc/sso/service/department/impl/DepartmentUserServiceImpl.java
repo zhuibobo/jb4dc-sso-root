@@ -23,12 +23,14 @@ import com.jb4dc.sso.service.organ.IOrganService;
 import com.jb4dc.sso.service.user.IUserService;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+@Service
 public class DepartmentUserServiceImpl implements IDepartmentUserService
 {
     DepartmentUserMapper departmentUserMapper;
@@ -40,7 +42,8 @@ public class DepartmentUserServiceImpl implements IDepartmentUserService
     @Autowired
     IOrganService organService;
 
-    public DepartmentUserServiceImpl(DepartmentUserMapper _defaultBaseMapper, SqlSessionTemplate _sqlSessionTemplate, ISQLBuilderService _sqlBuilderService, IUserService _userService){
+    @Autowired
+    public DepartmentUserServiceImpl(DepartmentUserMapper _defaultBaseMapper, IUserService _userService){
         //super(_defaultBaseMapper, _sqlSessionTemplate, _sqlBuilderService);
         departmentUserMapper=_defaultBaseMapper;
         userService=_userService;
