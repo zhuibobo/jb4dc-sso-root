@@ -1,4 +1,3 @@
-/*
 package com.jb4dc.sso.webserver.rest.sso.organ;
 
 import com.jb4dc.base.service.IBaseService;
@@ -6,10 +5,13 @@ import com.jb4dc.base.service.general.JB4DCSessionUtility;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.feb.dist.webserver.rest.base.GeneralRest;
+import com.jb4dc.files.dbentities.FileInfoEntity;
+import com.jb4dc.files.service.IFileInfoService;
 import com.jb4dc.sso.dbentities.organ.OrganEntity;
 import com.jb4dc.sso.dbentities.organ.OrganTypeEntity;
 import com.jb4dc.sso.service.organ.IOrganService;
 import com.jb4dc.sso.service.organ.IOrganTypeService;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import sun.misc.IOUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
@@ -29,6 +30,20 @@ import java.util.Map;
 @RestController
 @RequestMapping(value = "/PlatFormRest/SSO/Organ")
 public class OrganRest extends GeneralRest<OrganEntity> {
+
+    byte[] defaultImageByte=null;
+
+    public OrganRest(){
+        if(defaultImageByte==null){
+            try {
+                InputStream is = this.getClass().getResourceAsStream("/static/Themes/Default/Css/Images/DefaultLogo.png");
+                defaultImageByte = IOUtils.toByteArray(is);
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     @Autowired
     IOrganService organService;
@@ -62,15 +77,7 @@ public class OrganRest extends GeneralRest<OrganEntity> {
     public byte[] getOrganLogo(String fileId) throws IOException, JBuild4DCGenerallyException {
         FileInfoEntity fileInfoEntity=fileInfoService.getByPrimaryKey(JB4DCSessionUtility.getSession(),fileId);
         if(fileInfoEntity==null) {
-            if (JB4DCacheManager.exist(JB4DCacheManager.jb4dPlatformBuilderCacheName, JB4DCacheManager.CACHE_KEY_ORGAN_LOGO)) {
-                return JB4DCacheManager.getObject(JB4DCacheManager.jb4dPlatformBuilderCacheName, JB4DCacheManager.CACHE_KEY_ORGAN_LOGO);
-            } else {
-                InputStream is = this.getClass().getResourceAsStream("/static/Themes/Default/Css/Images/DefaultLogo.png");
-                byte[] defaultImageByte = IOUtils.toByteArray(is);
-                is.close();
-                JB4DCacheManager.put(JB4DCacheManager.jb4dPlatformBuilderCacheName, JB4DCacheManager.CACHE_KEY_ORGAN_LOGO, defaultImageByte);
-                return defaultImageByte;
-            }
+            return defaultImageByte;
         }
         else{
             return fileInfoService.getContent(fileId);
@@ -95,4 +102,3 @@ public class OrganRest extends GeneralRest<OrganEntity> {
         return JBuild4DCResponseVo.deleteSuccess();
     }
 }
-*/

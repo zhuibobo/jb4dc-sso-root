@@ -2,10 +2,13 @@ package com.jb4dc.sso.webserver.rest;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.jb4dc.base.service.general.JB4DCSessionUtility;
+import com.jb4dc.base.ymls.JBuild4DCYaml;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.sso.service.menu.IMenuService;
+import com.jb4dc.sso.service.organ.IOrganService;
+import com.jb4dc.sso.service.organ.IOrganTypeService;
 import com.jb4dc.system.setting.service.IDictionaryGroupService;
 import com.jb4dc.system.setting.service.IDictionaryService;
 import com.jb4dc.system.setting.service.IOperationLogService;
@@ -42,6 +45,12 @@ public class InitializationSystemRest {
     @Autowired
     private IMenuService menuService;
 
+    @Autowired
+    private IOrganService organService;
+
+    @Autowired
+    private IOrganTypeService organTypeService;
+
     @RequestMapping(value = "/Running", method = RequestMethod.POST)
     @ResponseBody
     public JBuild4DCResponseVo running(String createTestData) throws JBuild4DCGenerallyException, JsonProcessingException {
@@ -56,7 +65,14 @@ public class InitializationSystemRest {
         //初始化操作日志
         operationLogService.initSystemData(jb4DSession);
 
+        //初始化菜单
         menuService.initSystemData(jb4DSession);
+
+        //初始化根组织
+        organTypeService.deleteByKeyNotValidate(jb4DSession,"0", JBuild4DCYaml.getWarningOperationCode());
+        organTypeService.createDefaultOrganType(jb4DSession);
+        organService.deleteByKeyNotValidate(jb4DSession,"0", JBuild4DCYaml.getWarningOperationCode());
+        organService.createRootOrgan(jb4DSession);
 
         if(createTestData!=null&&createTestData.toLowerCase().equals("true")){
             //创建测试的表分组

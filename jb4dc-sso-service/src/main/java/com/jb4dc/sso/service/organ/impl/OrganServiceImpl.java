@@ -5,6 +5,7 @@ import com.jb4dc.base.dbaccess.exenum.TrueFalseEnum;
 import com.jb4dc.base.service.IAddBefore;
 import com.jb4dc.base.service.impl.BaseServiceImpl;
 import com.jb4dc.base.tools.BeanUtility;
+import com.jb4dc.base.tools.FileUtility;
 import com.jb4dc.base.ymls.JBuild4DCYaml;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
@@ -14,6 +15,8 @@ import com.jb4dc.sso.dao.organ.OrganMapper;
 import com.jb4dc.sso.dbentities.organ.OrganEntity;
 import com.jb4dc.sso.service.organ.IOnOrganChangeAware;
 import com.jb4dc.sso.service.organ.IOrganService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -33,16 +36,18 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 
+@Service
 public class OrganServiceImpl extends BaseServiceImpl<OrganEntity> implements IOrganService
 {
     private String rootId="0";
     private String rootParentId="-1";
 
-    String configResource= "/sso/OrganInitConfig.xml";
+    String configResource= "/config/OrganInitConfig.xml";
     Document xmlDocument=null;
 
     OrganMapper organMapper;
 
+    @Autowired
     public OrganServiceImpl(OrganMapper _defaultBaseMapper){
         super(_defaultBaseMapper);
         organMapper=_defaultBaseMapper;
@@ -134,7 +139,8 @@ public class OrganServiceImpl extends BaseServiceImpl<OrganEntity> implements IO
     }
 
     private Document getOrganInitConfigDoc() throws JBuild4DCGenerallyException, ParserConfigurationException, SAXException, IOException {
-        InputStream inputStream = this.getClass().getResourceAsStream(configResource);
+        //InputStream inputStream = this.getClass().getResourceAsStream(configResource);
+        InputStream inputStream = FileUtility.getStreamByLevel(configResource);
         Document _xml = XMLDocumentUtility.parseForDoc(inputStream);
         return _xml;
     }
