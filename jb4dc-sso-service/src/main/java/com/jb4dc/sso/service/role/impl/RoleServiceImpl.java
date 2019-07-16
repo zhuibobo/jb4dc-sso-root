@@ -7,12 +7,17 @@ import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.sso.dao.role.RoleMapper;
 import com.jb4dc.sso.dbentities.role.RoleEntity;
 import com.jb4dc.sso.service.role.IRoleService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
+@Service
 public class RoleServiceImpl extends BaseServiceImpl<RoleEntity> implements IRoleService
 {
     RoleMapper roleMapper;
+
+    @Autowired
     public RoleServiceImpl(RoleMapper _defaultBaseMapper){
         super(_defaultBaseMapper);
         roleMapper=_defaultBaseMapper;

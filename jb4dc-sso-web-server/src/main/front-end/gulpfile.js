@@ -18,6 +18,20 @@ const replaceBlockObj=require("./replaceBlock.js");
 const sourcePath = "static";
 const distPath = "../resources/static";
 
+/*编译Vue的扩展插件*/
+gulp.task('js-vue-ex-component',()=>{
+    return gulp.src([sourcePath + '/Js/VueComponent/**/*.js'])
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
+        .pipe(sourcemaps.init())
+        //.pipe(sourcemaps.identityMap())
+        .pipe(concat('SSOVueEXComponent.js'))
+        //.pipe(uglify())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(distPath + "/Js"));
+});
+
 gulp.task('html-only',()=>{
     //gulp.src(jarFromResourcePath+"/HTML/**/*", {base:jarFromResourcePath+"/HTML"}).pipe(gulp.dest(jarToResourcePath+"/HTML"))
     return copyAndResolveHtml(sourcePath + "/HTML/**/*.html",sourcePath + "/HTML",distPath + "/HTML");
@@ -31,6 +45,7 @@ gulp.task('html-only',()=>{
 
 gulp.task('dist-watch', function() {
     gulp.watch(sourcePath+"/HTML/**/*", gulp.series('html-only'));
+    gulp.watch(sourcePath + "/Js/VueComponent/**/*.js", gulp.series('js-vue-ex-component'));
 });
 
 //endregion

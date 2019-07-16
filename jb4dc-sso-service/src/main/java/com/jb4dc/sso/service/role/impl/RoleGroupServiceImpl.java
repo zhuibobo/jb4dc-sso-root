@@ -10,10 +10,13 @@ import com.jb4dc.sso.dao.role.RoleGroupMapper;
 import com.jb4dc.sso.dbentities.role.RoleGroupEntity;
 import com.jb4dc.sso.service.role.IRoleGroupService;
 import com.jb4dc.sso.service.role.IRoleService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
 
+@Service
 public class RoleGroupServiceImpl extends BaseServiceImpl<RoleGroupEntity> implements IRoleGroupService
 {
     private String rootId="0";
@@ -23,6 +26,8 @@ public class RoleGroupServiceImpl extends BaseServiceImpl<RoleGroupEntity> imple
     IRoleService roleService;
 
     RoleGroupMapper roleGroupMapper;
+
+    @Autowired
     public RoleGroupServiceImpl(RoleGroupMapper _defaultBaseMapper,IRoleService _roleService){
         super(_defaultBaseMapper);
         roleGroupMapper=_defaultBaseMapper;

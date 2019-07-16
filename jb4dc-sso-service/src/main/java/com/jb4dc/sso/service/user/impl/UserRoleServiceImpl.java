@@ -8,13 +8,18 @@ import com.jb4dc.core.base.tools.UUIDUtility;
 import com.jb4dc.sso.dao.user.UserRoleMapper;
 import com.jb4dc.sso.dbentities.user.UserRoleEntity;
 import com.jb4dc.sso.service.user.IUserRoleService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
 
+@Service
 public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleEntity> implements IUserRoleService
 {
     UserRoleMapper userRoleMapper;
+
+    @Autowired
     public UserRoleServiceImpl(UserRoleMapper _defaultBaseMapper){
         super(_defaultBaseMapper);
         userRoleMapper=_defaultBaseMapper;
