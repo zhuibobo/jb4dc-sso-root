@@ -28,6 +28,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: jb4dc:jb4dc-web-app-starter:1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: jb4dc:jb4dc-core-base:1.0-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: org.yaml:snakeyaml:1.23" level="project" />
     <orderEntry type="library" name="Maven: jb4dc:jb4dc-base-tools:1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: jb4dc:jb4dc-base-db-access:1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: jb4dc:jb4dc-base-service:1.0-SNAPSHOT" level="project" />
@@ -73,7 +74,6 @@
     <orderEntry type="library" name="Maven: org.unbescape:unbescape:1.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.thymeleaf.extras:thymeleaf-extras-java8time:3.0.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.liquibase:liquibase-core:3.6.3" level="project" />
-    <orderEntry type="library" name="Maven: org.yaml:snakeyaml:1.23" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-classic:1.2.3" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-core:1.2.3" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.6" level="project" />
