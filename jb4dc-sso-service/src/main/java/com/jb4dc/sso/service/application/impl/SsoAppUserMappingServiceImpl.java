@@ -7,11 +7,15 @@ import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.sso.dao.application.SsoAppUserMappingMapper;
 import com.jb4dc.sso.dbentities.application.SsoAppUserMappingEntity;
 import com.jb4dc.sso.service.application.ISsoAppUserMappingService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class SsoAppUserMappingServiceImpl extends BaseServiceImpl<SsoAppUserMappingEntity> implements ISsoAppUserMappingService
 {
     SsoAppUserMappingMapper ssoAppUserMappingMapper;
 
+    @Autowired
     public SsoAppUserMappingServiceImpl(SsoAppUserMappingMapper _defaultBaseMapper){
         super(_defaultBaseMapper);
         ssoAppUserMappingMapper=_defaultBaseMapper;

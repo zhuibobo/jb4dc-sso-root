@@ -7,10 +7,15 @@ import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.sso.dao.application.SsoAppFileMapper;
 import com.jb4dc.sso.dbentities.application.SsoAppFileEntity;
 import com.jb4dc.sso.service.application.ISsoAppFileService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class SsoAppFileServiceImpl extends BaseServiceImpl<SsoAppFileEntity> implements ISsoAppFileService
 {
     SsoAppFileMapper ssoAppFileMapper;
+
+    @Autowired
     public SsoAppFileServiceImpl(SsoAppFileMapper _defaultBaseMapper){
         super(_defaultBaseMapper);
         ssoAppFileMapper=_defaultBaseMapper;

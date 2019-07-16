@@ -8,13 +8,18 @@ import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.sso.dao.application.SsoAppInterfaceMapper;
 import com.jb4dc.sso.dbentities.application.SsoAppInterfaceEntity;
 import com.jb4dc.sso.service.application.ISsoAppInterfaceService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
 
+@Service
 public class SsoAppInterfaceServiceImpl extends BaseServiceImpl<SsoAppInterfaceEntity> implements ISsoAppInterfaceService
 {
     SsoAppInterfaceMapper ssoAppInterfaceMapper;
+
+    @Autowired
     public SsoAppInterfaceServiceImpl(SsoAppInterfaceMapper _defaultBaseMapper){
         super(_defaultBaseMapper);
         ssoAppInterfaceMapper=_defaultBaseMapper;

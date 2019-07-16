@@ -11,10 +11,12 @@ import com.jb4dc.sso.dbentities.application.SsoAppInterfaceEntity;
 import com.jb4dc.sso.service.application.ISsoAppInterfaceService;
 import com.jb4dc.sso.service.application.ISsoAppService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
 
+@Service
 public class SsoAppServiceImpl extends BaseServiceImpl<SsoAppEntity> implements ISsoAppService
 {
     SsoAppMapper ssoAppMapper;
@@ -22,6 +24,7 @@ public class SsoAppServiceImpl extends BaseServiceImpl<SsoAppEntity> implements 
     @Autowired
     ISsoAppInterfaceService ssoAppInterfaceService;
 
+    @Autowired
     public SsoAppServiceImpl(SsoAppMapper _defaultBaseMapper){
         super(_defaultBaseMapper);
         ssoAppMapper=_defaultBaseMapper;

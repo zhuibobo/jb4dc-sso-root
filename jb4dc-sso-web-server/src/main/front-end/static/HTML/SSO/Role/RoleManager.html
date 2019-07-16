@@ -124,7 +124,7 @@
                 bindUserWithRole:"/Rest/SSO/Ro/UserRoleBind/BindUsersWithRole",
                 reloadUserRoleBindData:"/Rest/SSO/Ro/UserRoleBind/GetBindRoleUsers",
                 deleteUserRoleBind:"/Rest/SSO/Ro/UserRoleBind/DeleteUserRoleBind",
-                clearAllRoleMember:"/Rest/SSO/Ro/SSO/UserRoleBind/ClearAllRoleMember"
+                clearAllRoleMember:"/Rest/SSO/Ro/UserRoleBind/ClearAllRoleMember"
             },
             <!--Tree-->
             treeIdFieldName:"roleGroupId",
@@ -479,9 +479,6 @@
                         appList.roleMemberList.pageNum = 1;
                         appList.reloadUserRoleBindData();
                     }
-                    else {
-                        DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, function () {});
-                    }
                 }, this);
             },
             clearAllRoleMember:function () {
@@ -494,9 +491,6 @@
                                 _self.reloadUserRoleBindData();
                             });
                         }
-                        else {
-                            DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, function () {});
-                        }
                     }, this);
                 });
             },
@@ -508,9 +502,6 @@
                             DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, function () {
                                 _self.reloadUserRoleBindData();
                             });
-                        }
-                        else {
-                            DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, function () {});
                         }
                     }, this);
                 });
