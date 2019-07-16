@@ -10,9 +10,9 @@ Vue.component("select-department-user-dialog", {
         return {
             acInterface:{
                 //Department
-                getDepartmentTreeData:"/Rest/SSO/Ro/Department/GetDepartmentsByOrganId",
+                getDepartmentTreeData:"/Rest/SSO/Dept/Department/GetDepartmentsByOrganId",
                 //List
-                reloadListData:"/Rest/SSO/Ro/DepartmentUser/GetListData"
+                reloadListData:"/Rest/SSO/Dept/DepartmentUser/GetListData"
             },
             //Tree
             treeIdFieldName:"deptId",
@@ -129,18 +129,18 @@ Vue.component("select-department-user-dialog", {
         },
         //DepartmentTree
         initTree:function (organId) {
-            var _self=this;
+            //var _self=this;
             AjaxUtility.Post(this.acInterface.getDepartmentTreeData, {"organId":organId}, function (result) {
                 if (result.success) {
-                    _self.$refs.zTreeUL.setAttribute("id","select-department-user-dialog-"+StringUtility.Guid());
-                    _self.treeObj=$.fn.zTree.init($(_self.$refs.zTreeUL), _self.treeSetting,result.data);
-                    _self.treeObj.expandAll(true);
-                    _self.treeObj._host=_self;
+                    this.$refs.zTreeUL.setAttribute("id","select-department-user-dialog-"+StringUtility.Guid());
+                    this.treeObj=$.fn.zTree.init($(this.$refs.zTreeUL), this.treeSetting,result.data);
+                    this.treeObj.expandAll(true);
+                    this.treeObj._host=this;
                 }
                 else {
                     DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, function () {});
                 }
-            }, "json");
+            }, this);
         },
         treeNodeSelected:function (event, treeId, treeNode) {
             // 根节点不触发任何事件
@@ -154,89 +154,6 @@ Vue.component("select-department-user-dialog", {
             //appList.reloadTreeTableData();
             //}
         },
-        addDepartment:function () {
-            if (this.treeSelectedNode != null) {
-                var url = BaseUtility.BuildView(this.acInterface.departmentEditView, {
-                    "op": "add",
-                    "parentId": this.treeSelectedNode[appList.treeIdFieldName]
-                });
-                DialogUtility.Frame_OpenIframeWindow(window, DialogUtility.DialogId, url, {title: "部门管理"}, 3);
-            }
-            else {
-                DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, "请选择父节点!", null);
-            }
-        },
-        editDepartment:function () {
-            if(this.treeSelectedNode!=null) {
-                var url = BaseUtility.BuildView(this.acInterface.departmentEditView, {
-                    "op": "update",
-                    "recordId": this.treeSelectedNode[appList.treeIdFieldName]
-                });
-                DialogUtility.Frame_OpenIframeWindow(window, DialogUtility.DialogId, url, {title: "部门管理"}, 3);
-            }
-            else {
-                DialogUtility.Alert(window,DialogUtility.DialogAlertId,{},"请选择需要编辑的节点!",null);
-            }
-        },
-        viewDepartment:function () {
-            var url = BaseUtility.BuildView(this.acInterface.departmentEditView, {
-                "op": "view",
-                "recordId": this.treeSelectedNode[appList.treeIdFieldName]
-            });
-            DialogUtility.Frame_OpenIframeWindow(window, DialogUtility.DialogId, url, {title: "部门管理"}, 3);
-        },
-        delDepartment:function () {
-            //var url="/PlatForm/devdemo/TreeAndList/DevDemoTLTree/Delete.do";
-            var _self=this;
-            var recordId=this.treeSelectedNode[appList.treeIdFieldName];
-            DialogUtility.Confirm(window, "确认要删除选定的节点吗？", function () {
-                AjaxUtility.Delete(_self.acInterface.deleteDepartment, {recordId: recordId}, function (result) {
-                    if (result.success) {
-                        DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, function () {
-                            appList.treeObj.removeNode(appList.treeSelectedNode);
-                            appList.treeSelectedNode=null;
-                        });
-                    }
-                    else {
-                        DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, function () {});
-                    }
-                }, "json");
-            });
-        },
-        moveDepartment:function (type) {
-            if(this.treeSelectedNode!=null) {
-                var recordId = this.treeSelectedNode[appList.treeIdFieldName];
-                AjaxUtility.Post(this.acInterface.moveDepartment, {recordId: recordId,type:type}, function (result) {
-                    if (result.success) {
-                        DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, function () {
-                            if(type=="down") {
-                                if(appList.treeSelectedNode.getNextNode()!=null) {
-                                    appList.treeObj.moveNode(appList.treeSelectedNode.getNextNode(), appList.treeSelectedNode, "next", false)
-                                }
-                            }else{
-                                if(appList.treeSelectedNode.getPreNode()!=null) {
-                                    appList.treeObj.moveNode(appList.treeSelectedNode.getPreNode(), appList.treeSelectedNode, "prev", false);
-                                }
-                            }
-                        });
-                    }
-                    else {
-                        DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message,null);
-                    }
-                }, "json");
-            }
-            else {
-                DialogUtility.Alert(window,DialogUtility.DialogAlertId,{},"请选择需要编辑的节点!",null);
-            }
-        },
-        newTreeNode : function (newNodeData) {
-            var silent = false;
-            appList.treeObj.addNodes(this.treeSelectedNode,newNodeData,silent);
-        },
-        updateNode : function (newNodeData) {
-            this.treeSelectedNode=$.extend(true,this.treeSelectedNode, newNodeData);
-            appList.treeObj.updateNode(this.treeSelectedNode);
-        },
         //List
         clearSearchCondition:function () {
             for(var key in this.searchCondition){
@@ -248,58 +165,19 @@ Vue.component("select-department-user-dialog", {
             this.selectionRows = selection;
         },
         reloadData: function () {
-            ListPageUtility.IViewTableLoadDataSearch(this.acInterface.reloadListData,this.pageNum,this.pageSize,this.searchCondition,this,this.idFieldName,true,null,false);
-        },
-        add: function () {
-            if(this.treeSelectedNode!=null) {
-                var url = BaseUtility.BuildView(this.acInterface.listEditView, {
-                    "op": "add",
-                    "departmentId": this.treeSelectedNode[appList.treeIdFieldName]
-                });
-                DialogUtility.Frame_OpenIframeWindow(window, DialogUtility.DialogId, url, {title: "部门用户管理"}, 2);
-            }
-            else {
-                DialogUtility.Alert(window,DialogUtility.DialogAlertId,{},"请选择分组!",null);
-            }
-        },
-        edit: function (recordId) {
-            var url = BaseUtility.BuildView(this.acInterface.listEditView, {
-                "op": "update",
-                "recordId": recordId
+            ListPageUtility.IViewTableBindDataBySearch({
+                url: this.acInterface.reloadListData,
+                pageNum: this.pageNum,
+                pageSize: this.pageSize,
+                searchCondition: this.searchCondition,
+                pageAppObj: this,
+                tableList: this,
+                idField: this.idFieldName,
+                autoSelectedOldRows: false,
+                successFunc: null,
+                loadDict: false,
+                custParas: {}
             });
-            DialogUtility.Frame_OpenIframeWindow(window, DialogUtility.DialogId, url, {title: "部门用户管理"}, 2);
-        },
-        view:function (recordId) {
-            var url = BaseUtility.BuildView(this.acInterface.listEditView, {
-                "op": "view",
-                "recordId": recordId
-            });
-            DialogUtility.Frame_OpenIframeWindow(window, DialogUtility.DialogId, url, {title: "部门用户管理"}, 2);
-        },
-        del: function (recordId) {
-            ListPageUtility.IViewTableDeleteRow(this.acInterface.deleteListRecord,recordId,appList);
-        },
-        statusEnable: function (statusName) {
-            ListPageUtility.IViewChangeServerStatusFace(this.acInterface.listStatusChange,this.selectionRows,appList.idFieldName,statusName,appList);
-        },
-        move:function (type) {
-            ListPageUtility.IViewMoveFace(this.acInterface.listMove,this.selectionRows,appList.idFieldName,type,appList);
-        },
-        moveToAnotherDepartment:function(){
-            if(this.selectionRows!=null&&this.selectionRows.length>0&&this.selectionRows.length==1){
-
-            }
-            else {
-                DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, "请选中需要操作的记录，每次只能选中一行!", null);
-            }
-        },
-        partTimeJob:function(){
-            if(this.selectionRows!=null&&this.selectionRows.length>0&&this.selectionRows.length==1){
-
-            }
-            else {
-                DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, "请选中需要操作的记录，每次只能选中一行!", null);
-            }
         },
         changePage: function (pageNum) {
             this.pageNum = pageNum;

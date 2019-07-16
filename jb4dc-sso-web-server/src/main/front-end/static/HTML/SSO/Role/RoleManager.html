@@ -482,7 +482,7 @@
                     else {
                         DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, function () {});
                     }
-                }, "json");
+                }, this);
             },
             clearAllRoleMember:function () {
                 var _self=this;
@@ -497,7 +497,7 @@
                         else {
                             DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, function () {});
                         }
-                    }, "json");
+                    }, this);
                 });
             },
             delUserRoleBind:function (params) {
@@ -512,7 +512,7 @@
                         else {
                             DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, function () {});
                         }
-                    }, "json");
+                    }, this);
                 });
             }
         }
