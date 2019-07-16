@@ -24,7 +24,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/Rest/SSO/App/Application")
-public class AppRestResource {
+public class AppRest {
 
     @Autowired
     IFileInfoService fileInfoService;
@@ -37,7 +37,7 @@ public class AppRestResource {
 
     byte[] defaultImageByte=null;
 
-    public AppRestResource(){
+    public AppRest(){
         if(defaultImageByte==null){
             try {
                 InputStream is = this.getClass().getResourceAsStream("/static/Themes/Default/Css/Images/DefaultSSOAppLogo.png");

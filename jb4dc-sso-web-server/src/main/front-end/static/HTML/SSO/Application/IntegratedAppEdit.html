@@ -22,7 +22,7 @@
             <sso-app-interface-list-comp ref="mainAppInterfaceListComp" :interface-belong-app-Id="recordId"></sso-app-interface-list-comp>
         </tab-pane>
         <tab-pane label="子系统配置">
-            <sso-app-sub-system-list-comp :status="status" :belong-app-id="recordId"></sso-app-sub-system-list-comp>
+            <!--<sso-app-sub-system-list-comp :status="status" :belong-app-id="recordId"></sso-app-sub-system-list-comp>-->
         </tab-pane>
     </tabs>
     <div class="button-outer-wrap">
@@ -47,8 +47,8 @@
         },
         data: {
             acInterface:{
-                saveMainAppUrl:"/PlatFormRest/SSO/Application/SaveMainApp",
-                getDataUrl:"/PlatFormRest/SSO/Application/GetAppVo"
+                saveMainAppUrl:"/Rest/SSO/App/Application/SaveMainApp",
+                getDataUrl:"/Rest/SSO/App/Application/GetAppVo"
             },
             recordId:BaseUtility.GetUrlParaValue("recordId"),
             status: BaseUtility.GetUrlParaValue("op"),
@@ -66,7 +66,7 @@
                     else{
                         DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, null);
                     }
-                },"json");
+                },this);
             },
             handleSubmit: function () {
                 var _self=this;
@@ -86,7 +86,7 @@
                         DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, null);
                     }
 
-                },"json");
+                },this);
             },
             handleClose: function () {
                 DialogUtility.Frame_CloseDialog(window);
