@@ -18,7 +18,7 @@ public class SsoWebFilter extends HttpServlet implements Filter {
 
     private static Logger logger = LoggerFactory.getLogger(SsoWebFilter.class);
 
-    public static final String KEY_SSO_SERVER = "SSO_SERVER";
+    public static final String KEY_SSO_SERVER_ADDRESS = "SSO_SERVER";
     public static final String KEY_SSO_LOGIN_PATH="SSO_LOGIN_PATH";
     public static final String KEY_SSO_LOGOUT_PATH = "SSO_LOGOUT_PATH";
     public static final String KEY_SSO_EXCLUDED_PATHS = "SSO_EXCLUDED_PATHS";
@@ -30,20 +30,20 @@ public class SsoWebFilter extends HttpServlet implements Filter {
         this.checkSessionSuccess = checkSessionSuccess;
     }
 
-    private String ssoServer;
+    private String ssoServerAddress;
     private String loginPath;
     private String logoutPath;
     private String excludedPaths;
     private String restBasePath;
 
     public void init(FilterConfig filterConfig) throws ServletException {
-        ssoServer = filterConfig.getInitParameter(KEY_SSO_SERVER);
+        ssoServerAddress = filterConfig.getInitParameter(KEY_SSO_SERVER_ADDRESS);
         loginPath = filterConfig.getInitParameter(KEY_SSO_LOGIN_PATH);
         logoutPath = filterConfig.getInitParameter(KEY_SSO_LOGOUT_PATH);
         excludedPaths = filterConfig.getInitParameter(KEY_SSO_EXCLUDED_PATHS);
         restBasePath = filterConfig.getInitParameter(KEY_SSO_REST_BASE_PATH);
 
-        Conf.SSO_SERVER_ADDRESS=ssoServer;
+        Conf.SSO_SERVER_ADDRESS=ssoServerAddress;
         Conf.SSO_REST_BASE=restBasePath;
 
         logger.info("SsoWebFilter init.");
@@ -83,7 +83,7 @@ public class SsoWebFilter extends HttpServlet implements Filter {
                     // total link
                     String link = req.getRequestURL().toString();
                     // 重定向到登录页面,带上原始的地址,登录后返回原始页面.
-                    String loginPageUrl = ssoServer.concat(loginPath)
+                    String loginPageUrl = ssoServerAddress.concat(loginPath)
                             + "?" + Conf.SSO_REDIRECT_URL_PARA_NAME + "=" + link+"&"+Conf.SSO_IS_INT_SYSTEM_URL_PARA_NAME+"=true";
 
                     res.sendRedirect(loginPageUrl);

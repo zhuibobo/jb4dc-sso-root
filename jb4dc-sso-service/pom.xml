@@ -17,5 +17,9 @@
             <artifactId>jb4dc-web-app-starter</artifactId>
             <version>${platform.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+        </dependency>
     </dependencies>
 </project>

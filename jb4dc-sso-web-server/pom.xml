@@ -28,9 +28,18 @@
             <version>${platform.version}</version>
         </dependency>
         <dependency>
+            <groupId>jb4dc</groupId>
+            <artifactId>jb4dc-base-files-service</artifactId>
+            <version>${platform.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.squareup.retrofit2/retrofit -->

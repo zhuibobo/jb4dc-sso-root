@@ -18,5 +18,7 @@
         <module>jb4dc-system-setting-service</module>
         <module>jb4dc-system-setting-client</module>
     </modules>
+    <dependencies>
 
+    </dependencies>
 </project>

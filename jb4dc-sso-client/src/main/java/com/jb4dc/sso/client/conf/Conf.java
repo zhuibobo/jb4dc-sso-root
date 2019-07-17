@@ -4,9 +4,7 @@ package com.jb4dc.sso.client.conf;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 
 /**
- * conf
- *
- * @author xuxueli 2018-04-02 19:18:04
+ * Conf
  */
 public class Conf {
 

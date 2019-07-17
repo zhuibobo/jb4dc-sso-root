@@ -3,17 +3,15 @@ package com.jb4dc.system.setting.service.impl;
 import com.jb4dc.base.dbaccess.exenum.EnableTypeEnum;
 import com.jb4dc.base.dbaccess.exenum.TrueFalseEnum;
 import com.jb4dc.base.service.IAddBefore;
-import com.jb4dc.base.service.ISQLBuilderService;
 import com.jb4dc.base.service.IUpdateBefore;
 import com.jb4dc.base.service.impl.BaseServiceImpl;
-import com.jb4dc.base.ymls.JBuild4DCYaml;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.core.base.tools.StringUtility;
+import com.jb4dc.core.base.ymls.JBuild4DCYaml;
 import com.jb4dc.system.setting.dao.SettingMapper;
 import com.jb4dc.system.setting.dbentities.SettingEntity;
 import com.jb4dc.system.setting.service.ISettingService;
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
