@@ -6,6 +6,7 @@ import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.core.base.ymls.JBuild4DCYaml;
+import com.jb4dc.sso.service.application.ISsoAppService;
 import com.jb4dc.sso.service.menu.IMenuService;
 import com.jb4dc.sso.service.organ.IOrganService;
 import com.jb4dc.sso.service.organ.IOrganTypeService;
@@ -55,6 +56,9 @@ public class InitializationSystemRest {
     @Autowired
     private IRoleGroupService roleGroupService;
 
+    @Autowired
+    private ISsoAppService ssoAppService;
+
     @RequestMapping(value = "/Running", method = RequestMethod.POST)
     @ResponseBody
     public JBuild4DCResponseVo running(String createTestData) throws JBuild4DCGenerallyException, JsonProcessingException {
@@ -79,6 +83,8 @@ public class InitializationSystemRest {
         organService.createRootOrgan(jb4DSession);
 
         roleGroupService.initSystemData(jb4DSession);
+
+        ssoAppService.initSystemData(jb4DSession);
 
         if(createTestData!=null&&createTestData.toLowerCase().equals("true")){
             //创建测试的表分组

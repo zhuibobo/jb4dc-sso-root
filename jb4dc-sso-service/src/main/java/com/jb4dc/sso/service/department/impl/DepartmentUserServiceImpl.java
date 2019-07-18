@@ -5,13 +5,12 @@ import com.github.pagehelper.PageInfo;
 
 import com.jb4dc.base.dbaccess.exenum.EnableTypeEnum;
 import com.jb4dc.base.dbaccess.exenum.TrueFalseEnum;
-import com.jb4dc.base.service.ISQLBuilderService;
 import com.jb4dc.core.base.encryption.digitaldigest.MD5Utility;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.core.base.tools.StringUtility;
 import com.jb4dc.core.base.tools.UUIDUtility;
-import com.jb4dc.sso.bo.DepartmentUserVo;
+import com.jb4dc.sso.bo.DepartmentUserBO;
 import com.jb4dc.sso.dao.department.DepartmentUserMapper;
 import com.jb4dc.sso.dbentities.department.DepartmentEntity;
 import com.jb4dc.sso.dbentities.department.DepartmentUserEntity;
@@ -21,7 +20,6 @@ import com.jb4dc.sso.service.department.IDepartmentService;
 import com.jb4dc.sso.service.department.IDepartmentUserService;
 import com.jb4dc.sso.service.organ.IOrganService;
 import com.jb4dc.sso.service.user.IUserService;
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -55,7 +53,7 @@ public class DepartmentUserServiceImpl implements IDepartmentUserService
 
     @Override
     @Transactional(rollbackFor= JBuild4DCGenerallyException.class)
-    public int save(JB4DCSession jb4DSession, String departmentUserId, DepartmentUserVo record, String accountPassword) throws JBuild4DCGenerallyException {
+    public int save(JB4DCSession jb4DSession, String departmentUserId, DepartmentUserBO record, String accountPassword) throws JBuild4DCGenerallyException {
         DepartmentUserEntity departmentUserEntity=departmentUserMapper.selectByPrimaryKey(departmentUserId);
 
         if(record.getUserEntity()==null||record.getDepartmentUserEntity()==null){
@@ -118,11 +116,11 @@ public class DepartmentUserServiceImpl implements IDepartmentUserService
     }
 
     @Override
-    public DepartmentUserVo getEmptyNewVo(JB4DCSession jb4DSession, String departmentId) throws JBuild4DCGenerallyException {
+    public DepartmentUserBO getEmptyNewVo(JB4DCSession jb4DSession, String departmentId) throws JBuild4DCGenerallyException {
         DepartmentEntity departmentEntity=departmentService.getByPrimaryKey(jb4DSession,departmentId);
         OrganEntity organEntity=organService.getByPrimaryKey(jb4DSession,departmentEntity.getDeptOrganId());
 
-        DepartmentUserVo departmentUserVo=new DepartmentUserVo();
+        DepartmentUserBO departmentUserVo=new DepartmentUserBO();
         departmentUserVo.setDepartmentEntity(departmentEntity);
         departmentUserVo.setOrganEntity(organEntity);
 
@@ -148,13 +146,13 @@ public class DepartmentUserServiceImpl implements IDepartmentUserService
     }
 
     @Override
-    public DepartmentUserVo getVo(JB4DCSession jb4DSession, String departmentUserId) throws JBuild4DCGenerallyException {
+    public DepartmentUserBO getVo(JB4DCSession jb4DSession, String departmentUserId) throws JBuild4DCGenerallyException {
         DepartmentUserEntity departmentUserEntity=departmentUserMapper.selectByPrimaryKey(departmentUserId);
         UserEntity userEntity=userService.getByPrimaryKey(jb4DSession,departmentUserEntity.getDuUserId());
         DepartmentEntity departmentEntity=departmentService.getByPrimaryKey(jb4DSession,departmentUserEntity.getDuDeptId());
         OrganEntity organEntity=organService.getByPrimaryKey(jb4DSession,departmentEntity.getDeptOrganId());
 
-        DepartmentUserVo departmentUserVo=new DepartmentUserVo();
+        DepartmentUserBO departmentUserVo=new DepartmentUserBO();
         departmentUserVo.setDepartmentUserEntity(departmentUserEntity);
         departmentUserVo.setUserEntity(userEntity);
         departmentUserVo.setOrganEntity(organEntity);

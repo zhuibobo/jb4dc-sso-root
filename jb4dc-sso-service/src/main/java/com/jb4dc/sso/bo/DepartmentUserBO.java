@@ -6,7 +6,7 @@ import com.jb4dc.sso.dbentities.department.DepartmentUserEntity;
 import com.jb4dc.sso.dbentities.organ.OrganEntity;
 import com.jb4dc.sso.dbentities.user.UserEntity;
 
-public class DepartmentUserVo {
+public class DepartmentUserBO {
     private DepartmentUserEntity departmentUserEntity;
     private UserEntity userEntity;
     private OrganEntity organEntity;
