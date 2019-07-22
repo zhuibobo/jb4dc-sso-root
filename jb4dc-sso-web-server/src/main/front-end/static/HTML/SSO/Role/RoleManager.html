@@ -163,7 +163,7 @@
             roleList:{
                 idFieldName:"roleId",
                 searchCondition:{
-                    groupId:{
+                    roleGroupId:{
                         value:"",
                         type:SearchUtility.SearchFieldType.StringType
                     }
@@ -254,7 +254,7 @@
                 this.roleList.selectionRows=null;
                 this.roleList.pageNum=1;
                 this.clearSearchCondition();
-                this.roleList.searchCondition.groupId.value=this.treeSelectedNode[this.treeIdFieldName];
+                this.roleList.searchCondition.roleGroupId.value=this.treeSelectedNode[this.treeIdFieldName];
                 this.reloadData();
                 //appList.reloadTreeTableData();
                 //}

@@ -82,13 +82,13 @@ public class RoleGroupServiceImpl extends BaseServiceImpl<RoleGroupEntity> imple
         this.createRole(jb4DSession,"SystemOrganAdmin","SystemOrganAdmin",systemManageGroupEntity.getRoleGroupId(),"组织管理员角色");
 
         RoleGroupEntity devMockAppGroupEntity = createRoleGroup(jb4DSession, "DevMockAppRoleGroup", rootId, "开发样例系统角色组");
-        this.createRole(jb4DSession,"DevMockAppRole","DevMockAppRole",systemManageGroupEntity.getRoleGroupId(),"开发样例角色");
+        this.createRole(jb4DSession,"DevMockAppRole","DevMockAppRole",devMockAppGroupEntity.getRoleGroupId(),"开发样例角色");
 
         RoleGroupEntity ssoMainAppGroupEntity = createRoleGroup(jb4DSession, "SSOMainAppRoleGroup", rootId, "单点登录系统角色组");
-        this.createRole(jb4DSession,"SSOMainAppRole","SSOMainAppRole",systemManageGroupEntity.getRoleGroupId(),"单点登录角色");
+        this.createRole(jb4DSession,"SSOMainAppRole","SSOMainAppRole",ssoMainAppGroupEntity.getRoleGroupId(),"单点登录角色");
 
         RoleGroupEntity builderMainAppGroupEntity = createRoleGroup(jb4DSession, "BuilderMainAppRoleGroup", rootId, "应用构建系统角色组");
-        this.createRole(jb4DSession,"BuilderMainAppRole","BuilderMainAppRole",systemManageGroupEntity.getRoleGroupId(),"应用构建角色");
+        this.createRole(jb4DSession,"BuilderMainAppRole","BuilderMainAppRole",builderMainAppGroupEntity.getRoleGroupId(),"应用构建角色");
     }
 
     private RoleGroupEntity createRoleGroup(JB4DCSession jb4DSession,String groupId,String parentId,String groupName) throws JBuild4DCGenerallyException {
