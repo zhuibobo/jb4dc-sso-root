@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -47,7 +48,10 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
                 if(StringUtility.isEmpty(sourceEntity.getMenuParentId())){
                     throw new JBuild4DCGenerallyException(JBuild4DCGenerallyException.EXCEPTION_SSO_CODE,"请在实体中设置ParentId的值!");
                 }
-                if(!sourceEntity.getMenuParentId().equals("-1")){
+                if(sourceEntity.getMenuParentId().equals("0")){
+                    sourceEntity.setMenuParentIdList("0*"+sourceEntity.getMenuId());
+                }
+                else{
                     parentEntity=menuMapper.selectByPrimaryKey(sourceEntity.getMenuParentId());
                     if(parentEntity==null){
                         throw new JBuild4DCGenerallyException(JBuild4DCGenerallyException.EXCEPTION_SSO_CODE,"找不到父节点为"+sourceEntity.getMenuParentId()+"的记录!");
@@ -56,10 +60,8 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
                     {
                         sourceEntity.setMenuParentIdList(parentEntity.getMenuParentIdList()+"*"+sourceEntity.getMenuId());
                     }
-                }
-                else
-                {
-                    sourceEntity.setMenuParentIdList("-1*"+sourceEntity.getMenuId());
+                    parentEntity.setMenuChildCount(parentEntity.getMenuChildCount()+1);
+                    menuMapper.updateByPrimaryKeySelective(parentEntity);
                 }
 
                 sourceEntity.setMenuCreateTime(new Date());
@@ -71,10 +73,10 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         });
     }
 
-    private MenuEntity createMenu(JB4DCSession jb4DSession,String parentId,String menuId,String name,String text,String value,String rightUrl,String iconClassName) throws JBuild4DCGenerallyException {
+    private MenuEntity createMenu(JB4DCSession jb4DSession,String parentId,String menuId,String name,String text,String value,String rightUrl,String iconClassName,String systemId) throws JBuild4DCGenerallyException {
         //String systemSettingCacheManageId="JB4DSystemSettingCacheManage";
         MenuEntity newMenu=getMenu(parentId,menuId,name,text,value,
-                MenuTypeEnum.LeftMenu.getDisplayName(),"",rightUrl,iconClassName,"JB4DC-SSO");
+                MenuTypeEnum.LeftMenu.getDisplayName(),"",rightUrl,iconClassName,systemId);
         deleteByKey(jb4DSession,newMenu.getMenuId());
         saveSimple(jb4DSession,newMenu.getMenuId(),newMenu);
         return newMenu;
@@ -84,56 +86,75 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
     public void initSystemData(JB4DCSession jb4DSession) throws JBuild4DCGenerallyException {
         //根菜单
         String rootMenuId="0";
-        MenuEntity rootMenu=getMenu("-1",rootMenuId,"Root","Root","Root", MenuTypeEnum.Root.getDisplayName(),"","","","JB4DC-Global");
-        deleteByKey(jb4DSession,rootMenu.getMenuId());
-        saveSimple(jb4DSession,rootMenu.getMenuId(),rootMenu);
+        //MenuEntity rootMenu=getMenu("-1",rootMenuId,"Root","Root","Root", MenuTypeEnum.Root.getDisplayName(),"","","","SSOMainApp");
+        //deleteByKey(jb4DSession,rootMenu.getMenuId());
+        //saveSimple(jb4DSession,rootMenu.getMenuId(),rootMenu);
 
         //根菜单->系统设置分组
-        MenuEntity systemSettingRootMenu=createMenu(jb4DSession,rootMenu.getMenuId(),"JB4DSystemSettingRoot","系统设置","系统设置","系统设置","","menu-data");
+        MenuEntity systemSettingRootMenu=createMenu(jb4DSession,rootMenuId,"JB4DSystemSettingRoot","系统设置","系统设置","系统设置","","menu-data","SSOMainApp");
 
         //根菜单->系统设置分组->数据字典分组
         createMenu(jb4DSession,systemSettingRootMenu.getMenuId(),"systemSettingDictionaryManagerId",
                 "数据字典","数据字典","数据字典",
-                "/HTML/SystemSetting/Dictionary/DictionaryManager.html","");
+                "/HTML/SystemSetting/Dictionary/DictionaryManager.html","","SSOMainApp");
 
         //根菜单->系统设置分组->操作日志
         createMenu(jb4DSession,systemSettingRootMenu.getMenuId(),"JB4DSystemSettingOperationLog",
                 "操作日志","操作日志","操作日志",
-                "/HTML/SystemSetting/OperationLog/OperationLogList.html","");
+                "/HTML/SystemSetting/OperationLog/OperationLogList.html","","SSOMainApp");
 
         //根菜单->系统设置分组->参数设置
         createMenu(jb4DSession,systemSettingRootMenu.getMenuId(),"JB4DSystemSettingParasSetting",
                 "参数设置","参数设置","参数设置",
-                "/HTML/SystemSetting/ParasSetting/ParasSettingList.html","");
+                "/HTML/SystemSetting/ParasSetting/ParasSettingList.html","","SSOMainApp");
 
         //根菜单->统一用户与单点登录
-        MenuEntity ssoRootMenu=createMenu(jb4DSession,rootMenu.getMenuId(),"JB4DSSORootMenu",
+        MenuEntity ssoRootMenu=createMenu(jb4DSession,rootMenuId,"JB4DSSORootMenu",
                 "单点登录与统一用户","单点登录与统一用户","单点登录与统一用户",
-                "","");
+                "","","SSOMainApp");
 
+        //根菜单->统一用户与单点登录->组织类型
         createMenu(jb4DSession,ssoRootMenu.getMenuId(),"JB4DOrganTypeManage",
                 "组织类型","组织类型","组织类型",
-                "/HTML/SSO/OrganType/OrganTypeList.html","");
+                "/HTML/SSO/OrganType/OrganTypeList.html","","SSOMainApp");
 
+        //根菜单->统一用户与单点登录->组织机构
         createMenu(jb4DSession,ssoRootMenu.getMenuId(),"JB4DOrganManage",
                 "组织机构","组织机构","组织机构",
-                "/HTML/SSO/Organ/OrganList.html","");
+                "/HTML/SSO/Organ/OrganList.html","","SSOMainApp");
 
+        //根菜单->统一用户与单点登录->部门管理
         createMenu(jb4DSession,ssoRootMenu.getMenuId(),"JB4DDepartmentManage",
                 "部门管理","部门管理","部门管理",
-                "/HTML/SSO/Department/DepartmentManager.html","");
+                "/HTML/SSO/Department/DepartmentManager.html","","SSOMainApp");
 
+        //根菜单->统一用户与单点登录->角色管理
         createMenu(jb4DSession,ssoRootMenu.getMenuId(),"JB4DRoleManage",
                 "角色管理","角色管理","角色管理",
-                "/HTML/SSO/Role/RoleManager.html","");
+                "/HTML/SSO/Role/RoleManager.html","","SSOMainApp");
 
+        //根菜单->统一用户与单点登录->应用管理
         createMenu(jb4DSession,ssoRootMenu.getMenuId(),"JB4DAppManage",
                 "应用管理","应用管理","应用管理",
-                "/HTML/SSO/Application/ApplicationManager.html","");
+                "/HTML/SSO/Application/ApplicationManager.html","","SSOMainApp");
 
+        //根菜单->统一用户与单点登录->菜单管理
         createMenu(jb4DSession,ssoRootMenu.getMenuId(),"JB4DMenuManage",
                 "菜单管理","菜单管理","菜单管理",
-                "/HTML/SSO/Menu/MenuManager.html","");
+                "/HTML/SSO/Menu/MenuManager.html","","SSOMainApp");
+
+
+        //根菜单->开发示例
+        MenuEntity devDemoRootMenu=createMenu(jb4DSession,rootMenuId,"JB4DDevDemoRoot",
+                "开发示例","开发示例","开发示例",
+                "","","DevMockApp");
+
+
+    }
+
+    @Override
+    public List<MenuEntity> getMenusBySystemId(JB4DCSession session, String systemId) {
+        return menuMapper.selectBySystemId(systemId);
     }
 
     public MenuEntity getMenu(String parentId,String id,String name,String text,String value,String type,String leftUrl,String rightUrl,String iconClassName,String systemId){

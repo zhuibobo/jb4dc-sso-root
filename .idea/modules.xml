@@ -6,8 +6,6 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/jb4dc-sso-root.iml" filepath="$PROJECT_DIR$/.idea/jb4dc-sso-root.iml" />
       <module fileurl="file://$PROJECT_DIR$/jb4dc-sso-service/jb4dc-sso-service.iml" filepath="$PROJECT_DIR$/jb4dc-sso-service/jb4dc-sso-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/jb4dc-sso-web-server/jb4dc-sso-web-server.iml" filepath="$PROJECT_DIR$/jb4dc-sso-web-server/jb4dc-sso-web-server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jb4dc-system-setting-client/jb4dc-system-setting-client.iml" filepath="$PROJECT_DIR$/jb4dc-system-setting-client/jb4dc-system-setting-client.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jb4dc-system-setting-service/jb4dc-system-setting-service.iml" filepath="$PROJECT_DIR$/jb4dc-system-setting-service/jb4dc-system-setting-service.iml" />
     </modules>
   </component>
 </project>

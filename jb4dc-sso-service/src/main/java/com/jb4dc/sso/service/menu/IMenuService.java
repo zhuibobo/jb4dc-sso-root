@@ -5,6 +5,8 @@ import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.sso.dbentities.menu.MenuEntity;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: zhuangrb
@@ -13,4 +15,6 @@ import com.jb4dc.sso.dbentities.menu.MenuEntity;
  */
 public interface IMenuService extends IBaseService<MenuEntity> {
     void initSystemData(JB4DCSession jb4DSession) throws JBuild4DCGenerallyException;
+
+    List<MenuEntity> getMenusBySystemId(JB4DCSession session, String systemId);
 }

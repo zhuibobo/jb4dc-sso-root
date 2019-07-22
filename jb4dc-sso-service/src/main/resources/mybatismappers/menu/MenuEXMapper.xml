@@ -39,4 +39,7 @@
  where MENU_ORDER_NUM = (select max(MENU_ORDER_NUM) from TSSO_MENU where MENU_ORDER_NUM<(select MENU_ORDER_NUM from TSSO_MENU where MENU_ID=#{Id,jdbcType=NVARCHAR}))]]></select>
     <select id="selectGreaterThanRecord" parameterType="java.lang.String" resultMap="BaseResultMap"><![CDATA[select * from TSSO_MENU
  where MENU_ORDER_NUM = (select min(MENU_ORDER_NUM) from TSSO_MENU where MENU_ORDER_NUM>(select MENU_ORDER_NUM from TSSO_MENU where MENU_ID=#{Id,jdbcType=NVARCHAR}))]]></select>
+    <select id="selectBySystemId" resultMap="BaseResultMap">
+        select<include refid="Base_Column_List"/> from TSSO_MENU where MENU_SYSTEM_ID=#{systemId} ORDER by MENU_ORDER_NUM ASC
+    </select>
 </mapper>

@@ -24,11 +24,6 @@
         </dependency>
         <dependency>
             <groupId>jb4dc</groupId>
-            <artifactId>jb4dc-system-setting-service</artifactId>
-            <version>${platform.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>jb4dc</groupId>
             <artifactId>jb4dc-base-files-service</artifactId>
             <version>${platform.version}</version>
         </dependency>
