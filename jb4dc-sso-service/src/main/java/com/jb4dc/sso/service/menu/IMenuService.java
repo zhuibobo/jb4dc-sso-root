@@ -17,4 +17,6 @@ public interface IMenuService extends IBaseService<MenuEntity> {
     void initSystemData(JB4DCSession jb4DSession) throws JBuild4DCGenerallyException;
 
     List<MenuEntity> getMenusBySystemId(JB4DCSession session, String systemId);
+
+    List getMyFrameMenu(JB4DCSession jb4DCSession, String systemId);
 }

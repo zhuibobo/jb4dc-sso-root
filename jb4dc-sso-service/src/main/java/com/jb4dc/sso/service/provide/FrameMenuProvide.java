@@ -26,7 +26,7 @@ public class FrameMenuProvide implements IFrameMenuProvide {
 
     @Override
     public List<MenuPO> getMyFrameMenu(JB4DCSession jb4DCSession) {
-        List all =  menuService.getALLASC(jb4DCSession);
+        List all =  menuService.getMyFrameMenu(jb4DCSession,"SSOMainApp");
         return all;
     }
 }
