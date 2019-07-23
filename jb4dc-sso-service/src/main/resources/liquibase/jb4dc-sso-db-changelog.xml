@@ -158,12 +158,18 @@
             <column name="BIND_ORGAN_ID" type="NVARCHAR(100)" remarks="组织ID" />
         </createTable>
 
-        <!--未实现-->
-        <createTable tableName="TSSO_AUTHORITY" remarks="角色权限表">
+        <createTable tableName="TSSO_AUTHORITY" remarks="权限对象与成员绑定表">
             <column name="AUTH_ID" type="NVARCHAR(100)" remarks="主键:UUID">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="ROLE_ID" type="NVARCHAR(100)" remarks="主键:UUID" />
+            <column name="AUTH_OBJ_ID" type="NVARCHAR(100)" remarks="权限对象ID:系统,菜单,操作按钮等" />
+            <column name="AUTH_OBJ_TYPE" type="NVARCHAR(100)" remarks="权限对象类型:System,Menu,Operation等" />
+            <column name="AUTH_OWNER_ID" type="NVARCHAR(100)" remarks="权限所有者ID:角色ID,用户ID等" />
+            <column name="AUTH_OWNER_TYPE" type="NVARCHAR(20)" remarks="权限所有者类型:Role,User等" />
+            <column name="AUTH_CREATOR_ID" type="NVARCHAR(100)" remarks="创建者的ID" />
+            <column name="AUTH_CREATOR_ORGAN_ID" type="NVARCHAR(100)" remarks="创建组织ID" />
+            <column name="AUTH_ORGAN_ID" type="NVARCHAR(100)" remarks="所在组织ID" />
+            <column name="AUTH_DESC" type="NVARCHAR(500)" remarks="权限绑定备注" />
         </createTable>
 
         <createTable tableName="TSSO_SSO_APP" remarks="SSO集成系统表">

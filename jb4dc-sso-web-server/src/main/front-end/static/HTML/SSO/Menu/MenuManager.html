@@ -46,7 +46,7 @@
             acInterface:{
                 <!--System-->
                 getSystemTreeData:"/Rest/SSO/App/Application/GetAllMainSsoApp",
-                <!--Dictionary-->
+                <!--Menu-->
                 menuEditView:"/HTML/SSO/Menu/MenuEdit.html",
                 getMenusDataBySystemId:"/Rest/SSO/Mu/Menu/GetMenusBySystemId",
                 deleteMenu:"/Rest/SystemSetting/Dict/Dictionary/Delete",
@@ -120,7 +120,7 @@
                         Renderer:"Lable",
                         Hidden:false,
                         TitleCellAttrs:{},
-                        Width:"40%"
+                        Width:"20%"
                     },{
                         Title:"链接地址",
                         FieldName:"menuRightUrl",
@@ -129,6 +129,15 @@
                         Hidden:false,
                         TitleCellAttrs:{},
                         Width:"40%",
+                        TextAlign:"center"
+                    },{
+                        Title:"备注",
+                        FieldName:"menuDescription",
+                        TitleCellClassName:"TitleCell",
+                        Renderer:"Lable",
+                        Hidden:false,
+                        TitleCellAttrs:{},
+                        Width:"20%",
                         TextAlign:"center"
                     },{
                         Title:"菜单值",
@@ -157,7 +166,7 @@
                     if (result.success) {
                         var treeData = result.data;
                         for (var i = 0; i < treeData.length; i++) {
-                            treeData[i].icon = "../../../Themes/Png16X16/coins_add.png";
+                            treeData[i].icon = "../../../Themes/Png16X16/computer-link.png";
                         }
                         //console.log(treeData);
                         //_self.$refs.tableZTreeUL.setAttribute("id","select-table-single-comp-"+StringUtility.Guid());
@@ -183,8 +192,9 @@
                             menuId: "0",
                             menuParentId: "-1",
                             menuName: this.treeSelectedNode.appName,
-                            menuValue: "root",
-                            menuRightUrl: ""
+                            menuValue: "Root",
+                            menuRightUrl: "",
+                            menuDescription:""
                         });
                         var treeData=JsonUtility.ParseArrayJsonToTreeJson({
                             KeyField: "menuId",

@@ -212,4 +212,22 @@ public class OrganServiceImpl extends BaseServiceImpl<OrganEntity> implements IO
             organMapper.updateByPrimaryKeySelective(selfEntity);
         }
     }
+
+    @Override
+    public void initSystemData(JB4DCSession jb4DSession) throws JBuild4DCGenerallyException {
+        OrganEntity organEntity=new OrganEntity();
+        organEntity.setOrganCreateTime(new Date());
+        organEntity.setOrganCode("0001");
+        organEntity.setOrganId("10001");
+        organEntity.setOrganName("新德家园");
+        organEntity.setOrganNo("0001");
+        organEntity.setOrganIsVirtual(TrueFalseEnum.False.getDisplayName());
+        organEntity.setOrganParentId(rootId);
+        organEntity.setOrganStatus(EnableTypeEnum.enable.getDisplayName());
+        organEntity.setOrganShortName("新德家园");
+        this.deleteByKeyNotValidate(jb4DSession,"10001",JBuild4DCYaml.getWarningOperationCode());
+        this.saveSimple(jb4DSession,organEntity.getOrganId(),organEntity);
+
+
+    }
 }

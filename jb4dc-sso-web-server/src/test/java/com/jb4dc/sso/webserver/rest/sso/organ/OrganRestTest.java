@@ -33,14 +33,27 @@ public class OrganRestTest extends RestTestBase {
 
     @Test
     public void addOrganAndDepartmentAndUserTest() throws Exception {
+        DeleteOrgan("10001");
+        NewOrgan("10001","新德家园","0","Logo_1.png");
+        String deptId="DA4B";
+
+        DeleteDepartment(deptId);
+        Map<String,String> paras=new HashMap<>();
+        paras.put("organId", "10001");
+        JBuild4DCResponseVo departmentVo=simpleGetData("/Rest/SSO/Dept/Department/GetOrganRootDepartment",paras);
+        String rootDepartmentId=((LinkedHashMap) departmentVo.getData()).get("deptId").toString();
+        NewDepartment(deptId,rootDepartmentId, "10001");
+
+
+
         for (int i=1;i<11;i++) {
             String organIdL1="Root_"+i;
             DeleteOrgan(organIdL1);
-            NewOrgan(organIdL1,"0","Logo_"+i+".png");
+            NewOrgan(organIdL1,organIdL1,"0","Logo_"+i+".png");
             for(int j=1;j<11;j++) {
                 String organIdL2 = organIdL1 + "_" + j;
                 DeleteOrgan(organIdL2);
-                NewOrgan(organIdL2, organIdL1, "Logo_" + j + ".png");
+                NewOrgan(organIdL2, organIdL2,organIdL1, "Logo_" + j + ".png");
             }
         }
     }
@@ -52,13 +65,13 @@ public class OrganRestTest extends RestTestBase {
         JBuild4DCResponseVo responseVo =simpleDelete("/Rest/SSO/Org/Organ/DeleteByOrganId",organId,paras);
     }
 
-    private void NewOrgan(String organId,String parentId,String logoFileName) throws Exception {
+    private void NewOrgan(String organId,String organName,String parentId,String logoFileName) throws Exception {
         OrganEntity organEntity=new OrganEntity();
         organEntity.setOrganParentId(parentId);
         //String organId="Root_"+i;
         organEntity.setOrganId(organId);
-        organEntity.setOrganName(organId);
-        organEntity.setOrganShortName(organId);
+        organEntity.setOrganName(organName);
+        organEntity.setOrganShortName(organName);
         organEntity.setOrganIsVirtual("否");
         organEntity.setOrganStatus(EnableTypeEnum.enable.getDisplayName());
 

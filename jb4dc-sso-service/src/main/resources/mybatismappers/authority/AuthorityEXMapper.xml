@@ -5,10 +5,17 @@
     <delete id="deleteAll">delete from TSSO_AUTHORITY</delete>
     <select id="nextOrderNum" resultType="integer">select case when max() is null then 1 else max()+1 end ORDERNUM from TSSO_AUTHORITY</select>
     <select id="selectBySearch" parameterType="java.util.Map" resultMap="BaseResultMap">select<include refid="Base_Column_List"/>from TSSO_AUTHORITY<where>
-        <if test="roleId !=null and roleId !=''"> and ROLE_ID like #{roleId} </if>
+        <if test="authObjId !=null and authObjId !=''"> and AUTH_OBJ_ID like #{authObjId} </if>
+        <if test="authObjType !=null and authObjType !=''"> and AUTH_OBJ_TYPE like #{authObjType} </if>
+        <if test="authOwnerId !=null and authOwnerId !=''"> and AUTH_OWNER_ID like #{authOwnerId} </if>
+        <if test="authOwnerType !=null and authOwnerType !=''"> and AUTH_OWNER_TYPE like #{authOwnerType} </if>
+        <if test="authCreatorId !=null and authCreatorId !=''"> and AUTH_CREATOR_ID like #{authCreatorId} </if>
+        <if test="authCreatorOrganId !=null and authCreatorOrganId !=''"> and AUTH_CREATOR_ORGAN_ID like #{authCreatorOrganId} </if>
+        <if test="authOrganId !=null and authOrganId !=''"> and AUTH_ORGAN_ID like #{authOrganId} </if>
+        <if test="authDesc !=null and authDesc !=''"> and AUTH_DESC like #{authDesc} </if>
     </where>ORDER by  DESC</select>
-    <select id="selectLessThanRecord" parameterType="java.lang.String" resultMap="BaseResultMap"><![CDATA[select * from TSSO_AUTHORITY
-                                                                                                          where  = (select max() from TSSO_AUTHORITY where <(select  from TSSO_AUTHORITY where AUTH_ID=#{Id,jdbcType=NVARCHAR}))]]></select>
-    <select id="selectGreaterThanRecord" parameterType="java.lang.String" resultMap="BaseResultMap"><![CDATA[select * from TSSO_AUTHORITY
-                                                                                                             where  = (select min() from TSSO_AUTHORITY where >(select  from TSSO_AUTHORITY where AUTH_ID=#{Id,jdbcType=NVARCHAR}))]]></select>
+    <delete id="deleteOldSystemAndMenuByOwnerId">
+        delete TSSO_AUTHORITY where AUTH_OWNER_ID=#{authOwnerId} and AUTH_OBJ_ID in (select MENU_ID from TSSO_MENU where MENU_SYSTEM_ID=#{systemId});
+        delete TSSO_AUTHORITY where AUTH_OWNER_ID=#{authOwnerId} and AUTH_OBJ_ID = #{systemId}
+    </delete>
 </mapper>

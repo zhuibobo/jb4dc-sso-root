@@ -4,11 +4,19 @@
     <resultMap id="BaseResultMap" type="com.jb4dc.sso.dbentities.authority.AuthorityEntity">
         <constructor>
             <idArg column="AUTH_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
-            <arg column="ROLE_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="AUTH_OBJ_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="AUTH_OBJ_TYPE" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="AUTH_OWNER_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="AUTH_OWNER_TYPE" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="AUTH_CREATOR_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="AUTH_CREATOR_ORGAN_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="AUTH_ORGAN_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="AUTH_DESC" javaType="java.lang.String" jdbcType="NVARCHAR" />
         </constructor>
     </resultMap>
     <sql id="Base_Column_List">
-    AUTH_ID, ROLE_ID
+    AUTH_ID, AUTH_OBJ_ID, AUTH_OBJ_TYPE, AUTH_OWNER_ID, AUTH_OWNER_TYPE, AUTH_CREATOR_ID,
+    AUTH_CREATOR_ORGAN_ID, AUTH_ORGAN_ID, AUTH_DESC
   </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
         select
@@ -21,8 +29,14 @@
     where AUTH_ID = #{authId,jdbcType=NVARCHAR}
   </delete>
     <insert id="insert" parameterType="com.jb4dc.sso.dbentities.authority.AuthorityEntity">
-    insert into TSSO_AUTHORITY (AUTH_ID, ROLE_ID)
-    values (#{authId,jdbcType=NVARCHAR}, #{roleId,jdbcType=NVARCHAR})
+    insert into TSSO_AUTHORITY (AUTH_ID, AUTH_OBJ_ID, AUTH_OBJ_TYPE,
+      AUTH_OWNER_ID, AUTH_OWNER_TYPE, AUTH_CREATOR_ID,
+      AUTH_CREATOR_ORGAN_ID, AUTH_ORGAN_ID, AUTH_DESC
+      )
+    values (#{authId,jdbcType=NVARCHAR}, #{authObjId,jdbcType=NVARCHAR}, #{authObjType,jdbcType=NVARCHAR},
+      #{authOwnerId,jdbcType=NVARCHAR}, #{authOwnerType,jdbcType=NVARCHAR}, #{authCreatorId,jdbcType=NVARCHAR},
+      #{authCreatorOrganId,jdbcType=NVARCHAR}, #{authOrganId,jdbcType=NVARCHAR}, #{authDesc,jdbcType=NVARCHAR}
+      )
   </insert>
     <insert id="insertSelective" parameterType="com.jb4dc.sso.dbentities.authority.AuthorityEntity">
         insert into TSSO_AUTHORITY
@@ -30,31 +44,101 @@
             <if test="authId != null">
                 AUTH_ID,
             </if>
-            <if test="roleId != null">
-                ROLE_ID,
+            <if test="authObjId != null">
+                AUTH_OBJ_ID,
+            </if>
+            <if test="authObjType != null">
+                AUTH_OBJ_TYPE,
+            </if>
+            <if test="authOwnerId != null">
+                AUTH_OWNER_ID,
+            </if>
+            <if test="authOwnerType != null">
+                AUTH_OWNER_TYPE,
+            </if>
+            <if test="authCreatorId != null">
+                AUTH_CREATOR_ID,
+            </if>
+            <if test="authCreatorOrganId != null">
+                AUTH_CREATOR_ORGAN_ID,
+            </if>
+            <if test="authOrganId != null">
+                AUTH_ORGAN_ID,
+            </if>
+            <if test="authDesc != null">
+                AUTH_DESC,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="authId != null">
                 #{authId,jdbcType=NVARCHAR},
             </if>
-            <if test="roleId != null">
-                #{roleId,jdbcType=NVARCHAR},
+            <if test="authObjId != null">
+                #{authObjId,jdbcType=NVARCHAR},
+            </if>
+            <if test="authObjType != null">
+                #{authObjType,jdbcType=NVARCHAR},
+            </if>
+            <if test="authOwnerId != null">
+                #{authOwnerId,jdbcType=NVARCHAR},
+            </if>
+            <if test="authOwnerType != null">
+                #{authOwnerType,jdbcType=NVARCHAR},
+            </if>
+            <if test="authCreatorId != null">
+                #{authCreatorId,jdbcType=NVARCHAR},
+            </if>
+            <if test="authCreatorOrganId != null">
+                #{authCreatorOrganId,jdbcType=NVARCHAR},
+            </if>
+            <if test="authOrganId != null">
+                #{authOrganId,jdbcType=NVARCHAR},
+            </if>
+            <if test="authDesc != null">
+                #{authDesc,jdbcType=NVARCHAR},
             </if>
         </trim>
     </insert>
     <update id="updateByPrimaryKeySelective" parameterType="com.jb4dc.sso.dbentities.authority.AuthorityEntity">
         update TSSO_AUTHORITY
         <set>
-            <if test="roleId != null">
-                ROLE_ID = #{roleId,jdbcType=NVARCHAR},
+            <if test="authObjId != null">
+                AUTH_OBJ_ID = #{authObjId,jdbcType=NVARCHAR},
+            </if>
+            <if test="authObjType != null">
+                AUTH_OBJ_TYPE = #{authObjType,jdbcType=NVARCHAR},
+            </if>
+            <if test="authOwnerId != null">
+                AUTH_OWNER_ID = #{authOwnerId,jdbcType=NVARCHAR},
+            </if>
+            <if test="authOwnerType != null">
+                AUTH_OWNER_TYPE = #{authOwnerType,jdbcType=NVARCHAR},
+            </if>
+            <if test="authCreatorId != null">
+                AUTH_CREATOR_ID = #{authCreatorId,jdbcType=NVARCHAR},
+            </if>
+            <if test="authCreatorOrganId != null">
+                AUTH_CREATOR_ORGAN_ID = #{authCreatorOrganId,jdbcType=NVARCHAR},
+            </if>
+            <if test="authOrganId != null">
+                AUTH_ORGAN_ID = #{authOrganId,jdbcType=NVARCHAR},
+            </if>
+            <if test="authDesc != null">
+                AUTH_DESC = #{authDesc,jdbcType=NVARCHAR},
             </if>
         </set>
         where AUTH_ID = #{authId,jdbcType=NVARCHAR}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.jb4dc.sso.dbentities.authority.AuthorityEntity">
     update TSSO_AUTHORITY
-    set ROLE_ID = #{roleId,jdbcType=NVARCHAR}
+    set AUTH_OBJ_ID = #{authObjId,jdbcType=NVARCHAR},
+      AUTH_OBJ_TYPE = #{authObjType,jdbcType=NVARCHAR},
+      AUTH_OWNER_ID = #{authOwnerId,jdbcType=NVARCHAR},
+      AUTH_OWNER_TYPE = #{authOwnerType,jdbcType=NVARCHAR},
+      AUTH_CREATOR_ID = #{authCreatorId,jdbcType=NVARCHAR},
+      AUTH_CREATOR_ORGAN_ID = #{authCreatorOrganId,jdbcType=NVARCHAR},
+      AUTH_ORGAN_ID = #{authOrganId,jdbcType=NVARCHAR},
+      AUTH_DESC = #{authDesc,jdbcType=NVARCHAR}
     where AUTH_ID = #{authId,jdbcType=NVARCHAR}
   </update>
 </mapper>

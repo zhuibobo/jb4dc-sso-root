@@ -16,4 +16,6 @@ public interface IOrganService extends IBaseService<OrganEntity> {
     OrganEntity createRootOrgan(JB4DCSession jb4DSession) throws JBuild4DCGenerallyException;
 
     void deleteByOrganName(JB4DCSession session, String organName, String warningOperationCode);
+
+    void initSystemData(JB4DCSession jb4DSession) throws JBuild4DCGenerallyException;
 }

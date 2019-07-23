@@ -81,6 +81,7 @@ public class InitializationSystemRest {
         organTypeService.createDefaultOrganType(jb4DSession);
         organService.deleteByKeyNotValidate(jb4DSession,"0", JBuild4DCYaml.getWarningOperationCode());
         organService.createRootOrgan(jb4DSession);
+        organService.initSystemData(jb4DSession);
 
         roleGroupService.initSystemData(jb4DSession);
 
