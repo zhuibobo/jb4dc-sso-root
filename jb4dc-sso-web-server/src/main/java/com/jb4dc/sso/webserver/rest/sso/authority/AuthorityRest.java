@@ -1,11 +1,13 @@
 package com.jb4dc.sso.webserver.rest.sso.authority;
 
 import com.jb4dc.base.service.general.JB4DCSessionUtility;
+import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.sso.service.authority.IAuthorityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -24,9 +26,9 @@ public class AuthorityRest {
     IAuthorityService authorityService;
 
     @RequestMapping(value = "/SaveOwnerAuth", method = RequestMethod.POST)
-    public JBuild4DCResponseVo saveOwnerAuth(String authOwnerType,String authOwnerId,List<String> authObjIdList,String authObjType,String cleanAboutKey){
+    public JBuild4DCResponseVo saveOwnerAuth(String authOwnerType, String authOwnerId,String authObjType,@RequestParam("systemAuthObjIdList[]") List<String> systemAuthObjIdList,@RequestParam("menuAuthObjIdList[]") List<String> menuAuthObjIdList, String systemId) throws JBuild4DCGenerallyException {
         //List<DepartmentEntity> departmentEntityList=departmentService.getDepartmentsByOrganId(organId);
-        authorityService.saveOwnerAuth(JB4DCSessionUtility.getSession(),authOwnerType,authOwnerId,authObjIdList, authObjType, cleanAboutKey);
+        authorityService.saveOwnerAuth(JB4DCSessionUtility.getSession(), authOwnerType, authOwnerId, authObjType, systemAuthObjIdList, menuAuthObjIdList, systemId);
         return JBuild4DCResponseVo.opSuccess();
     }
 }

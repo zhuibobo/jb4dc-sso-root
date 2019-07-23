@@ -194,7 +194,7 @@
                                 ListPageUtility.IViewTableInnerButton.EditButton(h, params, appList.roleList.idFieldName, appList),
                                 ListPageUtility.IViewTableInnerButton.DeleteButton(h, params, appList.roleList.idFieldName, appList),
                                 ListPageUtility.IViewTableInnerButton.SelectedButton(h, params, appList.idFieldName, appList),
-                                appList.RoleAuthButton(h, params, appList.idFieldName, appList)
+                                appList.RoleAuthButton(h, params, appList.roleList.idFieldName, appList)
                             ]);
                         }
                     }
@@ -341,6 +341,7 @@
             },
             <!--List-->
             RoleAuthButton: function (h, params, idField, pageAppObj) {
+                //alert(idField);
                 return h('Tooltip', {
                         props: {
                             content: "角色权限"

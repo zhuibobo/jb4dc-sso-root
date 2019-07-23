@@ -4,6 +4,7 @@ import com.jb4dc.base.service.IAddBefore;
 import com.jb4dc.base.service.impl.BaseServiceImpl;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
+import com.jb4dc.core.base.tools.StringUtility;
 import com.jb4dc.core.base.tools.UUIDUtility;
 import com.jb4dc.sso.dao.authority.AuthorityMapper;
 import com.jb4dc.sso.dbentities.authority.AuthorityEntity;
@@ -33,27 +34,29 @@ public class AuthorityServiceImpl extends BaseServiceImpl<AuthorityEntity> imple
     }
 
     @Override
-    public void saveOwnerAuth(JB4DCSession session, String authOwnerType, String authOwnerId, List<String> authObjIdList, String authObjType, String cleanAboutKey) {
+    public void saveOwnerAuth(JB4DCSession session, String authOwnerType, String authOwnerId,String authObjType, List<String> systemAuthObjIdList, List<String> menuAuthObjIdList, String systemId) throws JBuild4DCGenerallyException {
         //if(authObjIdList)
-        if(authObjType.equals("Menu")){
-            //先删除掉旧的权限关联
-            String systemId=cleanAboutKey;
-            authorityMapper.deleteOldSystemAndMenuByOwnerId(authOwnerId,systemId);
+        if(StringUtility.isEmpty(authOwnerId)){
+            throw new JBuild4DCGenerallyException(JBuild4DCGenerallyException.EXCEPTION_SSO_CODE,"authOwnerId 不能为空!");
         }
-        //保存新提交的权限绑定
-        if(authObjIdList!=null&&authObjIdList.size()>0){
-            for (String authObjId : authObjIdList) {
-                AuthorityEntity authorityEntity=new AuthorityEntity();
-                authorityEntity.setAuthId(UUIDUtility.getUUID());
-                authorityEntity.setAuthObjId(authObjId);
-                authorityEntity.setAuthObjType(authObjType);
-                authorityEntity.setAuthOwnerId(authOwnerId);
-                authorityEntity.setAuthOwnerType(authOwnerType);
-                authorityEntity.setAuthCreatorId(session.getUserId());
-                authorityEntity.setAuthCreatorOrganId(session.getOrganId());
-                authorityEntity.setAuthOrganId("0");
-                authorityEntity.setAuthDesc("");
-                authorityMapper.insertSelective(authorityEntity);
+        if(authObjType.equals("Menu")){
+            if(StringUtility.isEmpty(systemId)){
+                throw new JBuild4DCGenerallyException(JBuild4DCGenerallyException.EXCEPTION_SSO_CODE,"systemId 不能为空!");
+            }
+            //先删除掉旧的权限关联
+            authorityMapper.deleteOldSystemAndMenuByOwnerId(authOwnerId,systemId);
+            //保存新提交的权限绑定
+            if(systemAuthObjIdList!=null&&systemAuthObjIdList.size()>0){
+                for (String authObjId : systemAuthObjIdList) {
+                    AuthorityEntity authorityEntity=new AuthorityEntity(UUIDUtility.getUUID(),systemId,"System",authOwnerId,authOwnerType,session.getUserId(),session.getOrganId(),"0","");
+                    authorityMapper.insertSelective(authorityEntity);
+                }
+            }
+            if(menuAuthObjIdList!=null&&menuAuthObjIdList.size()>0){
+                for (String authObjId : menuAuthObjIdList) {
+                    AuthorityEntity authorityEntity=new AuthorityEntity(UUIDUtility.getUUID(),systemId,"Menu",authOwnerId,authOwnerType,session.getUserId(),session.getOrganId(),"0","");
+                    authorityMapper.insertSelective(authorityEntity);
+                }
             }
         }
     }

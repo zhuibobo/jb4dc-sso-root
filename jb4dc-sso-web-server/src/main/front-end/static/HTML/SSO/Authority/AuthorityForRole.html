@@ -9,8 +9,8 @@
 </head>
 <body>
     <div id="appForm" class="general-edit-page-wrap" style="margin-top: 0px" v-cloak>
-        <tabs>
-            <tab-pane label="系统&菜单">
+        <tabs v-model="selectedTabName">
+            <tab-pane label="系统&菜单" name="Menu">
                 <div class="list-2column" style="height: 430px;">
                     <div class="left-outer-wrap">
                         <div class="inner-wrap" style="width: 250px;">
@@ -26,7 +26,7 @@
                     </div>
                 </div>
             </tab-pane>
-            <tab-pane label="操作权限">
+            <tab-pane label="操作权限" name="Operation">
             </tab-pane>
         </tabs>
         <div class="button-outer-wrap">
@@ -49,7 +49,9 @@
                     <!--System-->
                     getSystemTreeData:"/Rest/SSO/App/Application/GetAllMainSsoApp",
                     <!--Menu-->
-                    getMenusDataBySystemId:"/Rest/SSO/Mu/Menu/GetMenusBySystemId"
+                    getMenusDataBySystemId:"/Rest/SSO/Mu/Menu/GetMenusBySystemId",
+                    <!--Auth-->
+                    saveOwnerAuth:"/Rest/SSO/Auth/Authority/SaveOwnerAuth"
                 },
                 systemTree:{
                     treeObj:null,
@@ -105,7 +107,8 @@
                         check: {
                             enable: true,
                             nocheckInherit: true,
-                            radioType: "all"
+                            radioType: "all",
+                            chkboxType: { "Y": "s", "N": "" }
                         },
                         // 必须使用data
                         data:{
@@ -134,7 +137,16 @@
                             }
                         }
                     }
-                }
+                },
+                saveAuthData:{
+                    systemAuthObjIdList:[],
+                    menuAuthObjIdList:[],
+                    authOwnerType:"",
+                    authOwnerId:"",
+                    authObjType:"",
+                    systemId:""
+                },
+                selectedTabName:"Menu"
             },
             methods: {
                 initSystemTree:function () {
@@ -153,40 +165,62 @@
                     },this);
                 },
                 reloadMenuTreeData:function(){
-                    AjaxUtility.Post(this.acInterface.getMenusDataBySystemId, {"systemId":this.systemTree.treeSelectedNode.appId}, function (result) {
+                    var systemId=this.systemTree.treeSelectedNode.appId;
+                    //this.saveAuthData.cleanAboutKey=systemId
+                    AjaxUtility.Post(this.acInterface.getMenusDataBySystemId, {"systemId":systemId}, function (result) {
                         if (result.success) {
                             var treeData = result.data;
-                            console.log(treeData);
+                            //console.log(treeData);
                             for (var i = 0; i < treeData.length; i++) {
                                 treeData[i].icon = "../../../Themes/Png16X16/document_letter_okay.png";
                             }
-                            //console.log(treeData);
-                            //_self.$refs.tableZTreeUL.setAttribute("id","select-table-single-comp-"+StringUtility.Guid());
                             this.menuTree.treeObj = $.fn.zTree.init($("#zMenuTreeUL"), this.menuTree.treeSetting, treeData);
                             this.menuTree.treeObj.expandAll(true);
                             this.menuTree.treeObj._host=this;
                         }
                     },this);
                 },
+                resetSaveAuthObjIdList:function(){
+                    this.saveAuthData={
+                        systemAuthObjIdList:[],
+                        menuAuthObjIdList:[],
+                        authOwnerType:"",
+                        authOwnerId:"",
+                        authObjType:"",
+                        systemId:""
+                    }
+                },
                 handleSubmit: function () {
                     var _self=this;
-                    var vo={
-                        ssoAppEntity:this.$refs.mainAppDetailFromComp.getAppEntity(),
-                        ssoAppInterfaceEntityList:this.$refs.mainAppInterfaceListComp.getInterfaceListData()
+                    this.resetSaveAuthObjIdList();
+                    if(this.selectedTabName=="Menu"){
+                        this.saveAuthData.authObjType="Menu";
+                        if(this.systemTree.treeObj.getSelectedNodes().length==0){
+                            return;
+                        }
+                        this.saveAuthData.systemId=this.systemTree.treeObj.getSelectedNodes()[0].appId;
+                        //获取选中的系统
+                        var checkedSystemNodes=this.systemTree.treeObj.getCheckedNodes(true);
+                        //获取选中的菜单
+                        var checkedMenuNodes=this.menuTree.treeObj.getCheckedNodes(true);
+                        //console.log(checkedSystemNodes);
+                        //console.log(checkedMenuNodes);
+                        for(var i=0;i<checkedSystemNodes.length;i++){
+                            var systemTreeNode=checkedSystemNodes[i];
+                            this.saveAuthData.systemAuthObjIdList.push(systemTreeNode.appId);
+                        }
+                        for(var i=0;i<checkedMenuNodes.length;i++){
+                            var menuTreeNode=checkedMenuNodes[i];
+                            this.saveAuthData.menuAuthObjIdList.push(menuTreeNode.menuId);
+                        }
                     }
-                    var sendData=JSON.stringify(vo);
-                    AjaxUtility.PostRequestBody(this.acInterface.saveMainAppUrl,sendData,function (result) {
-                        if(result.success){
-                            DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, function () {
-                                window.OpenerWindowObj.appList.reloadData();
-                                _self.handleClose();
-                            });
+                    this.saveAuthData.authOwnerType=BaseUtility.GetUrlParaValue("auth_owner_type");
+                    this.saveAuthData.authOwnerId=BaseUtility.GetUrlParaValue("auth_owner_id");
+                    AjaxUtility.Post(this.acInterface.saveOwnerAuth, this.saveAuthData, function (result) {
+                        if (result.success) {
+                            DialogUtility.AlertText(result.message);
                         }
-                        else {
-                            DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, null);
-                        }
-
-                    },this);
+                    }, this);
                 },
                 handleClose: function () {
                     DialogUtility.Frame_CloseDialog(window);
