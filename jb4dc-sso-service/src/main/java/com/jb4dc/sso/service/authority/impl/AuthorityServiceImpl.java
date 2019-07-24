@@ -11,6 +11,7 @@ import com.jb4dc.sso.dbentities.authority.AuthorityEntity;
 import com.jb4dc.sso.service.authority.IAuthorityService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -57,6 +58,35 @@ public class AuthorityServiceImpl extends BaseServiceImpl<AuthorityEntity> imple
                     AuthorityEntity authorityEntity=new AuthorityEntity(UUIDUtility.getUUID(),systemId,"Menu",authOwnerId,authOwnerType,systemId,session.getUserId(),session.getOrganId(),"0","");
                     authorityMapper.insertSelective(authorityEntity);
                 }
+            }
+        }
+    }
+
+    /**
+     * 实体在客户端经过重新收集生成,id已经产生变化,入库前需要先根据authOwnerType,authOwnerId和authObjId删除掉旧的记录
+     * @Author zhuangrb
+     * @Date 2019/7/24 11:24
+     * @param session
+     * @param authOwnerType
+     * @param authOwnerId
+     * @param authorityEntities
+     * @return void
+     **/
+    @Override
+    public void saveOwnerAuth(JB4DCSession session, String authOwnerType, String authOwnerId, List<AuthorityEntity> authorityEntities) {
+        List<String> authObjIdList=new ArrayList<>();
+        authorityEntities.forEach(item->{
+            authObjIdList.add(item.getAuthObjId());
+            item.setAuthCreatorId(session.getUserId());
+            item.setAuthCreatorOrganId(session.getOrganId());
+            item.setAuthOwnerType(authOwnerType);
+            item.setAuthOwnerId(authOwnerId);
+        });
+        if(authorityEntities.size()>0) {
+            authorityMapper.deleteAuthByOwnerId(authOwnerType, authOwnerId, authObjIdList);
+
+            for (AuthorityEntity authorityEntity : authorityEntities) {
+                authorityMapper.insertSelective(authorityEntity);
             }
         }
     }

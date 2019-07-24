@@ -7,4 +7,5 @@ package com.jb4dc.sso.po;
  * To change this template use File | Settings | File Templates.
  */
 public class ClientAuthPO {
+
 }

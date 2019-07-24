@@ -91,7 +91,10 @@
                             },
                             //成功的回调函数
                             onAsyncSuccess : function(event, treeId, treeNode, msg){
-                                appList.treeObj.expandAll(true);
+                                //appForm.treeObj.expandAll(true);
+                            },
+                            onCheck:function (event, treeId, treeNode) {
+                                appForm.changeSaveAuthEntities();
                             }
                         }
                     }
@@ -134,23 +137,32 @@
                             },
                             //成功的回调函数
                             onAsyncSuccess : function(event, treeId, treeNode, msg){
-                                appList.treeObj.expandAll(true);
+                                //appList.treeObj.expandAll(true);
                             },
                             onCheck:function (event, treeId, treeNode) {
-
+                                appForm.changeSaveAuthEntities();
                             }
                         }
                     }
                 },
-                saveAuthData:{
-                    systemAuthObjIdList:[],
-                    menuAuthObjIdList:[],
-                    authOwnerType:"",
-                    authOwnerId:"",
+                saveAuthEntities:[/*{
+                    authId:"",
+                    authObjId:"",
                     authObjType:"",
-                    systemId:""
-                },
-                selectedTabName:"Menu"
+                    authOwnerId:"",
+                    authOwnerType:"",
+                    authSystemId:"",
+                    authCreatorId:"",
+                    authCreatorOrganId:"",
+                    authOrganId:"",
+                    authDesc:""
+                }*/],
+                removeAuthObjIdList:[],
+                selectedTabName:"Menu",
+                authObjType:{
+                    system:"System",
+                    menu:"Menu"
+                }
             },
             methods: {
                 initSystemTree:function () {
@@ -185,19 +197,59 @@
                     },this);
                 },
                 resetSaveAuthObjIdList:function(){
-                    this.saveAuthData={
-                        systemAuthObjIdList:[],
-                        menuAuthObjIdList:[],
-                        authOwnerType:"",
-                        authOwnerId:"",
-                        authObjType:"",
-                        systemId:""
+                    this.saveAuthEntities=[];
+                },
+                changeSaveAuthEntities:function(){
+                    //根据系统树重新构建实体
+                    //获取选中的系统
+                    for(var i=this.saveAuthEntities.length-1;i>=0;i--){
+                        if(this.saveAuthEntities[i].authObjType==this.authObjType.system){
+                            ArrayUtility.Delete(this.saveAuthEntities,i);
+                        }
+                    }
+                    var checkedSystemNodes=this.systemTree.treeObj.getCheckedNodes(true);
+                    for(var i=0;i<checkedSystemNodes.length;i++){
+                        var checkedSystemNode=checkedSystemNodes[i];
+                        this.saveAuthEntities.push({
+                            authId:StringUtility.Guid()+"-"+i,
+                            authObjId:checkedSystemNode.appId,
+                            authObjType:this.authObjType.system,
+                            authSystemId:checkedSystemNode.appId
+                        });
+                    }
+                    var noCheckedSystemNodes=this.systemTree.treeObj.getCheckedNodes(false);
+                    for(var i=0;i<noCheckedSystemNodes.length;i++){
+                        var noCheckedSystemNode=noCheckedSystemNodes[i];
+                        this.removeAuthObjIdList.push(authObjId);
+                    }
+
+                    //获取选中的菜单
+                    if(this.menuTree.treeObj){
+                        var currentMenuTreeALLNodes= this.menuTree.treeObj.getNodes();
+                        if(checkedSystemNodes!=null&&checkedSystemNodes.length>0) {
+                            var menuBelongSystemId=currentMenuTreeALLNodes[0].menuSystemId;
+                            for(var i=this.saveAuthEntities.length-1;i>=0;i--){
+                                if(this.saveAuthEntities[i].authObjType==this.authObjType.menu&&this.saveAuthEntities[i].authSystemId==menuBelongSystemId){
+                                    ArrayUtility.Delete(this.saveAuthEntities,i);
+                                }
+                            }
+                            //删除掉所有的该系统的菜单,重新从树选中中获取数据
+                            var checkedMenuNodes = this.menuTree.treeObj.getCheckedNodes(true);
+                            for(var i=0;i<checkedMenuNodes.length;i++){
+                                var checkedMenuNode=checkedMenuNodes[i];
+                                this.saveAuthEntities.push({
+                                    authId:StringUtility.Guid()+"-"+i,
+                                    authObjId:checkedMenuNode.menuId,
+                                    authObjType:this.authObjType.menu,
+                                    authSystemId:menuBelongSystemId
+                                });
+                            }
+                        }
                     }
                 },
                 handleSubmit: function () {
                     var _self=this;
-                    this.resetSaveAuthObjIdList();
-                    if(this.selectedTabName=="Menu"){
+                    /*if(this.selectedTabName=="Menu"){
                         this.saveAuthData.authObjType="Menu";
                         if(this.systemTree.treeObj.getSelectedNodes().length==0){
                             return;
@@ -217,10 +269,14 @@
                             var menuTreeNode=checkedMenuNodes[i];
                             this.saveAuthData.menuAuthObjIdList.push(menuTreeNode.menuId);
                         }
-                    }
-                    this.saveAuthData.authOwnerType=BaseUtility.GetUrlParaValue("auth_owner_type");
-                    this.saveAuthData.authOwnerId=BaseUtility.GetUrlParaValue("auth_owner_id");
-                    AjaxUtility.Post(this.acInterface.saveOwnerAuth, this.saveAuthData, function (result) {
+                    }*/
+                    //this.saveAuthData.authOwnerType=BaseUtility.GetUrlParaValue("auth_owner_type");
+                    //this.saveAuthData.authOwnerId=BaseUtility.GetUrlParaValue("auth_owner_id");
+                    AjaxUtility.Post(this.acInterface.saveOwnerAuth, {
+                        authOwnerType:BaseUtility.GetUrlParaValue("auth_owner_type"),
+                        authOwnerId:BaseUtility.GetUrlParaValue("auth_owner_id"),
+                        saveAuthEntitiesJsonString:JsonUtility.JsonToString(this.saveAuthEntities)
+                    }, function (result) {
                         if (result.success) {
                             DialogUtility.AlertText(result.message);
                         }
