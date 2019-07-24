@@ -8,6 +8,7 @@
             <arg column="AUTH_OBJ_TYPE" javaType="java.lang.String" jdbcType="NVARCHAR" />
             <arg column="AUTH_OWNER_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
             <arg column="AUTH_OWNER_TYPE" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="AUTH_SYSTEM_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
             <arg column="AUTH_CREATOR_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
             <arg column="AUTH_CREATOR_ORGAN_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
             <arg column="AUTH_ORGAN_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
@@ -15,8 +16,8 @@
         </constructor>
     </resultMap>
     <sql id="Base_Column_List">
-    AUTH_ID, AUTH_OBJ_ID, AUTH_OBJ_TYPE, AUTH_OWNER_ID, AUTH_OWNER_TYPE, AUTH_CREATOR_ID,
-    AUTH_CREATOR_ORGAN_ID, AUTH_ORGAN_ID, AUTH_DESC
+    AUTH_ID, AUTH_OBJ_ID, AUTH_OBJ_TYPE, AUTH_OWNER_ID, AUTH_OWNER_TYPE, AUTH_SYSTEM_ID,
+    AUTH_CREATOR_ID, AUTH_CREATOR_ORGAN_ID, AUTH_ORGAN_ID, AUTH_DESC
   </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
         select
@@ -30,13 +31,13 @@
   </delete>
     <insert id="insert" parameterType="com.jb4dc.sso.dbentities.authority.AuthorityEntity">
     insert into TSSO_AUTHORITY (AUTH_ID, AUTH_OBJ_ID, AUTH_OBJ_TYPE,
-      AUTH_OWNER_ID, AUTH_OWNER_TYPE, AUTH_CREATOR_ID,
-      AUTH_CREATOR_ORGAN_ID, AUTH_ORGAN_ID, AUTH_DESC
-      )
+      AUTH_OWNER_ID, AUTH_OWNER_TYPE, AUTH_SYSTEM_ID,
+      AUTH_CREATOR_ID, AUTH_CREATOR_ORGAN_ID, AUTH_ORGAN_ID,
+      AUTH_DESC)
     values (#{authId,jdbcType=NVARCHAR}, #{authObjId,jdbcType=NVARCHAR}, #{authObjType,jdbcType=NVARCHAR},
-      #{authOwnerId,jdbcType=NVARCHAR}, #{authOwnerType,jdbcType=NVARCHAR}, #{authCreatorId,jdbcType=NVARCHAR},
-      #{authCreatorOrganId,jdbcType=NVARCHAR}, #{authOrganId,jdbcType=NVARCHAR}, #{authDesc,jdbcType=NVARCHAR}
-      )
+      #{authOwnerId,jdbcType=NVARCHAR}, #{authOwnerType,jdbcType=NVARCHAR}, #{authSystemId,jdbcType=NVARCHAR},
+      #{authCreatorId,jdbcType=NVARCHAR}, #{authCreatorOrganId,jdbcType=NVARCHAR}, #{authOrganId,jdbcType=NVARCHAR},
+      #{authDesc,jdbcType=NVARCHAR})
   </insert>
     <insert id="insertSelective" parameterType="com.jb4dc.sso.dbentities.authority.AuthorityEntity">
         insert into TSSO_AUTHORITY
@@ -55,6 +56,9 @@
             </if>
             <if test="authOwnerType != null">
                 AUTH_OWNER_TYPE,
+            </if>
+            <if test="authSystemId != null">
+                AUTH_SYSTEM_ID,
             </if>
             <if test="authCreatorId != null">
                 AUTH_CREATOR_ID,
@@ -85,6 +89,9 @@
             <if test="authOwnerType != null">
                 #{authOwnerType,jdbcType=NVARCHAR},
             </if>
+            <if test="authSystemId != null">
+                #{authSystemId,jdbcType=NVARCHAR},
+            </if>
             <if test="authCreatorId != null">
                 #{authCreatorId,jdbcType=NVARCHAR},
             </if>
@@ -114,6 +121,9 @@
             <if test="authOwnerType != null">
                 AUTH_OWNER_TYPE = #{authOwnerType,jdbcType=NVARCHAR},
             </if>
+            <if test="authSystemId != null">
+                AUTH_SYSTEM_ID = #{authSystemId,jdbcType=NVARCHAR},
+            </if>
             <if test="authCreatorId != null">
                 AUTH_CREATOR_ID = #{authCreatorId,jdbcType=NVARCHAR},
             </if>
@@ -135,6 +145,7 @@
       AUTH_OBJ_TYPE = #{authObjType,jdbcType=NVARCHAR},
       AUTH_OWNER_ID = #{authOwnerId,jdbcType=NVARCHAR},
       AUTH_OWNER_TYPE = #{authOwnerType,jdbcType=NVARCHAR},
+      AUTH_SYSTEM_ID = #{authSystemId,jdbcType=NVARCHAR},
       AUTH_CREATOR_ID = #{authCreatorId,jdbcType=NVARCHAR},
       AUTH_CREATOR_ORGAN_ID = #{authCreatorOrganId,jdbcType=NVARCHAR},
       AUTH_ORGAN_ID = #{authOrganId,jdbcType=NVARCHAR},

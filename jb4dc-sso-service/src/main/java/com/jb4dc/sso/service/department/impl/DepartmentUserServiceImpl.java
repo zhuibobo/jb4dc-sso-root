@@ -10,7 +10,7 @@ import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.core.base.tools.StringUtility;
 import com.jb4dc.core.base.tools.UUIDUtility;
-import com.jb4dc.sso.bo.DepartmentUserBO;
+import com.jb4dc.sso.po.DepartmentUserPO;
 import com.jb4dc.sso.dao.department.DepartmentUserMapper;
 import com.jb4dc.sso.dbentities.department.DepartmentEntity;
 import com.jb4dc.sso.dbentities.department.DepartmentUserEntity;
@@ -53,7 +53,7 @@ public class DepartmentUserServiceImpl implements IDepartmentUserService
 
     @Override
     @Transactional(rollbackFor= JBuild4DCGenerallyException.class)
-    public int save(JB4DCSession jb4DSession, String departmentUserId, DepartmentUserBO record, String accountPassword) throws JBuild4DCGenerallyException {
+    public int save(JB4DCSession jb4DSession, String departmentUserId, DepartmentUserPO record, String accountPassword) throws JBuild4DCGenerallyException {
         DepartmentUserEntity departmentUserEntity=departmentUserMapper.selectByPrimaryKey(departmentUserId);
 
         if(record.getUserEntity()==null||record.getDepartmentUserEntity()==null){
@@ -116,11 +116,11 @@ public class DepartmentUserServiceImpl implements IDepartmentUserService
     }
 
     @Override
-    public DepartmentUserBO getEmptyNewVo(JB4DCSession jb4DSession, String departmentId) throws JBuild4DCGenerallyException {
+    public DepartmentUserPO getEmptyNewVo(JB4DCSession jb4DSession, String departmentId) throws JBuild4DCGenerallyException {
         DepartmentEntity departmentEntity=departmentService.getByPrimaryKey(jb4DSession,departmentId);
         OrganEntity organEntity=organService.getByPrimaryKey(jb4DSession,departmentEntity.getDeptOrganId());
 
-        DepartmentUserBO departmentUserVo=new DepartmentUserBO();
+        DepartmentUserPO departmentUserVo=new DepartmentUserPO();
         departmentUserVo.setDepartmentEntity(departmentEntity);
         departmentUserVo.setOrganEntity(organEntity);
 
@@ -146,13 +146,13 @@ public class DepartmentUserServiceImpl implements IDepartmentUserService
     }
 
     @Override
-    public DepartmentUserBO getVo(JB4DCSession jb4DSession, String departmentUserId) throws JBuild4DCGenerallyException {
+    public DepartmentUserPO getVo(JB4DCSession jb4DSession, String departmentUserId) throws JBuild4DCGenerallyException {
         DepartmentUserEntity departmentUserEntity=departmentUserMapper.selectByPrimaryKey(departmentUserId);
         UserEntity userEntity=userService.getByPrimaryKey(jb4DSession,departmentUserEntity.getDuUserId());
         DepartmentEntity departmentEntity=departmentService.getByPrimaryKey(jb4DSession,departmentUserEntity.getDuDeptId());
         OrganEntity organEntity=organService.getByPrimaryKey(jb4DSession,departmentEntity.getDeptOrganId());
 
-        DepartmentUserBO departmentUserVo=new DepartmentUserBO();
+        DepartmentUserPO departmentUserVo=new DepartmentUserPO();
         departmentUserVo.setDepartmentUserEntity(departmentUserEntity);
         departmentUserVo.setUserEntity(userEntity);
         departmentUserVo.setOrganEntity(organEntity);

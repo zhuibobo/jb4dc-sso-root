@@ -6,7 +6,7 @@ import com.jb4dc.base.tools.JsonUtility;
 import com.jb4dc.core.base.tools.DateUtility;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.core.base.ymls.JBuild4DCYaml;
-import com.jb4dc.sso.bo.DepartmentUserBO;
+import com.jb4dc.sso.po.DepartmentUserPO;
 import com.jb4dc.sso.dbentities.department.DepartmentEntity;
 import com.jb4dc.sso.dbentities.organ.OrganEntity;
 import com.jb4dc.sso.service.department.IDepartmentUserService;
@@ -137,7 +137,7 @@ public class OrganRestTest extends RestTestBase {
     IDepartmentUserService departmentUserService;
     private void NewDepartmentUser(String departmentId,String userName,String account) throws Exception {
         //DepartmentUserVo departmentUserVo=simpleGetData("/PlatFormRest/SSO/Department",)
-        DepartmentUserBO newDepartmentUserVo=departmentUserService.getEmptyNewVo(null,departmentId);
+        DepartmentUserPO newDepartmentUserVo=departmentUserService.getEmptyNewVo(null,departmentId);
         newDepartmentUserVo.getUserEntity().setUserAccount(account);
         newDepartmentUserVo.getUserEntity().setUserName(userName);
         newDepartmentUserVo.getUserEntity().setUserPhoneNumber("13927425407");

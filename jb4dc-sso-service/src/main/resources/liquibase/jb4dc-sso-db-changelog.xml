@@ -166,6 +166,7 @@
             <column name="AUTH_OBJ_TYPE" type="NVARCHAR(100)" remarks="权限对象类型:System,Menu,Operation等" />
             <column name="AUTH_OWNER_ID" type="NVARCHAR(100)" remarks="权限所有者ID:角色ID,用户ID等" />
             <column name="AUTH_OWNER_TYPE" type="NVARCHAR(20)" remarks="权限所有者类型:Role,User等" />
+            <column name="AUTH_SYSTEM_ID" type="NVARCHAR(100)" remarks="系统ID" />
             <column name="AUTH_CREATOR_ID" type="NVARCHAR(100)" remarks="创建者的ID" />
             <column name="AUTH_CREATOR_ORGAN_ID" type="NVARCHAR(100)" remarks="创建组织ID" />
             <column name="AUTH_ORGAN_ID" type="NVARCHAR(100)" remarks="所在组织ID" />

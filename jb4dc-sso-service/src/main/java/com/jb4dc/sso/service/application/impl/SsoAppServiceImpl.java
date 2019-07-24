@@ -6,7 +6,7 @@ import com.jb4dc.core.base.encryption.nsymmetric.RSAUtility;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.core.base.ymls.JBuild4DCYaml;
-import com.jb4dc.sso.bo.SSOAppBO;
+import com.jb4dc.sso.po.SSOAppPO;
 import com.jb4dc.sso.dao.application.SsoAppMapper;
 import com.jb4dc.sso.dbentities.application.SsoAppEntity;
 import com.jb4dc.sso.dbentities.application.SsoAppInterfaceEntity;
@@ -48,7 +48,7 @@ public class SsoAppServiceImpl extends BaseServiceImpl<SsoAppEntity> implements 
     }
 
     @Override
-    public void saveIntegratedMainApp(JB4DCSession jb4DSession, SSOAppBO entity) throws JBuild4DCGenerallyException {
+    public void saveIntegratedMainApp(JB4DCSession jb4DSession, SSOAppPO entity) throws JBuild4DCGenerallyException {
         entity.getSsoAppEntity().setAppIntegratedType("开发集成");
         entity.getSsoAppEntity().setAppMainId("");
         entity.getSsoAppEntity().setAppType("主系统");
@@ -61,8 +61,8 @@ public class SsoAppServiceImpl extends BaseServiceImpl<SsoAppEntity> implements 
     }
 
     @Override
-    public SSOAppBO getAppVo(JB4DCSession jb4DSession, String appId) {
-        SSOAppBO ssoAppVo=new SSOAppBO();
+    public SSOAppPO getAppVo(JB4DCSession jb4DSession, String appId) {
+        SSOAppPO ssoAppVo=new SSOAppPO();
         SsoAppEntity ssoAppEntity=ssoAppMapper.selectByPrimaryKey(appId);
         List<SsoAppInterfaceEntity> ssoAppInterfaceEntityList= ssoAppInterfaceService.getAppInterfaces(jb4DSession,appId);
         ssoAppVo.setSsoAppEntity(ssoAppEntity);
@@ -71,7 +71,7 @@ public class SsoAppServiceImpl extends BaseServiceImpl<SsoAppEntity> implements 
     }
 
     @Override
-    public void saveIntegratedSubApp(JB4DCSession jb4DSession, SSOAppBO entity) throws JBuild4DCGenerallyException {
+    public void saveIntegratedSubApp(JB4DCSession jb4DSession, SSOAppPO entity) throws JBuild4DCGenerallyException {
         if(entity.getSsoAppEntity().getAppMainId()==null||entity.getSsoAppEntity().getAppMainId().equals("")){
             throw new JBuild4DCGenerallyException(JBuild4DCGenerallyException.EXCEPTION_SSO_CODE,"所属主系统ID不能为空!");
         }
@@ -99,19 +99,19 @@ public class SsoAppServiceImpl extends BaseServiceImpl<SsoAppEntity> implements 
     public void initSystemData(JB4DCSession jb4DSession) throws JBuild4DCGenerallyException {
         try {
             //单点登录与统一用户管理系统
-            SSOAppBO ssoAppBO = innerNewMainApp(jb4DSession, "SSOMainApp", "单点登录与统一用户管理系统");
+            SSOAppPO ssoAppBO = innerNewMainApp(jb4DSession, "SSOMainApp", "单点登录与统一用户管理系统");
 
             //应用构建系统
-            SSOAppBO builderAppBO = innerNewMainApp(jb4DSession, "BuilderMainApp", "应用构建系统");
+            SSOAppPO builderAppBO = innerNewMainApp(jb4DSession, "BuilderMainApp", "应用构建系统");
 
             //开发样例系统
-            SSOAppBO devMockAppBO = innerNewMainApp(jb4DSession, "DevMockApp", "开发样例系统");
+            SSOAppPO devMockAppBO = innerNewMainApp(jb4DSession, "DevMockApp", "开发样例系统");
         } catch (Exception e) {
             throw new JBuild4DCGenerallyException(JBuild4DCGenerallyException.EXCEPTION_SSO_CODE,e.getMessage());
         }
     }
 
-    private SSOAppBO innerNewMainApp(JB4DCSession jb4DSession, String appId, String appName) throws Exception {
+    private SSOAppPO innerNewMainApp(JB4DCSession jb4DSession, String appId, String appName) throws Exception {
         KeyPair keyPair= RSAUtility.getKeyPair();
         String publicKey= RSAUtility.getPublicKeyBase64(keyPair);
         String privateKey=RSAUtility.getPrivateKeyBase64(keyPair);
@@ -131,7 +131,7 @@ public class SsoAppServiceImpl extends BaseServiceImpl<SsoAppEntity> implements 
         ssoMainApp.setAppCategory("web");
         ssoMainApp.setAppDesc("");
         ssoMainApp.setAppStatus("启用");
-        SSOAppBO ssoAppBO = new SSOAppBO();
+        SSOAppPO ssoAppBO = new SSOAppPO();
         ssoAppBO.setSsoAppEntity(ssoMainApp);
         this.saveIntegratedMainApp(jb4DSession, ssoAppBO);
         return ssoAppBO;

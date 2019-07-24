@@ -9,6 +9,7 @@
         <if test="authObjType !=null and authObjType !=''"> and AUTH_OBJ_TYPE like #{authObjType} </if>
         <if test="authOwnerId !=null and authOwnerId !=''"> and AUTH_OWNER_ID like #{authOwnerId} </if>
         <if test="authOwnerType !=null and authOwnerType !=''"> and AUTH_OWNER_TYPE like #{authOwnerType} </if>
+        <if test="authSystemId !=null and authSystemId !=''"> and AUTH_SYSTEM_ID like #{authSystemId} </if>
         <if test="authCreatorId !=null and authCreatorId !=''"> and AUTH_CREATOR_ID like #{authCreatorId} </if>
         <if test="authCreatorOrganId !=null and authCreatorOrganId !=''"> and AUTH_CREATOR_ORGAN_ID like #{authCreatorOrganId} </if>
         <if test="authOrganId !=null and authOrganId !=''"> and AUTH_ORGAN_ID like #{authOrganId} </if>

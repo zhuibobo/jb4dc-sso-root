@@ -27,6 +27,9 @@ public class AuthorityEntity {
     //AUTH_OWNER_TYPE:权限所有者类型:Role,User等
     private String authOwnerType;
 
+    //AUTH_SYSTEM_ID:系统ID
+    private String authSystemId;
+
     //AUTH_CREATOR_ID:创建者的ID
     private String authCreatorId;
 
@@ -46,17 +49,19 @@ public class AuthorityEntity {
      * @param authObjType 权限对象类型
      * @param authOwnerId 权限所有者ID
      * @param authOwnerType 权限所有者类型
+     * @param authSystemId 系统ID
      * @param authCreatorId 创建者的ID
      * @param authCreatorOrganId 创建组织ID
      * @param authOrganId 所在组织ID
      * @param authDesc 权限绑定备注
      **/
-    public AuthorityEntity(String authId, String authObjId, String authObjType, String authOwnerId, String authOwnerType, String authCreatorId, String authCreatorOrganId, String authOrganId, String authDesc) {
+    public AuthorityEntity(String authId, String authObjId, String authObjType, String authOwnerId, String authOwnerType, String authSystemId, String authCreatorId, String authCreatorOrganId, String authOrganId, String authDesc) {
         this.authId = authId;
         this.authObjId = authObjId;
         this.authObjType = authObjType;
         this.authOwnerId = authOwnerId;
         this.authOwnerType = authOwnerType;
+        this.authSystemId = authSystemId;
         this.authCreatorId = authCreatorId;
         this.authCreatorOrganId = authCreatorOrganId;
         this.authOrganId = authOrganId;
@@ -145,6 +150,22 @@ public class AuthorityEntity {
      **/
     public void setAuthOwnerType(String authOwnerType) {
         this.authOwnerType = authOwnerType == null ? null : authOwnerType.trim();
+    }
+
+    /**
+     * 系统ID
+     * @return java.lang.String
+     **/
+    public String getAuthSystemId() {
+        return authSystemId;
+    }
+
+    /**
+     * 系统ID
+     * @param authSystemId 系统ID
+     **/
+    public void setAuthSystemId(String authSystemId) {
+        this.authSystemId = authSystemId == null ? null : authSystemId.trim();
     }
 
     /**

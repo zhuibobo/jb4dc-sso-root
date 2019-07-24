@@ -9,7 +9,7 @@ import com.jb4dc.core.base.tools.StringUtility;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.files.dbentities.FileInfoEntity;
 import com.jb4dc.files.service.IFileInfoService;
-import com.jb4dc.sso.bo.DepartmentUserBO;
+import com.jb4dc.sso.po.DepartmentUserPO;
 import com.jb4dc.sso.service.department.IDepartmentUserService;
 import com.jb4dc.sso.dbentities.systemsetting.SettingEntity;
 import com.jb4dc.sso.service.systemsetting.ISettingService;
@@ -66,7 +66,7 @@ public class DepartmentUserRest {
     }
 
     @RequestMapping(value = "/SaveEdit", method = RequestMethod.POST)
-    public JBuild4DCResponseVo saveEdit(@RequestBody DepartmentUserBO entity, HttpServletRequest request) throws JBuild4DCGenerallyException {
+    public JBuild4DCResponseVo saveEdit(@RequestBody DepartmentUserPO entity, HttpServletRequest request) throws JBuild4DCGenerallyException {
         try {
             JB4DCSession jb4DSession = JB4DCSessionUtility.getSession();
             SettingEntity defaultPasswordSetting = settingService.getByKey(jb4DSession, ISettingService.SETTINGUSERDEFAULTPASSWORD);

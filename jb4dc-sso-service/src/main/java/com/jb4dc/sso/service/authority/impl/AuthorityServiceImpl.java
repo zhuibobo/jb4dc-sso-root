@@ -48,13 +48,13 @@ public class AuthorityServiceImpl extends BaseServiceImpl<AuthorityEntity> imple
             //保存新提交的权限绑定
             if(systemAuthObjIdList!=null&&systemAuthObjIdList.size()>0){
                 for (String authObjId : systemAuthObjIdList) {
-                    AuthorityEntity authorityEntity=new AuthorityEntity(UUIDUtility.getUUID(),systemId,"System",authOwnerId,authOwnerType,session.getUserId(),session.getOrganId(),"0","");
+                    AuthorityEntity authorityEntity=new AuthorityEntity(UUIDUtility.getUUID(),systemId,"System",authOwnerId,authOwnerType,systemId,session.getUserId(),session.getOrganId(),"0","");
                     authorityMapper.insertSelective(authorityEntity);
                 }
             }
             if(menuAuthObjIdList!=null&&menuAuthObjIdList.size()>0){
                 for (String authObjId : menuAuthObjIdList) {
-                    AuthorityEntity authorityEntity=new AuthorityEntity(UUIDUtility.getUUID(),systemId,"Menu",authOwnerId,authOwnerType,session.getUserId(),session.getOrganId(),"0","");
+                    AuthorityEntity authorityEntity=new AuthorityEntity(UUIDUtility.getUUID(),systemId,"Menu",authOwnerId,authOwnerType,systemId,session.getUserId(),session.getOrganId(),"0","");
                     authorityMapper.insertSelective(authorityEntity);
                 }
             }
