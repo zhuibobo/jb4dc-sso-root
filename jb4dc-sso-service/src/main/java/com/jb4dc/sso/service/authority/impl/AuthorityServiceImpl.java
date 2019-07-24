@@ -73,17 +73,17 @@ public class AuthorityServiceImpl extends BaseServiceImpl<AuthorityEntity> imple
      * @return void
      **/
     @Override
-    public void saveOwnerAuth(JB4DCSession session, String authOwnerType, String authOwnerId, List<AuthorityEntity> authorityEntities) {
-        List<String> authObjIdList=new ArrayList<>();
+    public void saveOwnerAuth(JB4DCSession session, String authOwnerType, String authOwnerId, List<AuthorityEntity> authorityEntities,List<String> removeAuthObjIdList) {
+        //List<String> authObjIdList=new ArrayList<>();
         authorityEntities.forEach(item->{
-            authObjIdList.add(item.getAuthObjId());
+            //authObjIdList.add(item.getAuthObjId());
             item.setAuthCreatorId(session.getUserId());
             item.setAuthCreatorOrganId(session.getOrganId());
             item.setAuthOwnerType(authOwnerType);
             item.setAuthOwnerId(authOwnerId);
         });
         if(authorityEntities.size()>0) {
-            authorityMapper.deleteAuthByOwnerId(authOwnerType, authOwnerId, authObjIdList);
+            authorityMapper.deleteAuthByOwnerId(authOwnerType, authOwnerId, removeAuthObjIdList);
 
             for (AuthorityEntity authorityEntity : authorityEntities) {
                 authorityMapper.insertSelective(authorityEntity);

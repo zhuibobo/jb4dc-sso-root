@@ -112,7 +112,7 @@
                             enable: true,
                             nocheckInherit: true,
                             radioType: "all",
-                            chkboxType: { "Y": "s", "N": "" }
+                            chkboxType: { "Y": "ps", "N": "ps" }
                         },
                         // 必须使用data
                         data:{
@@ -199,50 +199,67 @@
                 resetSaveAuthObjIdList:function(){
                     this.saveAuthEntities=[];
                 },
+                authObjIdIsInSaveAuthEntities:function(authObjId){
+                    for(var o=0;o<this.saveAuthEntities.length;o++) {
+                        if(this.saveAuthEntities[o].authObjId==authObjId){
+                            return true;
+                        }
+                    }
+                    return false;
+                },
                 changeSaveAuthEntities:function(){
                     //根据系统树重新构建实体
                     //获取选中的系统
-                    for(var i=this.saveAuthEntities.length-1;i>=0;i--){
+                    /*for(var i=this.saveAuthEntities.length-1;i>=0;i--){
                         if(this.saveAuthEntities[i].authObjType==this.authObjType.system){
+                            //删除掉所有系统权限记录
                             ArrayUtility.Delete(this.saveAuthEntities,i);
                         }
-                    }
-                    var checkedSystemNodes=this.systemTree.treeObj.getCheckedNodes(true);
-                    for(var i=0;i<checkedSystemNodes.length;i++){
-                        var checkedSystemNode=checkedSystemNodes[i];
-                        this.saveAuthEntities.push({
-                            authId:StringUtility.Guid()+"-"+i,
-                            authObjId:checkedSystemNode.appId,
-                            authObjType:this.authObjType.system,
-                            authSystemId:checkedSystemNode.appId
-                        });
-                    }
+                    }*/
                     var noCheckedSystemNodes=this.systemTree.treeObj.getCheckedNodes(false);
                     for(var i=0;i<noCheckedSystemNodes.length;i++){
                         var noCheckedSystemNode=noCheckedSystemNodes[i];
-                        this.removeAuthObjIdList.push(authObjId);
+                        this.removeAuthObjIdList.push(noCheckedSystemNode.appId);
+                    }
+
+                    var checkedSystemNodes=this.systemTree.treeObj.getCheckedNodes(true);
+                    for(var i=0;i<checkedSystemNodes.length;i++){
+                        var checkedSystemNode=checkedSystemNodes[i];
+                        if(!this.authObjIdIsInSaveAuthEntities(checkedSystemNode.appId)) {
+                            this.saveAuthEntities.push({
+                                authId: StringUtility.Guid() + "-" + i,
+                                authObjId: checkedSystemNode.appId,
+                                authObjType: this.authObjType.system,
+                                authSystemId: checkedSystemNode.appId
+                            });
+                        }
                     }
 
                     //获取选中的菜单
                     if(this.menuTree.treeObj){
-                        var currentMenuTreeALLNodes= this.menuTree.treeObj.getNodes();
-                        if(checkedSystemNodes!=null&&checkedSystemNodes.length>0) {
+                        var currentMenuTreeALLNodes= this.menuTree.treeObj.transformToArray(this.menuTree.treeObj.getNodes());
+                        for(var i=0;i<currentMenuTreeALLNodes.length;i++) {
+                            this.removeAuthObjIdList.push(currentMenuTreeALLNodes[i].menuId);
+                        }
+                        //删除掉所有的该系统的菜单,重新从树选中中获取数据
+                        var checkedMenuNodes = this.menuTree.treeObj.getCheckedNodes(true);
+                        if(checkedMenuNodes!=null&&checkedMenuNodes.length>0) {
                             var menuBelongSystemId=currentMenuTreeALLNodes[0].menuSystemId;
                             for(var i=this.saveAuthEntities.length-1;i>=0;i--){
                                 if(this.saveAuthEntities[i].authObjType==this.authObjType.menu&&this.saveAuthEntities[i].authSystemId==menuBelongSystemId){
                                     ArrayUtility.Delete(this.saveAuthEntities,i);
                                 }
                             }
-                            //删除掉所有的该系统的菜单,重新从树选中中获取数据
-                            var checkedMenuNodes = this.menuTree.treeObj.getCheckedNodes(true);
                             for(var i=0;i<checkedMenuNodes.length;i++){
                                 var checkedMenuNode=checkedMenuNodes[i];
-                                this.saveAuthEntities.push({
-                                    authId:StringUtility.Guid()+"-"+i,
-                                    authObjId:checkedMenuNode.menuId,
-                                    authObjType:this.authObjType.menu,
-                                    authSystemId:menuBelongSystemId
-                                });
+                                if(!this.authObjIdIsInSaveAuthEntities(checkedMenuNode.menuId)) {
+                                    this.saveAuthEntities.push({
+                                        authId: StringUtility.Guid() + "-" + i,
+                                        authObjId: checkedMenuNode.menuId,
+                                        authObjType: this.authObjType.menu,
+                                        authSystemId: menuBelongSystemId
+                                    });
+                                }
                             }
                         }
                     }
@@ -275,7 +292,8 @@
                     AjaxUtility.Post(this.acInterface.saveOwnerAuth, {
                         authOwnerType:BaseUtility.GetUrlParaValue("auth_owner_type"),
                         authOwnerId:BaseUtility.GetUrlParaValue("auth_owner_id"),
-                        saveAuthEntitiesJsonString:JsonUtility.JsonToString(this.saveAuthEntities)
+                        saveAuthEntitiesJsonString:JsonUtility.JsonToString(this.saveAuthEntities),
+                        removeAuthObjIdList:ArrayUtility.Unique(this.removeAuthObjIdList)
                     }, function (result) {
                         if (result.success) {
                             DialogUtility.AlertText(result.message);

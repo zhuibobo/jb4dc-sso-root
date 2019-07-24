@@ -6,6 +6,7 @@ import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.sso.dbentities.authority.AuthorityEntity;
 import com.jb4dc.sso.service.authority.IAuthorityService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,10 +30,10 @@ public class AuthorityRest {
     IAuthorityService authorityService;
 
     @RequestMapping(value = "/SaveOwnerAuth", method = RequestMethod.POST)
-    public JBuild4DCResponseVo saveOwnerAuth(String authOwnerType,String authOwnerId, String saveAuthEntitiesJsonString) throws JBuild4DCGenerallyException, IOException {
+    public JBuild4DCResponseVo saveOwnerAuth(String authOwnerType,String authOwnerId, String saveAuthEntitiesJsonString,@RequestParam("removeAuthObjIdList[]") List<String> removeAuthObjIdList) throws JBuild4DCGenerallyException, IOException {
         //List<DepartmentEntity> departmentEntityList=departmentService.getDepartmentsByOrganId(organId);
         List<AuthorityEntity> authorityEntities= JsonUtility.toObjectList(saveAuthEntitiesJsonString,AuthorityEntity.class);
-        authorityService.saveOwnerAuth(JB4DCSessionUtility.getSession(), authOwnerType, authOwnerId,authorityEntities);
+        authorityService.saveOwnerAuth(JB4DCSessionUtility.getSession(), authOwnerType, authOwnerId,authorityEntities,removeAuthObjIdList);
         return JBuild4DCResponseVo.opSuccess();
     }
 }
