@@ -46,6 +46,7 @@
                                 //if(treeNode.level != 0) {
                                 appForm.systemTree.treeSelectedNode=treeNode;
                                 appForm.reloadMenuTreeData();
+                                appForm.changeSaveAuthEntities();
                                 //}
                             },
                             //成功的回调函数
@@ -116,6 +117,7 @@
                     authOrganId:"",
                     authDesc:""
                 }*/],
+                lastTimeSaveAuthEntities:[],
                 removeAuthObjIdList:[],
                 selectedTabName:"Menu",
                 authObjType:{
@@ -130,8 +132,8 @@
                         authOwnerId:BaseUtility.GetUrlParaValue("auth_owner_id")
                     }, function (result) {
                         if (result.success) {
-                            this.saveAuthEntities=result.data;
-                            console.log(this.saveAuthEntities);
+                            this.lastTimeSaveAuthEntities=result.data;
+                            //console.log(this.saveAuthEntities);
                             this.initSystemTree();
                         }
                     },this);
@@ -175,6 +177,14 @@
                 authObjIdIsInSaveAuthEntities:function(authObjId){
                     for(var o=0;o<this.saveAuthEntities.length;o++) {
                         if(this.saveAuthEntities[o].authObjId==authObjId){
+                            return true;
+                        }
+                    }
+                    return false;
+                },
+                authObjIdIsInLastTimeSaveAuthEntities:function(authObjId){
+                    for(var o=0;o<this.lastTimeSaveAuthEntities.length;o++) {
+                        if(this.lastTimeSaveAuthEntities[o].authObjId==authObjId){
                             return true;
                         }
                     }
@@ -243,7 +253,7 @@
                         var systemTreeALLNodes = this.systemTree.treeObj.transformToArray(this.systemTree.treeObj.getNodes());
                         //debugger;
                         for(var i=0;i<systemTreeALLNodes.length;i++){
-                            if(this.authObjIdIsInSaveAuthEntities(systemTreeALLNodes[i].appId)){
+                            if(this.authObjIdIsInLastTimeSaveAuthEntities(systemTreeALLNodes[i].appId)){
                                 //debugger;
                                 this.systemTree.treeObj.checkNode(systemTreeALLNodes[i], true);
                             }
@@ -254,7 +264,7 @@
                         var menuTreeTreeALLNodes = this.menuTree.treeObj.transformToArray(this.menuTree.treeObj.getNodes());
                         //debugger;
                         for(var i=0;i<menuTreeTreeALLNodes.length;i++){
-                            if(this.authObjIdIsInSaveAuthEntities(menuTreeTreeALLNodes[i].menuId)){
+                            if(this.authObjIdIsInLastTimeSaveAuthEntities(menuTreeTreeALLNodes[i].menuId)){
                                 //debugger;
                                 this.menuTree.treeObj.checkNode(menuTreeTreeALLNodes[i], true);
                             }

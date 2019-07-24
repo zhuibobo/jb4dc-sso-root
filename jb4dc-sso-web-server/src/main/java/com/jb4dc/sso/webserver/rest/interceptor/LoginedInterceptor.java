@@ -28,6 +28,8 @@ public class LoginedInterceptor implements HandlerInterceptor {
         igUrl.put("/Rest/SSO/Session/GetSession","");
         igUrl.put("/HTML/Login.html","");
         igUrl.put("/Controller/LoginSSOView","");
+        igUrl.put("/Rest/SSO/Session/GetSession","");
+        igUrl.put("/Rest/SSO/Session/LoginForRest","");
 
         String absPath=request.getRequestURI();
         String appName=request.getContextPath();

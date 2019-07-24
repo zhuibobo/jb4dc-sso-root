@@ -2,6 +2,7 @@ package com.jb4dc.sso.webserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 
 
@@ -13,6 +14,7 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @SpringBootApplication
 @ComponentScan("com.jb4dc")
+@EnableDiscoveryClient
 public class ApplicationSSOWebServer {
     public static void main(String[] args) {
         SpringApplication.run(ApplicationSSOWebServer.class, args);
