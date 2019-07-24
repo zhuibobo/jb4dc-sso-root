@@ -36,4 +36,11 @@ public class AuthorityRest {
         authorityService.saveOwnerAuth(JB4DCSessionUtility.getSession(), authOwnerType, authOwnerId,authorityEntities,removeAuthObjIdList);
         return JBuild4DCResponseVo.opSuccess();
     }
+
+    @RequestMapping(value = "/GetOwnerAuth", method = RequestMethod.POST)
+    public JBuild4DCResponseVo getOwnerAuth(String authOwnerType,String authOwnerId) throws JBuild4DCGenerallyException, IOException {
+        //List<AuthorityEntity> authorityEntities= JsonUtility.toObjectList(saveAuthEntitiesJsonString,AuthorityEntity.class);
+        List<AuthorityEntity> authorityEntities = authorityService.getOwnerAuth(JB4DCSessionUtility.getSession(), authOwnerType, authOwnerId);
+        return JBuild4DCResponseVo.getDataSuccess(authorityEntities);
+    }
 }

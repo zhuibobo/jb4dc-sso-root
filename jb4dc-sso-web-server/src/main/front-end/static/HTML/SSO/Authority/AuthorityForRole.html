@@ -43,7 +43,7 @@
         var appForm =new Vue({
             el: "#appForm",
             mounted:function () {
-                this.initSystemTree();
+                this.init();
             },
             data: {
                 acInterface:{
@@ -52,7 +52,8 @@
                     <!--Menu-->
                     getMenusDataBySystemId:"/Rest/SSO/Mu/Menu/GetMenusBySystemId",
                     <!--Auth-->
-                    saveOwnerAuth:"/Rest/SSO/Auth/Authority/SaveOwnerAuth"
+                    saveOwnerAuth:"/Rest/SSO/Auth/Authority/SaveOwnerAuth",
+                    getOwnerAuth:"/Rest/SSO/Auth/Authority/GetOwnerAuth"
                 },
                 systemTree:{
                     treeObj:null,
@@ -165,6 +166,18 @@
                 }
             },
             methods: {
+                init:function(){
+                    AjaxUtility.Post(this.acInterface.getOwnerAuth, {
+                        authOwnerType:BaseUtility.GetUrlParaValue("auth_owner_type"),
+                        authOwnerId:BaseUtility.GetUrlParaValue("auth_owner_id")
+                    }, function (result) {
+                        if (result.success) {
+                            this.saveAuthEntities=result.data;
+                            console.log(this.saveAuthEntities);
+                            this.initSystemTree();
+                        }
+                    },this);
+                },
                 initSystemTree:function () {
                     AjaxUtility.Post(this.acInterface.getSystemTreeData, {}, function (result) {
                         if (result.success) {
@@ -177,6 +190,7 @@
                             this.systemTree.treeObj = $.fn.zTree.init($("#zSystemTreeUL"), this.systemTree.treeSetting, treeData);
                             this.systemTree.treeObj.expandAll(true);
                             this.systemTree.treeObj._host=this;
+                            this.setSaveAuthEntitiesToCheck();
                         }
                     },this);
                 },
@@ -193,6 +207,7 @@
                             this.menuTree.treeObj = $.fn.zTree.init($("#zMenuTreeUL"), this.menuTree.treeSetting, treeData);
                             this.menuTree.treeObj.expandAll(true);
                             this.menuTree.treeObj._host=this;
+                            this.setSaveAuthEntitiesToCheck();
                         }
                     },this);
                 },
@@ -216,10 +231,10 @@
                             ArrayUtility.Delete(this.saveAuthEntities,i);
                         }
                     }*/
-                    var noCheckedSystemNodes=this.systemTree.treeObj.getCheckedNodes(false);
-                    for(var i=0;i<noCheckedSystemNodes.length;i++){
-                        var noCheckedSystemNode=noCheckedSystemNodes[i];
-                        this.removeAuthObjIdList.push(noCheckedSystemNode.appId);
+                    var allSystemNodes=this.systemTree.treeObj.transformToArray(this.systemTree.treeObj.getNodes());
+                    for(var i=0;i<allSystemNodes.length;i++){
+                        var allSystemNode=allSystemNodes[i];
+                        this.removeAuthObjIdList.push(allSystemNode.appId);
                     }
 
                     var checkedSystemNodes=this.systemTree.treeObj.getCheckedNodes(true);
@@ -243,13 +258,14 @@
                         }
                         //删除掉所有的该系统的菜单,重新从树选中中获取数据
                         var checkedMenuNodes = this.menuTree.treeObj.getCheckedNodes(true);
-                        if(checkedMenuNodes!=null&&checkedMenuNodes.length>0) {
-                            var menuBelongSystemId=currentMenuTreeALLNodes[0].menuSystemId;
-                            for(var i=this.saveAuthEntities.length-1;i>=0;i--){
-                                if(this.saveAuthEntities[i].authObjType==this.authObjType.menu&&this.saveAuthEntities[i].authSystemId==menuBelongSystemId){
-                                    ArrayUtility.Delete(this.saveAuthEntities,i);
-                                }
+                        var menuBelongSystemId=currentMenuTreeALLNodes[0].menuSystemId;
+                        for(var i=this.saveAuthEntities.length-1;i>=0;i--) {
+                            if (this.saveAuthEntities[i].authObjType == this.authObjType.menu && this.saveAuthEntities[i].authSystemId == menuBelongSystemId) {
+                                ArrayUtility.Delete(this.saveAuthEntities, i);
                             }
+                        }
+
+                        if(checkedMenuNodes!=null&&checkedMenuNodes.length>0) {
                             for(var i=0;i<checkedMenuNodes.length;i++){
                                 var checkedMenuNode=checkedMenuNodes[i];
                                 if(!this.authObjIdIsInSaveAuthEntities(checkedMenuNode.menuId)) {
@@ -260,6 +276,29 @@
                                         authSystemId: menuBelongSystemId
                                     });
                                 }
+                            }
+                        }
+                    }
+                },
+                setSaveAuthEntitiesToCheck:function(){
+                    if(this.systemTree.treeObj) {
+                        var systemTreeALLNodes = this.systemTree.treeObj.transformToArray(this.systemTree.treeObj.getNodes());
+                        //debugger;
+                        for(var i=0;i<systemTreeALLNodes.length;i++){
+                            if(this.authObjIdIsInSaveAuthEntities(systemTreeALLNodes[i].appId)){
+                                //debugger;
+                                this.systemTree.treeObj.checkNode(systemTreeALLNodes[i], true);
+                            }
+                        }
+                    }
+
+                    if(this.menuTree.treeObj) {
+                        var menuTreeTreeALLNodes = this.menuTree.treeObj.transformToArray(this.menuTree.treeObj.getNodes());
+                        //debugger;
+                        for(var i=0;i<menuTreeTreeALLNodes.length;i++){
+                            if(this.authObjIdIsInSaveAuthEntities(menuTreeTreeALLNodes[i].menuId)){
+                                //debugger;
+                                this.menuTree.treeObj.checkNode(menuTreeTreeALLNodes[i], true);
                             }
                         }
                     }

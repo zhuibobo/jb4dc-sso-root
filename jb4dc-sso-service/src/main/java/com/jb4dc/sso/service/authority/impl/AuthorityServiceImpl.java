@@ -90,4 +90,9 @@ public class AuthorityServiceImpl extends BaseServiceImpl<AuthorityEntity> imple
             }
         }
     }
+
+    @Override
+    public List<AuthorityEntity> getOwnerAuth(JB4DCSession session, String authOwnerType, String authOwnerId) {
+        return authorityMapper.selectOwnerAuth(authOwnerType,authOwnerId);
+    }
 }

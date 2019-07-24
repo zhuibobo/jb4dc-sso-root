@@ -25,4 +25,7 @@
             #{item}
         </foreach>
     </delete>
+    <select id="selectOwnerAuth" resultMap="BaseResultMap">
+        select<include refid="Base_Column_List"/> from TSSO_AUTHORITY where  AUTH_OWNER_ID=#{authOwnerId} and AUTH_OWNER_TYPE=#{authOwnerType}
+    </select>
 </mapper>

@@ -162,7 +162,8 @@
             <column name="AUTH_ID" type="NVARCHAR(100)" remarks="主键:UUID">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="AUTH_OBJ_ID" type="NVARCHAR(100)" remarks="权限对象ID:系统,菜单,操作按钮等" />
+            <column name="AUTH_OBJ_ID" type="NVARCHAR(100)" remarks="权限对象ID:系统,菜单,操作按钮等,值必须在表中唯一" />
+            <column name="AUTH_OBJ_VALUE" type="NVARCHAR(100)" remarks="权限对象值" />
             <column name="AUTH_OBJ_TYPE" type="NVARCHAR(100)" remarks="权限对象类型:System,Menu,Operation等" />
             <column name="AUTH_OWNER_ID" type="NVARCHAR(100)" remarks="权限所有者ID:角色ID,用户ID等" />
             <column name="AUTH_OWNER_TYPE" type="NVARCHAR(20)" remarks="权限所有者类型:Role,User等" />

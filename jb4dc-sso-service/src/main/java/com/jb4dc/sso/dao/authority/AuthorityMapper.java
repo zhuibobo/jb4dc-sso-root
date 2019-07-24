@@ -11,4 +11,6 @@ public interface AuthorityMapper extends BaseMapper<AuthorityEntity> {
     void deleteOldSystemAndMenuByOwnerId(@Param("authOwnerId") String authOwnerId,@Param("systemId") String systemId);
 
     void deleteAuthByOwnerId(@Param("authOwnerType") String authOwnerType,@Param("authOwnerId")  String authOwnerId,@Param("authObjIdList")  List<String> authObjIdList);
+
+    List<AuthorityEntity> selectOwnerAuth(@Param("authOwnerType") String authOwnerType,@Param("authOwnerId") String authOwnerId);
 }
