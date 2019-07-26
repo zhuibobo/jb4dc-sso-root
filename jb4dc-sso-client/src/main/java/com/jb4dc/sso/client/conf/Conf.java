@@ -34,6 +34,11 @@ public class Conf {
 
     public static final String SSO_TOKEN_URL_PARA_NAME ="JBuild4DCSSOToken";
 
+    /**
+     * 跳转时候附带的USERID,用于验证与本地存储的Session中的用户是否一致,解决进入子系统后,关掉页面,切换账号,再次进入系统的问题
+     */
+    public static final String SSO_RE_VALIDATION_CLIENT_LOCATION_USER_ID_URL_PARA_NAME="JBuild4DCSSOReVerificationUserId";
+
     //public static String SSO_SERVER_ADDRESS="http://localhost:9091/jb4d";
 
     //public static String SSO_REST_BASE="/PlatFormRest";

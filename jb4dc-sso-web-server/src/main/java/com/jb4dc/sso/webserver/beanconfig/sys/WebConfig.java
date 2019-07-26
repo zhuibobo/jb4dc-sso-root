@@ -24,7 +24,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new BuildJB4DCSessionInterceptor(issoLoginStore)).excludePathPatterns("/Js/**","/Themes/**");
-        registry.addInterceptor(new LoginedInterceptor()).excludePathPatterns("/Js/**","/Themes/**");
         registry.addInterceptor(new SSOLoginedInterceptor()).excludePathPatterns("/Js/**","/Themes/**");
+        registry.addInterceptor(new LoginedInterceptor()).excludePathPatterns("/Js/**","/Themes/**");
     }
 }

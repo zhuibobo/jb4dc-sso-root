@@ -20,6 +20,13 @@ public class LoginSSOController {
     public ModelAndView loginSSOView(HttpServletRequest request) {
 
         ModelAndView modelAndView=new ModelAndView("LoginSSO");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/LogoutSSOView", method = RequestMethod.GET)
+    public ModelAndView logoutSSOView(HttpServletRequest request) {
+
+        ModelAndView modelAndView=new ModelAndView("LoginSSO");
 
         return modelAndView;
     }

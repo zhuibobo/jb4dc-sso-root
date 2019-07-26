@@ -69,10 +69,13 @@
                 },
                 openApp:function (app) {
                     //console.log(app);
-                    var domain=app.appDomain;
-                    var indexUrl=app.appIndexUrl;
-                    //alert(domain);
-                    window.open(domain+indexUrl);
+                    SessionUtility.GetSessionUser(function (userData) {
+                        var domain=app.appDomain;
+                        var indexUrl=app.appIndexUrl;
+                        var openUrl=BaseUtility.AppendTimeStampUrl(domain+indexUrl+"?JBuild4DCSSOReVerificationUserId="+userData.userId);
+                        //alert(domain);
+                        window.open(openUrl);
+                    });
                 }
             }
         })</script></body></html>

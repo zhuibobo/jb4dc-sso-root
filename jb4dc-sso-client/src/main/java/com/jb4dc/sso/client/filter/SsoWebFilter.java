@@ -2,6 +2,8 @@ package com.jb4dc.sso.client.filter;
 
 import com.jb4dc.base.service.general.JB4DCSessionUtility;
 import com.jb4dc.core.base.session.JB4DCSession;
+import com.jb4dc.core.base.tools.CookieUtility;
+import com.jb4dc.core.base.tools.StringUtility;
 import com.jb4dc.sso.client.conf.Conf;
 import com.jb4dc.sso.client.extend.ICheckSessionSuccess;
 import com.jb4dc.sso.client.proxy.LoginProxyUtility;
@@ -52,6 +54,22 @@ public class SsoWebFilter extends HttpServlet implements Filter {
         //判断是否存在本地Session
         //jb4DSession= JB4DClientSessionUtil.getSession(req);
         jb4DSession= JB4DCSessionUtility.getSessionNotException();
+
+        String reValidationUserId=req.getParameter(Conf.SSO_RE_VALIDATION_CLIENT_LOCATION_USER_ID_URL_PARA_NAME);
+        if(StringUtility.isNotEmpty(reValidationUserId)&jb4DSession!=null){
+            if(!reValidationUserId.equals(jb4DSession.getUserId())){
+                // total link
+                String link = req.getRequestURL().toString();
+                // 重定向到登录页面,带上原始的地址,登录后返回原始页面.
+                String loginPageUrl = Conf.JB4DC_SSO_SERVER_ADDRESS .concat(Conf.JB4DC_SSO_SERVER_CONTEXT_PATH)
+                        .concat(Conf.JB4DC_SSO_SERVER_VIEW_LOGIN)
+                        + "?" + Conf.SSO_REDIRECT_URL_PARA_NAME + "=" + link+"&"+Conf.SSO_IS_INT_SYSTEM_URL_PARA_NAME+"=true";
+                //CookieUtility.set(res, "JB4DC_SSO_CLIENT_COOKIE_STORE_KEY", "", false);
+                res.sendRedirect(loginPageUrl);
+                JB4DCSessionUtility.clearMyLocationLoginedJB4DCSession();
+                return;
+            }
+        }
 
         if(jb4DSession==null) {
             try {
