@@ -16,8 +16,8 @@ public class SessionRest {
     ISSOLoginStore ssoLoginStore;
 
     @RequestMapping(value = "GetSession", method = RequestMethod.POST)
-    public JBuild4DCResponseVo getSession(String JBuild4DSSOCode){
-        JB4DCSession jb4DSession=ssoLoginStore.getSession(JBuild4DSSOCode);
+    public JBuild4DCResponseVo getSession(String JBuild4DCSSOToken){
+        JB4DCSession jb4DSession=ssoLoginStore.getSession(JBuild4DCSSOToken);
         return JBuild4DCResponseVo.getDataSuccess(jb4DSession);
     }
 

@@ -6,7 +6,7 @@ import com.jb4dc.sso.client.conf.Conf;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class JB4DClientSessionUtil {
+/*public class JB4DClientSessionUtil {
     public static JB4DCSession getSession(HttpServletRequest request) throws JBuild4DCSessionTimeoutException {
         //HttpServletRequest request = ServletRequest
         if(request == null) {
@@ -18,4 +18,4 @@ public class JB4DClientSessionUtil {
         }
         return b4DSession;
     }
-}
+}*/

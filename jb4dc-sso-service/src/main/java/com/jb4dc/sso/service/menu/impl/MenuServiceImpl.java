@@ -249,6 +249,11 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         return menuMapper.selectBySystemId(systemId);
     }
 
+    @Override
+    public List<MenuEntity> getMyAuthMenusBySystemId(JB4DCSession session, String systemId) {
+        return menuMapper.getMyAuthMenusBySystemId(session.getUserId(),systemId);
+    }
+
     public MenuEntity getMenu(String parentId,String id,String name,String text,String value,String type,String leftUrl,String rightUrl,String iconClassName,String systemId){
         MenuEntity menuEntity=new MenuEntity();
         menuEntity.setMenuId(id);

@@ -1,4 +1,4 @@
-package com.jb4dc.sso.service.provide;
+package com.jb4dc.sso.provide;
 
 import com.jb4dc.base.service.po.MenuPO;
 import com.jb4dc.base.service.provide.IFrameMenuProvide;

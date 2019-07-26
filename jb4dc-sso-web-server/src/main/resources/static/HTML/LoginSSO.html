@@ -2,8 +2,8 @@
         el:"#app",
         data:{
             formItem: {
-                account: 'Alex',
-                password: '4D'
+                account: 'dev1',
+                password: 'j4d123456'
             }
         },
         mounted:function(){
@@ -13,7 +13,7 @@
             handleSubmit: function (name) {
                 var url = '/Rest/Login/ValidateAccountSSO';
                 var _self=this;
-                var redirectUrl=BaseUtility.GetUrlParaValue("redirectUrl");
+                var redirectUrl=BaseUtility.GetUrlParaValue("JBuild4DCSSORedirectUrl");
                 //debugger;
                 var senddata={
                     accountName:_self.formItem.account,
@@ -22,7 +22,12 @@
                 };
                 AjaxUtility.Post(url, senddata , function (result) {
                     if (result.success) {
-                        window.location.href=result.data.redirectUrl+"?JBuild4DSSOCode="+result.data.code;
+                        if(result.data.redirectUrl) {
+                            window.location.href = result.data.redirectUrl + "?JBuild4DCSSOToken=" + result.data.token;
+                        }
+                        else{
+                            window.location.href = BaseUtility.BuildAction("/HTML/FrameV2/FrameView.html");
+                        }
                     }
                     else {
                         DialogUtility.Alert(window,"LoginAlert",{},"帐号密码错误")

@@ -19,11 +19,11 @@ public class LoginProxyUtility {
 
         JB4DCSession jb4DSession=null;
 
-        String sessionCode = CookieUtility.getValue(request, Conf.SSO_SESSION_STORE_KEY);
+        String sessionCode = CookieUtility.getValue(request, Conf.JB4DC_SSO_CLIENT_COOKIE_STORE_KEY);
 
         //如果URL中带有SSSCode的参数,则使用该参数尝试获取用户信息
         if(sessionCode==null||sessionCode.equals("")){
-            sessionCode=request.getParameter(Conf.SSS_CODE_URL_PARA_NAME);
+            sessionCode=request.getParameter(Conf.SSO_TOKEN_URL_PARA_NAME);
         }
 
         if(sessionCode==null||sessionCode.equals("")){
@@ -31,10 +31,10 @@ public class LoginProxyUtility {
         }
 
         //通过sessionCode到服务端获取用户的信息
-        String url=Conf.SSO_SERVER_ADDRESS+Conf.SSO_REST_BASE+"/SSO/Session/GetSession";
+        String url=Conf.JB4DC_SSO_SERVER_ADDRESS+Conf.JB4DC_SSO_SERVER_CONTEXT_PATH+"/Rest/SSO/Session/GetSession";
 
         Map<String,String> sendData=new HashMap<String,String>();
-        sendData.put(Conf.SSS_CODE_URL_PARA_NAME,sessionCode);
+        sendData.put(Conf.SSO_TOKEN_URL_PARA_NAME,sessionCode);
         String httpResult= HttpClientUtil.getHttpPostResult(url,sendData,true);
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -47,8 +47,8 @@ public class LoginProxyUtility {
             throw new Exception("SSO服务端错误:"+jBuild4DResponseVo.getMessage());
         }
 
-        //将sessionCode写入Cookie中
-        CookieUtility.set(response,Conf.SSO_SESSION_STORE_KEY,sessionCode,false);
+        //将sessionCode写入Cookie中,用于本地Session超时时,可以使用该code重新拉取用户信息!
+        CookieUtility.set(response,Conf.JB4DC_SSO_CLIENT_COOKIE_STORE_KEY,sessionCode,false);
 
         return jb4DSession;
     }

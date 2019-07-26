@@ -1,5 +1,6 @@
 package com.jb4dc.sso.client.remote;
 
+import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import feign.Headers;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -16,11 +17,11 @@ import org.springframework.web.bind.annotation.RequestParam;
  * To change this template use File | Settings | File Templates.
  */
 @Primary
-@FeignClient(name= "${jb4dc.sso.server.name}",configuration = { FeignClientConfig.class },path = "${jb4dc.sso.server.context-path}/Rest/SSO/Session")
+@FeignClient(name= "${jb4dc.sso.server.name}",contextId = "SessionRemote",configuration = { FeignClientConfig.class },path = "${jb4dc.sso.server.context-path}/Rest/SSO/Session")
 public interface SessionRemote {
 
     @RequestMapping(value = "/GetSession",method = RequestMethod.POST)
-    JBuild4DCResponseVo getSession(@RequestParam(value = "JBuild4DSSOCode") String JBuild4DSSOCode);
+    JBuild4DCResponseVo getSession(@RequestParam(value = "JBuild4DCSSOToken") String JBuild4DCSSOToken);
 
     /**
      *
@@ -32,5 +33,5 @@ public interface SessionRemote {
      * @return com.jb4dc.core.base.vo.JBuild4DCResponseVo
      **/
     @RequestMapping(value = "/LoginForRest", method = RequestMethod.POST)
-    JBuild4DCResponseVo loginForRest(@RequestHeader("X-Auth-Token") String token, @RequestParam(value = "account") String account, @RequestParam(value = "password") String password);
+    JBuild4DCResponseVo<JB4DCSession> loginForRest(@RequestHeader("X-Auth-Token") String token, @RequestParam(value = "account") String account, @RequestParam(value = "password") String password);
 }

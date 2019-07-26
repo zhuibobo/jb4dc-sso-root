@@ -42,4 +42,11 @@
     <select id="selectBySystemId" resultMap="BaseResultMap">
         select<include refid="Base_Column_List"/> from TSSO_MENU where MENU_SYSTEM_ID=#{systemId} ORDER by MENU_ORDER_NUM ASC
     </select>
+    <select id="getMyAuthMenusBySystemId" resultMap="BaseResultMap">
+        select TSSO_MENU.* from TSSO_MENU
+        join TSSO_AUTHORITY on TSSO_MENU.MENU_ID=TSSO_AUTHORITY.AUTH_OBJ_ID
+        join TSSO_ROLE on TSSO_AUTHORITY.AUTH_OWNER_ID=TSSO_ROLE.ROLE_ID
+        join TSSO_USER_ROLE on TSSO_ROLE.ROLE_ID=TSSO_USER_ROLE.BIND_ROLE_ID
+        where TSSO_USER_ROLE.BIND_USER_ID=#{userId} and TSSO_MENU.MENU_SYSTEM_ID=#{systemId}
+    </select>
 </mapper>

@@ -99,19 +99,19 @@ public class SsoAppServiceImpl extends BaseServiceImpl<SsoAppEntity> implements 
     public void initSystemData(JB4DCSession jb4DSession) throws JBuild4DCGenerallyException {
         try {
             //单点登录与统一用户管理系统
-            SSOAppPO ssoAppBO = innerNewMainApp(jb4DSession, "SSOMainApp", "单点登录与统一用户管理系统");
+            SSOAppPO ssoAppBO = innerNewMainApp(jb4DSession, "SSOMainApp", "单点登录与统一用户管理系统","","");
 
             //应用构建系统
-            SSOAppPO builderAppBO = innerNewMainApp(jb4DSession, "BuilderMainApp", "应用构建系统");
+            SSOAppPO builderAppBO = innerNewMainApp(jb4DSession, "BuilderMainApp", "应用构建系统","","");
 
             //开发样例系统
-            SSOAppPO devMockAppBO = innerNewMainApp(jb4DSession, "DevMockApp", "开发样例系统");
+            SSOAppPO devMockAppBO = innerNewMainApp(jb4DSession, "DevMockApp", "开发样例系统","http://127.0.0.1:9102/DevMock","/HTML/FrameV1/FrameView.html");
         } catch (Exception e) {
             throw new JBuild4DCGenerallyException(JBuild4DCGenerallyException.EXCEPTION_SSO_CODE,e.getMessage());
         }
     }
 
-    private SSOAppPO innerNewMainApp(JB4DCSession jb4DSession, String appId, String appName) throws Exception {
+    private SSOAppPO innerNewMainApp(JB4DCSession jb4DSession, String appId, String appName,String domain,String indexUrl) throws Exception {
         KeyPair keyPair= RSAUtility.getKeyPair();
         String publicKey= RSAUtility.getPublicKeyBase64(keyPair);
         String privateKey=RSAUtility.getPrivateKeyBase64(keyPair);
@@ -122,8 +122,8 @@ public class SsoAppServiceImpl extends BaseServiceImpl<SsoAppEntity> implements 
         ssoMainApp.setAppName(appName);
         ssoMainApp.setAppPublicKey(publicKey);
         ssoMainApp.setAppPrivateKey(privateKey);
-        ssoMainApp.setAppDomain("");
-        ssoMainApp.setAppIndexUrl("");
+        ssoMainApp.setAppDomain(domain);
+        ssoMainApp.setAppIndexUrl(indexUrl);
         ssoMainApp.setAppIntegratedType("开发集成");
         ssoMainApp.setAppMainImageId("");
         ssoMainApp.setAppType("主系统");

@@ -3,6 +3,10 @@ package com.jb4dc.sso.webserver.rest.interceptor;
 import com.jb4dc.base.service.general.JB4DCSessionUtility;
 import com.jb4dc.core.base.exception.JBuild4DCSessionTimeoutException;
 import com.jb4dc.core.base.session.JB4DCSession;
+import com.jb4dc.sso.client.conf.Conf;
+import com.jb4dc.sso.client.filter.SsoWebFilter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -18,6 +22,8 @@ import java.util.Map;
  * To change this template use File | Settings | File Templates.
  */
 public class LoginedInterceptor implements HandlerInterceptor {
+    private static Logger logger = LoggerFactory.getLogger(LoginedInterceptor.class);
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         //response.setContentType("text/html;charset=UTF-8");
@@ -26,14 +32,19 @@ public class LoginedInterceptor implements HandlerInterceptor {
         igUrl.put("/Rest/Login/ValidateAccountSSO","");
         igUrl.put("/Rest/JBuild4DCYaml/GetClientSystemTitle","");
         igUrl.put("/Rest/SSO/Session/GetSession","");
-        igUrl.put("/HTML/Login.html","");
-        igUrl.put("/Controller/LoginSSOView","");
         igUrl.put("/Rest/SSO/Session/GetSession","");
         igUrl.put("/Rest/SSO/Session/LoginForRest","");
+
+        igUrl.put("/HTML/Login.html","");
+        igUrl.put("/HTML/LoginSSO.html","");
+
+        igUrl.put("/Controller/LoginSSOView","");
+
 
         String absPath=request.getRequestURI();
         String appName=request.getContextPath();
         String url=absPath.replaceAll(appName,"");
+
         if(igUrl.containsKey(url)){
             return true;
         }
@@ -42,12 +53,12 @@ public class LoginedInterceptor implements HandlerInterceptor {
             try {
                 JB4DCSession session = JB4DCSessionUtility.getSession();
                 if (session == null) {
-                    response.sendRedirect(appName+"/HTML/Login.html");
+                    response.sendRedirect(appName+"/HTML/LoginSSO.html");
                     return false;
                 }
             }
             catch (JBuild4DCSessionTimeoutException ex){
-                response.sendRedirect(appName+"/HTML/Login.html");
+                response.sendRedirect(appName+"/HTML/LoginSSO.html");
                 return false;
             }
         }

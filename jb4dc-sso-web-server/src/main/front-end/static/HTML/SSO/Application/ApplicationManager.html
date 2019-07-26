@@ -23,7 +23,7 @@
                     <span>{{app.appName}}</span>
                 </div>
                 <div class="content">
-                    <div class="mainImg">
+                    <div class="mainImg" @click="openApp(app)">
                         <img :src="buildLogoUrl(app)" />
                     </div>
                     <div class="button-wrap">
@@ -111,6 +111,13 @@
                             }
                         }, this);
                     });
+                },
+                openApp:function (app) {
+                    //console.log(app);
+                    var domain=app.appDomain;
+                    var indexUrl=app.appIndexUrl;
+                    //alert(domain);
+                    window.open(domain+indexUrl);
                 }
             }
         })

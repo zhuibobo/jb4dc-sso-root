@@ -1,10 +1,10 @@
 package com.jb4dc.sso.client.filter;
 
+import com.jb4dc.base.service.general.JB4DCSessionUtility;
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.sso.client.conf.Conf;
 import com.jb4dc.sso.client.extend.ICheckSessionSuccess;
 import com.jb4dc.sso.client.proxy.LoginProxyUtility;
-import com.jb4dc.sso.client.utils.JB4DClientSessionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,33 +18,21 @@ public class SsoWebFilter extends HttpServlet implements Filter {
 
     private static Logger logger = LoggerFactory.getLogger(SsoWebFilter.class);
 
-    public static final String KEY_SSO_SERVER_ADDRESS = "SSO_SERVER";
-    public static final String KEY_SSO_LOGIN_PATH="SSO_LOGIN_PATH";
-    public static final String KEY_SSO_LOGOUT_PATH = "SSO_LOGOUT_PATH";
-    public static final String KEY_SSO_EXCLUDED_PATHS = "SSO_EXCLUDED_PATHS";
-    public static final String KEY_SSO_REST_BASE_PATH="SSO_REST_BASE_PATH";
-
     private ICheckSessionSuccess checkSessionSuccess;
 
     public void setCheckSessionSuccess(ICheckSessionSuccess checkSessionSuccess) {
         this.checkSessionSuccess = checkSessionSuccess;
     }
 
-    private String ssoServerAddress;
-    private String loginPath;
-    private String logoutPath;
-    private String excludedPaths;
-    private String restBasePath;
-
     public void init(FilterConfig filterConfig) throws ServletException {
-        ssoServerAddress = filterConfig.getInitParameter(KEY_SSO_SERVER_ADDRESS);
-        loginPath = filterConfig.getInitParameter(KEY_SSO_LOGIN_PATH);
-        logoutPath = filterConfig.getInitParameter(KEY_SSO_LOGOUT_PATH);
-        excludedPaths = filterConfig.getInitParameter(KEY_SSO_EXCLUDED_PATHS);
-        restBasePath = filterConfig.getInitParameter(KEY_SSO_REST_BASE_PATH);
+        Conf.JB4DC_SSO_SERVER_ADDRESS = filterConfig.getInitParameter(Conf.KEY_JB4DC_SSO_SERVER_ADDRESS);
+        Conf.JB4DC_SSO_SERVER_CONTEXT_PATH = filterConfig.getInitParameter(Conf.KEY_JB4DC_SSO_SERVER_CONTEXT_PATH);
+        Conf.JB4DC_SSO_SERVER_VIEW_LOGIN = filterConfig.getInitParameter(Conf.KEY_JB4DC_SSO_SERVER_VIEW_LOGIN);
+        Conf.JB4DC_SSO_SERVER_VIEW_LOGOUT = filterConfig.getInitParameter(Conf.KEY_JB4DC_SSO_SERVER_VIEW_LOGOUT);
+        Conf.JB4DC_SSO_SERVER_EXCLUDED = filterConfig.getInitParameter(Conf.KEY_JB4DC_SSO_SERVER_EXCLUDED);
 
-        Conf.SSO_SERVER_ADDRESS=ssoServerAddress;
-        Conf.SSO_REST_BASE=restBasePath;
+        //Conf.SSO_SERVER_ADDRESS=ssoServerAddress;
+        //Conf.SSO_REST_BASE=restBasePath;
 
         logger.info("SsoWebFilter init.");
     }
@@ -53,6 +41,8 @@ public class SsoWebFilter extends HttpServlet implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
 
+        String absPath=req.getRequestURI();
+        logger.debug("SsoWebFilter-URL:"+absPath);
 
         // make url
         String servletPath = req.getServletPath();
@@ -60,10 +50,10 @@ public class SsoWebFilter extends HttpServlet implements Filter {
         JB4DCSession jb4DSession= null;
 
         //判断是否存在本地Session
-        jb4DSession= JB4DClientSessionUtil.getSession(req);
+        //jb4DSession= JB4DClientSessionUtil.getSession(req);
+        jb4DSession= JB4DCSessionUtility.getSessionNotException();
 
         if(jb4DSession==null) {
-
             try {
                 jb4DSession = LoginProxyUtility.loginCheck(req, res);
             } catch (Exception e) {
@@ -83,14 +73,16 @@ public class SsoWebFilter extends HttpServlet implements Filter {
                     // total link
                     String link = req.getRequestURL().toString();
                     // 重定向到登录页面,带上原始的地址,登录后返回原始页面.
-                    String loginPageUrl = ssoServerAddress.concat(loginPath)
+                    String loginPageUrl = Conf.JB4DC_SSO_SERVER_ADDRESS .concat(Conf.JB4DC_SSO_SERVER_CONTEXT_PATH)
+                            .concat(Conf.JB4DC_SSO_SERVER_VIEW_LOGIN)
                             + "?" + Conf.SSO_REDIRECT_URL_PARA_NAME + "=" + link+"&"+Conf.SSO_IS_INT_SYSTEM_URL_PARA_NAME+"=true";
 
                     res.sendRedirect(loginPageUrl);
                     return;
                 }
             } else {
-                ((HttpServletRequest) request).getSession().setAttribute(Conf.SSO_LOCATION_SESSION_KEY, jb4DSession);
+                //加Session存入本地,以备本地使用
+                ((HttpServletRequest) request).getSession().setAttribute(JB4DCSessionUtility.UserLoginSessionKey, jb4DSession);
                 checkSessionSuccess.run(request, response, chain, jb4DSession);
             }
 

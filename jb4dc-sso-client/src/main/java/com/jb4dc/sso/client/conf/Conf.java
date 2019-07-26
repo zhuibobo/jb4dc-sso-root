@@ -8,28 +8,40 @@ import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
  */
 public class Conf {
 
+    public static final String KEY_JB4DC_SSO_SERVER_ADDRESS = "KEY_JB4DC_SSO_SERVER_ADDRESS";
+    public static final String KEY_JB4DC_SSO_SERVER_CONTEXT_PATH="KEY_JB4DC_SSO_SERVER_CONTEXT_PATH";
+    public static final String KEY_JB4DC_SSO_SERVER_VIEW_LOGIN = "KEY_JB4DC_SSO_SERVER_VIEW_LOGIN";
+    public static final String KEY_JB4DC_SSO_SERVER_VIEW_LOGOUT = "KEY_JB4DC_SSO_SERVER_VIEW_LOGOUT";
+    public static final String KEY_JB4DC_SSO_SERVER_EXCLUDED="KEY_JB4DC_SSO_SERVER_EXCLUDED";
+
+    public static String JB4DC_SSO_SERVER_ADDRESS;
+    public static String JB4DC_SSO_SERVER_CONTEXT_PATH;
+    public static String JB4DC_SSO_SERVER_VIEW_LOGIN;
+    public static String JB4DC_SSO_SERVER_VIEW_LOGOUT;
+    public static String JB4DC_SSO_SERVER_EXCLUDED;
+
     /**
      * 存储于Cookie中的key,value为当前Session的获取Code
      */
-    public static final String SSO_SESSION_STORE_KEY = "jbuild4d_sso_session_id";
+    public static final String JB4DC_SSO_CLIENT_COOKIE_STORE_KEY = "JB4DC_SSO_CLIENT_COOKIE_STORE_KEY";
 
     /**
      * 返回到登录页面时,附带上的来源URL参数名
      */
-    public static final String SSO_REDIRECT_URL_PARA_NAME = "redirectUrl";
+    public static final String SSO_REDIRECT_URL_PARA_NAME = "JBuild4DCSSORedirectUrl";
 
-    public static final String SSO_IS_INT_SYSTEM_URL_PARA_NAME="IsJBuild4DSSOIntegrateSystem";
+    public static final String SSO_IS_INT_SYSTEM_URL_PARA_NAME="IsJBuild4DCSSOIntegrateSystem";
 
-    public static final String SSS_CODE_URL_PARA_NAME="JBuild4DSSOCode";
+    public static final String SSO_TOKEN_URL_PARA_NAME ="JBuild4DCSSOToken";
 
-    public static String SSO_SERVER_ADDRESS="http://localhost:9091/jb4d";
+    //public static String SSO_SERVER_ADDRESS="http://localhost:9091/jb4d";
 
-    public static String SSO_REST_BASE="/PlatFormRest";
+    //public static String SSO_REST_BASE="/PlatFormRest";
 
     /**
     *存储到本地Session中的Key,避免每次都通过Http进行请求.
     **/
-    public static String SSO_LOCATION_SESSION_KEY="JBUILD4D_SSO_LOCATION_SESSION_KEY";
+    //public static String SSO_LOCATION_SESSION_KEY="JBUILD4D_SSO_LOCATION_SESSION_KEY";
 
     /**
      * sso user, request attribute (web client)

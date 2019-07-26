@@ -3,9 +3,9 @@ package com.jb4dc.sso.core;
 import com.jb4dc.core.base.session.JB4DCSession;
 
 public interface ISSOLoginStore {
-    void storeSSOSession(JB4DCSession jb4DSession, SSOCodePO ssoCodeVo);
+    void storeSSOSession(SSOTokenPO ssoTokenPO, JB4DCSession jb4DSession);
 
-    JB4DCSession getSession(String jBuild4DSSOCode);
+    JB4DCSession getSession(String jBuild4DSSOToken);
 
-    SSOCodePO createSSOCode(String returnUrl, String appId);
+    SSOTokenPO createSSOCode(String returnUrl, String appId);
 }
