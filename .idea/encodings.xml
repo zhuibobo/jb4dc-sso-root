@@ -3,9 +3,8 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jb4dc-sso-client" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jb4dc-sso-po" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jb4dc-sso-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jb4dc-sso-web-server" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jb4dc-system-setting-client" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jb4dc-system-setting-service" charset="UTF-8" />
   </component>
 </project>

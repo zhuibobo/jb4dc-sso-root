@@ -9,27 +9,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>jb4dc-sso-service</artifactId>
+    <artifactId>jb4dc-sso-po</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>jb4dc</groupId>
             <artifactId>jb4dc-web-app-starter</artifactId>
             <version>${platform.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>jb4dc</groupId>
-            <artifactId>jb4dc-sso-po</artifactId>
-            <version>${platform.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>jb4dc</groupId>
-            <artifactId>jb4dc-sso-client</artifactId>
-            <version>${platform.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.ehcache</groupId>
-            <artifactId>ehcache</artifactId>
         </dependency>
     </dependencies>
 </project>
