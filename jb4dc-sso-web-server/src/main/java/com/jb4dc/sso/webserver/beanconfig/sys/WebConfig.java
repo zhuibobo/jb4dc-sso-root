@@ -1,9 +1,9 @@
 package com.jb4dc.sso.webserver.beanconfig.sys;
 
 import com.jb4dc.sso.core.ISSOLoginStore;
-import com.jb4dc.sso.webserver.rest.interceptor.BuildJB4DCSessionInterceptor;
-import com.jb4dc.sso.webserver.rest.interceptor.LoginedInterceptor;
-import com.jb4dc.sso.webserver.rest.interceptor.SSOLoginedInterceptor;
+import com.jb4dc.sso.webserver.interceptor.BuildJB4DCSessionInterceptor;
+import com.jb4dc.sso.webserver.interceptor.LoginedInterceptor;
+import com.jb4dc.sso.webserver.interceptor.SSOLoginedInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

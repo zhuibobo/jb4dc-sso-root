@@ -26,6 +26,12 @@ public class DictionaryRest extends GeneralRest<DictionaryEntity> {
         return dictionaryService;
     }
 
+    @RequestMapping(value = "/GetEnableListDataByGroupId", method = RequestMethod.POST)
+    public JBuild4DCResponseVo getEnableListDataByGroupId(String groupValue) {
+        List<DictionaryEntity> dictionaryEntityList=dictionaryService.getEnableListDataByGroupValue(JB4DCSessionUtility.getSession(),groupValue);
+        return JBuild4DCResponseVo.success("",dictionaryEntityList);
+    }
+
     @RequestMapping(value = "/GetListDataByGroupId", method = RequestMethod.POST)
     public JBuild4DCResponseVo getListDataByGroupId(String groupId) {
         List<DictionaryEntity> dictionaryEntityList=dictionaryService.getListDataByGroupId(JB4DCSessionUtility.getSession(),groupId);

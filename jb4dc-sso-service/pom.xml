@@ -18,6 +18,11 @@
             <version>${platform.version}</version>
         </dependency>
         <dependency>
+            <groupId>jb4dc</groupId>
+            <artifactId>jb4dc-sso-client</artifactId>
+            <version>${platform.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.ehcache</groupId>
             <artifactId>ehcache</artifactId>
         </dependency>

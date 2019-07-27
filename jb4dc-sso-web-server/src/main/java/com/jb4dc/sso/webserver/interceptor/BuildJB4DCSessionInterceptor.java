@@ -1,4 +1,4 @@
-package com.jb4dc.sso.webserver.rest.interceptor;
+package com.jb4dc.sso.webserver.interceptor;
 
 import com.jb4dc.base.service.general.JB4DCSessionUtility;
 import com.jb4dc.core.base.session.JB4DCSession;
@@ -7,7 +7,6 @@ import com.jb4dc.sso.client.conf.Conf;
 import com.jb4dc.sso.core.ISSOLoginStore;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -33,12 +32,13 @@ public class BuildJB4DCSessionInterceptor implements HandlerInterceptor
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        logger.debug("BuildJB4DCSessionInterceptor Get JBuild4DCSSOToken:" + request.getHeader(Conf.SSO_TOKEN_URL_PARA_NAME));
+        /*logger.debug("BuildJB4DCSessionInterceptor Get JBuild4DCSSOToken:" + request.getHeader(Conf.SSO_TOKEN_URL_PARA_NAME));
         String jb4dcSSOToken = request.getHeader(Conf.SSO_TOKEN_URL_PARA_NAME);
         if (StringUtility.isNotEmpty(jb4dcSSOToken)) {
             JB4DCSession jb4DCSession = ssoLoginStore.getSession(jb4dcSSOToken);
             JB4DCSessionUtility.addLocationLoginedJB4DCSession(jb4DCSession);
-        }
+        }*/
+        //暂时改为使用SessionProvide的方式提供Session的获取.
         return true;
     }
 

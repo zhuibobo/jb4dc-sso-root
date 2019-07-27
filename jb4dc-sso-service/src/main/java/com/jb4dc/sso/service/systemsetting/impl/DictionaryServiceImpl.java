@@ -92,6 +92,11 @@ public class DictionaryServiceImpl extends BaseServiceImpl<DictionaryEntity> imp
     }
 
     @Override
+    public List<DictionaryEntity> getEnableListDataByGroupValue(JB4DCSession session, String groupValue) {
+        return dictionaryMapper.selectEnableListByGroupValue(groupValue);
+    }
+
+    @Override
     public void statusChange(JB4DCSession JB4DCSession, String ids, String status) throws JBuild4DCGenerallyException {
         if(StringUtility.isNotEmpty(ids)) {
             String[] idArray = ids.split(";");

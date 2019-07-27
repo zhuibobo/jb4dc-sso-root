@@ -19,4 +19,6 @@ public interface IDictionaryService  extends IBaseService<DictionaryEntity> {
     void setSelected(JB4DCSession JB4DCSession, String recordId) throws JBuild4DCGenerallyException;
 
     List<DictionaryEntity> getListDataByGroupValue(JB4DCSession session, String groupValue);
+
+    List<DictionaryEntity> getEnableListDataByGroupValue(JB4DCSession session, String groupValue);
 }

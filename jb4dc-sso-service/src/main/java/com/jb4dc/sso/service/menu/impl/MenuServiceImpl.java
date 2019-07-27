@@ -153,32 +153,32 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         //根菜单->开发示例->通用列表(带查询)
         MenuEntity devDemoRootMenu_SearchList=createMenu(jb4DSession,devDemoRootMenu.getMenuId(),"MENU-JB4DDevDemoRoot-SearchList",
                 "通用列表(带查询)","通用列表(带查询)","通用列表(带查询)",
-                "DevDemo/GenList/GenList.html","menu-data",systemId);
+                "/HTML/DevDemo/GenList/GenList.html","menu-data",systemId);
 
         //根菜单->开发示例->通用列表(不带查询)
         MenuEntity devDemoRootMenu_NoSearchList=createMenu(jb4DSession,devDemoRootMenu.getMenuId(),"MENU-JB4DDevDemoRoot-NoSearchList",
                 "通用列表(不带查询)","通用列表(不带查询)","通用列表(不带查询)",
-                "DevDemo/GenList/GenListNotSearch.html","menu-data",systemId);
+                "/HTML/DevDemo/GenList/GenListNotSearch.html","menu-data",systemId);
 
         //根菜单->开发示例->通用列表(绑定数据字典)
         MenuEntity devDemoRootId_BindDictSearchList=createMenu(jb4DSession,devDemoRootMenu.getMenuId(),"MENU-JB4DDevDemoRoot-BindDictSearchList",
                 "通用列表(绑定数据字典)","通用列表(绑定数据字典)","通用列表(绑定数据字典)",
-                "DevDemo/GenList/GenListBindDictionary.html","menu-data",systemId);
+                "/HTML/DevDemo/GenList/GenListBindDictionary.html","menu-data",systemId);
 
         //根菜单->开发示例->通用列表(弹出列表)
-        MenuEntity devDemoRootId_DialogSearchList=createMenu(jb4DSession,devDemoRootMenu.getMenuId(),"MENU-JB4DDevDemoRoot-DialogSearchList",
+        /*MenuEntity devDemoRootId_DialogSearchList=createMenu(jb4DSession,devDemoRootMenu.getMenuId(),"MENU-JB4DDevDemoRoot-DialogSearchList",
                 "通用列表(弹出列表)","通用列表(弹出列表)","通用列表(弹出列表)",
-                "DevDemo/DevDemoGenList/ListView","menu-data",systemId);
+                "/HTML/DevDemo/DevDemoGenList/ListView","menu-data",systemId);*/
 
         //根菜单->开发示例->树形表格
         MenuEntity devDemoRootId_TreeTable=createMenu(jb4DSession,devDemoRootMenu.getMenuId(),"MENU-JB4DDevDemoRootId-TreeTable",
                 "树形表格","树形表格","树形表格",
-                "DevDemo/TreeTable/TreeTableList.html","menu-data",systemId);
+                "/HTML/DevDemo/TreeTable/TreeTableList.html","menu-data",systemId);
 
         //根菜单->开发示例->树与列表
         MenuEntity devDemoRootId_TreeAndList=createMenu(jb4DSession,devDemoRootMenu.getMenuId(),"MENU-JB4DDevDemoRootId-TreeList",
                 "树与列表","树与列表","树与列表",
-                "DevDemo/TreeAndList/Manager.html","menu-data",systemId);
+                "/HTML/DevDemo/TreeAndList/Manager.html","menu-data",systemId);
 
         systemId = "BuilderMainApp";
 

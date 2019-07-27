@@ -1,10 +1,8 @@
-package com.jb4dc.sso.webserver.rest.interceptor;
+package com.jb4dc.sso.webserver.interceptor;
 
 import com.jb4dc.base.service.general.JB4DCSessionUtility;
 import com.jb4dc.core.base.exception.JBuild4DCSessionTimeoutException;
 import com.jb4dc.core.base.session.JB4DCSession;
-import com.jb4dc.sso.client.conf.Conf;
-import com.jb4dc.sso.client.filter.SsoWebFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerInterceptor;

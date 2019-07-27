@@ -17,4 +17,6 @@ public interface DictionaryMapper extends BaseMapper<DictionaryEntity> {
     DictionaryEntity selectGreaterThanRecord(@Param("dictId") String id, @Param("dictParentId") String dictParentId);
 
     List<DictionaryEntity> selectByGroupValue(String groupValue);
+
+    List<DictionaryEntity> selectEnableListByGroupValue(String groupValue);
 }
