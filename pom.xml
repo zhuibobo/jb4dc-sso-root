@@ -15,7 +15,7 @@
         <module>jb4dc-sso-service</module>
         <module>jb4dc-sso-web-server</module>
         <module>jb4dc-sso-client</module>
-        <module>jb4dc-sso-po</module>
+        <module>jb4dc-sso-pojo</module>
     </modules>
     <dependencies>
 

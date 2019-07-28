@@ -7,14 +7,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="jb4dc-sso-client" />
-        <module name="jb4dc-sso-po" />
         <module name="jb4dc-sso-web-server" />
+        <module name="jb4dc-sso-pojo" />
         <module name="jb4dc-sso-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="jb4dc-sso-client" target="1.8" />
       <module name="jb4dc-sso-po" target="1.8" />
+      <module name="jb4dc-sso-pojo" target="1.8" />
       <module name="jb4dc-sso-root" target="1.8" />
       <module name="jb4dc-sso-service" target="1.8" />
       <module name="jb4dc-sso-web-server" target="1.8" />
@@ -26,6 +27,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="jb4dc-sso-client" options="-parameters" />
       <module name="jb4dc-sso-po" options="-parameters" />
+      <module name="jb4dc-sso-pojo" options="-parameters" />
       <module name="jb4dc-sso-service" options="-parameters" />
       <module name="jb4dc-sso-web-server" options="-parameters" />
     </option>

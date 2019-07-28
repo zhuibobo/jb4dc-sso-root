@@ -11,6 +11,7 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/jb4dc-sso-po/pom.xml" />
         <option value="$PROJECT_DIR$/jb4dc-system-setting-client/pom.xml" />
         <option value="$PROJECT_DIR$/jb4dc-system-setting-service/pom.xml" />
       </set>

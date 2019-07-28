@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/jb4dc-sso-client/jb4dc-sso-client.iml" filepath="$PROJECT_DIR$/jb4dc-sso-client/jb4dc-sso-client.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jb4dc-sso-po/jb4dc-sso-po.iml" filepath="$PROJECT_DIR$/jb4dc-sso-po/jb4dc-sso-po.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jb4dc-sso-pojo/jb4dc-sso-pojo.iml" filepath="$PROJECT_DIR$/jb4dc-sso-pojo/jb4dc-sso-pojo.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/jb4dc-sso-root.iml" filepath="$PROJECT_DIR$/.idea/jb4dc-sso-root.iml" />
       <module fileurl="file://$PROJECT_DIR$/jb4dc-sso-service/jb4dc-sso-service.iml" filepath="$PROJECT_DIR$/jb4dc-sso-service/jb4dc-sso-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/jb4dc-sso-web-server/jb4dc-sso-web-server.iml" filepath="$PROJECT_DIR$/jb4dc-sso-web-server/jb4dc-sso-web-server.iml" />
