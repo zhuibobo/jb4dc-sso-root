@@ -201,40 +201,40 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         //根菜单->应用管理->存储设计->数据库连接
         MenuEntity appBuilderDBLinkMenu=createMenu(jb4DSession,appManagerDataStorageMenu.getMenuId(),"MENU-JB4DSystemAppBuilderDBLink",
                 "数据库连接","数据库连接","数据库连接",
-                "Builder/DataStorage/DBLink/DBLinkList.html","frame-top-menu-data",systemId);
+                "/HTML/Builder/DataStorage/DBLink/DBLinkList.html","frame-top-menu-data",systemId);
 
         //根菜单->应用管理->存储设计->数据库管理
         MenuEntity appBuilderDataBaseMenu=createMenu(jb4DSession,appManagerDataStorageMenu.getMenuId(),"MENU-JB4DSystemAppBuilderDataBase",
                 "数据库管理","数据库管理","数据库管理",
-                "Builder/DataStorage/DataBase/Manager.html","frame-top-menu-data",systemId);
+                "/HTML/Builder/DataStorage/DataBase/Manager.html","frame-top-menu-data",systemId);
 
         //根菜单->应用管理->存储设计->数据关系
         MenuEntity appBuilderDataRelationMenu=createMenu(jb4DSession,appManagerDataStorageMenu.getMenuId(),"MENU-JB4DSystemAppBuilderDataRelation",
                 "数据关系","数据关系","数据关系",
-                "Builder/DataStorage/DataRelation/Manager.html","frame-top-menu-data",systemId);
+                "/HTML/Builder/DataStorage/DataRelation/Manager.html","frame-top-menu-data",systemId);
 
         //根菜单->应用管理->数据集设计
         MenuEntity appBuilderDataSetMenu=createMenu(jb4DSession,appBuilderRootMenu.getMenuId(),"MENU-JB4DSystemAppBuilderDataSetBuilder",
                 "数据集设计","数据集设计","数据集设计",
-                "Builder/DataSet/Manager.html","top-menu-data",systemId);
+                "/HTML/Builder/DataSet/Manager.html","top-menu-data",systemId);
 
         //根菜单->应用管理->模块设计
         MenuEntity appBuilderModuleBuilderMenu=createMenu(jb4DSession,appBuilderRootMenu.getMenuId(),"MENU-JB4DSystemAppBuilderModuleBuilder",
                 "模块设计","模块设计","模块设计",
-                "Builder/Module/Manager.html","frame-top-menu-data",systemId);
+                "/HTML/Builder/Module/Manager.html","frame-top-menu-data",systemId);
 
         //根菜单->应用管理->菜单设计
-        MenuEntity appBuilderMenuBuilderMenu=createMenu(jb4DSession,appBuilderRootMenu.getMenuId(),"MENU-JB4DSystemAppBuilderMenuBuilder",
+        /*MenuEntity appBuilderMenuBuilderMenu=createMenu(jb4DSession,appBuilderRootMenu.getMenuId(),"MENU-JB4DSystemAppBuilderMenuBuilder",
                 "菜单设计","菜单设计","菜单设计",
-                "","top-menu-data",systemId);
+                "","top-menu-data",systemId);*/
 
-        //根菜单->应用管理->桌面设计
-        MenuEntity appBuilderDesktopBuilderMenu=createMenu(jb4DSession,appBuilderRootMenu.getMenuId(),"MENU-JB4DSystemAppBuilderDesktopBuilder",
+        //根菜单->桌面设计
+        MenuEntity appBuilderDesktopBuilderMenu=createMenu(jb4DSession,rootMenuId,"MENU-JB4DSystemAppBuilderDesktopBuilder",
                 "Portal设计","Portal设计","Portal设计",
-                "Portal/LayoutPreview.html","frame-top-menu-data",systemId);
+                "/HTML/Portal/LayoutPreview.html","frame-top-menu-data",systemId);
 
-        //根菜单->应用管理->大屏设计
-        createMenu(jb4DSession,appBuilderRootMenu.getMenuId(),"MENU-JB4DSystemAppBuilderBigScreen",
+        //根菜单->大屏设计
+        createMenu(jb4DSession,rootMenuId,"MENU-JB4DSystemAppBuilderBigScreen",
                 "大屏设计","大屏设计","大屏设计",
                 "","frame-top-menu-data",systemId);
     }
