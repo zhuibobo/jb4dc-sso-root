@@ -16,6 +16,11 @@ public class OrganTypeRest extends GeneralRest<OrganTypeEntity> {
     IOrganTypeService organTypeService;
 
     @Override
+    public String getModuleName() {
+        return "组织机构类型";
+    }
+
+    @Override
     protected IBaseService<OrganTypeEntity> getBaseService() {
         return organTypeService;
     }

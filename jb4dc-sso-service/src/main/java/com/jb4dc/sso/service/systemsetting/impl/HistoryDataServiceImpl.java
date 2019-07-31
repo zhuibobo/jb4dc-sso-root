@@ -1,10 +1,10 @@
 package com.jb4dc.sso.service.systemsetting.impl;
 
+import com.jb4dc.base.service.IHistoryDataService;
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.core.base.tools.UUIDUtility;
 import com.jb4dc.sso.dao.systemsetting.HistoryDataMapper;
 import com.jb4dc.sso.dbentities.systemsetting.HistoryDataEntity;
-import com.jb4dc.sso.service.systemsetting.IHistoryDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

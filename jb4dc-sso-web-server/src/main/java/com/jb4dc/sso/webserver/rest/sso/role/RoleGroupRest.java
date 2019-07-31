@@ -21,6 +21,11 @@ public class RoleGroupRest extends GeneralRest<RoleGroupEntity> {
     IRoleGroupService roleGroupService;
 
     @Override
+    public String getModuleName() {
+        return "角色分组";
+    }
+
+    @Override
     protected IBaseService<RoleGroupEntity> getBaseService() {
         return roleGroupService;
     }

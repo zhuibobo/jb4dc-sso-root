@@ -22,6 +22,11 @@ public class DictionaryRest extends GeneralRest<DictionaryEntity> {
     IDictionaryService dictionaryService;
 
     @Override
+    public String getModuleName() {
+        return "数据字典";
+    }
+
+    @Override
     protected IBaseService<DictionaryEntity> getBaseService() {
         return dictionaryService;
     }

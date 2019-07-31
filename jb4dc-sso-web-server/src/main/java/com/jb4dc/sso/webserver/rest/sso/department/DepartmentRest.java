@@ -22,6 +22,11 @@ public class DepartmentRest extends GeneralRest<DepartmentEntity> {
     IDepartmentService departmentService;
 
     @Override
+    public String getModuleName() {
+        return "部门";
+    }
+
+    @Override
     protected IBaseService<DepartmentEntity> getBaseService() {
         return departmentService;
     }

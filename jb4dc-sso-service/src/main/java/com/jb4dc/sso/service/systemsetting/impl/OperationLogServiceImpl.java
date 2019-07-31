@@ -2,6 +2,8 @@ package com.jb4dc.sso.service.systemsetting.impl;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.jb4dc.base.service.IAddBefore;
+import com.jb4dc.base.service.IBaseService;
+import com.jb4dc.base.service.IOperationLogService;
 import com.jb4dc.base.service.impl.BaseServiceImpl;
 import com.jb4dc.base.tools.InetAddressUtility;
 import com.jb4dc.base.tools.JsonUtility;
@@ -10,7 +12,6 @@ import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.core.base.tools.UUIDUtility;
 import com.jb4dc.sso.dao.systemsetting.OperationLogMapper;
 import com.jb4dc.sso.dbentities.systemsetting.OperationLogEntity;
-import com.jb4dc.sso.service.systemsetting.IOperationLogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +26,7 @@ import java.util.Date;
  */
 
 @Service
-public class OperationLogServiceImpl extends BaseServiceImpl<OperationLogEntity> implements IOperationLogService {
+public class OperationLogServiceImpl extends BaseServiceImpl<OperationLogEntity> implements IOperationLogService, IBaseService<OperationLogEntity> {
 
     OperationLogMapper operationLogMapper;
 

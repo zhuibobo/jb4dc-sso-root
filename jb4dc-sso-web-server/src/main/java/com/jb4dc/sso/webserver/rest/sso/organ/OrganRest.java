@@ -45,6 +45,11 @@ public class OrganRest extends GeneralRest<OrganEntity> {
         }
     }
 
+    @Override
+    public String getModuleName() {
+        return "组织机构";
+    }
+
     @Autowired
     IOrganService organService;
 

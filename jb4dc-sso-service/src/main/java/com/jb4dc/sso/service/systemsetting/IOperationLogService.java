@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
  * Date: 2018/7/24
  * To change this template use File | Settings | File Templates.
  */
-public interface IOperationLogService extends IBaseService<OperationLogEntity> {
+/*public interface IOperationLogService extends IBaseService<OperationLogEntity> {
 
     void writeUserLoginLog(JB4DCSession JB4DCSession, Class targetClass, HttpServletRequest request) throws JsonProcessingException, JBuild4DCGenerallyException;
 
@@ -24,4 +24,4 @@ public interface IOperationLogService extends IBaseService<OperationLogEntity> {
 
     void initSystemData(JB4DCSession jb4DSession) throws JsonProcessingException, JBuild4DCGenerallyException;
 
-}
+}*/

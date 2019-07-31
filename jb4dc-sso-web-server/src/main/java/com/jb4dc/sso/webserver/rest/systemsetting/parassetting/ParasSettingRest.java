@@ -15,6 +15,11 @@ public class ParasSettingRest extends GeneralRest<SettingEntity> {
     ISettingService settingService;
 
     @Override
+    public String getModuleName() {
+        return "系统参数设置";
+    }
+
+    @Override
     protected IBaseService<SettingEntity> getBaseService() {
         return settingService;
     }
