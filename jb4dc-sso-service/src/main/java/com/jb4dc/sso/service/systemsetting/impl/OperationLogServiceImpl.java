@@ -25,7 +25,7 @@ import java.util.Date;
  * To change this template use File | Settings | File Templates.
  */
 
-@Service
+
 public class OperationLogServiceImpl extends BaseServiceImpl<OperationLogEntity> implements IOperationLogService, IBaseService<OperationLogEntity> {
 
     OperationLogMapper operationLogMapper;
@@ -37,8 +37,8 @@ public class OperationLogServiceImpl extends BaseServiceImpl<OperationLogEntity>
     }
 
     @Override
-    public int saveSimple(JB4DCSession JB4DCSession, String id, OperationLogEntity entity) throws JBuild4DCGenerallyException {
-        return this.save(JB4DCSession, id, entity, new IAddBefore<OperationLogEntity>() {
+    public int saveSimple(JB4DCSession jb4DCSession, String id, OperationLogEntity entity) throws JBuild4DCGenerallyException {
+        return this.save(jb4DCSession, id, entity, new IAddBefore<OperationLogEntity>() {
             @Override
             public OperationLogEntity run(com.jb4dc.core.base.session.JB4DCSession JB4DCSession, OperationLogEntity sourceEntity) throws JBuild4DCGenerallyException {
                 sourceEntity.setLogOrderNum(operationLogMapper.nextOrderNum());
@@ -53,7 +53,7 @@ public class OperationLogServiceImpl extends BaseServiceImpl<OperationLogEntity>
     }
 
     @Override
-    public void writeUserLoginLog(JB4DCSession JB4DCSession, Class targetClass, HttpServletRequest request) throws JsonProcessingException, JBuild4DCGenerallyException {
+    public void writeUserLoginLog(JB4DCSession jb4DCSession, Class targetClass, HttpServletRequest request) throws JsonProcessingException, JBuild4DCGenerallyException {
         OperationLogEntity logEntity=new OperationLogEntity();
         logEntity.setLogActionName("登录系统");
         logEntity.setLogClassName(targetClass.getName());
@@ -62,16 +62,16 @@ public class OperationLogServiceImpl extends BaseServiceImpl<OperationLogEntity>
         logEntity.setLogModuleName("基础信息");
         logEntity.setLogSystemName("应用管理系统");
         logEntity.setLogOrderNum(operationLogMapper.nextOrderNum());
-        logEntity.setLogOrganId(JB4DCSession.getOrganId());
-        logEntity.setLogOrganName(JB4DCSession.getOrganName());
-        logEntity.setLogUserId(JB4DCSession.getUserId());
-        logEntity.setLogUserName(JB4DCSession.getUserName());
+        logEntity.setLogOrganId(jb4DCSession.getOrganId());
+        logEntity.setLogOrganName(jb4DCSession.getOrganName());
+        logEntity.setLogUserId(jb4DCSession.getUserId());
+        logEntity.setLogUserName(jb4DCSession.getUserName());
         logEntity.setLogStatus("正常");
-        logEntity.setLogText("用户["+JB4DCSession.getUserName()+"]登录了系统!");
-        logEntity.setLogData(JsonUtility.toObjectString(JB4DCSession));
+        logEntity.setLogText("用户["+jb4DCSession.getUserName()+"]登录了系统!");
+        logEntity.setLogData(JsonUtility.toObjectString(jb4DCSession));
         logEntity.setLogType("登录日志");
         logEntity.setLogIp(InetAddressUtility.getClientIpAdrress(request));
-        this.save(JB4DCSession, logEntity.getLogId(), logEntity, new IAddBefore<OperationLogEntity>() {
+        this.save(jb4DCSession, logEntity.getLogId(), logEntity, new IAddBefore<OperationLogEntity>() {
             @Override
             public OperationLogEntity run(com.jb4dc.core.base.session.JB4DCSession JB4DCSession, OperationLogEntity sourceEntity) throws JBuild4DCGenerallyException {
                 return sourceEntity;
@@ -80,7 +80,7 @@ public class OperationLogServiceImpl extends BaseServiceImpl<OperationLogEntity>
     }
 
     @Override
-    public void writeUserExitLog(JB4DCSession JB4DCSession, Class targetClass, HttpServletRequest request) throws JsonProcessingException, JBuild4DCGenerallyException {
+    public void writeUserExitLog(JB4DCSession jb4DCSession, Class targetClass, HttpServletRequest request) throws JsonProcessingException, JBuild4DCGenerallyException {
         OperationLogEntity logEntity=new OperationLogEntity();
         logEntity.setLogActionName("退出系统");
         logEntity.setLogClassName(targetClass.getName());
@@ -89,25 +89,30 @@ public class OperationLogServiceImpl extends BaseServiceImpl<OperationLogEntity>
         logEntity.setLogModuleName("基础信息");
         logEntity.setLogSystemName("应用管理系统");
         logEntity.setLogOrderNum(operationLogMapper.nextOrderNum());
-        logEntity.setLogOrganId(JB4DCSession.getOrganId());
-        logEntity.setLogOrganName(JB4DCSession.getOrganName());
-        logEntity.setLogUserId(JB4DCSession.getUserId());
-        logEntity.setLogUserName(JB4DCSession.getUserName());
+        logEntity.setLogOrganId(jb4DCSession.getOrganId());
+        logEntity.setLogOrganName(jb4DCSession.getOrganName());
+        logEntity.setLogUserId(jb4DCSession.getUserId());
+        logEntity.setLogUserName(jb4DCSession.getUserName());
         logEntity.setLogStatus("正常");
-        logEntity.setLogText("用户["+JB4DCSession.getUserName()+"]退出了系统!");
-        logEntity.setLogData(JsonUtility.toObjectString(JB4DCSession));
+        logEntity.setLogText("用户["+jb4DCSession.getUserName()+"]退出了系统!");
+        logEntity.setLogData(JsonUtility.toObjectString(jb4DCSession));
         logEntity.setLogType("登录日志");
         logEntity.setLogIp(InetAddressUtility.getClientIpAdrress(request));
-        this.save(JB4DCSession, logEntity.getLogId(), logEntity, new IAddBefore<OperationLogEntity>() {
+        this.save(jb4DCSession, logEntity.getLogId(), logEntity, new IAddBefore<OperationLogEntity>() {
             @Override
-            public OperationLogEntity run(com.jb4dc.core.base.session.JB4DCSession JB4DCSession, OperationLogEntity sourceEntity) throws JBuild4DCGenerallyException {
+            public OperationLogEntity run(com.jb4dc.core.base.session.JB4DCSession jb4DCSession, OperationLogEntity sourceEntity) throws JBuild4DCGenerallyException {
                 return sourceEntity;
             }
         });
     }
 
     @Override
-    public void writeOperationLog(JB4DCSession JB4DCSession, String subSystemName, String moduleName, String actionName, String type, String text, String data, Class targetClass, HttpServletRequest request) throws JsonProcessingException, JBuild4DCGenerallyException {
+    public void writeOperationLog(JB4DCSession jb4DCSession, String subSystemName, String moduleName, String actionName, String type, String text, String data, Class targetClass, HttpServletRequest request) throws JsonProcessingException, JBuild4DCGenerallyException {
+       this.writeOperationLog(jb4DCSession,subSystemName,moduleName,actionName,type,text,data,targetClass.getName(),request);
+    }
+
+    @Override
+    public void writeOperationLog(JB4DCSession jb4DCSession, String subSystemName, String moduleName, String actionName, String type, String text, String data, String targetClass, HttpServletRequest request) throws JsonProcessingException, JBuild4DCGenerallyException {
         OperationLogEntity logEntity=new OperationLogEntity();
         logEntity.setLogSystemName(subSystemName);
         logEntity.setLogModuleName(moduleName);
@@ -115,15 +120,15 @@ public class OperationLogServiceImpl extends BaseServiceImpl<OperationLogEntity>
         logEntity.setLogType(type);
         logEntity.setLogText(text);
         logEntity.setLogData(data);
-        logEntity.setLogClassName(targetClass.getName());
+        logEntity.setLogClassName(targetClass);
         logEntity.setLogId(UUIDUtility.getUUID());
         logEntity.setLogStatus("正常");
         logEntity.setLogIp(InetAddressUtility.getClientIpAdrress(request));
-        this.saveSimple(JB4DCSession, logEntity.getLogId(), logEntity);
+        this.saveSimple(jb4DCSession, logEntity.getLogId(), logEntity);
     }
 
     @Override
-    public void initSystemData(JB4DCSession jb4DSession) throws JsonProcessingException, JBuild4DCGenerallyException {
-        this.writeOperationLog(jb4DSession,"初始化测试","初始化测试","初始化测试","初始化测试","初始化测试","初始化测试",this.getClass(),null);
+    public void initSystemData(JB4DCSession jb4DCSession) throws JsonProcessingException, JBuild4DCGenerallyException {
+        this.writeOperationLog(jb4DCSession,"初始化测试","初始化测试","初始化测试","初始化测试","初始化测试","初始化测试",this.getClass(),null);
     }
 }

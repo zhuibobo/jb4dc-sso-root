@@ -1,5 +1,6 @@
 package com.jb4dc.sso.provide;
 
+import com.jb4dc.base.service.general.JB4DCSessionUtility;
 import com.jb4dc.base.service.provide.ISessionProvide;
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.core.base.tools.StringUtility;
@@ -33,8 +34,12 @@ public class SessionProvide implements ISessionProvide {
         //String jb4dcSSOToken = request.getHeader(Conf.SSO_TOKEN_URL_PARA_NAME);
         logger.debug("BuildJB4DCSessionInterceptor Get JBuild4DCSSOToken:" + request.getHeader(Conf.SSO_TOKEN_URL_PARA_NAME));
         String jb4dcSSOToken = request.getHeader(Conf.SSO_TOKEN_URL_PARA_NAME);
+
         if (StringUtility.isNotEmpty(jb4dcSSOToken)) {
             JB4DCSession jb4DCSession = ssoLoginStore.getSession(jb4dcSSOToken);
+            if(jb4DCSession==null&&jb4dcSSOToken.equals(JB4DCSessionUtility.InitSystemSsoSessionToken)){
+                return JB4DCSessionUtility.getInitSystemSession();
+            }
             return jb4DCSession;
         }
         return null;

@@ -62,7 +62,7 @@ public class InitializationSystemRest {
     @RequestMapping(value = "/Running", method = RequestMethod.POST)
     @ResponseBody
     public JBuild4DCResponseVo running(String createTestData) throws JBuild4DCGenerallyException, JsonProcessingException {
-        JB4DCSession jb4DSession= JB4DCSessionUtility.getSession();
+        JB4DCSession jb4DSession= JB4DCSessionUtility.getInitSystemSession();
 
         //初始化字典
         dictionaryGroupService.initSystemData(jb4DSession,dictionaryService);
