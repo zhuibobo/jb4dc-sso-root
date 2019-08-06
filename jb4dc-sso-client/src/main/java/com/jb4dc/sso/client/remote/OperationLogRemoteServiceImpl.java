@@ -2,6 +2,7 @@ package com.jb4dc.sso.client.remote;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.jb4dc.base.service.IOperationLogService;
+import com.jb4dc.base.service.po.OperationLogPO;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,16 @@ public class OperationLogRemoteServiceImpl implements IOperationLogService {
 
     @Override
     public void writeOperationLog(JB4DCSession JB4DCSession, String subSystemName, String moduleName, String actionName, String type, String text, String data, String targetClass, HttpServletRequest request) throws JsonProcessingException, JBuild4DCGenerallyException {
-        operationLogRemote.writeOperationLog(subSystemName,moduleName,actionName,type,text,data,targetClass);
+        //operationLogRemote.writeOperationLog(subSystemName,moduleName,actionName,type,text,data,targetClass);
+        OperationLogPO logPO=new OperationLogPO();
+        logPO.setLogSystemName(subSystemName);
+        logPO.setLogModuleName(moduleName);
+        logPO.setLogActionName(actionName);
+        logPO.setLogType(type);
+        logPO.setLogText(text);
+        logPO.setLogData(data);
+        logPO.setLogClassName(targetClass);
+        operationLogRemote.writeOperationLog(logPO);
     }
 
     @Override

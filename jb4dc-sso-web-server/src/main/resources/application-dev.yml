@@ -2,6 +2,7 @@ jb4dc:
   system-caption: 单点登录系统
   system-title: JBuild4DC-SSO
   warning-operation-code: jb4d82
+  is-debug: true
   host:
     operation-system: Window
   sso:
