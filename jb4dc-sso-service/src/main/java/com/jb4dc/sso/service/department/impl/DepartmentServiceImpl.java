@@ -80,7 +80,7 @@ public class DepartmentServiceImpl extends BaseServiceImpl<DepartmentEntity> imp
     }
 
     @Override
-    public DepartmentEntity getOrganRootDepartment(JB4DCSession jb4DSession, String organId){
+    public DepartmentEntity getRootDepartmentByOrganId(JB4DCSession jb4DSession, String organId){
         return departmentMapper.selectOrganRootDepartment(organId);
     }
 
@@ -127,7 +127,7 @@ public class DepartmentServiceImpl extends BaseServiceImpl<DepartmentEntity> imp
 
     @Override
     public boolean organUpdated(JB4DCSession jb4DSession, OrganEntity organEntity) {
-        DepartmentEntity departmentEntity=getOrganRootDepartment(jb4DSession,organEntity.getOrganId());
+        DepartmentEntity departmentEntity= getRootDepartmentByOrganId(jb4DSession,organEntity.getOrganId());
         departmentEntity.setDeptName(organEntity.getOrganName());
         departmentEntity.setDeptShortName(organEntity.getOrganShortName());
         departmentMapper.updateByPrimaryKeySelective(departmentEntity);

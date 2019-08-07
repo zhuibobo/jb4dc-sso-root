@@ -40,7 +40,7 @@ public class DepartmentRest extends GeneralRest<DepartmentEntity> {
     @RequestMapping(value = "/GetOrganRootDepartment",method = RequestMethod.POST)
     public JBuild4DCResponseVo getOrganRootDepartment(String organId)
     {
-        DepartmentEntity rootEntity=departmentService.getOrganRootDepartment(JB4DCSessionUtility.getSession(),organId);
+        DepartmentEntity rootEntity=departmentService.getRootDepartmentByOrganId(JB4DCSessionUtility.getSession(),organId);
         return JBuild4DCResponseVo.getDataSuccess(rootEntity);
     }
 

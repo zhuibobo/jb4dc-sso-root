@@ -11,6 +11,8 @@
         <if test="menuText !=null and menuText !=''"> and MENU_TEXT like #{menuText} </if>
         <if test="menuValue !=null and menuValue !=''"> and MENU_VALUE like #{menuValue} </if>
         <if test="menuType !=null and menuType !=''"> and MENU_TYPE like #{menuType} </if>
+        <if test="menuOuterId !=null and menuOuterId !=''"> and MENU_OUTER_ID like #{menuOuterId} </if>
+        <if test="menuOuterName !=null and menuOuterName !=''"> and MENU_OUTER_NAME like #{menuOuterName} </if>
         <if test="menuCreatorId !=null and menuCreatorId !=''"> and MENU_CREATOR_ID like #{menuCreatorId} </if>
         <if test="menuOrganId !=null and menuOrganId !=''"> and MENU_ORGAN_ID like #{menuOrganId} </if>
         <if test="menuOrganName !=null and menuOrganName !=''"> and MENU_ORGAN_NAME like #{menuOrganName} </if>

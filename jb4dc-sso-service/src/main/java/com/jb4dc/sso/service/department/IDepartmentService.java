@@ -14,5 +14,5 @@ public interface IDepartmentService extends IBaseService<DepartmentEntity> {
 
     List<DepartmentEntity> getDepartmentsByOrganId(String organId);
 
-    DepartmentEntity getOrganRootDepartment(JB4DCSession jb4DSession, String organId);
+    DepartmentEntity getRootDepartmentByOrganId(JB4DCSession jb4DSession, String organId);
 }

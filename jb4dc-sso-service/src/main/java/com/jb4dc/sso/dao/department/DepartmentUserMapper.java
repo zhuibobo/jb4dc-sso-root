@@ -11,4 +11,6 @@ public interface DepartmentUserMapper extends BaseMapper<DepartmentUserEntity> {
     int selectDepartmentUserCount(String departmentId);
 
     List<Map<String, Object>> selectDUByDepartment(Map<String, Object> searchMap);
+
+    void deleteDepartUserByUserId(String userId);
 }

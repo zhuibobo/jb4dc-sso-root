@@ -259,9 +259,11 @@
                 <constraints nullable="false"/>
             </column>
             <column name="MENU_VALUE" type="NVARCHAR(100)" remarks="菜单值"/>
-            <column name="MENU_TYPE" type="NVARCHAR(100)" remarks="菜单类型">
+            <column name="MENU_TYPE" type="NVARCHAR(100)" remarks="菜单类型:超链接菜单,Web模块列表,Web模块窗体">
                 <constraints nullable="false"/>
             </column>
+            <column name="MENU_OUTER_ID" type="NVARCHAR(100)" remarks="外部关联ID"/>
+            <column name="MENU_OUTER_NAME" type="NVARCHAR(100)" remarks="外部关联对象名称"/>
             <column name="MENU_CREATOR_ID" type="NVARCHAR(100)" remarks="创建者ID"/>
             <column name="MENU_ORGAN_ID" type="NVARCHAR(100)" remarks="创建组织ID"/>
             <column name="MENU_ORGAN_NAME" type="NVARCHAR(100)" remarks="创造组织名称"/>

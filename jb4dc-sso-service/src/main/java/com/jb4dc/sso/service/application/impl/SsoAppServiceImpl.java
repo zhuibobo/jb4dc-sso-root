@@ -109,6 +109,7 @@ public class SsoAppServiceImpl extends BaseServiceImpl<SsoAppEntity> implements 
 
             //开发样例系统
             SSOAppPO devMockAppBO = innerNewMainApp(jb4DSession, "DevMockApp", "开发样例系统","http://127.0.0.1:9102/DevMock","/HTML/FrameV1/FrameView.html");
+
         } catch (Exception e) {
             throw new JBuild4DCGenerallyException(JBuild4DCGenerallyException.EXCEPTION_SSO_CODE,e.getMessage());
         }

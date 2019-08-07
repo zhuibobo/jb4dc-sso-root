@@ -44,8 +44,6 @@ public class OrganRestTest extends RestTestBase {
         String rootDepartmentId=((LinkedHashMap) departmentVo.getData()).get("deptId").toString();
         NewDepartment(deptId,rootDepartmentId, "10001");
 
-
-
         for (int i=1;i<11;i++) {
             String organIdL1="Root_"+i;
             DeleteOrgan(organIdL1);

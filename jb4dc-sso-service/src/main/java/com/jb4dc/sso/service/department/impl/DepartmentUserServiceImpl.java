@@ -184,6 +184,12 @@ public class DepartmentUserServiceImpl implements IDepartmentUserService
     }
 
     @Override
+    public void deleteDepartUserAndUser(JB4DCSession jb4DSession, String userId) throws JBuild4DCGenerallyException {
+        departmentUserMapper.deleteDepartUserByUserId(userId);
+        userService.deleteByKey(jb4DSession,userId);
+    }
+
+    @Override
     public DepartmentUserEntity getByPrimaryKey(JB4DCSession jb4DSession, String recordId) {
         return departmentUserMapper.selectByPrimaryKey(recordId);
     }

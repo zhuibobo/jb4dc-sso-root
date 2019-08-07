@@ -76,7 +76,7 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
     private MenuEntity createMenu(JB4DCSession jb4DSession,String parentId,String menuId,String name,String text,String value,String rightUrl,String iconClassName,String systemId) throws JBuild4DCGenerallyException {
         //String systemSettingCacheManageId="JB4DSystemSettingCacheManage";
         MenuEntity newMenu=getMenu(parentId,menuId,name,text,value,
-                MenuTypeEnum.LeftMenu.getDisplayName(),"",rightUrl,iconClassName,systemId);
+                MenuTypeEnum.LinkMenu.getDisplayName(),"",rightUrl,iconClassName,systemId);
         deleteByKey(jb4DSession,newMenu.getMenuId());
         saveSimple(jb4DSession,newMenu.getMenuId(),newMenu);
         return newMenu;

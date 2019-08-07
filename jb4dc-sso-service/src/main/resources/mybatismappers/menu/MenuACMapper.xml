@@ -9,6 +9,8 @@
             <arg column="MENU_TEXT" javaType="java.lang.String" jdbcType="NVARCHAR" />
             <arg column="MENU_VALUE" javaType="java.lang.String" jdbcType="NVARCHAR" />
             <arg column="MENU_TYPE" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="MENU_OUTER_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="MENU_OUTER_NAME" javaType="java.lang.String" jdbcType="NVARCHAR" />
             <arg column="MENU_CREATOR_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
             <arg column="MENU_ORGAN_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
             <arg column="MENU_ORGAN_NAME" javaType="java.lang.String" jdbcType="NVARCHAR" />
@@ -39,13 +41,13 @@
         </constructor>
     </resultMap>
     <sql id="Base_Column_List">
-    MENU_ID, MENU_NAME, MENU_SYSTEM_ID, MENU_TEXT, MENU_VALUE, MENU_TYPE, MENU_CREATOR_ID,
-    MENU_ORGAN_ID, MENU_ORGAN_NAME, MENU_IS_EXPAND, MENU_IS_SYSTEM, MENU_LEFT_URL, MENU_LEFT_URL_PARA,
-    MENU_RIGHT_URL, MENU_RIGHT_URL_PARA, MENU_ORDER_NUM, MENU_PARENT_ID, MENU_PARENT_ID_LIST,
-    MENU_TARGET, MENU_CREATE_TIME, MENU_UPDATER, MENU_UPDATE_TIME, MENU_USE_ORGAN_NAME,
-    MENU_USE_ORGAN_ID, MENU_USE_ORGAN_TYPE_NAME, MENU_USE_ORGAN_TYPE_ID, MENU_CLASS_NAME,
-    MENU_CLASS_NAME_HOVER, MENU_CLASS_NAME_SELECTED, MENU_CHILD_COUNT, MENU_DESCRIPTION,
-    MENU_STATUS, MENU_JS_EXPRESSION
+    MENU_ID, MENU_NAME, MENU_SYSTEM_ID, MENU_TEXT, MENU_VALUE, MENU_TYPE, MENU_OUTER_ID,
+    MENU_OUTER_NAME, MENU_CREATOR_ID, MENU_ORGAN_ID, MENU_ORGAN_NAME, MENU_IS_EXPAND,
+    MENU_IS_SYSTEM, MENU_LEFT_URL, MENU_LEFT_URL_PARA, MENU_RIGHT_URL, MENU_RIGHT_URL_PARA,
+    MENU_ORDER_NUM, MENU_PARENT_ID, MENU_PARENT_ID_LIST, MENU_TARGET, MENU_CREATE_TIME,
+    MENU_UPDATER, MENU_UPDATE_TIME, MENU_USE_ORGAN_NAME, MENU_USE_ORGAN_ID, MENU_USE_ORGAN_TYPE_NAME,
+    MENU_USE_ORGAN_TYPE_ID, MENU_CLASS_NAME, MENU_CLASS_NAME_HOVER, MENU_CLASS_NAME_SELECTED,
+    MENU_CHILD_COUNT, MENU_DESCRIPTION, MENU_STATUS, MENU_JS_EXPRESSION
   </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
         select
@@ -60,28 +62,30 @@
     <insert id="insert" parameterType="com.jb4dc.sso.dbentities.menu.MenuEntity">
     insert into TSSO_MENU (MENU_ID, MENU_NAME, MENU_SYSTEM_ID,
       MENU_TEXT, MENU_VALUE, MENU_TYPE,
-      MENU_CREATOR_ID, MENU_ORGAN_ID, MENU_ORGAN_NAME,
-      MENU_IS_EXPAND, MENU_IS_SYSTEM, MENU_LEFT_URL,
-      MENU_LEFT_URL_PARA, MENU_RIGHT_URL, MENU_RIGHT_URL_PARA,
-      MENU_ORDER_NUM, MENU_PARENT_ID, MENU_PARENT_ID_LIST,
-      MENU_TARGET, MENU_CREATE_TIME, MENU_UPDATER,
-      MENU_UPDATE_TIME, MENU_USE_ORGAN_NAME, MENU_USE_ORGAN_ID,
-      MENU_USE_ORGAN_TYPE_NAME, MENU_USE_ORGAN_TYPE_ID,
-      MENU_CLASS_NAME, MENU_CLASS_NAME_HOVER, MENU_CLASS_NAME_SELECTED,
-      MENU_CHILD_COUNT, MENU_DESCRIPTION, MENU_STATUS,
-      MENU_JS_EXPRESSION)
+      MENU_OUTER_ID, MENU_OUTER_NAME, MENU_CREATOR_ID,
+      MENU_ORGAN_ID, MENU_ORGAN_NAME, MENU_IS_EXPAND,
+      MENU_IS_SYSTEM, MENU_LEFT_URL, MENU_LEFT_URL_PARA,
+      MENU_RIGHT_URL, MENU_RIGHT_URL_PARA, MENU_ORDER_NUM,
+      MENU_PARENT_ID, MENU_PARENT_ID_LIST, MENU_TARGET,
+      MENU_CREATE_TIME, MENU_UPDATER, MENU_UPDATE_TIME,
+      MENU_USE_ORGAN_NAME, MENU_USE_ORGAN_ID, MENU_USE_ORGAN_TYPE_NAME,
+      MENU_USE_ORGAN_TYPE_ID, MENU_CLASS_NAME, MENU_CLASS_NAME_HOVER,
+      MENU_CLASS_NAME_SELECTED, MENU_CHILD_COUNT,
+      MENU_DESCRIPTION, MENU_STATUS, MENU_JS_EXPRESSION
+      )
     values (#{menuId,jdbcType=NVARCHAR}, #{menuName,jdbcType=NVARCHAR}, #{menuSystemId,jdbcType=NVARCHAR},
       #{menuText,jdbcType=NVARCHAR}, #{menuValue,jdbcType=NVARCHAR}, #{menuType,jdbcType=NVARCHAR},
-      #{menuCreatorId,jdbcType=NVARCHAR}, #{menuOrganId,jdbcType=NVARCHAR}, #{menuOrganName,jdbcType=NVARCHAR},
-      #{menuIsExpand,jdbcType=NVARCHAR}, #{menuIsSystem,jdbcType=NVARCHAR}, #{menuLeftUrl,jdbcType=NVARCHAR},
-      #{menuLeftUrlPara,jdbcType=NVARCHAR}, #{menuRightUrl,jdbcType=NVARCHAR}, #{menuRightUrlPara,jdbcType=NVARCHAR},
-      #{menuOrderNum,jdbcType=INTEGER}, #{menuParentId,jdbcType=NVARCHAR}, #{menuParentIdList,jdbcType=NVARCHAR},
-      #{menuTarget,jdbcType=NVARCHAR}, #{menuCreateTime,jdbcType=TIMESTAMP}, #{menuUpdater,jdbcType=NVARCHAR},
-      #{menuUpdateTime,jdbcType=TIMESTAMP}, #{menuUseOrganName,jdbcType=NVARCHAR}, #{menuUseOrganId,jdbcType=NVARCHAR},
-      #{menuUseOrganTypeName,jdbcType=NVARCHAR}, #{menuUseOrganTypeId,jdbcType=NVARCHAR},
-      #{menuClassName,jdbcType=NVARCHAR}, #{menuClassNameHover,jdbcType=NVARCHAR}, #{menuClassNameSelected,jdbcType=NVARCHAR},
-      #{menuChildCount,jdbcType=INTEGER}, #{menuDescription,jdbcType=NVARCHAR}, #{menuStatus,jdbcType=NVARCHAR},
-      #{menuJsExpression,jdbcType=NVARCHAR})
+      #{menuOuterId,jdbcType=NVARCHAR}, #{menuOuterName,jdbcType=NVARCHAR}, #{menuCreatorId,jdbcType=NVARCHAR},
+      #{menuOrganId,jdbcType=NVARCHAR}, #{menuOrganName,jdbcType=NVARCHAR}, #{menuIsExpand,jdbcType=NVARCHAR},
+      #{menuIsSystem,jdbcType=NVARCHAR}, #{menuLeftUrl,jdbcType=NVARCHAR}, #{menuLeftUrlPara,jdbcType=NVARCHAR},
+      #{menuRightUrl,jdbcType=NVARCHAR}, #{menuRightUrlPara,jdbcType=NVARCHAR}, #{menuOrderNum,jdbcType=INTEGER},
+      #{menuParentId,jdbcType=NVARCHAR}, #{menuParentIdList,jdbcType=NVARCHAR}, #{menuTarget,jdbcType=NVARCHAR},
+      #{menuCreateTime,jdbcType=TIMESTAMP}, #{menuUpdater,jdbcType=NVARCHAR}, #{menuUpdateTime,jdbcType=TIMESTAMP},
+      #{menuUseOrganName,jdbcType=NVARCHAR}, #{menuUseOrganId,jdbcType=NVARCHAR}, #{menuUseOrganTypeName,jdbcType=NVARCHAR},
+      #{menuUseOrganTypeId,jdbcType=NVARCHAR}, #{menuClassName,jdbcType=NVARCHAR}, #{menuClassNameHover,jdbcType=NVARCHAR},
+      #{menuClassNameSelected,jdbcType=NVARCHAR}, #{menuChildCount,jdbcType=INTEGER},
+      #{menuDescription,jdbcType=NVARCHAR}, #{menuStatus,jdbcType=NVARCHAR}, #{menuJsExpression,jdbcType=NVARCHAR}
+      )
   </insert>
     <insert id="insertSelective" parameterType="com.jb4dc.sso.dbentities.menu.MenuEntity">
         insert into TSSO_MENU
@@ -103,6 +107,12 @@
             </if>
             <if test="menuType != null">
                 MENU_TYPE,
+            </if>
+            <if test="menuOuterId != null">
+                MENU_OUTER_ID,
+            </if>
+            <if test="menuOuterName != null">
+                MENU_OUTER_NAME,
             </if>
             <if test="menuCreatorId != null">
                 MENU_CREATOR_ID,
@@ -205,6 +215,12 @@
             <if test="menuType != null">
                 #{menuType,jdbcType=NVARCHAR},
             </if>
+            <if test="menuOuterId != null">
+                #{menuOuterId,jdbcType=NVARCHAR},
+            </if>
+            <if test="menuOuterName != null">
+                #{menuOuterName,jdbcType=NVARCHAR},
+            </if>
             <if test="menuCreatorId != null">
                 #{menuCreatorId,jdbcType=NVARCHAR},
             </if>
@@ -306,6 +322,12 @@
             <if test="menuType != null">
                 MENU_TYPE = #{menuType,jdbcType=NVARCHAR},
             </if>
+            <if test="menuOuterId != null">
+                MENU_OUTER_ID = #{menuOuterId,jdbcType=NVARCHAR},
+            </if>
+            <if test="menuOuterName != null">
+                MENU_OUTER_NAME = #{menuOuterName,jdbcType=NVARCHAR},
+            </if>
             <if test="menuCreatorId != null">
                 MENU_CREATOR_ID = #{menuCreatorId,jdbcType=NVARCHAR},
             </if>
@@ -397,6 +419,8 @@
       MENU_TEXT = #{menuText,jdbcType=NVARCHAR},
       MENU_VALUE = #{menuValue,jdbcType=NVARCHAR},
       MENU_TYPE = #{menuType,jdbcType=NVARCHAR},
+      MENU_OUTER_ID = #{menuOuterId,jdbcType=NVARCHAR},
+      MENU_OUTER_NAME = #{menuOuterName,jdbcType=NVARCHAR},
       MENU_CREATOR_ID = #{menuCreatorId,jdbcType=NVARCHAR},
       MENU_ORGAN_ID = #{menuOrganId,jdbcType=NVARCHAR},
       MENU_ORGAN_NAME = #{menuOrganName,jdbcType=NVARCHAR},

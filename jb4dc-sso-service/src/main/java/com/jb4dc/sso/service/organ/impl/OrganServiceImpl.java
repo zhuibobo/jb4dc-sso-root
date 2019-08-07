@@ -13,8 +13,12 @@ import com.jb4dc.core.base.tools.StringUtility;
 import com.jb4dc.core.base.tools.XMLDocumentUtility;
 import com.jb4dc.sso.dao.organ.OrganMapper;
 import com.jb4dc.sso.dbentities.organ.OrganEntity;
+import com.jb4dc.sso.po.DepartmentUserPO;
+import com.jb4dc.sso.service.department.IDepartmentService;
+import com.jb4dc.sso.service.department.IDepartmentUserService;
 import com.jb4dc.sso.service.organ.IOnOrganChangeAware;
 import com.jb4dc.sso.service.organ.IOrganService;
+import com.jb4dc.sso.service.organ.IOrganTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -46,6 +50,15 @@ public class OrganServiceImpl extends BaseServiceImpl<OrganEntity> implements IO
     Document xmlDocument=null;
 
     OrganMapper organMapper;
+
+    @Autowired
+    IOrganTypeService organTypeService;
+
+    @Autowired
+    IDepartmentUserService departmentUserService;
+
+    @Autowired
+    IDepartmentService departmentService;
 
     @Autowired
     public OrganServiceImpl(OrganMapper _defaultBaseMapper){
@@ -215,6 +228,12 @@ public class OrganServiceImpl extends BaseServiceImpl<OrganEntity> implements IO
 
     @Override
     public void initSystemData(JB4DCSession jb4DSession) throws JBuild4DCGenerallyException {
+        organTypeService.deleteByKeyNotValidate(jb4DSession,"0", JBuild4DCYaml.getWarningOperationCode());
+        organTypeService.createDefaultOrganType(jb4DSession);
+
+        deleteByKeyNotValidate(jb4DSession,"0", JBuild4DCYaml.getWarningOperationCode());
+        this.createRootOrgan(jb4DSession);
+
         OrganEntity organEntity=new OrganEntity();
         organEntity.setOrganCreateTime(new Date());
         organEntity.setOrganCode("0001");
@@ -228,6 +247,19 @@ public class OrganServiceImpl extends BaseServiceImpl<OrganEntity> implements IO
         this.deleteByKeyNotValidate(jb4DSession,"10001",JBuild4DCYaml.getWarningOperationCode());
         this.saveSimple(jb4DSession,organEntity.getOrganId(),organEntity);
 
+        String userId="Alex4D";
+        departmentUserService.deleteDepartUserAndUser(jb4DSession,userId);
 
+        DepartmentUserPO newDepartmentUserVo=departmentUserService.getEmptyNewVo(null,departmentService.getRootDepartmentByOrganId(jb4DSession,organEntity.getOrganId()).getDeptId());
+        newDepartmentUserVo.getUserEntity().setUserId(userId);
+        newDepartmentUserVo.getDepartmentUserEntity().setDuUserId(userId);
+        newDepartmentUserVo.getDepartmentUserEntity().setDuId(userId);
+        newDepartmentUserVo.getUserEntity().setUserAccount(userId);
+        newDepartmentUserVo.getUserEntity().setUserName("管理员");
+        newDepartmentUserVo.getUserEntity().setUserPhoneNumber("13927425407");
+        newDepartmentUserVo.getDepartmentUserEntity().setDuTitle("管理员");
+        //departmentUserPO.
+
+        departmentUserService.save(jb4DSession,userId,newDepartmentUserVo,"j4d123456");
     }
 }

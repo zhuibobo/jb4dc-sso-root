@@ -31,4 +31,7 @@
         </where>
         ORDER by DU_ORDER_NUM asc
     </select>
+    <delete id="deleteDepartUserByUserId">
+        delete from TSSO_DEPARTMENT_USER where DU_USER_ID=#{userId}
+    </delete>
 </mapper>

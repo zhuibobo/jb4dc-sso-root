@@ -23,4 +23,6 @@ public interface IDepartmentUserService {
     PageInfo<List<Map<String, Object>>> getDepartmentUser(JB4DCSession jb4DSession, Integer pageNum, Integer pageSize, Map<String, Object> searchMap);
 
     void statusChange(JB4DCSession jb4DSession, String ids, String status) throws JBuild4DCGenerallyException;
+
+    void deleteDepartUserAndUser(JB4DCSession jb4DSession, String userId) throws JBuild4DCGenerallyException;
 }
