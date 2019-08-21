@@ -1,8 +1,9 @@
 package com.jb4dc.sso.service.organ.impl;
 
-import com.jb4dc.base.dbaccess.exenum.EnableTypeEnum;
-import com.jb4dc.base.dbaccess.exenum.TrueFalseEnum;
+import com.jb4dc.base.service.exenum.EnableTypeEnum;
+import com.jb4dc.base.service.exenum.TrueFalseEnum;
 import com.jb4dc.base.service.IAddBefore;
+import com.jb4dc.base.service.exenum.UserTypeEnum;
 import com.jb4dc.base.service.impl.BaseServiceImpl;
 import com.jb4dc.base.tools.BeanUtility;
 import com.jb4dc.base.ymls.JBuild4DCYaml;
@@ -254,6 +255,7 @@ public class OrganServiceImpl extends BaseServiceImpl<OrganEntity> implements IO
         newDepartmentUserVo.getUserEntity().setUserId(userId);
         newDepartmentUserVo.getDepartmentUserEntity().setDuUserId(userId);
         newDepartmentUserVo.getDepartmentUserEntity().setDuId(userId);
+        newDepartmentUserVo.getUserEntity().setUserType(UserTypeEnum.manager.getDisplayName());
         newDepartmentUserVo.getUserEntity().setUserAccount(userId);
         newDepartmentUserVo.getUserEntity().setUserName("管理员");
         newDepartmentUserVo.getUserEntity().setUserPhoneNumber("13927425407");

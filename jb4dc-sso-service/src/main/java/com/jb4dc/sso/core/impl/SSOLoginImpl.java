@@ -1,5 +1,6 @@
 package com.jb4dc.sso.core.impl;
 
+import com.jb4dc.base.service.exenum.UserTypeEnum;
 import com.jb4dc.base.service.general.JB4DCSessionUtility;
 import com.jb4dc.core.base.encryption.digitaldigest.MD5Utility;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
@@ -68,6 +69,13 @@ public class SSOLoginImpl implements ISSOLogin {
                b4DSession.setOrganId(userEntity.getUserOrganId());
                b4DSession.setUserName(userEntity.getUserName());
                b4DSession.setUserId(userEntity.getUserId());
+               if(userEntity.getUserType().equals(UserTypeEnum.manager.getDisplayName())){
+                   b4DSession.setFullAuthority(true);
+               }
+               else{
+                   b4DSession.setFullAuthority(false);
+               }
+
                code =ssoLoginStore.createSSOCode(JBuild4DCSSORedirectUrl,appId);
                b4DSession.setSsoSessionToken(code.getToken());
 

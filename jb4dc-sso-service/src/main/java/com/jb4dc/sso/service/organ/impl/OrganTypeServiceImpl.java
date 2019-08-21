@@ -1,6 +1,6 @@
 package com.jb4dc.sso.service.organ.impl;
 
-import com.jb4dc.base.dbaccess.exenum.EnableTypeEnum;
+import com.jb4dc.base.service.exenum.EnableTypeEnum;
 import com.jb4dc.base.service.IAddBefore;
 import com.jb4dc.base.service.IUpdateBefore;
 import com.jb4dc.base.service.impl.BaseServiceImpl;
