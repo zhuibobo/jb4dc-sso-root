@@ -19,11 +19,14 @@ public class LoginProxyUtility {
 
         JB4DCSession jb4DSession=null;
 
-        String sessionCode =sessionCode=request.getParameter(Conf.SSO_TOKEN_URL_PARA_NAME);
+        String sessionCode = request.getParameter(Conf.SSO_TOKEN_URL_PARA_NAME);
 
         //如果URL中带有SSSCode的参数,则使用该参数尝试获取用户信息
         if(sessionCode==null||sessionCode.equals("")) {
             sessionCode = CookieUtility.getValue(request, Conf.JB4DC_SSO_CLIENT_COOKIE_STORE_KEY);
+            if(sessionCode==null||sessionCode.equals("")) {
+                sessionCode = request.getHeader(Conf.SSO_TOKEN_URL_PARA_NAME);
+            }
         }
 
         if(sessionCode==null||sessionCode.equals("")){

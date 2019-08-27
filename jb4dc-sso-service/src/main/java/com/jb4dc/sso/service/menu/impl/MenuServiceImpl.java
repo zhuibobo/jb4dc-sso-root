@@ -174,6 +174,11 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
                 "树与列表","树与列表","树与列表",
                 "/HTML/DevDemo/TreeAndList/Manager.html","menu-data",systemId,MenuTypeEnum.LinkMenu,"","");
 
+        //根菜单->开发示例->构建测试
+        createMenu(jb4DSession,devDemoRootMenu.getMenuId(),"MENU-JB4DDevDemoRoot-List1",
+                "列表测试1","列表测试1","列表测试1",
+                "/HTML/Builder/Runtime/WebListRuntime.html","top-menu-data",systemId,MenuTypeEnum.ModuleWebListMenu,"BuilderListIdTest0001","构建库-开发样例列表1");
+
         systemId = "BuilderMainApp";
 
         //根菜单->应用设计

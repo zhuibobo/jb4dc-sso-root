@@ -1,9 +1,11 @@
 package com.jb4dc.sso.webserver;
 
+import com.jb4dc.sso.client.provide.ClientSessionProvide;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
 
 
 /**
@@ -13,7 +15,7 @@ import org.springframework.context.annotation.ComponentScan;
  * To change this template use File | Settings | File Templates.
  */
 @SpringBootApplication
-@ComponentScan("com.jb4dc")
+@ComponentScan(basePackages = "com.jb4dc",excludeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = {ClientSessionProvide.class}) )
 @EnableDiscoveryClient
 public class ApplicationSSOWebServer {
     public static void main(String[] args) {

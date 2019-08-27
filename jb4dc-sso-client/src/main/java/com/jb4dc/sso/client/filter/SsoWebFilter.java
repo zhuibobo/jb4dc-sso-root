@@ -1,14 +1,17 @@
 package com.jb4dc.sso.client.filter;
 
 import com.jb4dc.base.service.general.JB4DCSessionUtility;
+import com.jb4dc.base.tools.BeanUtility;
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.core.base.tools.CookieUtility;
 import com.jb4dc.core.base.tools.StringUtility;
 import com.jb4dc.sso.client.conf.Conf;
 import com.jb4dc.sso.client.extend.ICheckSessionSuccess;
 import com.jb4dc.sso.client.proxy.LoginProxyUtility;
+import com.jb4dc.sso.client.store.SessionClientStore;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServlet;
@@ -21,6 +24,8 @@ public class SsoWebFilter extends HttpServlet implements Filter {
     private static Logger logger = LoggerFactory.getLogger(SsoWebFilter.class);
 
     private ICheckSessionSuccess checkSessionSuccess;
+
+    SessionClientStore sessionClientStore;
 
     public void setCheckSessionSuccess(ICheckSessionSuccess checkSessionSuccess) {
         this.checkSessionSuccess = checkSessionSuccess;
@@ -40,6 +45,11 @@ public class SsoWebFilter extends HttpServlet implements Filter {
     }
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+
+        if(sessionClientStore==null){
+            sessionClientStore= BeanUtility.getBean(SessionClientStore.class);
+        }
+
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
 
@@ -101,6 +111,7 @@ public class SsoWebFilter extends HttpServlet implements Filter {
             } else {
                 //加Session存入本地,以备本地使用
                 ((HttpServletRequest) request).getSession().setAttribute(JB4DCSessionUtility.UserLoginSessionKey, jb4DSession);
+                sessionClientStore.storeSSOSession(jb4DSession.getSsoSessionToken(),jb4DSession);
                 checkSessionSuccess.run(request, response, chain, jb4DSession);
             }
 

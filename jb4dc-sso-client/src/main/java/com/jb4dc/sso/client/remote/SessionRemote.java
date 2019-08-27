@@ -2,7 +2,6 @@ package com.jb4dc.sso.client.remote;
 
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
-import feign.Headers;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.context.annotation.Primary;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -17,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * To change this template use File | Settings | File Templates.
  */
 @Primary
-@FeignClient(name= "${jb4dc.sso.server.name}",contextId = "SessionRemote",configuration = { FeignClientConfig.class },path = "${jb4dc.sso.server.context-path}/Rest/SSO/Session")
+@FeignClient(name= "${jb4dc.sso.server.name}",contextId = "SessionRemote",configuration = { SSOClientFeignClientConfig.class },path = "${jb4dc.sso.server.context-path}/Rest/SSO/Session")
 public interface SessionRemote {
 
     @RequestMapping(value = "/GetSession",method = RequestMethod.POST)

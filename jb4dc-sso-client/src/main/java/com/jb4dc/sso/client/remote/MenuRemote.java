@@ -17,7 +17,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 @Primary
-@FeignClient(name= "${jb4dc.sso.server.name}",contextId = "MenuRemote",configuration = { FeignClientConfig.class },path = "${jb4dc.sso.server.context-path}/Rest/SSO/Mu/Menu")
+@FeignClient(name= "${jb4dc.sso.server.name}",contextId = "MenuRemote",path = "${jb4dc.sso.server.context-path}/Rest/SSO/Mu/Menu")
 public interface MenuRemote {
 
     @RequestMapping(value = "/GetMyAuthMenusBySystemId", method = RequestMethod.POST)
