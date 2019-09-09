@@ -38,10 +38,10 @@ public class DictionaryGroupRest extends GeneralRest<DictionaryGroupEntity> {
     }
 
     @RequestMapping(value = "/GetTreeData", method = RequestMethod.POST)
-    public List<DictionaryGroupEntity> getTreeData() {
+    public JBuild4DCResponseVo<List<DictionaryGroupEntity>> getTreeData() {
         //dictionaryGroupService.moveUp(recordId);
         List<DictionaryGroupEntity> dictionaryGroupEntityList=dictionaryGroupService.getALL(JB4DCSessionUtility.getSession());
-        return dictionaryGroupEntityList;
+        return JBuild4DCResponseVo.getDataSuccess(dictionaryGroupEntityList);
     }
 
 }

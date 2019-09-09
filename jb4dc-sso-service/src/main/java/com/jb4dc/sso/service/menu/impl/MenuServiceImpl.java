@@ -186,6 +186,11 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
                 "应用设计","应用设计","应用设计",
                 "","menu-data",systemId,MenuTypeEnum.LinkMenu,"","");
 
+        //根菜单->应用管理->环境变量
+        createMenu(jb4DSession,appBuilderRootMenu.getMenuId(),"MENU-JB4DSystemAppBuilderEnvVarManager",
+                "环境变量","环境变量","环境变量",
+                "/HTML/Builder/EnvVar/Manager.html","top-menu-data",systemId,MenuTypeEnum.LinkMenu,"","");
+
         //根菜单->应用管理->存储设计
         MenuEntity appManagerDataStorageMenu=createMenu(jb4DSession,appBuilderRootMenu.getMenuId(),"MENU-JB4DSystemAppBuilderDataStorageBuilder",
                 "存储设计","存储设计","存储设计",
