@@ -177,7 +177,7 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         //根菜单->开发示例->构建测试
         createMenu(jb4DSession,devDemoRootMenu.getMenuId(),"MENU-JB4DDevDemoRoot-List1",
                 "列表测试1","列表测试1","列表测试1",
-                "/HTML/Builder/Runtime/WebListRuntime.html","top-menu-data",systemId,MenuTypeEnum.ModuleWebListMenu,"BuilderListIdTest0001","构建库-开发样例列表1");
+                "/HTML/Builder/Runtime/WebListRuntime.html","top-menu-data",systemId,MenuTypeEnum.ModuleWebListMenu,"DevMockListIdTest0001","构建库-开发样例列表1");
 
         systemId = "BuilderMainApp";
 
@@ -190,6 +190,13 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         createMenu(jb4DSession,appBuilderRootMenu.getMenuId(),"MENU-JB4DSystemAppBuilderEnvVarManager",
                 "环境变量","环境变量","环境变量",
                 "/HTML/Builder/EnvVar/Manager.html","top-menu-data",systemId,MenuTypeEnum.LinkMenu,"","");
+
+
+        //根菜单->应用管理->API
+        createMenu(jb4DSession,appBuilderRootMenu.getMenuId(),"MENU-JB4DSystemAppBuilderAPIManager",
+                "API","API","API",
+                "/HTML/Builder/API/Manager.html","top-menu-data",systemId,MenuTypeEnum.LinkMenu,"","");
+
 
         //根菜单->应用管理->存储设计
         MenuEntity appManagerDataStorageMenu=createMenu(jb4DSession,appBuilderRootMenu.getMenuId(),"MENU-JB4DSystemAppBuilderDataStorageBuilder",
