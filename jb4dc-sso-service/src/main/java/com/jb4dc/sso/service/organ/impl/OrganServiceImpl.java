@@ -239,12 +239,12 @@ public class OrganServiceImpl extends BaseServiceImpl<OrganEntity> implements IO
         organEntity.setOrganCreateTime(new Date());
         organEntity.setOrganCode("0001");
         organEntity.setOrganId("10001");
-        organEntity.setOrganName("新德家园");
+        organEntity.setOrganName("西藏天路");
         organEntity.setOrganNo("0001");
         organEntity.setOrganIsVirtual(TrueFalseEnum.False.getDisplayName());
         organEntity.setOrganParentId(rootId);
         organEntity.setOrganStatus(EnableTypeEnum.enable.getDisplayName());
-        organEntity.setOrganShortName("新德家园");
+        organEntity.setOrganShortName("西藏天路");
         this.deleteByKeyNotValidate(jb4DSession,"10001",JBuild4DCYaml.getWarningOperationCode());
         this.saveSimple(jb4DSession,organEntity.getOrganId(),organEntity);
 
@@ -260,6 +260,55 @@ public class OrganServiceImpl extends BaseServiceImpl<OrganEntity> implements IO
         newDepartmentUserVo.getUserEntity().setUserName("管理员");
         newDepartmentUserVo.getUserEntity().setUserPhoneNumber("13927425407");
         newDepartmentUserVo.getDepartmentUserEntity().setDuTitle("管理员");
+        //departmentUserPO.
+
+        departmentUserService.save(jb4DSession,userId,newDepartmentUserVo,"j4d123456");
+
+
+        userId="RLZY";
+        departmentUserService.deleteDepartUserAndUser(jb4DSession,userId);
+
+        newDepartmentUserVo=departmentUserService.getEmptyNewVo(null,departmentService.getRootDepartmentByOrganId(jb4DSession,organEntity.getOrganId()).getDeptId());
+        newDepartmentUserVo.getUserEntity().setUserId(userId);
+        newDepartmentUserVo.getDepartmentUserEntity().setDuUserId(userId);
+        newDepartmentUserVo.getDepartmentUserEntity().setDuId(userId);
+        newDepartmentUserVo.getUserEntity().setUserType(UserTypeEnum.manager.getDisplayName());
+        newDepartmentUserVo.getUserEntity().setUserAccount(userId);
+        newDepartmentUserVo.getUserEntity().setUserName("人力资源");
+        newDepartmentUserVo.getUserEntity().setUserPhoneNumber("13927425407");
+        newDepartmentUserVo.getDepartmentUserEntity().setDuTitle("人力资源");
+        //departmentUserPO.
+
+        departmentUserService.save(jb4DSession,userId,newDepartmentUserVo,"j4d123456");
+
+        userId="KYGL";
+        departmentUserService.deleteDepartUserAndUser(jb4DSession,userId);
+
+        newDepartmentUserVo=departmentUserService.getEmptyNewVo(null,departmentService.getRootDepartmentByOrganId(jb4DSession,organEntity.getOrganId()).getDeptId());
+        newDepartmentUserVo.getUserEntity().setUserId(userId);
+        newDepartmentUserVo.getDepartmentUserEntity().setDuUserId(userId);
+        newDepartmentUserVo.getDepartmentUserEntity().setDuId(userId);
+        newDepartmentUserVo.getUserEntity().setUserType(UserTypeEnum.manager.getDisplayName());
+        newDepartmentUserVo.getUserEntity().setUserAccount(userId);
+        newDepartmentUserVo.getUserEntity().setUserName("科研管理");
+        newDepartmentUserVo.getUserEntity().setUserPhoneNumber("13927425407");
+        newDepartmentUserVo.getDepartmentUserEntity().setDuTitle("科研管理");
+        //departmentUserPO.
+
+        departmentUserService.save(jb4DSession,userId,newDepartmentUserVo,"j4d123456");
+
+        userId="ZSGL";
+        departmentUserService.deleteDepartUserAndUser(jb4DSession,userId);
+
+        newDepartmentUserVo=departmentUserService.getEmptyNewVo(null,departmentService.getRootDepartmentByOrganId(jb4DSession,organEntity.getOrganId()).getDeptId());
+        newDepartmentUserVo.getUserEntity().setUserId(userId);
+        newDepartmentUserVo.getDepartmentUserEntity().setDuUserId(userId);
+        newDepartmentUserVo.getDepartmentUserEntity().setDuId(userId);
+        newDepartmentUserVo.getUserEntity().setUserType(UserTypeEnum.manager.getDisplayName());
+        newDepartmentUserVo.getUserEntity().setUserAccount(userId);
+        newDepartmentUserVo.getUserEntity().setUserName("知识管理");
+        newDepartmentUserVo.getUserEntity().setUserPhoneNumber("13927425407");
+        newDepartmentUserVo.getDepartmentUserEntity().setDuTitle("知识管理");
         //departmentUserPO.
 
         departmentUserService.save(jb4DSession,userId,newDepartmentUserVo,"j4d123456");

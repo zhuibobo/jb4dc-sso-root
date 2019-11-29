@@ -11,7 +11,7 @@ import com.jb4dc.sso.client.proxy.LoginProxyUtility;
 import com.jb4dc.sso.client.store.SessionClientStore;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.AntPathMatcher;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServlet;
@@ -27,6 +27,9 @@ public class SsoWebFilter extends HttpServlet implements Filter {
 
     SessionClientStore sessionClientStore;
 
+    private String excludedPaths;
+    private static final AntPathMatcher antPathMatcher = new AntPathMatcher();
+
     public void setCheckSessionSuccess(ICheckSessionSuccess checkSessionSuccess) {
         this.checkSessionSuccess = checkSessionSuccess;
     }
@@ -38,6 +41,7 @@ public class SsoWebFilter extends HttpServlet implements Filter {
         Conf.JB4DC_SSO_SERVER_VIEW_LOGOUT = filterConfig.getInitParameter(Conf.KEY_JB4DC_SSO_SERVER_VIEW_LOGOUT);
         Conf.JB4DC_SSO_SERVER_EXCLUDED = filterConfig.getInitParameter(Conf.KEY_JB4DC_SSO_SERVER_EXCLUDED);
 
+        excludedPaths = filterConfig.getInitParameter(Conf.KEY_JB4DC_SSO_SERVER_EXCLUDED);
         //Conf.SSO_SERVER_ADDRESS=ssoServerAddress;
         //Conf.SSO_REST_BASE=restBasePath;
 
@@ -55,7 +59,18 @@ public class SsoWebFilter extends HttpServlet implements Filter {
 
         String absPath=req.getRequestURI();
         logger.debug("SsoWebFilter-URL:"+absPath);
-
+        //excluded path check
+        if (excludedPaths!=null && excludedPaths.trim().length()>0) {
+            for (String excludedPath:excludedPaths.split(",")) {
+                String uriPattern = excludedPath.trim();
+                // 支持ANT表达式
+                if (antPathMatcher.match(uriPattern, absPath)) {
+                    // excluded path, allow
+                    chain.doFilter(request, response);
+                    return;
+                }
+            }
+        }
         // make url
         String servletPath = req.getServletPath();
 

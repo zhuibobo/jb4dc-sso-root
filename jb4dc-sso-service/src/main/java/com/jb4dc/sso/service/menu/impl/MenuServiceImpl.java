@@ -257,6 +257,117 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         createMenu(jb4DSession,appBuilderModuleTestRootMenu.getMenuId(),"MENU-JB4DSystemAppBuilderModuleTestRoot-List1",
                 "列表测试1","列表测试1","列表测试1",
                 "/HTML/Builder/Runtime/WebListRuntime.html","top-menu-data",systemId,MenuTypeEnum.ModuleWebListMenu,"BuilderListIdTest0001","构建库-开发样例列表1");
+
+        createRLZY(jb4DSession,rootMenuId);
+        createKYGL(jb4DSession,rootMenuId);
+        createZSGL(jb4DSession,rootMenuId);
+    }
+
+    public void createRLZY(JB4DCSession jb4DSession,String rootMenuId) throws JBuild4DCGenerallyException {
+        String systemId = "DevMockApp";
+        MenuEntity 人力资源=createMenu(jb4DSession,rootMenuId,"RLZYDevApp011",
+                "人力资源","人力资源","人力资源",
+                "/HTML/DevDemo/RLZY/Index1.html","",systemId,MenuTypeEnum.LinkMenu,"","RLZY");
+        //根菜单->开发示例
+        MenuEntity 人事管理=createMenu(jb4DSession,rootMenuId,"RLZYDevApp001",
+                "人事管理","人事管理","人事管理",
+                "","",systemId,MenuTypeEnum.LinkMenu,"","RLZY");
+
+        MenuEntity 薪资管理=createMenu(jb4DSession,rootMenuId,"RLZYDevApp002",
+                "薪资管理","薪资管理","薪资管理",
+                "","",systemId,MenuTypeEnum.LinkMenu,"","RLZY");
+
+        MenuEntity 劳动合同=createMenu(jb4DSession,rootMenuId,"RLZYDevApp003",
+                "劳动合同","劳动合同","劳动合同",
+                "","",systemId,MenuTypeEnum.LinkMenu,"","RLZY");
+
+        MenuEntity 保险福利=createMenu(jb4DSession,rootMenuId,"RLZYDevApp004",
+                "保险福利","保险福利","保险福利",
+                "","",systemId,MenuTypeEnum.LinkMenu,"","RLZY");
+
+        MenuEntity 考勤休假=createMenu(jb4DSession,rootMenuId,"RLZYDevApp005",
+                "考勤休假","考勤休假","考勤休假",
+                "","",systemId,MenuTypeEnum.LinkMenu,"","RLZY");
+
+        MenuEntity 考勤台账=createMenu(jb4DSession,考勤休假.getMenuId(),"RLZYDevApp005-001",
+                "考勤台账","考勤台账","考勤台账",
+                "/HTML/DevDemo/TreeAndList/Manager.html","menu-data",systemId,MenuTypeEnum.LinkMenu,"","RLZY");
+
+        MenuEntity 绩效管理=createMenu(jb4DSession,rootMenuId,"RLZYDevApp006",
+                "绩效管理","绩效管理","绩效管理",
+                "","",systemId,MenuTypeEnum.LinkMenu,"","RLZY");
+
+        MenuEntity 招聘管理=createMenu(jb4DSession,rootMenuId,"RLZYDevApp007",
+                "招聘管理","招聘管理","招聘管理",
+                "","",systemId,MenuTypeEnum.LinkMenu,"","RLZY");
+
+        MenuEntity 培训管理=createMenu(jb4DSession,rootMenuId,"RLZYDevApp008",
+                "培训管理","培训管理","培训管理",
+                "","",systemId,MenuTypeEnum.LinkMenu,"","RLZY");
+
+        MenuEntity 员工自助=createMenu(jb4DSession,rootMenuId,"RLZYDevApp009",
+                "员工自助","员工自助","员工自助",
+                "","",systemId,MenuTypeEnum.LinkMenu,"","RLZY");
+
+        MenuEntity 经理自助=createMenu(jb4DSession,rootMenuId,"RLZYDevApp010",
+                "经理自助","经理自助","经理自助",
+                "","",systemId,MenuTypeEnum.LinkMenu,"","RLZY");
+    }
+
+    public void createKYGL(JB4DCSession jb4DSession,String rootMenuId) throws JBuild4DCGenerallyException {
+        String systemId = "DevMockApp";
+        MenuEntity 科研管理=createMenu(jb4DSession,rootMenuId,"KYGLDevApp001",
+                "科研管理","科研管理","科研管理",
+                "/HTML/DevDemo/KYGL/Index1.html","",systemId,MenuTypeEnum.LinkMenu,"","KYGL");
+        MenuEntity 博士后工作站=createMenu(jb4DSession,rootMenuId,"KYGLDevApp002",
+                "博士后工作站","博士后工作站","博士后工作站",
+                "/HTML/DevDemo/RLZY/Index1.html","",systemId,MenuTypeEnum.LinkMenu,"","KYGL");
+        MenuEntity 科研项目=createMenu(jb4DSession,rootMenuId,"KYGLDevApp003",
+                "科研项目","科研项目","科研项目",
+                "/HTML/DevDemo/RLZY/Index1.html","",systemId,MenuTypeEnum.LinkMenu,"","KYGL");
+        MenuEntity 科研成果库=createMenu(jb4DSession,rootMenuId,"KYGLDevApp004",
+                "科研成果库","科研成果库","科研成果库",
+                "/HTML/DevDemo/RLZY/Index1.html","",systemId,MenuTypeEnum.LinkMenu,"","KYGL");
+        MenuEntity 学术活动管理=createMenu(jb4DSession,rootMenuId,"KYGLDevApp005",
+                "学术活动管理","学术活动管理","学术活动管理",
+                "/HTML/DevDemo/RLZY/Index1.html","",systemId,MenuTypeEnum.LinkMenu,"","KYGL");
+        MenuEntity 科研信息采集=createMenu(jb4DSession,rootMenuId,"KYGLDevApp006",
+                "科研信息采集","科研信息采集","科研信息采集",
+                "/HTML/DevDemo/RLZY/Index1.html","",systemId,MenuTypeEnum.LinkMenu,"","KYGL");
+        MenuEntity 科研采集信息库=createMenu(jb4DSession,rootMenuId,"KYGLDevApp007",
+                "科研采集信息库","科研采集信息库","科研采集信息库",
+                "/HTML/DevDemo/RLZY/Index1.html","",systemId,MenuTypeEnum.LinkMenu,"","KYGL");
+    }
+
+    public void createZSGL(JB4DCSession jb4DSession,String rootMenuId) throws JBuild4DCGenerallyException {
+        String systemId = "DevMockApp";
+        MenuEntity 科研管理=createMenu(jb4DSession,rootMenuId,"ZSGLDevApp001",
+                "知识管理","知识管理","知识管理",
+                "/HTML/DevDemo/ZSGL/Index1.html","",systemId,MenuTypeEnum.LinkMenu,"","ZSGL");
+
+        MenuEntity 知识库管理=createMenu(jb4DSession,rootMenuId,"ZSGLDevApp006",
+                "知识库管理","知识库管理","知识库管理",
+                "/HTML/DevDemo/ZSGL/Index1.html","",systemId,MenuTypeEnum.LinkMenu,"","ZSGL");
+
+        MenuEntity 解决方案库=createMenu(jb4DSession,rootMenuId,"ZSGLDevApp002",
+                "解决方案库","解决方案库","解决方案库",
+                "/HTML/DevDemo/ZSGL/Index1.html","",systemId,MenuTypeEnum.LinkMenu,"","ZSGL");
+
+        MenuEntity 模板管理=createMenu(jb4DSession,rootMenuId,"ZSGLDevApp003",
+                "模板管理","模板管理","模板管理",
+                "/HTML/DevDemo/ZSGL/Index1.html","",systemId,MenuTypeEnum.LinkMenu,"","ZSGL");
+
+        MenuEntity 公告与问答=createMenu(jb4DSession,rootMenuId,"ZSGLDevApp004",
+                "公告与问答","公告与问答","公告与问答",
+                "/HTML/DevDemo/ZSGL/Index1.html","",systemId,MenuTypeEnum.LinkMenu,"","ZSGL");
+
+        MenuEntity 知识统计=createMenu(jb4DSession,rootMenuId,"ZSGLDevApp005",
+                "知识统计","知识统计","知识统计",
+                "/HTML/DevDemo/ZSGL/Index1.html","",systemId,MenuTypeEnum.LinkMenu,"","ZSGL");
+
+        MenuEntity 我的设置=createMenu(jb4DSession,rootMenuId,"ZSGLDevApp007",
+                "我的设置","我的设置","我的设置",
+                "/HTML/DevDemo/ZSGL/Index1.html","",systemId,MenuTypeEnum.LinkMenu,"","ZSGL");
     }
 
     @Override
