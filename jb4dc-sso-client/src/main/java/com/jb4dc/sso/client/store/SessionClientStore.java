@@ -1,7 +1,7 @@
 package com.jb4dc.sso.client.store;
 
 import com.jb4dc.core.base.session.JB4DCSession;
-import org.ehcache.CacheManager;
+import com.jb4dc.sso.client.cache.SSOCacheManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,15 +15,15 @@ import org.springframework.stereotype.Service;
 public class SessionClientStore {
 
     @Autowired
-    private CacheManager cacheManager;
+    private SSOCacheManager ssoCacheManager;
 
     public void storeSSOSession(String ssoToken, JB4DCSession jb4DSession) {
-        cacheManager.getCache("SSOSessionStore",String.class,JB4DCSession.class).put(ssoToken,jb4DSession);
+        ssoCacheManager.getCache("SSOSessionStore",String.class,JB4DCSession.class).put(ssoToken,jb4DSession);
         //JB4DCacheManager.put(JB4DCacheManager.jb4dPlatformSSOSessionStoreName,ssoCodeVo.getToken(),jb4DSession);
     }
 
     public JB4DCSession getSession(String token) {
-        JB4DCSession jb4DSession=cacheManager.getCache("SSOSessionStore",String.class,JB4DCSession.class).get(token);
+        JB4DCSession jb4DSession=ssoCacheManager.getCache("SSOSessionStore",String.class,JB4DCSession.class).get(token);
         if(jb4DSession!=null) {
             jb4DSession.setSsoSessionToken(token);
         }
