@@ -131,7 +131,7 @@
         <div style="border-radius: 8px;text-align: center;margin-top: 20px;margin-bottom: 30px">
             <img :src="logoImageSrc" style="width: 80px;height: 80px" />
         </div>
-        <upload style="margin:10px 12px 0 20px" :on-success="uploadOrganLogoImageSuccess" multiple type="drag" name="file" action="../../../Rest/SSO/Org/Organ/UploadOrganLogo" accept=".png">
+        <upload style="margin:10px 12px 0 20px" :on-success="uploadOrganLogoImageSuccess" :data="formEntity" multiple type="drag" name="file" action="../../../Rest/SSO/Org/Organ/UploadOrganLogo" accept=".png">
             <div style="padding:10px 0px">
                 <icon type="ios-cloud-upload" size="52" style="color: #3399ff"></icon>
                 <p>上传Logo</p>

@@ -75,9 +75,14 @@ Vue.component("sso-app-detail-from-comp", {
             this.appEntity.appCreateTime=DateUtility.GetCurrentData();
         },
         uploadSystemLogoImageSuccess:function (response, file, fileList) {
-            var data = response.data;
-            this.appEntity.appMainImageId = data.fileId;
-            this.systemLogoImageSrc = BaseUtility.BuildAction(this.acInterface.appLogoUrl, {fileId: this.appEntity.appMainImageId});
+            if(response.success) {
+                var data = response.data;
+                this.appEntity.appMainImageId = data.fileId;
+                this.systemLogoImageSrc = BaseUtility.BuildAction(this.acInterface.appLogoUrl, {fileId: this.appEntity.appMainImageId});
+            }
+            else{
+                DialogUtility.AlertError(window,DialogUtility.DialogAlertErrorId,{},response.message,null,null);
+            }
         },
         getAppEntity:function () {
             return this.appEntity;
@@ -165,7 +170,7 @@ Vue.component("sso-app-detail-from-comp", {
                         <div style="border-radius: 8px;text-align: center;margin-top: 0px;margin-bottom: 30px">
                             <img :src="systemLogoImageSrc" style="width: 110px;height: 110px" />
                         </div>
-                        <upload style="margin:10px 12px 0 20px" :on-success="uploadSystemLogoImageSuccess" multiple type="drag" name="file" action="../../../Rest/SSO/App/Application/UploadAppLogo" accept=".png">
+                        <upload style="margin:10px 12px 0 20px" :on-success="uploadSystemLogoImageSuccess" :data="appEntity" multiple type="drag" name="file" action="../../../Rest/SSO/App/Application/UploadAppLogo" accept=".png">
                             <div style="padding:10px 0px">
                                 <icon type="ios-cloud-upload" size="52" style="color: #3399ff"></icon>
                                 <p>上传系统Logo</p>
