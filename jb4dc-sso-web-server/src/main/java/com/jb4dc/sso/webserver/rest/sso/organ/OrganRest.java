@@ -3,6 +3,7 @@ package com.jb4dc.sso.webserver.rest.sso.organ;
 import com.jb4dc.base.service.IBaseService;
 import com.jb4dc.base.service.general.JB4DCSessionUtility;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
+import com.jb4dc.core.base.tools.StringUtility;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.feb.dist.webserver.rest.base.GeneralRest;
 import com.jb4dc.files.dbentities.FileInfoEntity;
@@ -73,8 +74,11 @@ public class OrganRest extends GeneralRest<OrganEntity> {
     }
 
     @RequestMapping(value = "/UploadOrganLogo", method = RequestMethod.POST, produces = "application/json")
-    public JBuild4DCResponseVo uploadOrganLogo(HttpServletRequest request, @RequestParam("file") MultipartFile file) throws IOException {
-        FileInfoEntity fileInfoEntity=fileInfoService.addSmallFileToDB(JB4DCSessionUtility.getSession(),file);
+    public JBuild4DCResponseVo uploadOrganLogo(HttpServletRequest request, @RequestParam("file") MultipartFile file,String organId) throws IOException, JBuild4DCGenerallyException {
+        if(StringUtility.isEmpty(organId)){
+            throw JBuild4DCGenerallyException.getEmptyException(JBuild4DCGenerallyException.EXCEPTION_SSO_CODE,"organId");
+        }
+        FileInfoEntity fileInfoEntity=fileInfoService.addSmallFileToDB(JB4DCSessionUtility.getSession(),file, organId,"TSSO_ORGAN","表名");
         return JBuild4DCResponseVo.success(JBuild4DCResponseVo.SUCCESSMSG,fileInfoEntity);
     }
 

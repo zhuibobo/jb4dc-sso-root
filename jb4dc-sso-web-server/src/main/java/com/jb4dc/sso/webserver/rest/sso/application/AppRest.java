@@ -3,6 +3,7 @@ package com.jb4dc.sso.webserver.rest.sso.application;
 import com.jb4dc.base.service.general.JB4DCSessionUtility;
 import com.jb4dc.core.base.encryption.nsymmetric.RSAUtility;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
+import com.jb4dc.core.base.tools.StringUtility;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.files.dbentities.FileInfoEntity;
 import com.jb4dc.files.service.IFileInfoService;
@@ -50,8 +51,11 @@ public class AppRest {
     }
 
     @RequestMapping(value = "/UploadAppLogo", method = RequestMethod.POST, produces = "application/json")
-    public JBuild4DCResponseVo uploadOrganLogo(HttpServletRequest request, @RequestParam("file") MultipartFile file) throws IOException {
-        FileInfoEntity fileInfoEntity=fileInfoService.addSmallFileToDB(JB4DCSessionUtility.getSession(),file);
+    public JBuild4DCResponseVo uploadOrganLogo(HttpServletRequest request, @RequestParam("file") MultipartFile file,String appId) throws IOException, JBuild4DCGenerallyException {
+        if(StringUtility.isEmpty(appId)){
+            throw JBuild4DCGenerallyException.getEmptyException(JBuild4DCGenerallyException.EXCEPTION_SSO_CODE,"appId");
+        }
+        FileInfoEntity fileInfoEntity=fileInfoService.addSmallFileToDB(JB4DCSessionUtility.getSession(),file,appId,"TSSO_SSO_APP","表名");
         return JBuild4DCResponseVo.success(JBuild4DCResponseVo.SUCCESSMSG,fileInfoEntity);
     }
 

@@ -82,8 +82,11 @@ public class DepartmentUserRest {
     }
 
     @RequestMapping(value = "/UploadUserHeadIMG", method = RequestMethod.POST, produces = "application/json")
-    public JBuild4DCResponseVo uploadUserHeadIMG(HttpServletRequest request, @RequestParam("file") MultipartFile file) throws IOException {
-        FileInfoEntity fileInfoEntity=fileInfoService.addSmallFileToDB(JB4DCSessionUtility.getSession(),file);
+    public JBuild4DCResponseVo uploadUserHeadIMG(HttpServletRequest request, @RequestParam("file") MultipartFile file,String userId) throws IOException, JBuild4DCGenerallyException {
+        if(StringUtility.isEmpty(userId)){
+            throw JBuild4DCGenerallyException.getEmptyException(JBuild4DCGenerallyException.EXCEPTION_SSO_CODE,"userId");
+        }
+        FileInfoEntity fileInfoEntity=fileInfoService.addSmallFileToDB(JB4DCSessionUtility.getSession(),file,userId,"TSSO_USER","表名");
         return JBuild4DCResponseVo.success(JBuild4DCResponseVo.SUCCESSMSG,fileInfoEntity);
     }
 
