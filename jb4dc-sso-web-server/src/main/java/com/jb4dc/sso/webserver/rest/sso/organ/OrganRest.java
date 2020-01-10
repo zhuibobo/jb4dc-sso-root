@@ -78,7 +78,7 @@ public class OrganRest extends GeneralRest<OrganEntity> {
         if(StringUtility.isEmpty(organId)){
             throw JBuild4DCGenerallyException.getEmptyException(JBuild4DCGenerallyException.EXCEPTION_SSO_CODE,"organId");
         }
-        FileInfoEntity fileInfoEntity=fileInfoService.addSmallFileToDB(JB4DCSessionUtility.getSession(),file, organId,"TSSO_ORGAN","表名");
+        FileInfoEntity fileInfoEntity=fileInfoService.addSmallFileToDB(JB4DCSessionUtility.getSession(),file, organId,"TSSO_ORGAN",IFileInfoService.FILE_OBJ_TYPE_TABLE_NAME,IFileInfoService.FILE_CATEGORY_MAIN_IMAGE);
         return JBuild4DCResponseVo.success(JBuild4DCResponseVo.SUCCESSMSG,fileInfoEntity);
     }
 
@@ -89,7 +89,7 @@ public class OrganRest extends GeneralRest<OrganEntity> {
             return defaultImageByte;
         }
         else{
-            return fileInfoService.getContent(fileId);
+            return fileInfoService.getContentInDB(fileId);
         }
     }
 

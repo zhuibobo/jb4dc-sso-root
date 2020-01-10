@@ -86,7 +86,7 @@ public class DepartmentUserRest {
         if(StringUtility.isEmpty(userId)){
             throw JBuild4DCGenerallyException.getEmptyException(JBuild4DCGenerallyException.EXCEPTION_SSO_CODE,"userId");
         }
-        FileInfoEntity fileInfoEntity=fileInfoService.addSmallFileToDB(JB4DCSessionUtility.getSession(),file,userId,"TSSO_USER","表名");
+        FileInfoEntity fileInfoEntity=fileInfoService.addSmallFileToDB(JB4DCSessionUtility.getSession(),file,userId,"TSSO_USER",IFileInfoService.FILE_OBJ_TYPE_TABLE_NAME,IFileInfoService.FILE_CATEGORY_USER_HEADER);
         return JBuild4DCResponseVo.success(JBuild4DCResponseVo.SUCCESSMSG,fileInfoEntity);
     }
 
@@ -97,7 +97,7 @@ public class DepartmentUserRest {
             return defaultImageByte;
         }
         else{
-            return fileInfoService.getContent(fileId);
+            return fileInfoService.getContentInDB(fileId);
         }
     }
 

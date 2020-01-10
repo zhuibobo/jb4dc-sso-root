@@ -55,7 +55,7 @@ public class AppRest {
         if(StringUtility.isEmpty(appId)){
             throw JBuild4DCGenerallyException.getEmptyException(JBuild4DCGenerallyException.EXCEPTION_SSO_CODE,"appId");
         }
-        FileInfoEntity fileInfoEntity=fileInfoService.addSmallFileToDB(JB4DCSessionUtility.getSession(),file,appId,"TSSO_SSO_APP","表名");
+        FileInfoEntity fileInfoEntity=fileInfoService.addSmallFileToDB(JB4DCSessionUtility.getSession(),file,appId,"TSSO_SSO_APP",IFileInfoService.FILE_OBJ_TYPE_TABLE_NAME,IFileInfoService.FILE_CATEGORY_MAIN_IMAGE);
         return JBuild4DCResponseVo.success(JBuild4DCResponseVo.SUCCESSMSG,fileInfoEntity);
     }
 
@@ -78,7 +78,7 @@ public class AppRest {
             return defaultImageByte;
         }
         else{
-            return fileInfoService.getContent(fileId);
+            return fileInfoService.getContentInDB(fileId);
         }
     }
 
