@@ -52,13 +52,13 @@ public class OrganRest extends GeneralRest<OrganEntity> {
     }
 
     @Autowired
-    IOrganService organService;
+    protected IOrganService organService;
 
     @Autowired
-    IOrganTypeService organTypeService;
+    protected IOrganTypeService organTypeService;
 
     @Autowired
-    IFileInfoService fileInfoService;
+    protected IFileInfoService fileInfoService;
 
     @Override
     protected IBaseService<OrganEntity> getBaseService() {

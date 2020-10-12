@@ -4,6 +4,8 @@ import com.jb4dc.base.dbaccess.dao.BaseMapper;
 import com.jb4dc.sso.dbentities.organ.OrganEntity;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: zhuangrb
@@ -18,4 +20,6 @@ public interface OrganMapper extends BaseMapper<OrganEntity> {
     void deleteByOrganName(String organName);
 
     int countChildsOrgan(String organId);
+
+    List<OrganEntity> selectAllEnableOrgan();
 }

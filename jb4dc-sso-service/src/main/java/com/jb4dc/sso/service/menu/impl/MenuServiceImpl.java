@@ -4,13 +4,16 @@ package com.jb4dc.sso.service.menu.impl;
 import com.jb4dc.base.service.exenum.MenuTypeEnum;
 import com.jb4dc.base.service.exenum.TrueFalseEnum;
 import com.jb4dc.base.service.IAddBefore;
+import com.jb4dc.base.service.exenum.UserTypeEnum;
 import com.jb4dc.base.service.impl.BaseServiceImpl;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.core.base.tools.StringUtility;
 import com.jb4dc.sso.dao.menu.MenuMapper;
 import com.jb4dc.sso.dbentities.menu.MenuEntity;
+import com.jb4dc.sso.dbentities.user.UserEntity;
 import com.jb4dc.sso.service.menu.IMenuService;
+import com.jb4dc.sso.service.user.IUserService;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +32,9 @@ import java.util.List;
 public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMenuService {
 
     MenuMapper menuMapper;
+
+    @Autowired
+    IUserService userService;
 
     @Autowired
     public MenuServiceImpl(MenuMapper _defaultBaseMapper) {
@@ -74,8 +80,6 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         });
     }
 
-
-
     @Override
     public void initSystemData(JB4DCSession jb4DSession) throws JBuild4DCGenerallyException {
         //根菜单
@@ -84,24 +88,18 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         //deleteByKey(jb4DSession,rootMenu.getMenuId());
         //saveSimple(jb4DSession,rootMenu.getMenuId(),rootMenu);
 
+        createSSOSystem(jb4DSession,rootMenuId);
+        createDevDemoSystem(jb4DSession,rootMenuId);
+        createBuilderSystem(jb4DSession,rootMenuId);
+        createQCSystem(jb4DSession,rootMenuId);
+        //createHrSystem(jb4DSession,rootMenuId);
+        //createKYGL(jb4DSession,rootMenuId);
+        //createZSGL(jb4DSession,rootMenuId);
+    }
+
+    public void createSSOSystem(JB4DCSession jb4DSession,String rootMenuId) throws JBuild4DCGenerallyException {
         //根菜单->系统设置分组
         String systemId = "SSOMainApp";
-        MenuEntity systemSettingRootMenu=createMenu(jb4DSession,rootMenuId,"MENU-JB4DSystemSettingRoot","系统设置","系统设置","系统设置","","menu-data", systemId,MenuTypeEnum.LinkMenu,"","");
-
-        //根菜单->系统设置分组->数据字典分组
-        createMenu(jb4DSession,systemSettingRootMenu.getMenuId(),"MENU-JB4DSystemSettingDictionaryManagerId",
-                "数据字典","数据字典","数据字典",
-                "/HTML/SystemSetting/Dictionary/DictionaryManager.html","", systemId,MenuTypeEnum.LinkMenu,"","");
-
-        //根菜单->系统设置分组->操作日志
-        createMenu(jb4DSession,systemSettingRootMenu.getMenuId(),"MENU-JB4DSystemSettingOperationLog",
-                "操作日志","操作日志","操作日志",
-                "/HTML/SystemSetting/OperationLog/OperationLogList.html","", systemId,MenuTypeEnum.LinkMenu,"","");
-
-        //根菜单->系统设置分组->参数设置
-        createMenu(jb4DSession,systemSettingRootMenu.getMenuId(),"MENU-JB4DSystemSettingParasSetting",
-                "参数设置","参数设置","参数设置",
-                "/HTML/SystemSetting/ParasSetting/ParasSettingList.html","", systemId,MenuTypeEnum.LinkMenu,"","");
 
         //根菜单->统一用户与单点登录
         MenuEntity ssoRootMenu=createMenu(jb4DSession,rootMenuId,"MENU-JB4DSSORoot",
@@ -138,7 +136,21 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
                 "菜单管理","菜单管理","菜单管理",
                 "/HTML/SSO/Menu/MenuManager.html","", systemId,MenuTypeEnum.LinkMenu,"","");
 
-        systemId = "DevMockApp";
+        MenuEntity systemSettingRootMenu=createMenu(jb4DSession,rootMenuId,"MENU-SSO-JB4DSystemSettingRoot","系统设置","系统设置","系统设置","","menu-data", systemId,MenuTypeEnum.LinkMenu,"","");
+
+        //根菜单->系统设置分组->操作日志
+        createMenu(jb4DSession,systemSettingRootMenu.getMenuId(),"MENU-JB4DSystemSettingOperationLog",
+                "操作日志","操作日志","操作日志",
+                "/HTML/SystemSetting/OperationLog/OperationLogList.html","", systemId,MenuTypeEnum.LinkMenu,"","");
+
+        //根菜单->系统设置分组->参数设置
+        createMenu(jb4DSession,systemSettingRootMenu.getMenuId(),"MENU-JB4DSystemSettingParasSetting",
+                "参数设置","参数设置","参数设置",
+                "/HTML/SystemSetting/ParasSetting/ParasSettingList.html","", systemId,MenuTypeEnum.LinkMenu,"","");
+    }
+
+    public void createDevDemoSystem(JB4DCSession jb4DSession,String rootMenuId) throws JBuild4DCGenerallyException {
+        String systemId = "DevMockApp";
         //根菜单->开发示例
         MenuEntity devDemoRootMenu=createMenu(jb4DSession,rootMenuId,"MENU-JB4DDevDemoRoot",
                 "开发示例","开发示例","开发示例",
@@ -178,8 +190,10 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         createMenu(jb4DSession,devDemoRootMenu.getMenuId(),"MENU-JB4DDevDemoRoot-List1",
                 "列表测试1","列表测试1","列表测试1",
                 "/HTML/Builder/Runtime/WebListRuntime.html","top-menu-data",systemId,MenuTypeEnum.ModuleWebListMenu,"DevMockListIdTest0001","构建库-开发样例列表1");
+    }
 
-        systemId = "BuilderMainApp";
+    public void createBuilderSystem(JB4DCSession jb4DSession,String rootMenuId) throws JBuild4DCGenerallyException {
+        String systemId = "BuilderMainApp";
 
         //根菜单->应用设计
         MenuEntity appBuilderRootMenu=createMenu(jb4DSession,rootMenuId,"MENU-JB4DSystemAppBuilderRoot",
@@ -234,6 +248,18 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
                 "模块设计","模块设计","模块设计",
                 "/HTML/Builder/Module/Manager.html","frame-top-menu-data",systemId,MenuTypeEnum.LinkMenu,"","");
 
+        //根菜单->应用管理->站点管理
+        MenuEntity appBuilderSiteMenu=createMenu(jb4DSession,appBuilderRootMenu.getMenuId(),"MENU-JB4DSystemAppBuilderSite",
+                "站点管理","站点管理","站点管理",
+                "/HTML/Builder/Site/Manager.html","frame-top-menu-data",systemId,MenuTypeEnum.LinkMenu,"","");
+
+        MenuEntity systemSettingRootMenu=createMenu(jb4DSession,rootMenuId,"MENU-Builder-JB4DSystemSettingRoot","系统设置","系统设置","系统设置","","menu-data", systemId,MenuTypeEnum.LinkMenu,"","");
+
+        //根菜单->系统设置分组->数据字典分组
+        createMenu(jb4DSession,systemSettingRootMenu.getMenuId(),"MENU-JB4DSystemSettingDictionaryManagerId",
+                "数据字典","数据字典","数据字典",
+                "/HTML/SystemSetting/Dictionary/DictionaryManager.html","", systemId,MenuTypeEnum.LinkMenu,"","");
+
         //根菜单->应用管理->菜单设计
         /*MenuEntity appBuilderMenuBuilderMenu=createMenu(jb4DSession,appBuilderRootMenu.getMenuId(),"MENU-JB4DSystemAppBuilderMenuBuilder",
                 "菜单设计","菜单设计","菜单设计",
@@ -257,61 +283,113 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         createMenu(jb4DSession,appBuilderModuleTestRootMenu.getMenuId(),"MENU-JB4DSystemAppBuilderModuleTestRoot-List1",
                 "列表测试1","列表测试1","列表测试1",
                 "/HTML/Builder/Runtime/WebListRuntime.html","top-menu-data",systemId,MenuTypeEnum.ModuleWebListMenu,"BuilderListIdTest0001","构建库-开发样例列表1");
-
-        createRLZY(jb4DSession,rootMenuId);
-        createKYGL(jb4DSession,rootMenuId);
-        createZSGL(jb4DSession,rootMenuId);
     }
 
-    public void createRLZY(JB4DCSession jb4DSession,String rootMenuId) throws JBuild4DCGenerallyException {
-        String systemId = "DevMockApp";
-        MenuEntity 人力资源=createMenu(jb4DSession,rootMenuId,"RLZYDevApp011",
-                "人力资源","人力资源","人力资源",
-                "/HTML/DevDemo/RLZY/Index1.html","",systemId,MenuTypeEnum.LinkMenu,"","RLZY");
-        //根菜单->开发示例
-        MenuEntity 人事管理=createMenu(jb4DSession,rootMenuId,"RLZYDevApp001",
-                "人事管理","人事管理","人事管理",
-                "","",systemId,MenuTypeEnum.LinkMenu,"","RLZY");
+    public void createQCSystem(JB4DCSession jb4DSession,String rootMenuId) throws JBuild4DCGenerallyException {
+        String systemId = "QCSystem";
+        String menuId="";
+        String menuName="";
 
-        MenuEntity 薪资管理=createMenu(jb4DSession,rootMenuId,"RLZYDevApp002",
-                "薪资管理","薪资管理","薪资管理",
-                "","",systemId,MenuTypeEnum.LinkMenu,"","RLZY");
+        menuId="QCSystem-SystemSettingRoot";
+        menuName="系统设置";
+        MenuEntity systemSettingRoot=createMenu(jb4DSession,rootMenuId,menuId,
+                menuName,menuName,menuName,
+                "","",systemId,MenuTypeEnum.EmptyMenu,menuId,menuId);
 
-        MenuEntity 劳动合同=createMenu(jb4DSession,rootMenuId,"RLZYDevApp003",
-                "劳动合同","劳动合同","劳动合同",
-                "","",systemId,MenuTypeEnum.LinkMenu,"","RLZY");
+        menuId="QCSystem-SystemTemplateManage";
+        menuName="模版管理";
+        MenuEntity systemTemplateManage=createMenu(jb4DSession,systemSettingRoot.getMenuId(),menuId,
+                menuName,menuName,menuName,
+                "/HTML/QCSystem/SystemManage/TemplateManage.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
 
-        MenuEntity 保险福利=createMenu(jb4DSession,rootMenuId,"RLZYDevApp004",
-                "保险福利","保险福利","保险福利",
-                "","",systemId,MenuTypeEnum.LinkMenu,"","RLZY");
+        menuId="QCSystem-SystemLog";
+        menuName="系统日志";
+        MenuEntity systemLog=createMenu(jb4DSession,systemSettingRoot.getMenuId(),menuId,
+                menuName,menuName,menuName,
+                "/HTML/QCSystem/SystemManage/LogManage.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
 
-        MenuEntity 考勤休假=createMenu(jb4DSession,rootMenuId,"RLZYDevApp005",
-                "考勤休假","考勤休假","考勤休假",
-                "","",systemId,MenuTypeEnum.LinkMenu,"","RLZY");
+        menuId="QCSystem-ProjectManagement";
+        menuName="项目管理";
+        MenuEntity systemManage=createMenu(jb4DSession,rootMenuId,menuId,
+                menuName,menuName,menuName,
+                "/HTML/Builder/Runtime/WebListRuntime.html","",systemId,MenuTypeEnum.ModuleWebListMenu,"12a9b8bc-8ce0-47c6-acb5-1f29fdce188e",menuId);
 
-        MenuEntity 考勤台账=createMenu(jb4DSession,考勤休假.getMenuId(),"RLZYDevApp005-001",
-                "考勤台账","考勤台账","考勤台账",
-                "/HTML/DevDemo/TreeAndList/Manager.html","menu-data",systemId,MenuTypeEnum.LinkMenu,"","RLZY");
+        /*menuId="QCSystem-DataDictionaryManage";
+        menuName="数据字典";
+        MenuEntity dataDictionary=createMenu(jb4DSession,rootMenuId,menuId,
+                menuName,menuName,menuName,
+                "/HTML/QCSystem/DataDictionary/DataDictionaryManage.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);*/
 
-        MenuEntity 绩效管理=createMenu(jb4DSession,rootMenuId,"RLZYDevApp006",
-                "绩效管理","绩效管理","绩效管理",
-                "","",systemId,MenuTypeEnum.LinkMenu,"","RLZY");
+        menuId="QCSystem-IssuesManage";
+        menuName="运维问题管理";
+        MenuEntity issuesManage=createMenu(jb4DSession,rootMenuId,menuId,
+                menuName,menuName,menuName,
+                "/HTML/Builder/Runtime/WebListRuntime.html","",systemId,MenuTypeEnum.LinkMenu,"5e545cf3-b8d4-4520-8d0d-76b5d2efeb2e",menuId);
 
-        MenuEntity 招聘管理=createMenu(jb4DSession,rootMenuId,"RLZYDevApp007",
-                "招聘管理","招聘管理","招聘管理",
-                "","",systemId,MenuTypeEnum.LinkMenu,"","RLZY");
+        menuId="QCSystem-MyIssuesManage";
+        menuName="我的运维问题";
+        MenuEntity myIssuesManage=createMenu(jb4DSession,rootMenuId,menuId,
+                menuName,menuName,menuName,
+                "/HTML/QCSystem/Issues/MyIssuesManage.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
 
-        MenuEntity 培训管理=createMenu(jb4DSession,rootMenuId,"RLZYDevApp008",
-                "培训管理","培训管理","培训管理",
-                "","",systemId,MenuTypeEnum.LinkMenu,"","RLZY");
+        menuId="QCSystem-MySubscription";
+        menuName="我的订阅";
+        MenuEntity mySubscription=createMenu(jb4DSession,rootMenuId,menuId,
+                menuName,menuName,menuName,
+                "/HTML/QCSystem/Issues/MySubscription.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
 
-        MenuEntity 员工自助=createMenu(jb4DSession,rootMenuId,"RLZYDevApp009",
-                "员工自助","员工自助","员工自助",
-                "","",systemId,MenuTypeEnum.LinkMenu,"","RLZY");
+        menuId="QCSystem-IssuesSearch";
+        menuName="运维问题查询";
+        MenuEntity issuesSearch=createMenu(jb4DSession,rootMenuId,menuId,
+                menuName,menuName,menuName,
+                "/HTML/QCSystem/Issues/IssuesSearch.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
 
-        MenuEntity 经理自助=createMenu(jb4DSession,rootMenuId,"RLZYDevApp010",
-                "经理自助","经理自助","经理自助",
-                "","",systemId,MenuTypeEnum.LinkMenu,"","RLZY");
+        menuId="QCSystem-StatisticsRoot";
+        menuName="运维统计";
+        MenuEntity statisticsRoot=createMenu(jb4DSession,rootMenuId,menuId,
+                menuName,menuName,menuName,
+                "","",systemId,MenuTypeEnum.EmptyMenu,menuId,menuId);
+
+        menuId="QCSystem-StatisticsIssues";
+        menuName="问题分类统计";
+        MenuEntity issuesStatistics=createMenu(jb4DSession,statisticsRoot.getMenuId(),menuId,
+                menuName,menuName,menuName,
+                "/HTML/QCSystem/Statistics/StatisticsIssues.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
+
+        menuId="QCSystem-StatisticsWeeklyReport";
+        menuName="运维周报";
+        MenuEntity statisticsWeeklyReport=createMenu(jb4DSession,statisticsRoot.getMenuId(),menuId,
+                menuName,menuName,menuName,
+                "/HTML/QCSystem/Statistics/StatisticsWeeklyReport.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
+
+        menuId="QCSystem-StatisticsMonthlyReport";
+        menuName="运维月报";
+        MenuEntity statisticsMonthlyReport=createMenu(jb4DSession,statisticsRoot.getMenuId(),menuId,
+                menuName,menuName,menuName,
+                "/HTML/QCSystem/Statistics/StatisticsMonthlyReport.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
+
+        menuId="QCSystem-JobPlan";
+        menuName="作业计划";
+        MenuEntity jobPlan=createMenu(jb4DSession,rootMenuId,menuId,
+                menuName,menuName,menuName,
+                "/HTML/QCSystem/Job/JobPlan.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
+    }
+
+    /*public void createHrSystem(JB4DCSession jb4DSession,String rootMenuId) throws JBuild4DCGenerallyException {
+        String systemId = "HrSystem";
+        MenuEntity hrOrganizationRootMenu=createMenu(jb4DSession,rootMenuId,"Hr-Organization-Root-Menu",
+                "组织架构管理","组织架构管理","组织架构管理",
+                "","",systemId,MenuTypeEnum.EmptyMenu,"","Hr-Organization-Root-Menu");
+
+
+        MenuEntity organizationManager=createMenu(jb4DSession,hrOrganizationRootMenu.getMenuId(),"Hr-Organization-Manager-Menu",
+                "组织管理","组织管理","组织管理",
+                "","",systemId,MenuTypeEnum.EmptyMenu,"","Hr-OrganizationMenu");
+
+        MenuEntity organizationDepartmentManager=createMenu(jb4DSession,hrOrganizationRootMenu.getMenuId(),"Hr-Organization-Manager-Menu",
+                "部门人员","部门人员","部门人员",
+                "","",systemId,MenuTypeEnum.EmptyMenu,"","Hr-OrganizationMenu");
+
     }
 
     public void createKYGL(JB4DCSession jb4DSession,String rootMenuId) throws JBuild4DCGenerallyException {
@@ -368,7 +446,7 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         MenuEntity 我的设置=createMenu(jb4DSession,rootMenuId,"ZSGLDevApp007",
                 "我的设置","我的设置","我的设置",
                 "/HTML/DevDemo/ZSGL/Index1.html","",systemId,MenuTypeEnum.LinkMenu,"","ZSGL");
-    }
+    }*/
 
     @Override
     public List<MenuEntity> getMenusBySystemId(JB4DCSession session, String systemId) {
@@ -383,9 +461,18 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
     @Override
     public List<MenuEntity> getMyAuthMenusBySystemId(JB4DCSession session, String systemId) {
         if(session.isFullAuthority()){
-            return  menuMapper.selectBySystemId(systemId);
+            return menuMapper.selectBySystemId(systemId);
         }
         return menuMapper.getMyAuthMenusBySystemId(session.getUserId(),systemId);
+    }
+
+    @Override
+    public List<MenuEntity> getMyAuthMenusBySystemId(String userId, String systemId) throws JBuild4DCGenerallyException {
+        UserEntity userEntity=userService.getByPrimaryKey(null,userId);
+        if(userEntity.getUserType().equals(UserTypeEnum.manager.getDisplayName())){
+            return menuMapper.selectBySystemId(systemId);
+        }
+        return menuMapper.getMyAuthMenusBySystemId(userId,systemId);
     }
 
     private MenuEntity createMenu(JB4DCSession jb4DSession,String parentId,String menuId,String name,String text,String value,String rightUrl,String iconClassName,String systemId,MenuTypeEnum menuTypeEnum,String outerId,String outerName) throws JBuild4DCGenerallyException {

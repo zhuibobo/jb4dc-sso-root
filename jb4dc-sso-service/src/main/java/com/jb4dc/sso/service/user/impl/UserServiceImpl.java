@@ -55,6 +55,11 @@ public class UserServiceImpl extends BaseServiceImpl<UserEntity> implements IUse
     }
 
     @Override
+    public List<UserEntity> getByOrganId(String organId) {
+        return userMapper.selectByOrganId(organId);
+    }
+
+    @Override
     public void statusChange(JB4DCSession jb4DSession, String ids, String status) throws JBuild4DCGenerallyException {
         if(StringUtility.isNotEmpty(ids)) {
             String[] idArray = ids.split(";");

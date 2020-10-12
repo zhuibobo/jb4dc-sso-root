@@ -17,9 +17,9 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 @Primary
-@FeignClient(name= "${jb4dc.sso.server.name}",contextId = "MenuRemote",path = "${jb4dc.sso.server.context-path}/Rest/SSO/Mu/Menu")
-public interface MenuRemote {
+@FeignClient(name= "${jb4dc.sso.server.name}",contextId = "MenuRuntimeRemote",path = "${jb4dc.sso.server.context-path}/Rest/SSO/Runtime/MenuRuntime")
+public interface MenuRuntimeRemote {
 
-    @RequestMapping(value = "/GetMyAuthMenusBySystemId", method = RequestMethod.POST)
-    JBuild4DCResponseVo<List<MenuPO>> getMyAuthMenusBySystemId(@RequestParam("systemId") String systemId);
+    @RequestMapping(value = "/GetMyAuthMenusBySystemIdRT", method = RequestMethod.POST)
+    JBuild4DCResponseVo<List<MenuPO>> getMyAuthMenusBySystemIdRT(@RequestParam("userId") String userId,@RequestParam("systemId") String systemId);
 }

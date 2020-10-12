@@ -51,4 +51,8 @@
     </delete>
 
     <select id="countChildsOrgan" resultType="int">select count(ORGAN_ID) from TSSO_ORGAN where ORGAN_PARENT_ID=#{id,jdbcType=NVARCHAR}</select>
+
+    <select id="selectAllEnableOrgan" resultMap="BaseResultMap">
+        select<include refid="Base_Column_List"/> from TSSO_ORGAN where ORGAN_STATUS='启用'
+    </select>
 </mapper>

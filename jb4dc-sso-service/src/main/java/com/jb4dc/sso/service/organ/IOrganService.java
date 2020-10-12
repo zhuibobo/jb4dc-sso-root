@@ -5,6 +5,8 @@ import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.sso.dbentities.organ.OrganEntity;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: zhuangrb
@@ -18,4 +20,6 @@ public interface IOrganService extends IBaseService<OrganEntity> {
     void deleteByOrganName(JB4DCSession session, String organName, String warningOperationCode);
 
     void initSystemData(JB4DCSession jb4DSession) throws JBuild4DCGenerallyException;
+
+    List<OrganEntity> getALLEnableOrgan();
 }

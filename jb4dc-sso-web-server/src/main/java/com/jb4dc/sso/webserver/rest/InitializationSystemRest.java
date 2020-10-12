@@ -32,17 +32,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/Rest/InitializationSystem")
 public class InitializationSystemRest {
 
-    @Autowired
-    private IDictionaryGroupService dictionaryGroupService;
 
-    @Autowired
-    private IDictionaryService dictionaryService;
-
-    @Autowired
-    private ISettingService settingService;
-
-    @Autowired
-    private IOperationLogService operationLogService;
 
     @Autowired
     private IMenuService menuService;
@@ -63,15 +53,6 @@ public class InitializationSystemRest {
     @ResponseBody
     public JBuild4DCResponseVo running(String createTestData) throws JBuild4DCGenerallyException, JsonProcessingException {
         JB4DCSession jb4DSession= JB4DCSessionUtility.getInitSystemSession();
-
-        //初始化字典
-        dictionaryGroupService.initSystemData(jb4DSession,dictionaryService);
-
-        //初始化系统参数
-        settingService.initSystemData(jb4DSession);
-
-        //初始化操作日志
-        operationLogService.initSystemData(jb4DSession);
 
         //初始化菜单
         menuService.initSystemData(jb4DSession);

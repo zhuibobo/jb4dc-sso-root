@@ -9,4 +9,6 @@ public interface UserMapper extends BaseMapper<UserEntity> {
     UserEntity selectByAccount(String userAccount);
 
     List<UserEntity> selectBindRoleUsers(String roleId);
+
+    List<UserEntity> selectByOrganId(String organId);
 }

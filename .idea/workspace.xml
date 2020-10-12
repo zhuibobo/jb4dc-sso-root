@@ -1,0 +1,983 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a5ded3b0-098e-45d9-b1b7-14a09bef04fb" name="Default Changelist" comment="创建工程">
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_6_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_20.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/OrganRuntimeRemote.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/UserRuntimeRemote.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/runtime/MenuRuntimeRest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/runtime/OrganRuntimeRest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/runtime/UserRuntimeRest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/systemsetting/runtime/OperationLogRuntimeRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/BBHOME.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/BBHOME.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/jb4dc-sso-client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/jb4dc-sso-client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/DictionaryRemote.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/MenuRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/MenuRuntimeRemote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/OperationLogRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/OperationLogRuntimeRemote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/OperationLogRemoteServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/OperationLogRemoteServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/SessionRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/SessionRuntimeRemote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-pojo/jb4dc-sso-pojo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-pojo/jb4dc-sso-pojo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-pojo/src/main/java/com/jb4dc/sso/dbentities/systemsetting/DictionaryEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-pojo/src/main/java/com/jb4dc/sso/dbentities/systemsetting/DictionaryGroupEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/jb4dc-sso-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/jb4dc-sso-service.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/dao/organ/OrganMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/dao/organ/OrganMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/dao/systemsetting/DictionaryGroupMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/dao/systemsetting/DictionaryMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/dao/user/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/dao/user/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/application/impl/SsoAppServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/application/impl/SsoAppServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/menu/IMenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/menu/IMenuService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/menu/impl/MenuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/menu/impl/MenuServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/organ/IOrganService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/organ/IOrganService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/organ/impl/OrganServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/organ/impl/OrganServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/systemsetting/IDictionaryGroupService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/systemsetting/IDictionaryService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/systemsetting/IHistoryDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/systemsetting/IHistoryDataService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/systemsetting/IOperationLogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/systemsetting/IOperationLogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/systemsetting/impl/DictionaryGroupServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/systemsetting/impl/DictionaryServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/user/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/user/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/user/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/user/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/resources/liquibase/jb4dc-sso-db-changelog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/resources/liquibase/jb4dc-sso-db-changelog.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/resources/mybatismappers/organ/OrganEXMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/resources/mybatismappers/organ/OrganEXMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/resources/mybatismappers/systemsetting/DictionaryACMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/resources/mybatismappers/systemsetting/DictionaryEXMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/resources/mybatismappers/systemsetting/DictionaryGroupACMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/resources/mybatismappers/systemsetting/DictionaryGroupEXMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/resources/mybatismappers/user/UserEXMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/resources/mybatismappers/user/UserEXMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/jb4dc-sso-web-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/jb4dc-sso-web-server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/HTML/SystemSetting/Dictionary/DictionaryEdit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/HTML/SystemSetting/Dictionary/DictionaryGroupEdit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/HTML/SystemSetting/Dictionary/DictionaryManager.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/InitializationSystemRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/InitializationSystemRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/menu/MenuRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/menu/MenuRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/organ/OrganRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/organ/OrganRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/systemsetting/dictionary/DictionaryGroupRest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/systemsetting/dictionary/DictionaryRest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/systemsetting/operationlog/OperationLogRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/systemsetting/operationlog/OperationLogRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/config/db.yml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/config/db.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/HTML/SystemSetting/Dictionary/DictionaryEdit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/HTML/SystemSetting/Dictionary/DictionaryGroupEdit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/HTML/SystemSetting/Dictionary/DictionaryManager.html" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JRebelWorkspace">
+    <option name="jrebelEnabledAutocompile" value="true" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="alwaysUpdateSnapshots" value="true" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../DevGeneral/Maven/apache-maven-3.5.3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1gf5mYB8kqmHJ93pQWr8JKqDxqE" />
+  <component name="ProjectViewState">
+    <option name="abbreviatePackageNames" value="true" />
+    <option name="compactDirectories" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DBE.Init.BalloonShown" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="js.buildTools.gulp.gulp_package_dir" value="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/node_modules/gulp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../jb4dc-builder-root" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RebelAgentSelection">
+    <selection>jr</selection>
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\JavaProject\jb4dc\jb4dc-sso-root\jb4dc-sso-client\src\main\resources" />
+      <recent name="D:\JavaProject\jb4dc\jb4dc-sso-root\jb4dc-sso-service\src\main\resources\mybatismappers\systemsetting" />
+      <recent name="D:\JavaProject\jb4dc\jb4dc-sso-root\jb4dc-sso-service-root" />
+      <recent name="D:\JavaProject\jb4dc\jb4dc-sso-root\jb4dc-sso-web-server\src\main\front-end" />
+      <recent name="D:\JavaProject\jb4dc\jb4dc-sso-root\jb4dc-sso-service\src\main\resources\mybatismappers\role" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.jb4dc.sso.client.beanconfig.cache" />
+      <recent name="com.jb4dc.sso.provide" />
+      <recent name="com.jb4dc.sso.webserver.interceptor" />
+      <recent name="com.jb4dc.sso.service.systemsetting.impl" />
+      <recent name="com.jb4dc.sso.service.systemsetting" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.jb4dc.sso.client.remote" />
+      <recent name="com.jb4dc.sso.client.provide" />
+      <recent name="com.jb4dc.sso.webserver.rest.sso.session" />
+      <recent name="com.jb4dc.sso.webserver.beanconfig.cache" />
+      <recent name="com.jb4dc.sso.core" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\JavaProject\jb4dc\jb4dc-sso-root\jb4dc-sso-web-server\src\main\front-end\static" />
+      <recent name="D:\JavaProject\jb4dc\jb4dc-sso-root\jb4dc-sso-web-server\src\main\resources\static" />
+      <recent name="D:\JavaProject\jb4dc\jb4dc-sso-root\jb4dc-sso-web-server\src\main\resources" />
+      <recent name="D:\JavaProject\jb4dc\jb4dc-sso-root\jb4dc-sso-service\src\main\java\com\jb4dc\sso\core\impl" />
+      <recent name="D:\JavaProject\jb4dc\jb4dc-sso-root\jb4dc-sso-service\src\main\java\com\jb4dc\sso\core" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ApplicationSSOWebServer">
+    <configuration name="InitializationSystemRestTest.initializationSystem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jb4dc-sso-web-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jb4dc.sso.webserver.rest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jb4dc.sso.webserver.rest" />
+      <option name="MAIN_CLASS_NAME" value="com.jb4dc.sso.webserver.rest.InitializationSystemRestTest" />
+      <option name="METHOD_NAME" value="initializationSystem" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrganRestTest.addOrganAndDepartmentAndUserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jb4dc-sso-web-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jb4dc.sso.webserver.rest.sso.organ.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jb4dc.sso.webserver.rest.sso.organ" />
+      <option name="MAIN_CLASS_NAME" value="com.jb4dc.sso.webserver.rest.sso.organ.OrganRestTest" />
+      <option name="METHOD_NAME" value="addOrganAndDepartmentAndUserTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="jb4dc-sso-service" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="jb4dc-sso-service" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationSSOWebServer" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="jb4dc-sso-web-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jb4dc.sso.webserver.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jb4dc.sso.webserver.ApplicationSSOWebServer" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="LaunchBrowser.Before.Run" browser="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" url="http://localhost:9101/SSOSystem/HTML/LoginSSO.html" />
+      </method>
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="dist-watch" type="js.build_tools.gulp" temporary="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile>$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/gulpfile.js</gulpfile>
+      <tasks>
+        <task>dist-watch</task>
+      </tasks>
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="html-only" type="js.build_tools.gulp" temporary="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile>$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/gulpfile.js</gulpfile>
+      <tasks>
+        <task>html-only</task>
+      </tasks>
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.InitializationSystemRestTest.initializationSystem" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a5ded3b0-098e-45d9-b1b7-14a09bef04fb" name="Default Changelist" comment="" />
+      <created>1562384256495</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1562384256495</updated>
+      <workItem from="1562384262190" duration="5607000" />
+      <workItem from="1562927793938" duration="6168000" />
+      <workItem from="1562982957769" duration="1388000" />
+      <workItem from="1562988385330" duration="18378000" />
+      <workItem from="1563078782870" duration="13186000" />
+      <workItem from="1563110042290" duration="569000" />
+      <workItem from="1563110621649" duration="369000" />
+      <workItem from="1563111213162" duration="387000" />
+      <workItem from="1563111624060" duration="213000" />
+      <workItem from="1563112303719" duration="4081000" />
+      <workItem from="1563151538951" duration="21198000" />
+      <workItem from="1563236026554" duration="5870000" />
+      <workItem from="1563247846636" duration="20083000" />
+      <workItem from="1563325787742" duration="15169000" />
+      <workItem from="1563430984159" duration="6551000" />
+      <workItem from="1563522289506" duration="1235000" />
+      <workItem from="1563761436198" duration="22846000" />
+      <workItem from="1563842017400" duration="26890000" />
+      <workItem from="1563929285572" duration="37763000" />
+      <workItem from="1564037115865" duration="12497000" />
+      <workItem from="1564105456622" duration="25623000" />
+      <workItem from="1564146213825" duration="1366000" />
+      <workItem from="1564148765412" duration="4102000" />
+      <workItem from="1564191322996" duration="15996000" />
+      <workItem from="1564281307046" duration="4707000" />
+      <workItem from="1564390423583" duration="9958000" />
+      <workItem from="1564450044909" duration="7378000" />
+      <workItem from="1564537084884" duration="15245000" />
+      <workItem from="1564615986285" duration="1477000" />
+      <workItem from="1564640490854" duration="3303000" />
+      <workItem from="1564813188311" duration="2005000" />
+      <workItem from="1564900714129" duration="2068000" />
+      <workItem from="1564964939275" duration="10434000" />
+      <workItem from="1565056705719" duration="3501000" />
+      <workItem from="1565137609104" duration="11887000" />
+      <workItem from="1565228498595" duration="611000" />
+      <workItem from="1565315722330" duration="6225000" />
+      <workItem from="1565403293971" duration="2165000" />
+      <workItem from="1565486589243" duration="735000" />
+      <workItem from="1565528111176" duration="1364000" />
+      <workItem from="1565575888400" duration="1887000" />
+      <workItem from="1565691432375" duration="1539000" />
+      <workItem from="1565748674330" duration="2172000" />
+      <workItem from="1565918562943" duration="2047000" />
+      <workItem from="1566004267633" duration="2717000" />
+      <workItem from="1566091320118" duration="2556000" />
+      <workItem from="1566178370544" duration="4191000" />
+      <workItem from="1566216979239" duration="1213000" />
+      <workItem from="1566263248927" duration="1647000" />
+      <workItem from="1566347086042" duration="2626000" />
+      <workItem from="1566564611391" duration="726000" />
+      <workItem from="1566618356954" duration="1070000" />
+      <workItem from="1566718430918" duration="1381000" />
+      <workItem from="1566786368492" duration="3019000" />
+      <workItem from="1566863939610" duration="20378000" />
+      <workItem from="1566955327039" duration="622000" />
+      <workItem from="1567044646913" duration="6800000" />
+      <workItem from="1567128497060" duration="1613000" />
+      <workItem from="1568033671916" duration="639000" />
+      <workItem from="1568083226196" duration="5522000" />
+      <workItem from="1568163266883" duration="3097000" />
+      <workItem from="1568248021981" duration="1802000" />
+      <workItem from="1568355390215" duration="1237000" />
+      <workItem from="1568420200867" duration="2499000" />
+      <workItem from="1568511814446" duration="1398000" />
+      <workItem from="1568592855279" duration="1953000" />
+      <workItem from="1568710729472" duration="1222000" />
+      <workItem from="1568766108520" duration="1329000" />
+      <workItem from="1568795697580" duration="1032000" />
+      <workItem from="1568857052836" duration="1212000" />
+      <workItem from="1568947494040" duration="686000" />
+      <workItem from="1569031265590" duration="644000" />
+      <workItem from="1569113939991" duration="3544000" />
+      <workItem from="1569198025017" duration="3121000" />
+      <workItem from="1569286835516" duration="3082000" />
+      <workItem from="1569372437371" duration="2130000" />
+      <workItem from="1569456725821" duration="1835000" />
+      <workItem from="1569544265538" duration="817000" />
+      <workItem from="1569590642427" duration="29000" />
+      <workItem from="1569828899359" duration="605000" />
+      <workItem from="1569900173997" duration="1199000" />
+      <workItem from="1570173603471" duration="1406000" />
+      <workItem from="1570244471357" duration="3727000" />
+      <workItem from="1570423662940" duration="1571000" />
+      <workItem from="1570950681170" duration="679000" />
+      <workItem from="1571536205835" duration="11065000" />
+      <workItem from="1572537694813" duration="45000" />
+      <workItem from="1572591342634" duration="4512000" />
+      <workItem from="1572929854686" duration="536000" />
+      <workItem from="1573433147942" duration="159000" />
+      <workItem from="1575018262400" duration="3245000" />
+      <workItem from="1575774607848" duration="1728000" />
+      <workItem from="1575778299372" duration="2641000" />
+      <workItem from="1578041523705" duration="8385000" />
+      <workItem from="1578139612394" duration="713000" />
+      <workItem from="1578300605557" duration="1881000" />
+      <workItem from="1578474928938" duration="638000" />
+      <workItem from="1578573426349" duration="816000" />
+      <workItem from="1578628129459" duration="1169000" />
+      <workItem from="1578650168276" duration="661000" />
+      <workItem from="1581412196730" duration="3808000" />
+      <workItem from="1585382856936" duration="2846000" />
+      <workItem from="1585387620737" duration="34000" />
+      <workItem from="1587352267528" duration="59000" />
+      <workItem from="1587352607870" duration="129000" />
+      <workItem from="1591005479224" duration="6318000" />
+      <workItem from="1591060546397" duration="4674000" />
+      <workItem from="1591146663734" duration="7614000" />
+      <workItem from="1591241144992" duration="4747000" />
+      <workItem from="1591327658260" duration="2124000" />
+      <workItem from="1591407429974" duration="2217000" />
+      <workItem from="1591494210718" duration="2118000" />
+      <workItem from="1598492968221" duration="8489000" />
+      <workItem from="1598863672488" duration="2065000" />
+      <workItem from="1599382904562" duration="599000" />
+      <workItem from="1599447123499" duration="11481000" />
+      <workItem from="1599529201898" duration="9342000" />
+      <workItem from="1599639861476" duration="1813000" />
+      <workItem from="1599719447470" duration="2083000" />
+      <workItem from="1599730557859" duration="2039000" />
+      <workItem from="1599792619016" duration="5124000" />
+      <workItem from="1600696992453" duration="621000" />
+      <workItem from="1600769163762" duration="697000" />
+      <workItem from="1601039393934" duration="8000" />
+      <workItem from="1601085485828" duration="33000" />
+      <workItem from="1602148448807" duration="569000" />
+      <workItem from="1602149027467" duration="4712000" />
+      <workItem from="1602158615886" duration="48000" />
+      <workItem from="1602159469965" duration="2408000" />
+      <workItem from="1602224292055" duration="12720000" />
+      <workItem from="1602316367020" duration="3120000" />
+      <workItem from="1602380415520" duration="2948000" />
+      <workItem from="1602466237871" duration="5413000" />
+    </task>
+    <task id="LOCAL-00005" summary="创建工程">
+      <created>1563007191507</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1563007191507</updated>
+    </task>
+    <task id="LOCAL-00006" summary="创建工程">
+      <created>1563007813319</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1563007813319</updated>
+    </task>
+    <task id="LOCAL-00007" summary="创建工程">
+      <created>1563009497409</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1563009497409</updated>
+    </task>
+    <task id="LOCAL-00008" summary="创建工程">
+      <created>1563018314253</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1563018314253</updated>
+    </task>
+    <task id="LOCAL-00009" summary="创建工程">
+      <created>1563023078236</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1563023078236</updated>
+    </task>
+    <task id="LOCAL-00010" summary="创建工程">
+      <created>1563109279174</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1563109279174</updated>
+    </task>
+    <task id="LOCAL-00011" summary="创建工程">
+      <created>1563113116298</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1563113116298</updated>
+    </task>
+    <task id="LOCAL-00012" summary="创建工程">
+      <created>1563151604286</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1563151604286</updated>
+    </task>
+    <task id="LOCAL-00013" summary="创建工程">
+      <created>1563185233201</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1563185233201</updated>
+    </task>
+    <task id="LOCAL-00014" summary="创建工程">
+      <created>1563258359980</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1563258359981</updated>
+    </task>
+    <task id="LOCAL-00015" summary="创建工程">
+      <created>1563259190245</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1563259190245</updated>
+    </task>
+    <task id="LOCAL-00016" summary="创建工程">
+      <created>1563260315975</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1563260315975</updated>
+    </task>
+    <task id="LOCAL-00017" summary="创建工程">
+      <created>1563264830898</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1563264830898</updated>
+    </task>
+    <task id="LOCAL-00018" summary="创建工程">
+      <created>1563270819813</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1563270819813</updated>
+    </task>
+    <task id="LOCAL-00019" summary="创建工程">
+      <created>1563358854408</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1563358854408</updated>
+    </task>
+    <task id="LOCAL-00020" summary="创建工程">
+      <created>1563366813241</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1563366813241</updated>
+    </task>
+    <task id="LOCAL-00021" summary="创建工程">
+      <created>1563431015284</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1563431015284</updated>
+    </task>
+    <task id="LOCAL-00022" summary="创建工程">
+      <created>1563435469207</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1563435469207</updated>
+    </task>
+    <task id="LOCAL-00023" summary="创建工程">
+      <created>1563786480103</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1563786480104</updated>
+    </task>
+    <task id="LOCAL-00024" summary="创建工程">
+      <created>1563787029114</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1563787029114</updated>
+    </task>
+    <task id="LOCAL-00025" summary="创建工程">
+      <created>1563801045877</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1563801045877</updated>
+    </task>
+    <task id="LOCAL-00026" summary="创建工程">
+      <created>1563801608172</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1563801608172</updated>
+    </task>
+    <task id="LOCAL-00027" summary="创建工程">
+      <created>1563875338613</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1563875338613</updated>
+    </task>
+    <task id="LOCAL-00028" summary="创建工程">
+      <created>1563890574604</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1563890574604</updated>
+    </task>
+    <task id="LOCAL-00029" summary="创建工程">
+      <created>1563930770084</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1563930770084</updated>
+    </task>
+    <task id="LOCAL-00030" summary="创建工程">
+      <created>1563944260922</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1563944260922</updated>
+    </task>
+    <task id="LOCAL-00031" summary="创建工程">
+      <created>1563947992860</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1563947992860</updated>
+    </task>
+    <task id="LOCAL-00032" summary="创建工程">
+      <created>1563959160715</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1563959160715</updated>
+    </task>
+    <task id="LOCAL-00033" summary="创建工程">
+      <created>1563980448497</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1563980448497</updated>
+    </task>
+    <task id="LOCAL-00034" summary="创建工程">
+      <created>1564134408512</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1564134408512</updated>
+    </task>
+    <task id="LOCAL-00035" summary="创建工程">
+      <created>1564152260141</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1564152260141</updated>
+    </task>
+    <task id="LOCAL-00036" summary="创建工程">
+      <created>1564229036589</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1564229036589</updated>
+    </task>
+    <task id="LOCAL-00037" summary="创建工程">
+      <created>1564233741496</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1564233741496</updated>
+    </task>
+    <task id="LOCAL-00038" summary="创建工程">
+      <created>1564234038874</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1564234038874</updated>
+    </task>
+    <task id="LOCAL-00039" summary="创建工程">
+      <created>1564281515896</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1564281515896</updated>
+    </task>
+    <task id="LOCAL-00040" summary="创建工程">
+      <created>1564404741347</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1564404741347</updated>
+    </task>
+    <task id="LOCAL-00041" summary="创建工程">
+      <created>1564540847436</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1564540847436</updated>
+    </task>
+    <task id="LOCAL-00042" summary="创建工程">
+      <created>1564840833358</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1564840833358</updated>
+    </task>
+    <task id="LOCAL-00043" summary="创建工程">
+      <created>1565074969442</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1565074969442</updated>
+    </task>
+    <task id="LOCAL-00044" summary="创建工程">
+      <created>1565164421755</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1565164421755</updated>
+    </task>
+    <task id="LOCAL-00045" summary="创建工程">
+      <created>1566359307578</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1566359307578</updated>
+    </task>
+    <task id="LOCAL-00046" summary="创建工程">
+      <created>1566914519774</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1566914519774</updated>
+    </task>
+    <task id="LOCAL-00047" summary="创建工程">
+      <created>1568033691859</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1568033691859</updated>
+    </task>
+    <task id="LOCAL-00048" summary="创建工程">
+      <created>1570254169316</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1570254169316</updated>
+    </task>
+    <task id="LOCAL-00049" summary="创建工程">
+      <created>1575029190597</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1575029190597</updated>
+    </task>
+    <task id="LOCAL-00050" summary="创建工程">
+      <created>1575812326554</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1575812326554</updated>
+    </task>
+    <task id="LOCAL-00051" summary="创建工程">
+      <created>1578058728768</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1578058728768</updated>
+    </task>
+    <task id="LOCAL-00052" summary="创建工程">
+      <created>1578059992493</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1578059992493</updated>
+    </task>
+    <task id="LOCAL-00053" summary="创建工程">
+      <created>1578662138163</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1578662138163</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="创建工程" />
+    <option name="LAST_COMMIT_MESSAGE" value="创建工程" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="760" y="94" key="#Project_Structure" timestamp="1602148732022">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="760" y="94" key="#Project_Structure/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1602148732022" />
+    <state x="734" y="175" width="1174" height="690" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602224400092">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="734" y="175" width="1174" height="690" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1602224400092" />
+    <state x="1085" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1602237960477">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1085" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1602237960477" />
+    <state x="165" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1602230414369">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="165" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1602230414369" />
+    <state x="797" y="87" key="CommitChangelistDialog2" timestamp="1602250087981">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="797" y="87" key="CommitChangelistDialog2/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1602250087981" />
+    <state x="1060" y="275" key="FileChooserDialogImpl" timestamp="1602229421218">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1060" y="275" key="FileChooserDialogImpl/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1602229421218" />
+    <state x="3355" y="275" key="FileChooserDialogImpl/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1599805310500" />
+    <state width="2517" height="347" key="GridCell.Tab.0.bottom" timestamp="1602250093854">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1877" height="191" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598532337894" />
+    <state width="2517" height="347" key="GridCell.Tab.0.bottom/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1602250093854" />
+    <state width="2517" height="191" key="GridCell.Tab.0.bottom/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1599829663047" />
+    <state width="2517" height="347" key="GridCell.Tab.0.center" timestamp="1602250093854">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1877" height="191" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598532337894" />
+    <state width="2517" height="347" key="GridCell.Tab.0.center/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1602250093854" />
+    <state width="2517" height="191" key="GridCell.Tab.0.center/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1599829663046" />
+    <state width="2517" height="347" key="GridCell.Tab.0.left" timestamp="1602250093854">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1877" height="191" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598532337894" />
+    <state width="2517" height="347" key="GridCell.Tab.0.left/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1602250093854" />
+    <state width="2517" height="191" key="GridCell.Tab.0.left/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1599829663046" />
+    <state width="2517" height="347" key="GridCell.Tab.0.right" timestamp="1602250093854">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1877" height="191" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598532337894" />
+    <state width="2517" height="347" key="GridCell.Tab.0.right/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1602250093854" />
+    <state width="2517" height="191" key="GridCell.Tab.0.right/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1599829663046" />
+    <state width="2517" height="347" key="GridCell.Tab.1.bottom" timestamp="1602250093854">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="2517" height="347" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598532337890" />
+    <state width="2517" height="347" key="GridCell.Tab.1.bottom/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1602250093854" />
+    <state width="2517" height="347" key="GridCell.Tab.1.center" timestamp="1602250093854">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="2517" height="347" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598532337890" />
+    <state width="2517" height="347" key="GridCell.Tab.1.center/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1602250093854" />
+    <state width="2517" height="347" key="GridCell.Tab.1.left" timestamp="1602250093854">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="2517" height="347" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598532337890" />
+    <state width="2517" height="347" key="GridCell.Tab.1.left/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1602250093854" />
+    <state width="2517" height="347" key="GridCell.Tab.1.right" timestamp="1602250093854">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="2517" height="347" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598532337890" />
+    <state width="2517" height="347" key="GridCell.Tab.1.right/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1602250093854" />
+    <state width="2517" height="347" key="GridCell.Tab.2.bottom" timestamp="1602250093854">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="2517" height="347" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598532337890" />
+    <state width="2517" height="347" key="GridCell.Tab.2.bottom/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1602250093854" />
+    <state width="2517" height="347" key="GridCell.Tab.2.center" timestamp="1602250093854">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="2517" height="347" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598532337890" />
+    <state width="2517" height="347" key="GridCell.Tab.2.center/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1602250093854" />
+    <state width="2517" height="347" key="GridCell.Tab.2.left" timestamp="1602250093854">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="2517" height="347" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598532337890" />
+    <state width="2517" height="347" key="GridCell.Tab.2.left/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1602250093854" />
+    <state width="2517" height="347" key="GridCell.Tab.2.right" timestamp="1602250093854">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="2517" height="347" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598532337890" />
+    <state width="2517" height="347" key="GridCell.Tab.2.right/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1602250093854" />
+    <state x="760" y="94" key="SettingsEditor" timestamp="1602149009878">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="760" y="94" key="SettingsEditor/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1602149009878" />
+    <state x="3222" y="252" width="596" height="536" key="find.popup" timestamp="1600697013923">
+      <screen x="2560" y="0" width="1920" height="1040" />
+    </state>
+    <state x="3222" y="252" width="596" height="536" key="find.popup/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1600697013923" />
+    <state x="654" y="180" key="new project wizard" timestamp="1598500585304">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="654" y="180" key="new project wizard/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1598500585304" />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>session</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>request.getParameter(&quot;IsJBuild4DCSSOIntegrateSystem&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>ssoTokenPO</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>JB4DCSessionUtility.getSession()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>jb4DCSession</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>request.getHeader(&quot;1&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>request.getHeader(&quot;x-auth-token&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>request.getHeaderNames()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>authorityEntities</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+</project>

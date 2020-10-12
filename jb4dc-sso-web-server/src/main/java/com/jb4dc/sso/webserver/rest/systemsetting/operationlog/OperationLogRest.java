@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 public class OperationLogRest extends GeneralRest<OperationLogEntity> {
 
     @Autowired
-    IOperationLogService operationLogService;
+    protected IOperationLogService operationLogService;
 
     @Override
     public String getModuleName() {

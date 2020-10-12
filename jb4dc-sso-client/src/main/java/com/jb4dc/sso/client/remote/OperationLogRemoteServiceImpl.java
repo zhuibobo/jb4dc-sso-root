@@ -1,3 +1,4 @@
+
 package com.jb4dc.sso.client.remote;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -9,15 +10,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpServletRequest;
 
+
 /**
  * Created with IntelliJ IDEA.
  * User: zhuangrb
  * Date: 2019/7/31
  * To change this template use File | Settings | File Templates.
  */
+
 public class OperationLogRemoteServiceImpl implements IOperationLogService {
     @Autowired
-    private OperationLogRemote operationLogRemote;
+    private OperationLogRuntimeRemote operationLogRemote;
 
     @Override
     public void writeUserLoginLog(JB4DCSession JB4DCSession, Class targetClass, HttpServletRequest request) throws JsonProcessingException, JBuild4DCGenerallyException {
@@ -45,7 +48,7 @@ public class OperationLogRemoteServiceImpl implements IOperationLogService {
         logPO.setLogText(text);
         logPO.setLogData(data);
         logPO.setLogClassName(targetClass);
-        operationLogRemote.writeOperationLog(logPO);
+        operationLogRemote.writeOperationLogRT(logPO);
     }
 
     @Override

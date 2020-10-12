@@ -23,7 +23,7 @@ import java.util.List;
 public class MenuRest {
 
     @Autowired
-    IMenuService menuService;
+    protected IMenuService menuService;
 
     @RequestMapping(value = "/GetMenusBySystemId", method = RequestMethod.POST)
     public JBuild4DCResponseVo getMenusBySystemId(String systemId){

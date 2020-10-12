@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
  * To change this template use File | Settings | File Templates.
  */
 @Primary
-@FeignClient(name= "${jb4dc.sso.server.name}",contextId = "SessionRemote",configuration = { SSOClientFeignClientConfig.class },path = "${jb4dc.sso.server.context-path}/Rest/SSO/Session")
-public interface SessionRemote {
+@FeignClient(name= "${jb4dc.sso.server.name}",contextId = "SessionRuntimeRemote",configuration = { SSOClientFeignClientConfig.class },path = "${jb4dc.sso.server.context-path}/Rest/SSO/Session")
+public interface SessionRuntimeRemote {
 
     @RequestMapping(value = "/GetSession",method = RequestMethod.POST)
     JBuild4DCResponseVo getSession(@RequestParam(value = "JBuild4DCSSOToken") String JBuild4DCSSOToken);

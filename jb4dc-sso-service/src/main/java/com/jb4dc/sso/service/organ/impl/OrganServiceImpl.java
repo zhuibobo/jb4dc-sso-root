@@ -177,6 +177,11 @@ public class OrganServiceImpl extends BaseServiceImpl<OrganEntity> implements IO
     }
 
     @Override
+    public List<OrganEntity> getALLEnableOrgan() {
+        return organMapper.selectAllEnableOrgan();
+    }
+
+    @Override
     public void deleteByOrganName(JB4DCSession session, String organName, String warningOperationCode) {
         if(JBuild4DCYaml.getWarningOperationCode().equals(warningOperationCode)){
             organMapper.deleteByOrganName(organName);
@@ -227,6 +232,33 @@ public class OrganServiceImpl extends BaseServiceImpl<OrganEntity> implements IO
         }
     }
 
+    private OrganEntity getOrganEntity(String code,String id,String no,String name){
+        OrganEntity organEntity=new OrganEntity();
+        organEntity.setOrganCreateTime(new Date());
+        organEntity.setOrganCode(code);
+        organEntity.setOrganId(id);
+        organEntity.setOrganName(name);
+        organEntity.setOrganNo(no);
+        organEntity.setOrganIsVirtual(TrueFalseEnum.False.getDisplayName());
+        organEntity.setOrganParentId(rootId);
+        organEntity.setOrganStatus(EnableTypeEnum.enable.getDisplayName());
+        organEntity.setOrganShortName(name);
+        return organEntity;
+    }
+
+    private DepartmentUserPO getDepartmentUserPO(JB4DCSession jb4DSession,String userId,String organId,String accountName,String userName,String Phone) throws JBuild4DCGenerallyException {
+        DepartmentUserPO newDepartmentUserVo=departmentUserService.getEmptyNewVo(null,departmentService.getRootDepartmentByOrganId(jb4DSession,organId).getDeptId());
+        newDepartmentUserVo.getUserEntity().setUserId(userId);
+        newDepartmentUserVo.getDepartmentUserEntity().setDuUserId(userId);
+        newDepartmentUserVo.getDepartmentUserEntity().setDuId(userId);
+        newDepartmentUserVo.getUserEntity().setUserType(UserTypeEnum.manager.getDisplayName());
+        newDepartmentUserVo.getUserEntity().setUserAccount(accountName);
+        newDepartmentUserVo.getUserEntity().setUserName(userName);
+        newDepartmentUserVo.getUserEntity().setUserPhoneNumber(Phone);
+        newDepartmentUserVo.getDepartmentUserEntity().setDuTitle("管理员");
+        return newDepartmentUserVo;
+    }
+
     @Override
     public void initSystemData(JB4DCSession jb4DSession) throws JBuild4DCGenerallyException {
         organTypeService.deleteByKeyNotValidate(jb4DSession,"0", JBuild4DCYaml.getWarningOperationCode());
@@ -235,82 +267,43 @@ public class OrganServiceImpl extends BaseServiceImpl<OrganEntity> implements IO
         deleteByKeyNotValidate(jb4DSession,"0", JBuild4DCYaml.getWarningOperationCode());
         this.createRootOrgan(jb4DSession);
 
-        OrganEntity organEntity=new OrganEntity();
-        organEntity.setOrganCreateTime(new Date());
-        organEntity.setOrganCode("0001");
-        organEntity.setOrganId("10001");
-        organEntity.setOrganName("西藏天路");
-        organEntity.setOrganNo("0001");
-        organEntity.setOrganIsVirtual(TrueFalseEnum.False.getDisplayName());
-        organEntity.setOrganParentId(rootId);
-        organEntity.setOrganStatus(EnableTypeEnum.enable.getDisplayName());
-        organEntity.setOrganShortName("西藏天路");
-        this.deleteByKeyNotValidate(jb4DSession,"10001",JBuild4DCYaml.getWarningOperationCode());
-        this.saveSimple(jb4DSession,organEntity.getOrganId(),organEntity);
+        OrganEntity tlOrgan=getOrganEntity("0001","10001","0001","西藏天路");
+
+        this.deleteByKeyNotValidate(jb4DSession,tlOrgan.getOrganId(),JBuild4DCYaml.getWarningOperationCode());
+        this.saveSimple(jb4DSession,tlOrgan.getOrganId(),tlOrgan);
 
         String userId="Alex4D";
         departmentUserService.deleteDepartUserAndUser(jb4DSession,userId);
 
-        DepartmentUserPO newDepartmentUserVo=departmentUserService.getEmptyNewVo(null,departmentService.getRootDepartmentByOrganId(jb4DSession,organEntity.getOrganId()).getDeptId());
-        newDepartmentUserVo.getUserEntity().setUserId(userId);
-        newDepartmentUserVo.getDepartmentUserEntity().setDuUserId(userId);
-        newDepartmentUserVo.getDepartmentUserEntity().setDuId(userId);
-        newDepartmentUserVo.getUserEntity().setUserType(UserTypeEnum.manager.getDisplayName());
-        newDepartmentUserVo.getUserEntity().setUserAccount(userId);
-        newDepartmentUserVo.getUserEntity().setUserName("管理员");
-        newDepartmentUserVo.getUserEntity().setUserPhoneNumber("13927425407");
-        newDepartmentUserVo.getDepartmentUserEntity().setDuTitle("管理员");
-        //departmentUserPO.
-
+        DepartmentUserPO newDepartmentUserVo=getDepartmentUserPO(jb4DSession,userId,tlOrgan.getOrganId(),"Alex4D","Alex","13927425407");
         departmentUserService.save(jb4DSession,userId,newDepartmentUserVo,"j4d123456");
 
 
-        userId="RLZY";
+        OrganEntity zlOrgan=getOrganEntity("0002","10002","0002","卓联科技");
+
+        this.deleteByKeyNotValidate(jb4DSession,zlOrgan.getOrganId(),JBuild4DCYaml.getWarningOperationCode());
+        this.saveSimple(jb4DSession,zlOrgan.getOrganId(),zlOrgan);
+
+        userId="Zhuang_Rui_Bo_UID";
         departmentUserService.deleteDepartUserAndUser(jb4DSession,userId);
-
-        newDepartmentUserVo=departmentUserService.getEmptyNewVo(null,departmentService.getRootDepartmentByOrganId(jb4DSession,organEntity.getOrganId()).getDeptId());
-        newDepartmentUserVo.getUserEntity().setUserId(userId);
-        newDepartmentUserVo.getDepartmentUserEntity().setDuUserId(userId);
-        newDepartmentUserVo.getDepartmentUserEntity().setDuId(userId);
-        newDepartmentUserVo.getUserEntity().setUserType(UserTypeEnum.manager.getDisplayName());
-        newDepartmentUserVo.getUserEntity().setUserAccount(userId);
-        newDepartmentUserVo.getUserEntity().setUserName("人力资源");
-        newDepartmentUserVo.getUserEntity().setUserPhoneNumber("13927425407");
-        newDepartmentUserVo.getDepartmentUserEntity().setDuTitle("人力资源");
-        //departmentUserPO.
-
+        newDepartmentUserVo=getDepartmentUserPO(jb4DSession,userId,zlOrgan.getOrganId(),"zhuangrb","庄锐波","13927425407");
         departmentUserService.save(jb4DSession,userId,newDepartmentUserVo,"j4d123456");
 
-        userId="KYGL";
+        userId="Shi_Ming_Hua_UID";
         departmentUserService.deleteDepartUserAndUser(jb4DSession,userId);
-
-        newDepartmentUserVo=departmentUserService.getEmptyNewVo(null,departmentService.getRootDepartmentByOrganId(jb4DSession,organEntity.getOrganId()).getDeptId());
-        newDepartmentUserVo.getUserEntity().setUserId(userId);
-        newDepartmentUserVo.getDepartmentUserEntity().setDuUserId(userId);
-        newDepartmentUserVo.getDepartmentUserEntity().setDuId(userId);
-        newDepartmentUserVo.getUserEntity().setUserType(UserTypeEnum.manager.getDisplayName());
-        newDepartmentUserVo.getUserEntity().setUserAccount(userId);
-        newDepartmentUserVo.getUserEntity().setUserName("科研管理");
-        newDepartmentUserVo.getUserEntity().setUserPhoneNumber("13927425407");
-        newDepartmentUserVo.getDepartmentUserEntity().setDuTitle("科研管理");
-        //departmentUserPO.
-
+        newDepartmentUserVo=getDepartmentUserPO(jb4DSession,userId,zlOrgan.getOrganId(),"shimh","石明华","13927425407");
         departmentUserService.save(jb4DSession,userId,newDepartmentUserVo,"j4d123456");
 
-        userId="ZSGL";
+        userId="Yuang_Hong_Ling_UID";
         departmentUserService.deleteDepartUserAndUser(jb4DSession,userId);
+        newDepartmentUserVo=getDepartmentUserPO(jb4DSession,userId,zlOrgan.getOrganId(),"yuanghl","袁红林","13927425407");
+        departmentUserService.save(jb4DSession,userId,newDepartmentUserVo,"j4d123456");
 
-        newDepartmentUserVo=departmentUserService.getEmptyNewVo(null,departmentService.getRootDepartmentByOrganId(jb4DSession,organEntity.getOrganId()).getDeptId());
-        newDepartmentUserVo.getUserEntity().setUserId(userId);
-        newDepartmentUserVo.getDepartmentUserEntity().setDuUserId(userId);
-        newDepartmentUserVo.getDepartmentUserEntity().setDuId(userId);
-        newDepartmentUserVo.getUserEntity().setUserType(UserTypeEnum.manager.getDisplayName());
-        newDepartmentUserVo.getUserEntity().setUserAccount(userId);
-        newDepartmentUserVo.getUserEntity().setUserName("知识管理");
-        newDepartmentUserVo.getUserEntity().setUserPhoneNumber("13927425407");
-        newDepartmentUserVo.getDepartmentUserEntity().setDuTitle("知识管理");
-        //departmentUserPO.
-
+        userId="Li_Zheng_UID";
+        departmentUserService.deleteDepartUserAndUser(jb4DSession,userId);
+        newDepartmentUserVo=getDepartmentUserPO(jb4DSession,userId,zlOrgan.getOrganId(),"lizheng","李真","13927425407");
         departmentUserService.save(jb4DSession,userId,newDepartmentUserVo,"j4d123456");
     }
+
+
 }

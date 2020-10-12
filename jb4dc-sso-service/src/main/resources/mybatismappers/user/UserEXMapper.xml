@@ -28,4 +28,8 @@
     <select id="selectBindRoleUsers" resultMap="BaseResultMap">
         select<include refid="Base_Column_List"/> from TSSO_USER where USER_ID in (select BIND_USER_ID from TSSO_USER_ROLE where BIND_ROLE_ID=#{roleId})
     </select>
+
+    <select id="selectByOrganId" resultMap="BaseResultMap">
+        select<include refid="Base_Column_List"/> from TSSO_USER where USER_ORGAN_ID=#{organId}
+    </select>
 </mapper>
