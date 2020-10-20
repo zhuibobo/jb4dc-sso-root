@@ -12,8 +12,6 @@ import com.jb4dc.sso.service.menu.IMenuService;
 import com.jb4dc.sso.service.organ.IOrganService;
 import com.jb4dc.sso.service.organ.IOrganTypeService;
 import com.jb4dc.sso.service.role.IRoleGroupService;
-import com.jb4dc.sso.service.systemsetting.IDictionaryGroupService;
-import com.jb4dc.sso.service.systemsetting.IDictionaryService;
 import com.jb4dc.sso.service.systemsetting.ISettingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
