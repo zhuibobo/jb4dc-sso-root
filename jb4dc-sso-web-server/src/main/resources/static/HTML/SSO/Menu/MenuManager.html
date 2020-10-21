@@ -11,10 +11,10 @@
                 <!--Menu-->
                 menuEditView:"/HTML/SSO/Menu/MenuEdit.html",
                 getMenusDataBySystemId:"/Rest/SSO/Mu/Menu/GetMenusBySystemId",
-                deleteMenu:"/Rest/SystemSetting/Dict/Dictionary/Delete",
-                statusChange:"/Rest/SystemSetting/Dict/Dictionary/StatusChange",
-                setSelected:"/Rest/SystemSetting/Dict/Dictionary/SetSelected",
-                move:"/Rest/SystemSetting/Dict/Dictionary/Move"
+                deleteMenu:"/Rest/SSO/Mu/Menu/Delete",
+                statusChange:"/Rest/SSO/Mu/Menu/StatusChange",
+                setSelected:"/Rest/SSO/Mu/Menu/SetSelected",
+                move:"/Rest/SSO/Mu/Menu/Move"
             },
             treeObj:null,
             treeSelectedNode:null,
@@ -102,8 +102,8 @@
                         Width:"20%",
                         TextAlign:"center"
                     },{
-                        Title:"菜单值",
-                        FieldName:"menuValue",
+                        Title:"菜单文本",
+                        FieldName:"menuText",
                         TitleCellClassName:"TitleCell",
                         Renderer:"Lable",
                         Hidden:false,
@@ -128,7 +128,7 @@
                     if (result.success) {
                         var treeData = result.data;
                         for (var i = 0; i < treeData.length; i++) {
-                            treeData[i].icon = "../../../Themes/Png16X16/computer-link.png";
+                            treeData[i].icon = "../../../Themes/Png16X16/icons8-registry-editor-16.png";
                         }
                         //console.log(treeData);
                         //_self.$refs.tableZTreeUL.setAttribute("id","select-table-single-comp-"+StringUtility.Guid());
@@ -229,12 +229,10 @@
                 })
             },
             del:function(){
-                DialogUtility.Alert(window,DialogUtility.DialogAlertId,{},"未实现",null,this);
-                return;
                 this.mareSureSelectedTreeTableRow("删除").then(function (nodeData) {
-                    var recordId=nodeData.dictId;
+                    var recordId=nodeData.menuId;
                     DialogUtility.Confirm(window, "确认要删除选定的节点吗？", function () {
-                        AjaxUtility.Delete(this.acInterface.deleteDict, {recordId: recordId}, function (result) {
+                        AjaxUtility.Delete(this.acInterface.deleteMenu, {recordId: recordId}, function (result) {
                             if (result.success) {
                                 DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, function () {
                                     this.treeTableObject.DeleteRow(recordId);
@@ -280,30 +278,30 @@
                     }, this);
                 });
             },
-            newTreeTableNode : function (dictId, dictKey,dictValue,dictText,dictGroupId,dictCreateTime,dictStatus,dictIsSelected) {
+            newTreeTableNode : function (menuId,menuName, menuText,menuValue,menuRightUrl,menuDescription,menuParentId) {
                 var newData={
-                    dictId:dictId,
-                    dictKey:dictKey,
-                    dictValue:dictValue,
-                    dictText:dictText,
-                    dictGroupId:dictGroupId,
-                    dictCreateTime:dictCreateTime,
-                    dictStatus:dictStatus,
-                    dictIsSelected:dictIsSelected
+                    menuId:menuId,
+                    menuName:menuName,
+                    menuText:menuText,
+                    menuValue:menuValue,
+                    menuRightUrl:menuRightUrl,
+                    menuDescription:menuDescription,
+                    menuParentId:menuParentId
                 };
                 this.treeTableObject.AppendChildRowToCurrentSelectedRow(newData);
             },
-            updateTreeTableNode : function (dictId,dictKey,dictValue,dictText,dictStatus,dictIsSelected) {
+            updateTreeTableNode : function (menuId,menuName,menuText,menuValue,menuRightUrl,menuDescription,menuParentId) {
                 //debugger;
                 var newData={
-                    dictId:dictId,
-                    dictKey:dictKey,
-                    dictValue:dictValue,
-                    dictText:dictText,
-                    dictStatus:dictStatus,
-                    dictIsSelected:dictIsSelected
+                    menuId:menuId,
+                    menuName:menuName,
+                    menuText:menuText,
+                    menuValue:menuValue,
+                    menuRightUrl:menuRightUrl,
+                    menuDescription:menuDescription,
+                    menuParentId:menuParentId
                 };
-                this.treeTableObject.UpdateToRow(dictId,newData);
+                this.treeTableObject.UpdateToRow(menuId,newData);
             }
         }
     });</script></body></html>

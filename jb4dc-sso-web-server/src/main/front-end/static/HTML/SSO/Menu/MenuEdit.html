@@ -49,37 +49,31 @@
             <i-input v-model="formEntity.menuRightUrl"></i-input>
         </form-item>
         <form-item label="链接参数：" prop="menuRightUrlPara">
-            <i-input v-model="formEntity.menuRightUrlPara"></i-input>
+            <i-input v-model="formEntity.menuRightUrlPara" placeholder='{"Key":"Value","Key":"Value"}' ></i-input>
         </form-item>
         <form-item label="左链接地址：" prop="menuLeftUrl">
-            <i-input v-model="formEntity.menuTarget"></i-input>
-        </form-item>
-        <form-item label="左链接参数：" prop="menuLeftUrlPara">
-            <i-input v-model="formEntity.menuLeftUrlPara"></i-input>
+            <row>
+                <i-col span="10">
+                    <form-item>
+                        <i-input v-model="formEntity.menuLeftUrl"></i-input>
+                    </form-item>
+                </i-col>
+                <i-col span="4" style="text-align: center">左链接参数：</i-col>
+                <i-col span="10">
+                    <form-item>
+                        <i-input v-model="formEntity.menuLeftUrlPara"></i-input>
+                    </form-item>
+                </i-col>
+            </row>
         </form-item>
         <form-item label="关联对象ID：" prop="menuOuterId">
             <row>
                 <i-col span="10">
                     <form-item>
-                        <i-input v-model="formEntity.menuOuterId" search enter-button="设置" placeholder="Enter something..." @on-search="beginSelectOuterObject" />
+                        <i-input v-model="formEntity.menuOuterId" search enter-button="设置" placeholder="设置关联对象" @on-search="beginSelectOuterObject" />
                     </form-item>
                 </i-col>
-                <i-col span="4" style="text-align: center">关联对象名称：</i-col>
-                <i-col span="10">
-                    <form-item>
-                        <i-input v-model="formEntity.menuOuterName"></i-input>
-                    </form-item>
-                </i-col>
-            </row>
-        </form-item>
-        <form-item label="更新时间：">
-            <row>
-                <i-col span="10">
-                    <form-item prop="date">
-                        <date-picker type="date" placeholder="更新时间" v-model="formEntity.menuUpdateTime"></date-picker>
-                    </form-item>
-                </i-col>
-                <i-col span="4" style="text-align: center">启用：</i-col>
+                <i-col span="4" style="text-align: center">状态：</i-col>
                 <i-col span="10">
                     <form-item>
                         <radio-group v-model="formEntity.menuStatus">
@@ -89,6 +83,12 @@
                     </form-item>
                 </i-col>
             </row>
+        </form-item>
+        <form-item label="关联对象名称：" prop="menuOuterName">
+            <i-input v-model="formEntity.menuOuterName"></i-input>
+        </form-item>
+        <form-item label="关联对象：" prop="menuOuterObject">
+            <i-input v-model="formEntity.menuOuterObject"></i-input>
         </form-item>
         <form-item label="备注：">
             <i-input v-model="formEntity.menuDescription" type="textarea" :autosize="{minRows: 5,maxRows: 5}"></i-input>
@@ -132,7 +132,7 @@
                 //菜单值
                 menuValue: "",
                 //菜单类型:超链接菜单,Web模块列表,Web模块窗体
-                menuType: "Web模块列表",
+                menuType: "空",
                 //外部关联ID
                 menuOuterId: "",
                 //外部关联对象名称
@@ -158,7 +158,7 @@
                 //排序号
                 menuOrderNum: "",
                 //父节点ID
-                menuParentId: "",
+                menuParentId: BaseUtility.GetUrlParaValue("menuParentId"),
                 //父节点ID列表
                 menuParentIdList: "",
                 //点击打开对象
@@ -190,7 +190,8 @@
                 //状态:启用,禁用
                 menuStatus: "启用",
                 //扩展的JS表达式
-                menuJsExpression: ""
+                menuJsExpression: "",
+                menuOuterObject:""
             },
             ruleValidate: {
                 menuName: [
@@ -217,7 +218,16 @@
                         AjaxUtility.PostRequestBody(_self.acInterface.saveDataUrl, sendData, function (result) {
                             DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, function () {
                                 //debugger;
-                                window.OpenerWindowObj.appList.reloadData();
+                                if (appForm.status=="add") {
+                                    window.OpenerWindowObj.appList.newTreeTableNode(_self.formEntity.menuId
+                                        , _self.formEntity.menuName, _self.formEntity.menuText, _self.formEntity.menuValue
+                                        , _self.formEntity.menuRightUrl, _self.formEntity.menuDescription, _self.formEntity.menuParentId);
+                                }
+                                else if(appForm.status=="update"){
+                                    window.OpenerWindowObj.appList.updateTreeTableNode(_self.formEntity.menuId
+                                        , _self.formEntity.menuName, _self.formEntity.menuText, _self.formEntity.menuValue
+                                        , _self.formEntity.menuRightUrl, _self.formEntity.menuDescription, _self.formEntity.menuParentId);
+                                }
                                 DialogUtility.Frame_CloseDialog(window);
                             });
                         }, _self);
@@ -245,13 +255,13 @@
             },
             changeMenuType:function () {
                 if(this.formEntity.menuType=="空"){
-
+                    this.formEntity.menuRightUrl="";
                 }
                 else if(this.formEntity.menuType=="超链接"){
-
+                    this.formEntity.menuRightUrl="";
                 }
                 else if(this.formEntity.menuType=="Web模块列表"){
-
+                    this.formEntity.menuRightUrl="/HTML/Builder/Runtime/WebListRuntime.html";
                 }
                 else if(this.formEntity.menuType=="Web模块窗体"){
 
@@ -264,8 +274,11 @@
                 }
                 console.log(this.formEntity.menuType);
             },
-            bindModuleObjectTo:function () {
-
+            bindModuleObjectTo:function (selectedModuleObject,id,Name,objJson) {
+                console.log(selectedModuleObject);
+                this.formEntity.menuOuterId=id;
+                this.formEntity.menuOuterName=Name;
+                this.formEntity.menuOuterObject=objJson;
             }
         }
     });

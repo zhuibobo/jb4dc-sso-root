@@ -254,7 +254,7 @@
             <column name="MENU_ID" type="NVARCHAR(100)" remarks="主键:UUID">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-    <column name="MENU_NAME" type="NVARCHAR(100)" remarks="菜单名称"/>
+            <column name="MENU_NAME" type="NVARCHAR(100)" remarks="菜单名称"/>
             <column name="MENU_SYSTEM_ID" type="NVARCHAR(100)" remarks="所属系统ID"/>
             <column name="MENU_TEXT" type="NVARCHAR(100)" remarks="菜单文本:用于UI显示">
                 <constraints nullable="false"/>
@@ -303,6 +303,10 @@
         <addColumn tableName="TSSO_MENU">
             <column name="MENU_OUTER_OBJECT" type="NVARCHAR(2000)" remarks="外部关联对象"/>
         </addColumn>
+    </changeSet>
+
+    <changeSet author="zhuangrb" id="changeSet-SSO-0003" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <modifyDataType tableName="TSSO_MENU" columnName="MENU_OUTER_NAME" newDataType="NVARCHAR(500)"></modifyDataType>
     </changeSet>
 
     <!--系统设置-->

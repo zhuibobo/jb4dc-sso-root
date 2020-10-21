@@ -54,7 +54,8 @@ Vue.component("select-module-object-dialog", {
                 }
             },
             //List
-            idFieldName:"DU_ID",
+            selectedModuleObject:null,
+            idFieldName:"ID",
             searchCondition:{
                 selectModuleObjectType:{
                     value: "",
@@ -67,23 +68,17 @@ Vue.component("select-module-object-dialog", {
             },
             columnsConfig: [
                 {
-                    type: 'selection',
-                    width: 60,
-                    align: 'center'
-                },
-                {
                     title: '名称',
-                    key: 'USER_NAME',
+                    key: 'NAME',
                     align: "center"
                 },{
                     title: '备注',
-                    key: 'USER_PHONE_NUMBER',
+                    key: 'DESCRIPTION',
                     width:240,
                     align: "center"
                 }
             ],
             tableData: [],
-            selectionRows: null,
             pageTotal: 0,
             pageSize: 12,
             pageNum: 1,
@@ -92,8 +87,8 @@ Vue.component("select-module-object-dialog", {
     },
     mounted:function(){
         this.bindDBLink();
-        /*var oldSelectedOrganId=CookieUtility.GetCookie("DMORGSID");
-        if(oldSelectedOrganId){
+
+        /*if(oldSelectedOrganId){
             this.$refs.selectOrganComp.setOldSelectedOrgan(oldSelectedOrganId);
             this.initTree(oldSelectedOrganId);
         }*/
@@ -105,12 +100,19 @@ Vue.component("select-module-object-dialog", {
                 if(result.success){
                     console.log(result.data);
                     this.dbLinkArray=result.data;
+
+                    var oldSelectedOrganId=CookieUtility.GetCookie("SMODDBLINKID");
+                    this.selectedDBLinkId=oldSelectedOrganId;
+                    if(this.selectedDBLinkId){
+                        this.initTree(this.selectedDBLinkId);
+                    }
                 }
             },this);
         },
         changeDBLink:function(){
             console.log(this.selectedDBLinkId);
             this.initTree(this.selectedDBLinkId);
+            CookieUtility.SetCookie1Month("SMODDBLINKID",this.selectedDBLinkId);
         },
         //Module
         initTree:function (selectedDBLinkId) {
@@ -118,6 +120,11 @@ Vue.component("select-module-object-dialog", {
             AjaxUtility.Post(this.acInterface.getModuleTreeData, {"dbLinkId":selectedDBLinkId}, function (result) {
                 console.log(result);
                 if (result.success) {
+                    for (var i = 0; i < result.data.length; i++) {
+                        if (result.data[i].moduleParentId != "-1") {
+                            result.data[i].icon = "../../../Themes/Png16X16/layout-sidebar.png";
+                        }
+                    }
                     this.$refs.zTreeUL.setAttribute("id","select-module-object-dialog-"+StringUtility.Guid());
                     this.treeObj=$.fn.zTree.init($(this.$refs.zTreeUL), this.treeSetting,result.data);
                     this.treeObj.expandAll(true);
@@ -132,7 +139,6 @@ Vue.component("select-module-object-dialog", {
             // 根节点不触发任何事件
             //if(treeNode.level != 0) {
             this.treeSelectedNode=treeNode;
-            this.selectionRows=null;
             this.pageNum=1;
             //this.clearSearchCondition();
             //this.searchCondition.departmentId.value=this.treeSelectedNode[this.treeIdFieldName];
@@ -143,8 +149,9 @@ Vue.component("select-module-object-dialog", {
             //}
         },
         //List
-        selectionChange: function (selection) {
-            this.selectionRows = selection;
+        moduleObjectClick:function(data,index){
+            this.selectedModuleObject=data;
+
         },
         reloadData: function () {
             ListPageUtility.IViewTableBindDataBySearch({
@@ -156,7 +163,9 @@ Vue.component("select-module-object-dialog", {
                 tableList: this,
                 idField: this.idFieldName,
                 autoSelectedOldRows: false,
-                successFunc: null,
+                successFunc: function(result){
+                    console.log(result);
+                },
                 loadDict: false,
                 custParas: {}
             });
@@ -164,7 +173,6 @@ Vue.component("select-module-object-dialog", {
         changePage: function (pageNum) {
             this.pageNum = pageNum;
             this.reloadData();
-            this.selectionRows=null;
         },
         search:function () {
             this.pageNum=1;
@@ -182,19 +190,31 @@ Vue.component("select-module-object-dialog", {
                 title: "选择关联对象"
             });
         },
+        getNodePathName:function(){
+            var ary=[];
+            var pathNode=this.treeSelectedNode.getPath();
+            for (var i = 0; i < pathNode.length; i++) {
+                ary.push(pathNode[i].moduleText);
+            }
+            ary.push(this.treeSelectedNode.moduleText);
+            return ary.join("-->")
+            //this.treeObj.
+        },
+        buildDisplayName:function(selectedModuleObject){
+            return "编号:【"+selectedModuleObject.CODE+"】，路径:【"+this.getNodePathName()+"】，名称:【"+selectedModuleObject.NAME+"】，绑定类型:【"+this.selectModuleObjectType+"】";
+        },
         completed:function () {
-            console.log(this.selectionRows);
-            if(this.selectionRows) {
-                this.$emit('on-selected-completed', this.selectionRows)
+            if(this.selectedModuleObject) {
+                this.$emit('on-selected-completed', this.selectedModuleObject,this.selectedModuleObject.ID,this.buildDisplayName(this.selectedModuleObject),JsonUtility.JsonToString( this.selectedModuleObject));
                 this.handleClose();
             }
             else{
-                DialogUtility.Alert(window,DialogUtility.DialogAlertId,{},"请先选中人员!",null);
+                DialogUtility.Alert(window,DialogUtility.DialogAlertId,{},"请先选择绑定对象!",null);
             }
 
         },
         handleClose: function () {
-            DialogUtility.CloseDialogElem(this.$refs.selectDepartmentUserModelDialogWrap);
+            DialogUtility.CloseDialogElem(this.$refs.selectModuleObjectDialogWrap);
         },
     },
     template: `<div ref="selectModuleObjectDialogWrap" class="c1-select-model-wrap general-edit-page-wrap" style="display: none">
@@ -213,7 +233,7 @@ Vue.component("select-module-object-dialog", {
                         <div class="right-outer-wrap iv-list-page-wrap" style="padding: 10px;left: 240px;top: 10px;right: 10px;bottom: 55px">
                             <i-table :height="listHeight" stripe border :columns="columnsConfig" :data="tableData"
                                      class="iv-list-table" :highlight-row="true"
-                                     @on-selection-change="selectionChange"></i-table>
+                                     @on-row-click="moduleObjectClick"></i-table>
                         </div>
                     </div>
                     <div class="button-outer-wrap" style="bottom: 12px;right: 12px">

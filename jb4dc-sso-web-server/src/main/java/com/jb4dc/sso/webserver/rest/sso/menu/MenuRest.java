@@ -1,5 +1,6 @@
 package com.jb4dc.sso.webserver.rest.sso.menu;
 
+import com.github.pagehelper.PageInfo;
 import com.jb4dc.base.service.IBaseService;
 import com.jb4dc.base.service.general.JB4DCSessionUtility;
 import com.jb4dc.base.service.search.GeneralSearchUtility;
@@ -80,7 +81,12 @@ public class MenuRest extends GeneralRest<MenuEntity> {
         String selectModuleObjectType=searchMap.get("selectModuleObjectType").toString();
         String selectModuleId=searchMap.get("selectModuleId").toString();
         JBuild4DCResponseVo<List<Map<String,Object>>> responseVo=moduleRuntimeRemote.getModuleItems(selectModuleId,selectModuleObjectType);
-        return responseVo;
+        PageInfo<Map<String,Object>> proPageInfo=new PageInfo<>();
+        proPageInfo.setList(responseVo.getData());
+        proPageInfo.setPageNum(1);
+        proPageInfo.setPageSize(1000);
+        proPageInfo.setTotal(1000);
+        return JBuild4DCResponseVo.getDataSuccess(proPageInfo);
         //return moduleRuntimeRemote.getTreeData(dbLinkId);
     }
 }
