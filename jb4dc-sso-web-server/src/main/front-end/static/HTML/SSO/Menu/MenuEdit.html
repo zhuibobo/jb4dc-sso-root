@@ -49,7 +49,7 @@
             <i-input v-model="formEntity.menuRightUrl"></i-input>
         </form-item>
         <form-item label="链接参数：" prop="menuRightUrlPara">
-            <i-input v-model="formEntity.menuRightUrlPara" placeholder='{"Key":"Value","Key":"Value"}' ></i-input>
+            <i-input v-model="formEntity.menuRightUrlPara" placeholder='可点击参数说明进行查看' search enter-button="参数说明" @on-search="showUrlParaDescWarp" ></i-input>
         </form-item>
         <form-item label="左链接地址：" prop="menuLeftUrl">
             <row>
@@ -84,14 +84,11 @@
                 </i-col>
             </row>
         </form-item>
-        <form-item label="关联对象名称：" prop="menuOuterName">
+        <form-item label="关联对象说明：" prop="menuOuterName">
             <i-input v-model="formEntity.menuOuterName"></i-input>
         </form-item>
-        <form-item label="关联对象：" prop="menuOuterObject">
-            <i-input v-model="formEntity.menuOuterObject"></i-input>
-        </form-item>
         <form-item label="备注：">
-            <i-input v-model="formEntity.menuDescription" type="textarea" :autosize="{minRows: 5,maxRows: 5}"></i-input>
+            <i-input v-model="formEntity.menuDescription" type="textarea" :autosize="{minRows: 8,maxRows: 8}"></i-input>
         </form-item>
     </i-form>
     <div class="button-outer-wrap">
@@ -107,11 +104,42 @@
     <select-module-object-dialog ref="selectModuleObjectDialog"
                                  @on-selected-completed="bindModuleObjectTo"></select-module-object-dialog>
 </div>
+<style>
+    #urlParaDescWarp ul{
+        margin-left: 20px;
+        font-size: 14px;
+    }
+    #urlParaDescWarp ul li{
+        font-size: 14px;
+        line-height: 28px;
+    }
+</style>
+<div id="urlParaDescWarp" style="display: none">
+    <ul>
+        <li>url参数本质上是字符串,没有特殊的要求,可以为任意的字符串,可以根据开发的具体作用而定,以下的说明为特定功能下的扩展。</li>
+        <li>
+            Web模块列表
+            <ul>
+                <li>Url参数将逐级传递，也就会先传入列表，再传入表单。</li>
+                <li>可以通过参数，控制列表的查询条件，从而实现同一个列表设计，显示不同的数据。例如:<br />
+                    <span style="font-size: 11px;color: #873600">[{"ActionType":"BindToField","FieldName":"ISS_PROJECT_ID","Value":"11-22-33"},{"ActionType":"BindToField","FieldName":"ISS_LEVEL","Value":"严重"}]</span>
+                </li>
+                <li>可以通过参数，隐藏掉新增，编辑，删除功能，形成只读列表。例如:<br />
+                    <span style="font-size: 11px;color: #873600">[{"ActionType":"ViewOnly"}]</span>
+                </li>
+                <li>以上形式，可以复用。例如:<br />
+                    <span style="font-size: 11px;color: #873600">[{"ActionType":"ViewOnly"},{"ActionType":"BindToField","FieldName":"ISS_LEVEL","Value":"严重"}]</span>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
 <script>
     var appForm = new Vue({
         el: "#appForm",
         mounted: function () {
             this.bindFormData();
+            //this.showUrlParaDescWarp();
         },
         data: {
             acInterface: {
@@ -256,9 +284,15 @@
             changeMenuType:function () {
                 if(this.formEntity.menuType=="空"){
                     this.formEntity.menuRightUrl="";
+                    this.formEntity.menuOuterId="";
+                    this.formEntity.menuOuterName="";
+                    this.formEntity.menuOuterObject="";
                 }
                 else if(this.formEntity.menuType=="超链接"){
                     this.formEntity.menuRightUrl="";
+                    this.formEntity.menuOuterId="";
+                    this.formEntity.menuOuterName="";
+                    this.formEntity.menuOuterObject="";
                 }
                 else if(this.formEntity.menuType=="Web模块列表"){
                     this.formEntity.menuRightUrl="/HTML/Builder/Runtime/WebListRuntime.html";
@@ -279,6 +313,14 @@
                 this.formEntity.menuOuterId=id;
                 this.formEntity.menuOuterName=Name;
                 this.formEntity.menuOuterObject=objJson;
+            },
+            showUrlParaDescWarp:function () {
+                DialogUtility.DialogElem("urlParaDescWarp", {
+                    modal: true,
+                    width: 900,
+                    height: 560,
+                    title: "Url参数说明"
+                });
             }
         }
     });

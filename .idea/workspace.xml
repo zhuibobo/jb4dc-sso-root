@@ -3,15 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a5ded3b0-098e-45d9-b1b7-14a09bef04fb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/menu/impl/MenuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/menu/impl/MenuServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/resources/liquibase/jb4dc-sso-db-changelog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/resources/liquibase/jb4dc-sso-db-changelog.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/HTML/SSO/Menu/MenuEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/HTML/SSO/Menu/MenuEdit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/HTML/SSO/Menu/MenuManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/HTML/SSO/Menu/MenuManager.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/Js/VueComponent/Dialog/select-module-object-dialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/Js/VueComponent/Dialog/select-module-object-dialog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/menu/MenuRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/menu/MenuRest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/HTML/SSO/Menu/MenuEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/HTML/SSO/Menu/MenuEdit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/HTML/SSO/Menu/MenuManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/HTML/SSO/Menu/MenuManager.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/Js/SSOVueEXComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/Js/SSOVueEXComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -430,14 +423,7 @@
       <workItem from="1603198548788" duration="28000" />
       <workItem from="1603198774313" duration="3234000" />
       <workItem from="1603242764919" duration="8805000" />
-      <workItem from="1603268356878" duration="7854000" />
-    </task>
-    <task id="LOCAL-00007" summary="创建工程">
-      <created>1563009497409</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1563009497409</updated>
+      <workItem from="1603268356878" duration="11333000" />
     </task>
     <task id="LOCAL-00008" summary="创建工程">
       <created>1563018314253</created>
@@ -775,7 +761,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603202021390</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="创建工程">
+      <created>1603282534519</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1603282534520</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TodoView">
@@ -821,10 +814,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="165" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1602230414369" />
-    <state x="797" y="87" key="CommitChangelistDialog2" timestamp="1603202020612">
+    <state x="797" y="87" key="CommitChangelistDialog2" timestamp="1603282533777">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="797" y="87" key="CommitChangelistDialog2/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1603202020612" />
+    <state x="797" y="87" key="CommitChangelistDialog2/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1603282533777" />
     <state width="454" height="466" key="DebuggerActiveHint" timestamp="1603201985154">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -902,10 +895,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="760" y="94" key="SettingsEditor/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1602149009878" />
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1603202023556">
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1603282536739">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1603202023556" />
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1603282536739" />
     <state x="2560" y="0" width="1936" height="1027" key="dock-window-1" timestamp="1603158965074">
       <screen x="2560" y="0" width="1920" height="1040" />
     </state>
