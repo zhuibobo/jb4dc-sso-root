@@ -187,7 +187,7 @@ Vue.component("select-module-object-dialog", {
                 modal: true,
                 width: 870,
                 height: dialogHeight,
-                title: "选择关联对象"
+                title: "选择关联对象1"
             });
         },
         getNodePathName:function(){
@@ -201,7 +201,11 @@ Vue.component("select-module-object-dialog", {
             //this.treeObj.
         },
         buildDisplayName:function(selectedModuleObject){
-            return "编号:【"+selectedModuleObject.CODE+"】，路径:【"+this.getNodePathName()+"】，名称:【"+selectedModuleObject.NAME+"】，绑定类型:【"+this.selectModuleObjectType+"】";
+            var txt = "路径:【"+this.getNodePathName()+"("+selectedModuleObject.CODE+")】";
+            if(this.selectModuleObjectType=="Web模块列表"){
+                txt+="，数据集:（"+selectedModuleObject.LIST_DATASET_NAME+"）";
+            }
+            return txt;
         },
         completed:function () {
             if(this.selectedModuleObject) {
