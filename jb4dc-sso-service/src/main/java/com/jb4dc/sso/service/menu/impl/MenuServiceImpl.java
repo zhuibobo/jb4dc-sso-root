@@ -504,6 +504,28 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         menuEntity.setMenuOuterId(outerId);
         return menuEntity;
     }
+
+    @Override
+    public void moveUp(JB4DCSession jb4DCSession, String id) throws JBuild4DCGenerallyException {
+        MenuEntity selfEntity=menuMapper.selectByPrimaryKey(id);
+        MenuEntity ltEntity=menuMapper.selectLessThanRecord(id,selfEntity.getMenuParentId());
+        switchOrder(ltEntity,selfEntity);
+    }
+
+    @Override
+    public void moveDown(JB4DCSession jb4DCSession, String id) throws JBuild4DCGenerallyException {
+        super.moveDown(jb4DCSession, id);
+    }
+
+    private void switchOrder(MenuEntity toEntity,MenuEntity selfEntity) {
+        if(toEntity !=null){
+            int newNum= toEntity.getMenuOrderNum();
+            toEntity.setMenuOrderNum(selfEntity.getMenuOrderNum());
+            selfEntity.setMenuOrderNum(newNum);
+            menuMapper.updateByPrimaryKeySelective(toEntity);
+            menuMapper.updateByPrimaryKeySelective(selfEntity);
+        }
+    }
 }
 
 

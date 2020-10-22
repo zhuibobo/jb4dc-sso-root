@@ -37,10 +37,26 @@
         <if test="menuStatus !=null and menuStatus !=''"> and MENU_STATUS like #{menuStatus} </if>
         <if test="menuJsExpression !=null and menuJsExpression !=''"> and MENU_JS_EXPRESSION like #{menuJsExpression} </if>
     </where>ORDER by MENU_ORDER_NUM DESC</select>
-    <select id="selectLessThanRecord" parameterType="java.lang.String" resultMap="BaseResultMap"><![CDATA[select * from TSSO_MENU
- where MENU_ORDER_NUM = (select max(MENU_ORDER_NUM) from TSSO_MENU where MENU_ORDER_NUM<(select MENU_ORDER_NUM from TSSO_MENU where MENU_ID=#{Id,jdbcType=NVARCHAR}))]]></select>
-    <select id="selectGreaterThanRecord" parameterType="java.lang.String" resultMap="BaseResultMap"><![CDATA[select * from TSSO_MENU
- where MENU_ORDER_NUM = (select min(MENU_ORDER_NUM) from TSSO_MENU where MENU_ORDER_NUM>(select MENU_ORDER_NUM from TSSO_MENU where MENU_ID=#{Id,jdbcType=NVARCHAR}))]]></select>
+    <select id="selectLessThanRecord" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <![CDATA[
+        select * from TSSO_MENU
+        where MENU_ORDER_NUM = (
+                select max(MENU_ORDER_NUM) from TSSO_MENU
+                    where MENU_ORDER_NUM<(select MENU_ORDER_NUM from TSSO_MENU where MENU_ID=#{menuId,jdbcType=NVARCHAR})
+                          and MENU_PARENT_ID=#{menuParentId,jdbcType=NVARCHAR})
+              and MENU_PARENT_ID=#{menuParentId,jdbcType=NVARCHAR}
+        ]]>
+    </select>
+    <select id="selectGreaterThanRecord" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <![CDATA[
+        select * from TSSO_MENU
+        where MENU_ORDER_NUM = (
+            select min(MENU_ORDER_NUM) from TSSO_MENU
+            where MENU_ORDER_NUM>(select MENU_ORDER_NUM from TSSO_MENU where MENU_ID=#{menuId,jdbcType=NVARCHAR})
+                  and MENU_PARENT_ID=#{menuParentId,jdbcType=NVARCHAR})
+              and MENU_PARENT_ID=#{menuParentId,jdbcType=NVARCHAR}
+        ]]>
+    </select>
     <select id="selectBySystemId" resultMap="BaseResultMap">
         select<include refid="Base_Column_List"/> from TSSO_MENU where MENU_SYSTEM_ID=#{systemId} ORDER by MENU_ORDER_NUM ASC
     </select>

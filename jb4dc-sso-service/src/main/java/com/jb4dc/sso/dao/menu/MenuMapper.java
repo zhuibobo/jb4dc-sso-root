@@ -13,9 +13,9 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public interface MenuMapper  extends BaseMapper<MenuEntity> {
-    MenuEntity selectLessThanRecord(String id);
+    MenuEntity selectLessThanRecord(@Param("menuId") String id, @Param("menuParentId") String menuParentId);
 
-    MenuEntity selectGreaterThanRecord(String id);
+    MenuEntity selectGreaterThanRecord(@Param("menuId") String id, @Param("menuParentId") String menuParentId);
 
     List<MenuEntity> selectBySystemId(String systemId);
 

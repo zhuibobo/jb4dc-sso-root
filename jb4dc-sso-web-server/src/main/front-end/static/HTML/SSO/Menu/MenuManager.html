@@ -295,18 +295,16 @@
                 });
             },
             move:function(type){
-                DialogUtility.Alert(window,DialogUtility.DialogAlertId,{},"未实现",null,this);
-                return;
                 this.mareSureSelectedTreeTableRow("选中").then(function (nodeData) {
-                    var recordId = nodeData.dictId;
+                    var recordId = nodeData.menuId;
                     //var _self=this;
                     AjaxUtility.Post(this.acInterface.move, {recordId: recordId,type:type}, function (result) {
                         if (result.success) {
                             DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, function () {
                                 if(type=="down") {
-                                    this.treeTableObject.MoveDownRow(nodeData.dictId);
+                                    this.treeTableObject.MoveDownRow(nodeData.menuId);
                                 }else{
-                                    this.treeTableObject.MoveUpRow(nodeData.dictId);
+                                    this.treeTableObject.MoveUpRow(nodeData.menuId);
                                 }
                             },this);
                         }
