@@ -201,7 +201,8 @@ Vue.component("select-module-object-dialog", {
             //this.treeObj.
         },
         buildDisplayName:function(selectedModuleObject){
-            var txt = "路径:【"+this.getNodePathName()+"("+selectedModuleObject.CODE+")】";
+            var txt = "路径:【"+TreeUtility.BuildNodePathName(this.treeSelectedNode,"moduleText")+"("+selectedModuleObject.CODE+")】";
+            //var txt = "路径:【"+this.getNodePathName()+"("+selectedModuleObject.CODE+")】";
             if(this.selectModuleObjectType=="Web模块列表"){
                 txt+="，数据集:（"+selectedModuleObject.LIST_DATASET_NAME+"）";
             }

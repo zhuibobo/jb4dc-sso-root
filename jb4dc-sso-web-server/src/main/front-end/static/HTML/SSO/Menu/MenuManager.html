@@ -32,7 +32,9 @@
                 </button-group>
             </div>
         </div>
-        <div id="divTreeTable" style="width: 98%;margin: auto"></div>
+        <div style="position: absolute;top: 60px;bottom: 10px;left: 0px;right: 0px;overflow: auto">
+            <div id="divTreeTable" style="width: 98%;margin: auto;"></div>
+        </div>
     </div>
 </div>
 <script>
@@ -194,7 +196,8 @@
                             menuName: this.treeSelectedNode.appName,
                             menuValue: "Root",
                             menuRightUrl: "",
-                            menuDescription:""
+                            menuDescription:"",
+                            menuSystemId:this.treeSelectedNode.appId
                         });
                         var treeData=JsonUtility.ParseArrayJsonToTreeJson({
                             KeyField: "menuId",

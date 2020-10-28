@@ -75,7 +75,12 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
                 sourceEntity.setMenuChildCount(0);
                 sourceEntity.setMenuUpdater(jb4DSession.getUserName());
                 sourceEntity.setMenuUpdateTime(new Date());
-                sourceEntity.setMenuSystemId(parentEntity.getMenuSystemId());
+                if(parentEntity!=null) {
+                    sourceEntity.setMenuSystemId(parentEntity.getMenuSystemId());
+                }
+                else if(StringUtility.isEmpty(sourceEntity.getMenuSystemId())){
+                    throw new JBuild4DCGenerallyException(JBuild4DCGenerallyException.EXCEPTION_SSO_CODE,"SystemId不能为空!:"+sourceEntity.getMenuName());
+                }
                 sourceEntity.setMenuIsExpand(TrueFalseEnum.False.getDisplayName());
                 return sourceEntity;
             }
