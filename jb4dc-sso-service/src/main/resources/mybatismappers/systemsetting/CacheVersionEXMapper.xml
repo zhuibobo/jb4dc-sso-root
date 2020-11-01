@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jb4dc.sso.dao.systemsetting.CacheVersionMapper">
+    <select id="selectAll" resultMap="BaseResultMap">select<include refid="Base_Column_List"/> from TSYS_CACHE_VERSION ORDER by  DESC</select>
+    <select id="selectAllASC" resultMap="BaseResultMap">select<include refid="Base_Column_List"/> from TSYS_CACHE_VERSION ORDER by  ASC</select>
+    <delete id="deleteAll">delete from TSYS_CACHE_VERSION</delete>
+    <select id="nextOrderNum" resultType="integer">select case when max() is null then 1 else max()+1 end ORDERNUM from TSYS_CACHE_VERSION</select>
+    <select id="selectBySearch" parameterType="java.util.Map" resultMap="BaseResultMap">select<include refid="Base_Column_List"/>from TSYS_CACHE_VERSION<where>
+        <if test="cacheName !=null and cacheName !=''"> and CACHE_NAME like #{cacheName} </if>
+    </where>ORDER by  DESC</select>
+    <select id="selectLessThanRecord" parameterType="java.lang.String" resultMap="BaseResultMap"><![CDATA[select * from TSYS_CACHE_VERSION
+ where  = (select max() from TSYS_CACHE_VERSION where <(select  from TSYS_CACHE_VERSION where CACHE_ID=#{Id,jdbcType=NVARCHAR}))]]></select>
+    <select id="selectGreaterThanRecord" parameterType="java.lang.String" resultMap="BaseResultMap"><![CDATA[select * from TSYS_CACHE_VERSION
+ where  = (select min() from TSYS_CACHE_VERSION where >(select  from TSYS_CACHE_VERSION where CACHE_ID=#{Id,jdbcType=NVARCHAR}))]]></select>
+</mapper>

@@ -22,4 +22,7 @@ public interface IOrganService extends IBaseService<OrganEntity> {
     void initSystemData(JB4DCSession jb4DSession) throws JBuild4DCGenerallyException;
 
     List<OrganEntity> getALLEnableOrgan();
+
+    List<OrganEntity> getALLEnableOrganMinProp();
+
 }

@@ -30,7 +30,7 @@
         data: {
             acInterface: {
                 <!--Tree -->
-                getGroupTreeData: "/Rest/SSO/Ro/RoleGroup/GetTreeData",
+                getGroupTreeData: "/Rest/SSO/Ro/RoleGroup/GetALLRoleGroup",
                 groupEditView: "/HTML/SSO/Role/RoleGroupEdit.html",
                 deleteGroup: "/Rest/SSO/Ro/RoleGroup/Delete",
                 moveGroup: "/Rest/SSO/Ro/RoleGroup/Move",
@@ -164,10 +164,32 @@
             }
         },
         methods: {
-            <!--Tree-->
+            <!--Tree1-->
             initTree: function () {
-                this.treeSetting.async.url = BaseUtility.BuildAction(this.acInterface.getGroupTreeData, {});
-                this.treeObj = $.fn.zTree.init($("#zTreeUL"), this.treeSetting);
+                /*this.treeSetting.async.url = BaseUtility.BuildAction(this.acInterface.getGroupTreeData, {});
+                this.treeObj = $.fn.zTree.init($("#zTreeUL"), this.treeSetting);*/
+
+                var _self=this;
+                AjaxUtility.Post(this.acInterface.getGroupTreeData, {}, function (result) {
+                    console.log(result);
+                    if(result.success){
+                        if(result.data!=null&&result.data.length>0){
+                            for(var i=0;i<result.data.length;i++) {
+                                if(result.data[i].roleGroupId!="0") {
+                                    result.data[i].icon = "../../../Themes/Png16X16/user_gray.png";
+                                }
+                                /*if(result.data[i].apiGroupChildCount==0) {
+
+                                }*/
+                            }
+                        }
+                        _self.treeObj=$.fn.zTree.init($("#zTreeUL"), _self.treeSetting,result.data);
+                        _self.treeObj.expandAll(true);
+                    }
+                    else {
+                        DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, function () {});
+                    }
+                }, this);
             },
             treeNodeSelected: function (event, treeId, treeNode) {
                 // 根节点不触发任何事件

@@ -22,4 +22,7 @@ public interface OrganMapper extends BaseMapper<OrganEntity> {
     int countChildsOrgan(String organId);
 
     List<OrganEntity> selectAllEnableOrgan();
+
+    List<OrganEntity> selectAllEnableOrganMinProp();
+
 }

@@ -16,4 +16,6 @@ public interface IUserService extends IBaseService<UserEntity> {
     PageInfo<UserEntity> getBindRoleUsers(String roleId, int pageNum, int pageSize);
 
     List<UserEntity> getByOrganId(String organId);
+
+    List<UserEntity> getALLEnableUserMinProp();
 }

@@ -11,4 +11,6 @@ public interface UserMapper extends BaseMapper<UserEntity> {
     List<UserEntity> selectBindRoleUsers(String roleId);
 
     List<UserEntity> selectByOrganId(String organId);
+
+    List<UserEntity> selectEnableUserMinProp();
 }

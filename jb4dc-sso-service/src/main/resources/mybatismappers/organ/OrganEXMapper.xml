@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jb4dc.sso.dao.organ.OrganMapper">
+    <resultMap id="MinProp" type="com.jb4dc.sso.dbentities.organ.OrganEntity">
+        <result property="organId" column="ORGAN_ID"></result>
+        <result property="organName" column="ORGAN_NAME"></result>
+        <result property="organShortName" column="ORGAN_SHORT_NAME"></result>
+        <result property="organNo" column="ORGAN_NO"></result>
+        <result property="organCode" column="ORGAN_CODE"></result>
+        <result property="organParentId" column="ORGAN_PARENT_ID"></result>
+        <result property="organParentIdList" column="ORGAN_PARENT_ID_LIST"></result>
+    </resultMap>
     <select id="selectAll" resultMap="BaseResultMap">select<include refid="Base_Column_List"/> from TSSO_ORGAN ORDER by ORGAN_ORDER_NUM ASC</select>
     <delete id="deleteAll">delete from TSSO_ORGAN</delete>
     <select id="nextOrderNum" resultType="integer">select case when max(ORGAN_ORDER_NUM) is null then 1 else max(ORGAN_ORDER_NUM)+1 end ORDERNUM from TSSO_ORGAN</select>
@@ -54,5 +63,9 @@
 
     <select id="selectAllEnableOrgan" resultMap="BaseResultMap">
         select<include refid="Base_Column_List"/> from TSSO_ORGAN where ORGAN_STATUS='启用'
+    </select>
+
+    <select id="selectAllEnableOrganMinProp" resultMap="MinProp">
+        select ORGAN_ID, ORGAN_NAME, ORGAN_SHORT_NAME, ORGAN_NO, ORGAN_CODE,ORGAN_PARENT_ID, ORGAN_PARENT_ID_LIST from TSSO_ORGAN where ORGAN_STATUS='启用'
     </select>
 </mapper>

@@ -19,8 +19,11 @@ import java.util.List;
  */
 @Primary
 @FeignClient(name= "${jb4dc.sso.server.name}",contextId = "UserRuntimeRemote",path = "${jb4dc.sso.server.context-path}/Rest/SSO/Runtime/UserRuntime")
-public interface UserRuntimeRemote {
+public interface _UserRuntimeRemote {
 
     @RequestMapping(value = "/GetUserByOrganIdRT", method = RequestMethod.POST)
     JBuild4DCResponseVo<List<UserEntity>> getUserByOrganIdRT(@RequestParam("organId") String organId);
+
+    @RequestMapping(value = "/GetEnableUserMinPropRT", method = RequestMethod.POST)
+    public JBuild4DCResponseVo<List<UserEntity>> getEnableUserMinPropRT();
 }

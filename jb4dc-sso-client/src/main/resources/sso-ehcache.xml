@@ -20,6 +20,11 @@
         <value-type>java.lang.Object</value-type>
         <heap unit="entries">200</heap>
     </cache-template>
+    <cache alias="JB4DCSsoClientProxyCache" uses-template="JB4DCCacheDefault">
+        <expiry>
+            <ttl>10</ttl>
+        </expiry>
+    </cache>
     <cache alias="SSOSessionStore" uses-template="JB4DCCacheDefault">
         <key-type>java.lang.String</key-type>
         <value-type>com.jb4dc.core.base.session.JB4DCSession</value-type>

@@ -2,6 +2,7 @@ package com.jb4dc.sso.webserver.rest.sso.role;
 
 import com.jb4dc.base.service.IBaseService;
 import com.jb4dc.base.service.general.JB4DCSessionUtility;
+import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.feb.dist.webserver.rest.base.GeneralRest;
 import com.jb4dc.sso.dbentities.role.RoleGroupEntity;
 import com.jb4dc.sso.service.role.IRoleGroupService;
@@ -30,9 +31,9 @@ public class RoleGroupRest extends GeneralRest<RoleGroupEntity> {
         return roleGroupService;
     }
 
-    @RequestMapping(value = "GetTreeData", method = RequestMethod.POST)
-    public List<RoleGroupEntity> getTreeData() {
+    @RequestMapping(value = "GetALLRoleGroup", method = RequestMethod.POST)
+    public JBuild4DCResponseVo<List<RoleGroupEntity>> getALLRoleGroup() {
         List<RoleGroupEntity> datasetGroupEntityList=roleGroupService.getALLOrderByAsc(JB4DCSessionUtility.getSession());
-        return datasetGroupEntityList;
+        return JBuild4DCResponseVo.getDataSuccess(datasetGroupEntityList);
     }
 }

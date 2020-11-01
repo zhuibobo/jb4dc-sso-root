@@ -25,8 +25,14 @@ public class UserRuntimeRest {
     IUserService userService;
 
     @RequestMapping(value = "/GetUserByOrganIdRT", method = RequestMethod.POST)
-    public JBuild4DCResponseVo getUserByOrganIdRT(String organId) {
+    public JBuild4DCResponseVo<List<UserEntity>> getUserByOrganIdRT(String organId) {
         List<UserEntity> userEntityList=userService.getByOrganId(organId);
+        return JBuild4DCResponseVo.success(JBuild4DCResponseVo.GETDATASUCCESSMSG,userEntityList);
+    }
+
+    @RequestMapping(value = "/GetEnableUserMinPropRT", method = RequestMethod.POST)
+    public JBuild4DCResponseVo<List<UserEntity>> getEnableUserMinPropRT() {
+        List<UserEntity> userEntityList=userService.getALLEnableUserMinProp();
         return JBuild4DCResponseVo.success(JBuild4DCResponseVo.GETDATASUCCESSMSG,userEntityList);
     }
 

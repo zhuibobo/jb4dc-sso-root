@@ -25,4 +25,10 @@ public class OrganRuntimeRest extends OrganRest {
         List<OrganEntity> organEntityList=organService.getALLEnableOrgan();
         return JBuild4DCResponseVo.success(JBuild4DCResponseVo.GETDATASUCCESSMSG,organEntityList);
     }
+
+    @RequestMapping(value = "/GetEnableOrganMinPropRT", method = RequestMethod.POST)
+    public JBuild4DCResponseVo getEnableOrganMinPropRT() {
+        List<OrganEntity> organEntityList=organService.getALLEnableOrganMinProp();
+        return JBuild4DCResponseVo.success(JBuild4DCResponseVo.GETDATASUCCESSMSG,organEntityList);
+    }
 }

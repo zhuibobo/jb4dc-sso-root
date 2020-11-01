@@ -18,7 +18,8 @@ import java.net.URL;
 
 @Configuration
 public class SSOCacheBeansConfig {
-    @Bean
+
+    @Bean(name = "SSOCacheManager")
     public SSOCacheManager ssoCacheManager() {
         URL myUrl = getClass().getResource("/sso-ehcache.xml");
         //2、实例化一个XmlConfiguration，将XML文件URL传递给它

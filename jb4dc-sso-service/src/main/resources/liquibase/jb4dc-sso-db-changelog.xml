@@ -309,6 +309,7 @@
         <modifyDataType tableName="TSSO_MENU" columnName="MENU_OUTER_NAME" newDataType="NVARCHAR(500)"></modifyDataType>
     </changeSet>
 
+
     <!--系统设置-->
     <changeSet author="zhuangrb" id="changeSet-System-0001" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
 
@@ -376,6 +377,15 @@
             <column name="HISTORY_CREATE_TIME" type="datetime(6)" remarks="记录的创建时间"/>
             <column name="HISTORY_TABLE_NAME" type="NVARCHAR(100)" remarks="删除记录的表名"/>
             <column name="HISTORY_RECORD_ID" type="NVARCHAR(100)" remarks="删除记录的主键值"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="zhuangrb" id="changeSet-System-0002" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="TSYS_CACHE_VERSION" remarks="缓存版本表:用于提供缓存版本设置,标记缓存是否过期">
+            <column name="CACHE_ID" type="NVARCHAR(100)" remarks="主键:UUID">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="CACHE_NAME" type="NVARCHAR(100)" remarks="缓存名称"/>
+            <column name="CACHE_VERSION" type="INT" remarks="缓存版本号"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>

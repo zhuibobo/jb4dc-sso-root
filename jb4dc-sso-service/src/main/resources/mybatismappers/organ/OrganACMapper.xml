@@ -28,6 +28,7 @@
             <arg column="ORGAN_DESC" javaType="java.lang.String" jdbcType="NVARCHAR" />
         </constructor>
     </resultMap>
+
     <sql id="Base_Column_List">
     ORGAN_ID, ORGAN_NAME, ORGAN_SHORT_NAME, ORGAN_NO, ORGAN_CODE, ORGAN_CREATE_TIME,
     ORGAN_PHONE, ORGAN_POST, ORGAN_TYPE_VALUE, ORGAN_ADDRESS, ORGAN_CONTACTS, ORGAN_CONTACTS_MOBILE,

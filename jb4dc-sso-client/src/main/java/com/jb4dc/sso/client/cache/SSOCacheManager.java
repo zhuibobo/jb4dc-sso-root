@@ -10,6 +10,8 @@ import org.ehcache.CacheManager;
  * To change this template use File | Settings | File Templates.
  */
 public class SSOCacheManager extends JB4DCCacheManager {
+    public static String SSO_CLIENT_PROXY_CACHE_NAME="JB4DCSsoClientProxyCache";
+
     public SSOCacheManager(CacheManager _cacheManager) {
         super(_cacheManager);
     }
