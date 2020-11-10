@@ -102,7 +102,7 @@ public class SsoAppServiceImpl extends BaseServiceImpl<SsoAppEntity> implements 
             SSOAppPO ssoAppBO = innerNewMainApp(jb4DSession, "SSOMainApp", "单点登录与统一用户管理系统","","");
 
             //代码生产器
-            SSOAppPO codeGenerateAppBO = innerNewMainApp(jb4DSession, "codeGenerateAppBO", "代码生成器","http://127.0.0.1:9102/CodeGen","/HTML/Login.html");
+            SSOAppPO codeGenerateAppBO = innerNewMainApp(jb4DSession, "CodeGenerateAppBO", "代码生成器","http://127.0.0.1:9102/CodeGen","/HTML/Login.html");
 
             //应用构建系统
             SSOAppPO builderAppBO = innerNewMainApp(jb4DSession, "BuilderMainApp", "应用构建系统","http://127.0.0.1:9104/JB4DCBuilder","/HTML/FrameV2/FrameView.html");

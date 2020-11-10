@@ -92,10 +92,10 @@ public class RoleGroupServiceImpl extends BaseServiceImpl<RoleGroupEntity> imple
 
         RoleGroupEntity gridMainAppGroupEntity = createRoleGroup(jb4DSession, "GridMainAppRoleGroup", rootId, "网格化社会管理系统角色组");
         this.createRole(jb4DSession,"GridMainAppRoleGroup-Grid-Role","GridMainAppRoleGroup-Grid-Role",gridMainAppGroupEntity.getRoleGroupId(),"网格工作人员角色");
-        this.createRole(jb4DSession,"GridMainAppRoleGroup-Community-Role","GridMainAppRoleGroup-Grid-Role",gridMainAppGroupEntity.getRoleGroupId(),"村社区角色");
-        this.createRole(jb4DSession,"GridMainAppRoleGroup-Street-Role","GridMainAppRoleGroup-Grid-Role",gridMainAppGroupEntity.getRoleGroupId(),"乡镇街道角色");
-        this.createRole(jb4DSession,"GridMainAppRoleGroup-Dept-Role","GridMainAppRoleGroup-Grid-Role",gridMainAppGroupEntity.getRoleGroupId(),"部门角色");
-        this.createRole(jb4DSession,"GridMainAppRoleGroup-Center-Role","GridMainAppRoleGroup-Grid-Role",gridMainAppGroupEntity.getRoleGroupId(),"指挥中心角色");
+        this.createRole(jb4DSession,"GridMainAppRoleGroup-Community-Role","GridMainAppRoleGroup-Community-Role",gridMainAppGroupEntity.getRoleGroupId(),"村社区角色");
+        this.createRole(jb4DSession,"GridMainAppRoleGroup-Street-Role","GridMainAppRoleGroup-Street-Role",gridMainAppGroupEntity.getRoleGroupId(),"乡镇街道角色");
+        this.createRole(jb4DSession,"GridMainAppRoleGroup-Dept-Role","GridMainAppRoleGroup-Dept-Role",gridMainAppGroupEntity.getRoleGroupId(),"部门角色");
+        this.createRole(jb4DSession,"GridMainAppRoleGroup-Center-Role","GridMainAppRoleGroup-Center-Role",gridMainAppGroupEntity.getRoleGroupId(),"指挥中心角色");
 
         //RoleGroupEntity devMockAppGroupEntity = createRoleGroup(jb4DSession, "DevMockAppRoleGroup", rootId, "开发样例系统角色组");
         //this.createRole(jb4DSession,"DevMockAppRole-General-Role","DevMockAppRole-General-Role",devMockAppGroupEntity.getRoleGroupId(),"通用用户角色");
