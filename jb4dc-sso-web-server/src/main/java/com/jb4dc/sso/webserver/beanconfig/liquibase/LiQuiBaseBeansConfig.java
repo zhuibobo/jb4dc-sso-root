@@ -1,11 +1,13 @@
 package com.jb4dc.sso.webserver.beanconfig.liquibase;
 
+import com.jb4dc.base.service.liquibase.NVarcharTypeCust;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import liquibase.Liquibase;
 import liquibase.database.Database;
 import liquibase.database.DatabaseConnection;
 import liquibase.database.DatabaseFactory;
 import liquibase.database.jvm.JdbcConnection;
+import liquibase.datatype.DataTypeFactory;
 import liquibase.exception.DatabaseException;
 import liquibase.resource.ClassLoaderResourceAccessor;
 import org.slf4j.Logger;
@@ -37,7 +39,7 @@ public class LiQuiBaseBeansConfig {
             Database database = DatabaseFactory.getInstance().findCorrectDatabaseImplementation(connection);
             database.setDatabaseChangeLogTableName(database.getDatabaseChangeLogTableName());
             database.setDatabaseChangeLogLockTableName(database.getDatabaseChangeLogLockTableName());
-
+            DataTypeFactory.getInstance().register(new NVarcharTypeCust());
             liquibase = new Liquibase("liquibase/jb4dc-sso-db-changelog.xml", new ClassLoaderResourceAccessor(), database);
             liquibase.update("zhuangrb");
             liquibase = new Liquibase("liquibase/jb4dc-files-db-changelog.xml", new ClassLoaderResourceAccessor(), database);

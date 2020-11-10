@@ -98,7 +98,8 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         createSSOSystem(jb4DSession,rootMenuId);
         createDevDemoSystem(jb4DSession,rootMenuId);
         createBuilderSystem(jb4DSession,rootMenuId);
-        createQCSystem(jb4DSession,rootMenuId);
+        createGridSystem(jb4DSession,rootMenuId);
+        //createQCSystem(jb4DSession,rootMenuId);
         //createHrSystem(jb4DSession,rootMenuId);
         //createKYGL(jb4DSession,rootMenuId);
         //createZSGL(jb4DSession,rootMenuId);
@@ -307,49 +308,44 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         menuName="模版管理";
         MenuEntity systemTemplateManage=createMenu(jb4DSession,systemSettingRoot.getMenuId(),menuId,
                 menuName,menuName,menuName,
-                "/HTML/QCSystem/SystemManage/TemplateManage.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
+                "","",systemId,MenuTypeEnum.EmptyMenu,menuId,menuId);
 
         menuId="QCSystem-SystemLog";
         menuName="系统日志";
         MenuEntity systemLog=createMenu(jb4DSession,systemSettingRoot.getMenuId(),menuId,
                 menuName,menuName,menuName,
-                "/HTML/QCSystem/SystemManage/LogManage.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
+                "","",systemId,MenuTypeEnum.EmptyMenu,menuId,menuId);
 
         menuId="QCSystem-ProjectManagement";
         menuName="项目管理";
         MenuEntity systemManage=createMenu(jb4DSession,rootMenuId,menuId,
                 menuName,menuName,menuName,
-                "/HTML/Builder/Runtime/WebListRuntime.html","",systemId,MenuTypeEnum.ModuleWebListMenu,"12a9b8bc-8ce0-47c6-acb5-1f29fdce188e",menuId);
+                "","",systemId,MenuTypeEnum.EmptyMenu,menuId,menuId);
 
-        /*menuId="QCSystem-DataDictionaryManage";
-        menuName="数据字典";
-        MenuEntity dataDictionary=createMenu(jb4DSession,rootMenuId,menuId,
-                menuName,menuName,menuName,
-                "/HTML/QCSystem/DataDictionary/DataDictionaryManage.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);*/
 
         menuId="QCSystem-IssuesManage";
         menuName="运维问题管理";
         MenuEntity issuesManage=createMenu(jb4DSession,rootMenuId,menuId,
                 menuName,menuName,menuName,
-                "/HTML/Builder/Runtime/WebListRuntime.html","",systemId,MenuTypeEnum.LinkMenu,"5e545cf3-b8d4-4520-8d0d-76b5d2efeb2e",menuId);
+                "","",systemId,MenuTypeEnum.EmptyMenu,"",menuId);
 
         menuId="QCSystem-MyIssuesManage";
         menuName="我的运维问题";
         MenuEntity myIssuesManage=createMenu(jb4DSession,rootMenuId,menuId,
                 menuName,menuName,menuName,
-                "/HTML/QCSystem/Issues/MyIssuesManage.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
+                "","",systemId,MenuTypeEnum.EmptyMenu,menuId,menuId);
 
         menuId="QCSystem-MySubscription";
         menuName="我的订阅";
         MenuEntity mySubscription=createMenu(jb4DSession,rootMenuId,menuId,
                 menuName,menuName,menuName,
-                "/HTML/QCSystem/Issues/MySubscription.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
+                "","",systemId,MenuTypeEnum.EmptyMenu,menuId,menuId);
 
         menuId="QCSystem-IssuesSearch";
         menuName="运维问题查询";
         MenuEntity issuesSearch=createMenu(jb4DSession,rootMenuId,menuId,
                 menuName,menuName,menuName,
-                "/HTML/QCSystem/Issues/IssuesSearch.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
+                "","",systemId,MenuTypeEnum.EmptyMenu,menuId,menuId);
 
         menuId="QCSystem-StatisticsRoot";
         menuName="运维统计";
@@ -361,27 +357,146 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         menuName="问题分类统计";
         MenuEntity issuesStatistics=createMenu(jb4DSession,statisticsRoot.getMenuId(),menuId,
                 menuName,menuName,menuName,
-                "/HTML/QCSystem/Statistics/StatisticsIssues.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
+                "","",systemId,MenuTypeEnum.EmptyMenu,menuId,menuId);
 
         menuId="QCSystem-StatisticsWeeklyReport";
         menuName="运维周报";
         MenuEntity statisticsWeeklyReport=createMenu(jb4DSession,statisticsRoot.getMenuId(),menuId,
                 menuName,menuName,menuName,
-                "/HTML/QCSystem/Statistics/StatisticsWeeklyReport.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
+                "","",systemId,MenuTypeEnum.EmptyMenu,menuId,menuId);
 
         menuId="QCSystem-StatisticsMonthlyReport";
         menuName="运维月报";
         MenuEntity statisticsMonthlyReport=createMenu(jb4DSession,statisticsRoot.getMenuId(),menuId,
                 menuName,menuName,menuName,
-                "/HTML/QCSystem/Statistics/StatisticsMonthlyReport.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
+                "","",systemId,MenuTypeEnum.EmptyMenu,menuId,menuId);
 
         menuId="QCSystem-JobPlan";
         menuName="作业计划";
         MenuEntity jobPlan=createMenu(jb4DSession,rootMenuId,menuId,
                 menuName,menuName,menuName,
-                "/HTML/QCSystem/Job/JobPlan.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
+                "","",systemId,MenuTypeEnum.EmptyMenu,menuId,menuId);
     }
 
+    public void createGridSystem(JB4DCSession jb4DSession,String rootMenuId) throws JBuild4DCGenerallyException {
+        String systemId = "GridSystem";
+        String menuId = "";
+        String menuName = "";
+
+        menuId = "GridSystem-GridSettingRoot";
+        menuName = "网格管理";
+        MenuEntity gridSettingRoot = createMenu(jb4DSession, rootMenuId, menuId,
+                menuName, menuName, menuName,
+                "/HTML/Grid/GridInfo/GridManager.html", "", systemId, MenuTypeEnum.LinkMenu, menuId, menuId);
+
+        menuId = "GridSystem-Gather-Terminal-Root";
+        menuName = "采集设备管理";
+        MenuEntity gatherTerminalRoot = createMenu(jb4DSession, rootMenuId, menuId,
+                menuName, menuName, menuName,
+                "", "", systemId, MenuTypeEnum.EmptyMenu, menuId, menuId);
+
+        menuId = "GridSystem-MyGridRoot";
+        menuName = "我的网格";
+        MenuEntity myGridRoot = createMenu(jb4DSession, rootMenuId, menuId,
+                menuName, menuName, menuName,
+                "", "", systemId, MenuTypeEnum.EmptyMenu, menuId, menuId);
+
+        menuId = "GridSystem-MyGridRoot-BuildHousePerson";
+        menuName = "楼房人";
+        createMenu(jb4DSession, myGridRoot.getMenuId(), menuId,
+                menuName, menuName, menuName,
+                "", "", systemId, MenuTypeEnum.EmptyMenu, menuId, menuId);
+
+        menuId = "GridSystem-MyGridRoot-GridEvent-Root";
+        menuName = "网格事件";
+        createMenu(jb4DSession, myGridRoot.getMenuId(), menuId,
+                menuName, menuName, menuName,
+                "", "", systemId, MenuTypeEnum.EmptyMenu, menuId, menuId);
+
+        menuId = "GridSystem-MyGridRoot-SpecialBuild";
+        menuName = "特殊建筑物";
+        createMenu(jb4DSession, myGridRoot.getMenuId(), menuId,
+                menuName, menuName, menuName,
+                "", "", systemId, MenuTypeEnum.EmptyMenu, menuId, menuId);
+
+        menuId = "GridSystem-MyGridRoot-Enterprise";
+        menuName = "企业法人";
+        createMenu(jb4DSession, myGridRoot.getMenuId(), menuId,
+                menuName, menuName, menuName,
+                "", "", systemId, MenuTypeEnum.EmptyMenu, menuId, menuId);
+
+        menuId = "GridSystem-MyGridRoot-GatherStatistics";
+        menuName = "采集统计";
+        createMenu(jb4DSession, myGridRoot.getMenuId(), menuId,
+                menuName, menuName, menuName,
+                "", "", systemId, MenuTypeEnum.EmptyMenu, menuId, menuId);
+
+        menuId = "GridSystem-DataSearch-Root";
+        menuName = "数据检索";
+        MenuEntity dataSearchRoot = createMenu(jb4DSession, rootMenuId, menuId,
+                menuName, menuName, menuName,
+                "", "", systemId, MenuTypeEnum.EmptyMenu, menuId, menuId);
+
+        menuId = "GridSystem-DataSearch-Build";
+        menuName = "楼";
+        createMenu(jb4DSession, dataSearchRoot.getMenuId(), menuId,
+                menuName, menuName, menuName,
+                "", "", systemId, MenuTypeEnum.EmptyMenu, menuId, menuId);
+
+        menuId = "GridSystem-DataSearch-House";
+        menuName = "房";
+        createMenu(jb4DSession, dataSearchRoot.getMenuId(), menuId,
+                menuName, menuName, menuName,
+                "", "", systemId, MenuTypeEnum.EmptyMenu, menuId, menuId);
+
+        menuId = "GridSystem-DataSearch-Person";
+        menuName = "人";
+        createMenu(jb4DSession, dataSearchRoot.getMenuId(), menuId,
+                menuName, menuName, menuName,
+                "", "", systemId, MenuTypeEnum.EmptyMenu, menuId, menuId);
+
+        menuId = "GridSystem-DataSearch-SpecialBuild";
+        menuName = "特殊建筑物";
+        createMenu(jb4DSession, dataSearchRoot.getMenuId(), menuId,
+                menuName, menuName, menuName,
+                "", "", systemId, MenuTypeEnum.EmptyMenu, menuId, menuId);
+
+        menuId = "GridSystem-DataSearch-GridEvent";
+        menuName = "网格事件";
+        createMenu(jb4DSession, dataSearchRoot.getMenuId(), menuId,
+                menuName, menuName, menuName,
+                "", "", systemId, MenuTypeEnum.EmptyMenu, menuId, menuId);
+
+        menuId = "GridSystem-DataStatistics-Root";
+        menuName = "数据统计";
+        MenuEntity dataStatisticsRoot = createMenu(jb4DSession, rootMenuId, menuId,
+                menuName, menuName, menuName,
+                "", "", systemId, MenuTypeEnum.EmptyMenu, menuId, menuId);
+
+        menuId = "GridSystem-DataStatistics-BuildStatistics";
+        menuName = "建筑物统计";
+        createMenu(jb4DSession, dataStatisticsRoot.getMenuId(), menuId,
+                menuName, menuName, menuName,
+                "", "", systemId, MenuTypeEnum.EmptyMenu, menuId, menuId);
+
+        menuId = "GridSystem-DataStatistics-HouseStatistics";
+        menuName = "房屋统计";
+        createMenu(jb4DSession, dataStatisticsRoot.getMenuId(), menuId,
+                menuName, menuName, menuName,
+                "", "", systemId, MenuTypeEnum.EmptyMenu, menuId, menuId);
+
+        menuId = "GridSystem-DataStatistics-PersonStatistics";
+        menuName = "人口统计";
+        createMenu(jb4DSession, dataStatisticsRoot.getMenuId(), menuId,
+                menuName, menuName, menuName,
+                "", "", systemId, MenuTypeEnum.EmptyMenu, menuId, menuId);
+
+        menuId = "GridSystem-DataStatistics-GridEventStatistics";
+        menuName = "事件统计";
+        createMenu(jb4DSession, dataStatisticsRoot.getMenuId(), menuId,
+                menuName, menuName, menuName,
+                "", "", systemId, MenuTypeEnum.EmptyMenu, menuId, menuId);
+    }
     /*public void createHrSystem(JB4DCSession jb4DSession,String rootMenuId) throws JBuild4DCGenerallyException {
         String systemId = "HrSystem";
         MenuEntity hrOrganizationRootMenu=createMenu(jb4DSession,rootMenuId,"Hr-Organization-Root-Menu",

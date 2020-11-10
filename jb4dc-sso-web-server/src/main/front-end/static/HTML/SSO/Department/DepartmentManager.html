@@ -255,11 +255,18 @@
                 this.clearSearchCondition();
                 this.tableData=[];
             },
-            <!--DepartmentTree-->
+            <!--DepartmentTree1-->
             initTree:function (organId) {
                 //var _self=this;
                 AjaxUtility.Post(this.acInterface.getDepartmentTreeData, {"organId":organId}, function (result) {
                     if (result.success) {
+                        if(result.data!=null&&result.data.length>0){
+                            for(var i=0;i<result.data.length;i++) {
+                                //if(result.data[i].deptParentId!="0") {
+                                    result.data[i].icon = "../../../Themes/Png16X16/report.png";
+                                //}
+                            }
+                        }
                         this.treeObj=$.fn.zTree.init($("#zTreeUL"), this.treeSetting,result.data);
                         this.treeObj.expandAll(true);
                     }

@@ -16,11 +16,11 @@
         <if test="authDesc !=null and authDesc !=''"> and AUTH_DESC like #{authDesc} </if>
     </where>ORDER by  DESC</select>
     <delete id="deleteOldSystemAndMenuByOwnerId">
-        delete TSSO_AUTHORITY where AUTH_OWNER_ID=#{authOwnerId} and AUTH_OBJ_ID in (select MENU_ID from TSSO_MENU where MENU_SYSTEM_ID=#{systemId});
-        delete TSSO_AUTHORITY where AUTH_OWNER_ID=#{authOwnerId} and AUTH_OBJ_ID = #{systemId}
+        delete from TSSO_AUTHORITY where AUTH_OWNER_ID=#{authOwnerId} and AUTH_OBJ_ID in (select MENU_ID from TSSO_MENU where MENU_SYSTEM_ID=#{systemId});
+        delete from TSSO_AUTHORITY where AUTH_OWNER_ID=#{authOwnerId} and AUTH_OBJ_ID = #{systemId}
     </delete>
     <delete id="deleteAuthByOwnerId">
-        delete TSSO_AUTHORITY where AUTH_OWNER_ID=#{authOwnerId} and AUTH_OWNER_TYPE=#{authOwnerType} and  AUTH_OBJ_ID in
+        delete from TSSO_AUTHORITY where AUTH_OWNER_ID=#{authOwnerId} and AUTH_OWNER_TYPE=#{authOwnerType} and AUTH_OBJ_ID in
         <foreach item="item" index="index" collection="authObjIdList" open="("  close=")" separator=",">
             #{item}
         </foreach>

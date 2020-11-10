@@ -102,19 +102,22 @@ public class SsoAppServiceImpl extends BaseServiceImpl<SsoAppEntity> implements 
             SSOAppPO ssoAppBO = innerNewMainApp(jb4DSession, "SSOMainApp", "单点登录与统一用户管理系统","","");
 
             //代码生产器
-            SSOAppPO codeGenerateAppBO = innerNewMainApp(jb4DSession, "codeGenerateAppBO", "代码生成器","","");
+            SSOAppPO codeGenerateAppBO = innerNewMainApp(jb4DSession, "codeGenerateAppBO", "代码生成器","http://127.0.0.1:9102/CodeGen","/HTML/Login.html");
 
             //应用构建系统
-            SSOAppPO builderAppBO = innerNewMainApp(jb4DSession, "BuilderMainApp", "应用构建系统","","");
+            SSOAppPO builderAppBO = innerNewMainApp(jb4DSession, "BuilderMainApp", "应用构建系统","http://127.0.0.1:9104/JB4DCBuilder","/HTML/FrameV2/FrameView.html");
 
             //开发样例系统
-            SSOAppPO devMockAppBO = innerNewMainApp(jb4DSession, "DevMockApp", "开发样例系统","http://127.0.0.1:9102/DevMock","/HTML/FrameV1/FrameView.html");
+            //SSOAppPO devMockAppBO = innerNewMainApp(jb4DSession, "DevMockApp", "开发样例系统","http://127.0.0.1:9102/DevMock","/HTML/FrameV1/FrameView.html");
 
             //人力资源系统
-            SSOAppPO hrAppBO = innerNewMainApp(jb4DSession, "HrSystem", "人力资源系统","http://127.0.0.1:9102/HrSystem","/HTML/FrameV1/FrameView.html");
+            //SSOAppPO hrAppBO = innerNewMainApp(jb4DSession, "HrSystem", "人力资源系统","http://127.0.0.1:9102/HrSystem","/HTML/FrameV1/FrameView.html");
 
-            //人力资源系统
-            SSOAppPO qcAppBO = innerNewMainApp(jb4DSession, "QCSystem", "服务运维系统","http://127.0.0.1:9102/QCSystem","/HTML/FrameV1/FrameView.html");
+            //服务运维系统
+            SSOAppPO qcAppBO = innerNewMainApp(jb4DSession, "QCSystem", "服务运维系统","http://127.0.0.1:9105/QCSystem","/HTML/FrameV2/FrameView.html");
+
+            //网格化系统
+            SSOAppPO GridAppBO = innerNewMainApp(jb4DSession, "GridSystem", "网格化社会管理系统","http://127.0.0.1:9106/GridSystem","/HTML/FrameV2/FrameView.html");
 
         } catch (Exception e) {
             throw new JBuild4DCGenerallyException(JBuild4DCGenerallyException.EXCEPTION_SSO_CODE,e.getMessage());
