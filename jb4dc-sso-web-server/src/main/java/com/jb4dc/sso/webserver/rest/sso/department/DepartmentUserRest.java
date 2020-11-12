@@ -70,7 +70,7 @@ public class DepartmentUserRest {
         try {
             JB4DCSession jb4DSession = JB4DCSessionUtility.getSession();
             SettingEntity defaultPasswordSetting = settingService.getByKey(jb4DSession, ISettingService.SETTINGUSERDEFAULTPASSWORD);
-            String defaultPassword=defaultPasswordSetting==null?"jb4d123456":defaultPasswordSetting.getSettingValue();
+            String defaultPassword=defaultPasswordSetting==null?"j4d123456":defaultPasswordSetting.getSettingValue();
             departmentUserService.save(jb4DSession, entity.getDepartmentUserEntity().getDuId(), entity, defaultPassword);
             return JBuild4DCResponseVo.success(JBuild4DCResponseVo.SUCCESSMSG);
         } catch (JBuild4DCGenerallyException e) {

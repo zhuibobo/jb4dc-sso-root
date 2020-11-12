@@ -272,7 +272,7 @@ public class OrganServiceImpl extends BaseServiceImpl<OrganEntity> implements IO
         deleteByKeyNotValidate(jb4DSession,"0", JBuild4DCYaml.getWarningOperationCode());
         this.createRootOrgan(jb4DSession);
 
-        OrganEntity tlOrgan=getOrganEntity("0001","10001","0001","西藏天路");
+        OrganEntity tlOrgan=getOrganEntity("0001","10001","0001","系统管理组");
 
         this.deleteByKeyNotValidate(jb4DSession,tlOrgan.getOrganId(),JBuild4DCYaml.getWarningOperationCode());
         this.saveSimple(jb4DSession,tlOrgan.getOrganId(),tlOrgan);
@@ -283,6 +283,11 @@ public class OrganServiceImpl extends BaseServiceImpl<OrganEntity> implements IO
         DepartmentUserPO newDepartmentUserVo=getDepartmentUserPO(jb4DSession,userId,tlOrgan.getOrganId(),"Alex4D","Alex","13927425407");
         departmentUserService.save(jb4DSession,userId,newDepartmentUserVo,"j4d123456");
 
+        userId="Manager";
+        departmentUserService.deleteDepartUserAndUser(jb4DSession,userId);
+
+        newDepartmentUserVo=getDepartmentUserPO(jb4DSession,userId,tlOrgan.getOrganId(),"manager","总管理员","13927425407");
+        departmentUserService.save(jb4DSession,userId,newDepartmentUserVo,"j4d123456");
 
         OrganEntity zlOrgan=getOrganEntity("0002","10002","0002","卓联科技");
 

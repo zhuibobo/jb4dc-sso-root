@@ -9,4 +9,6 @@ public interface SsoAppMapper extends BaseMapper<SsoAppEntity> {
     List<SsoAppEntity> selectALLSubApp(String appId);
 
     List<SsoAppEntity> selectAllMainApp();
+
+    List<SsoAppEntity> selectHasAuthorityAppSSO(String userId);
 }

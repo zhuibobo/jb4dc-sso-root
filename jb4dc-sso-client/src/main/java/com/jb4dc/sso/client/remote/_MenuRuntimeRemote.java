@@ -18,7 +18,7 @@ import java.util.List;
  */
 @Primary
 @FeignClient(name= "${jb4dc.sso.server.name}",contextId = "MenuRuntimeRemote",path = "${jb4dc.sso.server.context-path}/Rest/SSO/Runtime/MenuRuntime")
-public interface MenuRuntimeRemote {
+public interface _MenuRuntimeRemote {
 
     @RequestMapping(value = "/GetMyAuthMenusBySystemIdRT", method = RequestMethod.POST)
     JBuild4DCResponseVo<List<MenuPO>> getMyAuthMenusBySystemIdRT(@RequestParam("userId") String userId,@RequestParam("systemId") String systemId);

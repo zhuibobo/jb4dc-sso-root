@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 
 import com.jb4dc.base.service.exenum.EnableTypeEnum;
 import com.jb4dc.base.service.exenum.TrueFalseEnum;
+import com.jb4dc.base.service.exenum.UserTypeEnum;
 import com.jb4dc.core.base.encryption.digitaldigest.MD5Utility;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
@@ -79,6 +80,9 @@ public class DepartmentUserServiceImpl implements IDepartmentUserService
                 addUser.setUserCreatorId(jb4DSession.getUserId());
                 addUser.setUserStatus(EnableTypeEnum.enable.getDisplayName());
                 addUser.setUserOrderNum(userService.getNextOrderNum(jb4DSession));
+                if(addUser.getUserType()==null) {
+                    addUser.setUserType(UserTypeEnum.normalUser.getDisplayName());
+                }
                 userService.saveSimple(jb4DSession, addUser.getUserId(), addUser);
 
                 //新增部门用户

@@ -2,11 +2,12 @@ package com.jb4dc.sso.service.application.impl;
 
 import com.jb4dc.base.service.IAddBefore;
 import com.jb4dc.base.service.impl.BaseServiceImpl;
+import com.jb4dc.base.service.po.SsoAppPO;
 import com.jb4dc.base.ymls.JBuild4DCYaml;
 import com.jb4dc.core.base.encryption.nsymmetric.RSAUtility;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
-import com.jb4dc.sso.po.SSOAppPO;
+import com.jb4dc.sso.po.SsoAppComplexPO;
 import com.jb4dc.sso.dao.application.SsoAppMapper;
 import com.jb4dc.sso.dbentities.application.SsoAppEntity;
 import com.jb4dc.sso.dbentities.application.SsoAppInterfaceEntity;
@@ -48,7 +49,7 @@ public class SsoAppServiceImpl extends BaseServiceImpl<SsoAppEntity> implements 
     }
 
     @Override
-    public void saveIntegratedMainApp(JB4DCSession jb4DSession, SSOAppPO entity) throws JBuild4DCGenerallyException {
+    public void saveIntegratedMainApp(JB4DCSession jb4DSession, SsoAppComplexPO entity) throws JBuild4DCGenerallyException {
         entity.getSsoAppEntity().setAppIntegratedType("开发集成");
         entity.getSsoAppEntity().setAppMainId("");
         entity.getSsoAppEntity().setAppType("主系统");
@@ -61,8 +62,8 @@ public class SsoAppServiceImpl extends BaseServiceImpl<SsoAppEntity> implements 
     }
 
     @Override
-    public SSOAppPO getAppVo(JB4DCSession jb4DSession, String appId) {
-        SSOAppPO ssoAppVo=new SSOAppPO();
+    public SsoAppComplexPO getAppVo(JB4DCSession jb4DSession, String appId) {
+        SsoAppComplexPO ssoAppVo=new SsoAppComplexPO();
         SsoAppEntity ssoAppEntity=ssoAppMapper.selectByPrimaryKey(appId);
         List<SsoAppInterfaceEntity> ssoAppInterfaceEntityList= ssoAppInterfaceService.getAppInterfaces(jb4DSession,appId);
         ssoAppVo.setSsoAppEntity(ssoAppEntity);
@@ -71,7 +72,7 @@ public class SsoAppServiceImpl extends BaseServiceImpl<SsoAppEntity> implements 
     }
 
     @Override
-    public void saveIntegratedSubApp(JB4DCSession jb4DSession, SSOAppPO entity) throws JBuild4DCGenerallyException {
+    public void saveIntegratedSubApp(JB4DCSession jb4DSession, SsoAppComplexPO entity) throws JBuild4DCGenerallyException {
         if(entity.getSsoAppEntity().getAppMainId()==null||entity.getSsoAppEntity().getAppMainId().equals("")){
             throw new JBuild4DCGenerallyException(JBuild4DCGenerallyException.EXCEPTION_SSO_CODE,"所属主系统ID不能为空!");
         }
@@ -99,13 +100,13 @@ public class SsoAppServiceImpl extends BaseServiceImpl<SsoAppEntity> implements 
     public void initSystemData(JB4DCSession jb4DSession) throws JBuild4DCGenerallyException {
         try {
             //单点登录与统一用户管理系统
-            SSOAppPO ssoAppBO = innerNewMainApp(jb4DSession, "SSOMainApp", "单点登录与统一用户管理系统","","");
+            SsoAppComplexPO ssoAppBO = innerNewMainApp(jb4DSession, "SSOMainApp", "单点登录与统一用户管理系统","http://localhost:9103/SSOSystem","/HTML/FrameV2/FrameView.html");
 
             //代码生产器
-            SSOAppPO codeGenerateAppBO = innerNewMainApp(jb4DSession, "CodeGenerateAppBO", "代码生成器","http://127.0.0.1:9102/CodeGen","/HTML/Login.html");
+            SsoAppComplexPO codeGenerateAppBO = innerNewMainApp(jb4DSession, "CodeGenerateAppBO", "代码生成器","http://127.0.0.1:9102/CodeGen","/HTML/Login.html");
 
             //应用构建系统
-            SSOAppPO builderAppBO = innerNewMainApp(jb4DSession, "BuilderMainApp", "应用构建系统","http://127.0.0.1:9104/JB4DCBuilder","/HTML/FrameV2/FrameView.html");
+            SsoAppComplexPO builderAppBO = innerNewMainApp(jb4DSession, "BuilderMainApp", "应用构建系统","http://127.0.0.1:9104/JB4DCBuilder","/HTML/FrameV2/FrameView.html");
 
             //开发样例系统
             //SSOAppPO devMockAppBO = innerNewMainApp(jb4DSession, "DevMockApp", "开发样例系统","http://127.0.0.1:9102/DevMock","/HTML/FrameV1/FrameView.html");
@@ -114,17 +115,27 @@ public class SsoAppServiceImpl extends BaseServiceImpl<SsoAppEntity> implements 
             //SSOAppPO hrAppBO = innerNewMainApp(jb4DSession, "HrSystem", "人力资源系统","http://127.0.0.1:9102/HrSystem","/HTML/FrameV1/FrameView.html");
 
             //服务运维系统
-            SSOAppPO qcAppBO = innerNewMainApp(jb4DSession, "QCSystem", "服务运维系统","http://127.0.0.1:9105/QCSystem","/HTML/FrameV2/FrameView.html");
+            SsoAppComplexPO qcAppBO = innerNewMainApp(jb4DSession, "QCSystem", "服务运维系统","http://127.0.0.1:9105/QCSystem","/HTML/FrameV2/FrameView.html");
 
             //网格化系统
-            SSOAppPO GridAppBO = innerNewMainApp(jb4DSession, "GridSystem", "网格化社会管理系统","http://127.0.0.1:9106/GridSystem","/HTML/FrameV2/FrameView.html");
+            SsoAppComplexPO GridAppBO = innerNewMainApp(jb4DSession, "GridSystem", "网格化社会管理系统","http://127.0.0.1:9106/GridSystem","/HTML/FrameV2/FrameView.html");
 
         } catch (Exception e) {
             throw new JBuild4DCGenerallyException(JBuild4DCGenerallyException.EXCEPTION_SSO_CODE,e.getMessage());
         }
     }
 
-    private SSOAppPO innerNewMainApp(JB4DCSession jb4DSession, String appId, String appName,String domain,String indexUrl) throws Exception {
+    @Override
+    public List getHasAuthorityAppSSO(String userId) throws JBuild4DCGenerallyException{
+        try {
+            return ssoAppMapper.selectHasAuthorityAppSSO(userId);
+        }
+        catch (Exception e) {
+            throw new JBuild4DCGenerallyException(JBuild4DCGenerallyException.EXCEPTION_SSO_CODE,e.getMessage());
+        }
+    }
+
+    private SsoAppComplexPO innerNewMainApp(JB4DCSession jb4DSession, String appId, String appName, String domain, String indexUrl) throws Exception {
         KeyPair keyPair= RSAUtility.getKeyPair();
         String publicKey= RSAUtility.getPublicKeyBase64(keyPair);
         String privateKey=RSAUtility.getPrivateKeyBase64(keyPair);
@@ -144,7 +155,7 @@ public class SsoAppServiceImpl extends BaseServiceImpl<SsoAppEntity> implements 
         ssoMainApp.setAppCategory("web");
         ssoMainApp.setAppDesc("");
         ssoMainApp.setAppStatus("启用");
-        SSOAppPO ssoAppBO = new SSOAppPO();
+        SsoAppComplexPO ssoAppBO = new SsoAppComplexPO();
         ssoAppBO.setSsoAppEntity(ssoMainApp);
         this.saveIntegratedMainApp(jb4DSession, ssoAppBO);
         return ssoAppBO;

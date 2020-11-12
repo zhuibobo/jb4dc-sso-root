@@ -6,7 +6,7 @@ import com.jb4dc.sso.dbentities.application.SsoAppInterfaceEntity;
 
 import java.util.List;
 
-public class SSOAppPO {
+public class SsoAppComplexPO {
 
     private SsoAppEntity ssoAppEntity;
     private List<SsoAppInterfaceEntity> ssoAppInterfaceEntityList;

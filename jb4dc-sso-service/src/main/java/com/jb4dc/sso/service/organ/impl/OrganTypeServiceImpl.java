@@ -72,9 +72,9 @@ public class OrganTypeServiceImpl extends BaseServiceImpl<OrganTypeEntity> imple
     public void createDefaultOrganType(JB4DCSession jb4DSession) throws JBuild4DCGenerallyException {
         OrganTypeEntity organTypeEntity=new OrganTypeEntity();
         organTypeEntity.setOrganTypeId("0");
-        organTypeEntity.setOrganTypeValue("TYPE10001");
-        organTypeEntity.setOrganTypeName("默认类型");
-        organTypeEntity.setOrganTypeDesc("默认类型");
+        organTypeEntity.setOrganTypeValue("Type_Empty");
+        organTypeEntity.setOrganTypeName("无");
+        organTypeEntity.setOrganTypeDesc("无");
         organTypeEntity.setOrganTypeCreateTime(new Date());
         organTypeEntity.setOrganTypeStatus(EnableTypeEnum.enable.getDisplayName());
         this.saveSimple(jb4DSession,organTypeEntity.getOrganTypeId(),organTypeEntity);

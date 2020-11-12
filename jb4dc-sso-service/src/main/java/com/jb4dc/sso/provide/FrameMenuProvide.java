@@ -1,9 +1,12 @@
 package com.jb4dc.sso.provide;
 
 import com.jb4dc.base.service.po.MenuPO;
-import com.jb4dc.base.service.provide.IFrameMenuProvide;
+import com.jb4dc.base.service.po.SsoAppPO;
+import com.jb4dc.base.service.provide.IFramePageProvide;
+import com.jb4dc.base.ymls.JBuild4DCYaml;
+import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
-import com.jb4dc.sso.dbentities.menu.MenuEntity;
+import com.jb4dc.sso.service.application.ISsoAppService;
 import com.jb4dc.sso.service.menu.IMenuService;
 import org.springframework.stereotype.Service;
 
@@ -16,17 +19,34 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 @Service
-public class FrameMenuProvide implements IFrameMenuProvide {
+public class FrameMenuProvide implements IFramePageProvide {
 
     IMenuService menuService;
 
-    public FrameMenuProvide(IMenuService _menuService){
+    ISsoAppService ssoAppService;
+
+    JBuild4DCYaml jBuild4DCYaml;
+
+    public FrameMenuProvide(IMenuService _menuService,ISsoAppService _ssoAppService,JBuild4DCYaml _jBuild4DCYaml){
         this.menuService=_menuService;
+        this.ssoAppService=_ssoAppService;
+        this.jBuild4DCYaml=_jBuild4DCYaml;
     }
 
     @Override
     public List<MenuPO> getMyFrameMenu(JB4DCSession jb4DCSession) {
-        List all =  menuService.getMyFrameMenu(jb4DCSession,"SSOMainApp");
+        List all =  menuService.getMyFrameMenu(jb4DCSession,"SSOMainApp",jb4DCSession.getUserId());
         return all;
+    }
+
+    @Override
+    public List<SsoAppPO> getMyFrameAuthorityApp(String userId) throws JBuild4DCGenerallyException {
+        List myAuthAppList =  ssoAppService.getHasAuthorityAppSSO(userId);
+        return myAuthAppList;
+    }
+
+    @Override
+    public String getMyFrameLogoutUrl(String userId) throws JBuild4DCGenerallyException {
+        return jBuild4DCYaml.getSsoLogoutUrl();
     }
 }

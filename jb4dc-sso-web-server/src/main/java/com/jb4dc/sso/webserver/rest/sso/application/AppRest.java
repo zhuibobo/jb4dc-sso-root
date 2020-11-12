@@ -7,7 +7,8 @@ import com.jb4dc.core.base.tools.StringUtility;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.files.dbentities.FileInfoEntity;
 import com.jb4dc.files.service.IFileInfoService;
-import com.jb4dc.sso.po.SSOAppPO;
+import com.jb4dc.sso.dbentities.application.SsoAppEntity;
+import com.jb4dc.sso.po.SsoAppComplexPO;
 import com.jb4dc.sso.service.application.ISsoAppInterfaceService;
 import com.jb4dc.sso.service.application.ISsoAppService;
 import org.apache.commons.io.IOUtils;
@@ -21,6 +22,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.security.KeyPair;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -60,13 +62,13 @@ public class AppRest {
     }
 
     @RequestMapping(value = "/SaveMainApp", method = RequestMethod.POST, produces = "application/json")
-    public JBuild4DCResponseVo saveMainApp(@RequestBody SSOAppPO entity, HttpServletRequest request) throws JBuild4DCGenerallyException {
+    public JBuild4DCResponseVo saveMainApp(@RequestBody SsoAppComplexPO entity, HttpServletRequest request) throws JBuild4DCGenerallyException {
         ssoAppService.saveIntegratedMainApp(JB4DCSessionUtility.getSession(),entity);
         return JBuild4DCResponseVo.opSuccess();
     }
 
     @RequestMapping(value = "/SaveSubApp", method = RequestMethod.POST, produces = "application/json")
-    public JBuild4DCResponseVo saveSubApp(@RequestBody SSOAppPO entity, HttpServletRequest request) throws JBuild4DCGenerallyException {
+    public JBuild4DCResponseVo saveSubApp(@RequestBody SsoAppComplexPO entity, HttpServletRequest request) throws JBuild4DCGenerallyException {
         ssoAppService.saveIntegratedSubApp(JB4DCSessionUtility.getSession(),entity);
         return JBuild4DCResponseVo.opSuccess();
     }
@@ -105,7 +107,7 @@ public class AppRest {
 
     @RequestMapping(value = "/GetAppVo", method = RequestMethod.POST, produces = "application/json")
     public JBuild4DCResponseVo getAppVo(String appId){
-        SSOAppPO ssoAppVo=ssoAppService.getAppVo(JB4DCSessionUtility.getSession(),appId);
+        SsoAppComplexPO ssoAppVo=ssoAppService.getAppVo(JB4DCSessionUtility.getSession(),appId);
         return JBuild4DCResponseVo.getDataSuccess(ssoAppVo);
     }
 
@@ -119,5 +121,11 @@ public class AppRest {
     public JBuild4DCResponseVo deleteInterface(String interfaceId) throws JBuild4DCGenerallyException {
         ssoAppInterfaceService.deleteByKey(JB4DCSessionUtility.getSession(),interfaceId);
         return JBuild4DCResponseVo.opSuccess();
+    }
+
+    @RequestMapping(value = "/GetHasAuthorityAppSSO", method = RequestMethod.GET, produces = "application/json")
+    public JBuild4DCResponseVo getHasAuthorityAppSSO(String userId) throws JBuild4DCGenerallyException {
+        List<SsoAppEntity> ssoAppEntityList=ssoAppService.getHasAuthorityAppSSO(userId);
+        return JBuild4DCResponseVo.getDataSuccess(ssoAppEntityList);
     }
 }

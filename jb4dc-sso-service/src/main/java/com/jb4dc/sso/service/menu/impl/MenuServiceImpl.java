@@ -402,7 +402,13 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
                 "", "", systemId, MenuTypeEnum.EmptyMenu, menuId, menuId);
 
         menuId = "GridSystem-MyGridRoot-BuildHousePerson";
-        menuName = "楼房人";
+        menuName = "楼房登记";
+        createMenu(jb4DSession, myGridRoot.getMenuId(), menuId,
+                menuName, menuName, menuName,
+                "", "", systemId, MenuTypeEnum.EmptyMenu, menuId, menuId);
+
+        menuId = "GridSystem-MyGridRoot-Person";
+        menuName = "人口登记";
         createMenu(jb4DSession, myGridRoot.getMenuId(), menuId,
                 menuName, menuName, menuName,
                 "", "", systemId, MenuTypeEnum.EmptyMenu, menuId, menuId);
@@ -576,8 +582,8 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
     }
 
     @Override
-    public List getMyFrameMenu(JB4DCSession jb4DCSession, String systemId) {
-        return menuMapper.selectBySystemId(systemId);
+    public List getMyFrameMenu(JB4DCSession jb4DCSession, String systemId,String userId) {
+        return menuMapper.getMyAuthMenusBySystemId(userId,systemId);
     }
 
     @Override

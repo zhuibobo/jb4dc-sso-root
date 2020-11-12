@@ -18,7 +18,7 @@ public interface IMenuService extends IBaseService<MenuEntity> {
 
     List<MenuEntity> getMenusBySystemId(JB4DCSession session, String systemId);
 
-    List getMyFrameMenu(JB4DCSession jb4DCSession, String systemId);
+    List getMyFrameMenu(JB4DCSession jb4DCSession, String systemId,String userId);
 
     List<MenuEntity> getMyAuthMenusBySystemId(JB4DCSession session, String systemId);
 

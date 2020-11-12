@@ -30,4 +30,13 @@
                                                                                                           where APP_ORDER_NUM = (select max(APP_ORDER_NUM) from TSSO_SSO_APP where APP_ORDER_NUM<(select APP_ORDER_NUM from TSSO_SSO_APP where APP_ID=#{Id,jdbcType=NVARCHAR}))]]></select>
     <select id="selectGreaterThanRecord" parameterType="java.lang.String" resultMap="BaseResultMap"><![CDATA[select * from TSSO_SSO_APP
                                                                                                              where APP_ORDER_NUM = (select min(APP_ORDER_NUM) from TSSO_SSO_APP where APP_ORDER_NUM>(select APP_ORDER_NUM from TSSO_SSO_APP where APP_ID=#{Id,jdbcType=NVARCHAR}))]]></select>
+
+    <select id="selectHasAuthorityAppSSO" resultMap="BaseResultMap">
+        select * from TSSO_SSO_APP where APP_ID in (select AUTH_OBJ_ID from TSSO_AUTHORITY where AUTH_OBJ_TYPE='System' and AUTH_OWNER_ID in
+                                                                                              (
+                                                                                                  select BIND_ROLE_ID
+                                                                                                  from TSSO_USER_ROLE
+                                                                                                  where BIND_USER_ID = #{userId}
+                                                                                              ))
+    </select>
 </mapper>
