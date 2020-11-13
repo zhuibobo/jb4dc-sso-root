@@ -28,28 +28,28 @@
             myMenusJson = result.data;
         }, this);
 
-        AjaxUtility.Get("/Rest/Frame/MyFrame/GetMyAuthorityApp", {}, function (result) {
-            //myMenusJson = result.data;
-            console.log(result);
-            if(result.success){
-                for(var i=0;i<result.data.length;i++){
-                    var appPo=result.data[i];
-                    var gotoPage=appPo.appDomain+appPo.appIndexUrl;
-                    if(appPo.appId=="CodeGenerateAppBO") {
-                        $("#switch-system-select").append('<a class="dropdown-item" target="_blank" href="' + gotoPage + '">' + appPo.appName + '</a>');
-                    }
-                    else{
-                        $("#switch-system-select").append('<a class="dropdown-item" href="' + gotoPage + '">' + appPo.appName + '</a>');
-                    }
-                }
-            }
-        }, this);
-
         SessionUtility.GetSessionUser(function (sessionUser) {
             $("#spanUserName").text(sessionUser.userName);
             $("#spanUserName").attr("title",sessionUser.userName);
             $("#spanOrganName").text(sessionUser.organName);
             $("#spanOrganName").attr("title",sessionUser.organName);
+
+            AjaxUtility.Get("/Rest/Frame/MyFrame/GetMyAuthorityApp", {}, function (result) {
+                //myMenusJson = result.data;
+                console.log(result);
+                if(result.success){
+                    for(var i=0;i<result.data.length;i++){
+                        var appPo=result.data[i];
+                        var gotoPage=appPo.appDomain+appPo.appIndexUrl+"?JBuild4DCSSOReVerificationUserId="+sessionUser.userId;
+                        if(appPo.appId=="CodeGenerateAppBO") {
+                            $("#switch-system-select").append('<a class="dropdown-item" target="_blank" href="' + gotoPage + '">' + appPo.appName + '</a>');
+                        }
+                        else{
+                            $("#switch-system-select").append('<a class="dropdown-item" href="' + gotoPage + '">' + appPo.appName + '</a>');
+                        }
+                    }
+                }
+            }, this);
         });
 
         (function() {

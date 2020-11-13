@@ -405,7 +405,7 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         menuName = "楼房登记";
         createMenu(jb4DSession, myGridRoot.getMenuId(), menuId,
                 menuName, menuName, menuName,
-                "", "", systemId, MenuTypeEnum.EmptyMenu, menuId, menuId);
+                "/HTML/Grid/BuildHouse/MyGridBuildHouseManager.html", "", systemId, MenuTypeEnum.EmptyMenu, menuId, menuId);
 
         menuId = "GridSystem-MyGridRoot-Person";
         menuName = "人口登记";

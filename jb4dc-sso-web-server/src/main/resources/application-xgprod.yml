@@ -14,7 +14,7 @@ jb4dc:
       context-path: /SSOSystem
       view:
         login: /Controller/LoginSSOView
-        logout: /logout
+        logout: http://58.51.184.124:9103/SSOSystem/Controller/LogoutSSOView
       excluded:
   builder:
     server:
@@ -28,7 +28,7 @@ spring:
       #客户端的IP
       #preferred-networks: 192.168.3.153
       #preferred-networks: 192.168.18.118
-      preferred-networks: 10.51.2.18
+      preferred-networks: 127.0.0.1
   liquibase:
     enabled: false
   thymeleaf:

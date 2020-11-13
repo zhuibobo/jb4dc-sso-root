@@ -190,18 +190,8 @@ Vue.component("select-module-object-dialog", {
                 title: "选择关联对象1"
             });
         },
-        getNodePathName:function(){
-            var ary=[];
-            var pathNode=this.treeSelectedNode.getPath();
-            for (var i = 0; i < pathNode.length; i++) {
-                ary.push(pathNode[i].moduleText);
-            }
-            ary.push(this.treeSelectedNode.moduleText);
-            return ary.join("-->")
-            //this.treeObj.
-        },
         buildDisplayName:function(selectedModuleObject){
-            var txt = "路径:【"+TreeUtility.BuildNodePathName(this.treeSelectedNode,"moduleText")+"("+selectedModuleObject.CODE+")】";
+            var txt = "路径:【"+TreeUtility.BuildNodePathName(this.treeSelectedNode,"moduleText",selectedModuleObject.NAME+"("+selectedModuleObject.CODE+")")+"】";
             //var txt = "路径:【"+this.getNodePathName()+"("+selectedModuleObject.CODE+")】";
             if(this.selectModuleObjectType=="Web模块列表"){
                 txt+="，数据集:（"+selectedModuleObject.LIST_DATASET_NAME+"）";

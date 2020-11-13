@@ -251,16 +251,16 @@ public class OrganServiceImpl extends BaseServiceImpl<OrganEntity> implements IO
         return organEntity;
     }
 
-    private DepartmentUserPO getDepartmentUserPO(JB4DCSession jb4DSession,String userId,String organId,String accountName,String userName,String Phone) throws JBuild4DCGenerallyException {
+    private DepartmentUserPO getDepartmentUserPO(JB4DCSession jb4DSession,String userId,String organId,String accountName,String userName,String Phone,UserTypeEnum userTypeEnum,String title) throws JBuild4DCGenerallyException {
         DepartmentUserPO newDepartmentUserVo=departmentUserService.getEmptyNewVo(null,departmentService.getRootDepartmentByOrganId(jb4DSession,organId).getDeptId());
         newDepartmentUserVo.getUserEntity().setUserId(userId);
         newDepartmentUserVo.getDepartmentUserEntity().setDuUserId(userId);
         newDepartmentUserVo.getDepartmentUserEntity().setDuId(userId);
-        newDepartmentUserVo.getUserEntity().setUserType(UserTypeEnum.manager.getDisplayName());
+        newDepartmentUserVo.getUserEntity().setUserType(userTypeEnum.getDisplayName());
         newDepartmentUserVo.getUserEntity().setUserAccount(accountName);
         newDepartmentUserVo.getUserEntity().setUserName(userName);
         newDepartmentUserVo.getUserEntity().setUserPhoneNumber(Phone);
-        newDepartmentUserVo.getDepartmentUserEntity().setDuTitle("管理员");
+        newDepartmentUserVo.getDepartmentUserEntity().setDuTitle(title);
         return newDepartmentUserVo;
     }
 
@@ -280,13 +280,13 @@ public class OrganServiceImpl extends BaseServiceImpl<OrganEntity> implements IO
         String userId="Alex4D";
         departmentUserService.deleteDepartUserAndUser(jb4DSession,userId);
 
-        DepartmentUserPO newDepartmentUserVo=getDepartmentUserPO(jb4DSession,userId,tlOrgan.getOrganId(),"Alex4D","Alex","13927425407");
+        DepartmentUserPO newDepartmentUserVo=getDepartmentUserPO(jb4DSession,userId,tlOrgan.getOrganId(),"Alex4D","Alex","13927425407",UserTypeEnum.manager,"管理员");
         departmentUserService.save(jb4DSession,userId,newDepartmentUserVo,"j4d123456");
 
         userId="Manager";
         departmentUserService.deleteDepartUserAndUser(jb4DSession,userId);
 
-        newDepartmentUserVo=getDepartmentUserPO(jb4DSession,userId,tlOrgan.getOrganId(),"manager","总管理员","13927425407");
+        newDepartmentUserVo=getDepartmentUserPO(jb4DSession,userId,tlOrgan.getOrganId(),"manager","总管理员","13927425407",UserTypeEnum.manager,"管理员");
         departmentUserService.save(jb4DSession,userId,newDepartmentUserVo,"j4d123456");
 
         OrganEntity zlOrgan=getOrganEntity("0002","10002","0002","卓联科技");
@@ -296,22 +296,22 @@ public class OrganServiceImpl extends BaseServiceImpl<OrganEntity> implements IO
 
         userId="Zhuang_Rui_Bo_UID";
         departmentUserService.deleteDepartUserAndUser(jb4DSession,userId);
-        newDepartmentUserVo=getDepartmentUserPO(jb4DSession,userId,zlOrgan.getOrganId(),"zhuangrb","庄锐波","13927425407");
+        newDepartmentUserVo=getDepartmentUserPO(jb4DSession,userId,zlOrgan.getOrganId(),"zhuangrb","庄锐波","13927425407",UserTypeEnum.normalUser,"庄");
         departmentUserService.save(jb4DSession,userId,newDepartmentUserVo,"j4d123456");
 
         userId="Shi_Ming_Hua_UID";
         departmentUserService.deleteDepartUserAndUser(jb4DSession,userId);
-        newDepartmentUserVo=getDepartmentUserPO(jb4DSession,userId,zlOrgan.getOrganId(),"shimh","石明华","13927425407");
+        newDepartmentUserVo=getDepartmentUserPO(jb4DSession,userId,zlOrgan.getOrganId(),"shimh","石明华","13927425407",UserTypeEnum.normalUser,"石");
         departmentUserService.save(jb4DSession,userId,newDepartmentUserVo,"j4d123456");
 
         userId="Yuang_Hong_Ling_UID";
         departmentUserService.deleteDepartUserAndUser(jb4DSession,userId);
-        newDepartmentUserVo=getDepartmentUserPO(jb4DSession,userId,zlOrgan.getOrganId(),"yuanghl","袁红林","13927425407");
+        newDepartmentUserVo=getDepartmentUserPO(jb4DSession,userId,zlOrgan.getOrganId(),"yuanghl","袁红林","13927425407",UserTypeEnum.normalUser,"袁");
         departmentUserService.save(jb4DSession,userId,newDepartmentUserVo,"j4d123456");
 
         userId="Li_Zheng_UID";
         departmentUserService.deleteDepartUserAndUser(jb4DSession,userId);
-        newDepartmentUserVo=getDepartmentUserPO(jb4DSession,userId,zlOrgan.getOrganId(),"lizheng","李真","13927425407");
+        newDepartmentUserVo=getDepartmentUserPO(jb4DSession,userId,zlOrgan.getOrganId(),"lizheng","李真","13927425407",UserTypeEnum.normalUser,"李");
         departmentUserService.save(jb4DSession,userId,newDepartmentUserVo,"j4d123456");
     }
 

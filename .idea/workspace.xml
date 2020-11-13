@@ -2,34 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5ded3b0-098e-45d9-b1b7-14a09bef04fb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/IAppRuntimeProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/IMenuRuntimeProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/impl/AppRuntimeProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/impl/MenuRuntimeProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/_AppRuntimeRemote.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/HTML/FrameV2/FrameView.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/MenuRuntimeRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/_MenuRuntimeRemote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-pojo/src/main/java/com/jb4dc/sso/dbentities/application/SsoAppEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-pojo/src/main/java/com/jb4dc/sso/dbentities/application/SsoAppEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-pojo/src/main/java/com/jb4dc/sso/po/SSOAppPO.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-pojo/src/main/java/com/jb4dc/sso/po/SsoAppComplexPO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/dao/application/SsoAppMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/dao/application/SsoAppMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/provide/FrameMenuProvide.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/provide/FrameMenuProvide.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/application/ISsoAppService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/application/ISsoAppService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/application/impl/SsoAppServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/application/impl/SsoAppServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/department/impl/DepartmentUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/department/impl/DepartmentUserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/menu/IMenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/menu/IMenuService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/menu/impl/MenuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/menu/impl/MenuServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/organ/impl/OrganServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/organ/impl/OrganServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/organ/impl/OrganTypeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/organ/impl/OrganTypeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/resources/mybatismappers/application/SsoAppEXMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/resources/mybatismappers/application/SsoAppEXMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/resources/mybatismappers/menu/MenuEXMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/resources/mybatismappers/menu/MenuEXMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/HTML/SSO/Authority/AuthorityForRole.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/HTML/SSO/Authority/AuthorityForRole.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/HTML/SSO/Organ/OrganEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/HTML/SSO/Organ/OrganEdit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/application/AppRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/application/AppRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/department/DepartmentUserRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/department/DepartmentUserRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/HTML/SSO/Authority/AuthorityForRole.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/HTML/SSO/Authority/AuthorityForRole.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/HTML/SSO/Organ/OrganEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/HTML/SSO/Organ/OrganEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/HTML/FrameV2/FrameView.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/HTML/FrameV2/FrameView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/Js/VueComponent/Dialog/select-module-object-dialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/Js/VueComponent/Dialog/select-module-object-dialog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-xgprod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/HTML/FrameV2/FrameView.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/HTML/FrameV2/FrameView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/Js/SSOVueEXComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/Js/SSOVueEXComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +129,7 @@
       <recent name="D:\JavaProject\jb4dc\jb4dc-sso-root\jb4dc-sso-service\src\main\resources\mybatismappers\role" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.InitializationSystemRestTest.initializationSystem">
+  <component name="RunManager" selected="Spring Boot.ApplicationSSOWebServer">
     <configuration name="InitializationSystemRestTest.initializationSystem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jb4dc-sso-web-server" />
       <extension name="coverage">
@@ -479,14 +461,10 @@
       <workItem from="1605008374514" duration="6202000" />
       <workItem from="1605099322403" duration="7106000" />
       <workItem from="1605143619594" duration="3765000" />
-      <workItem from="1605147646099" duration="13453000" />
-    </task>
-    <task id="LOCAL-00016" summary="创建工程">
-      <created>1563260315975</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1563260315975</updated>
+      <workItem from="1605147646099" duration="26500000" />
+      <workItem from="1605231775119" duration="4267000" />
+      <workItem from="1605248201307" duration="1280000" />
+      <workItem from="1605250326210" duration="1538000" />
     </task>
     <task id="LOCAL-00017" summary="创建工程">
       <created>1563264830898</created>
@@ -824,7 +802,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605016923360</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="创建工程">
+      <created>1605168110187</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1605168110188</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -849,10 +834,11 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="760" y="94" key="#Project_Structure/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1602148732022" />
-    <state x="734" y="175" width="1174" height="690" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605147390899">
-      <screen x="0" y="0" width="2560" height="1040" />
+    <state x="3111" y="175" width="1174" height="690" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605178670817">
+      <screen x="2560" y="0" width="1920" height="1040" />
     </state>
-    <state x="734" y="175" width="1174" height="690" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605147390899" />
+    <state x="734" y="175" width="1174" height="690" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605170485835" />
+    <state x="3111" y="175" width="1174" height="690" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1605178670817" />
     <state x="1085" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1605157629351">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -873,10 +859,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="1035" y="222" width="657" height="596" key="#xdebugger.evaluate/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1603530799073" />
-    <state x="797" y="87" key="CommitChangelistDialog2" timestamp="1605016922850">
+    <state x="797" y="87" key="CommitChangelistDialog2" timestamp="1605168109293">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="797" y="87" key="CommitChangelistDialog2/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605016922850" />
+    <state x="797" y="87" key="CommitChangelistDialog2/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605168109293" />
     <state width="513" height="466" key="DebuggerActiveHint" timestamp="1605013072808">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -886,78 +872,78 @@
     </state>
     <state x="1060" y="275" key="FileChooserDialogImpl/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1602229421218" />
     <state x="3355" y="275" key="FileChooserDialogImpl/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1599805310500" />
-    <state width="2517" height="347" key="GridCell.Tab.0.bottom" timestamp="1605168037443">
-      <screen x="0" y="0" width="2560" height="1040" />
+    <state width="1877" height="347" key="GridCell.Tab.0.bottom" timestamp="1605250300556">
+      <screen x="2560" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="191" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598532337894" />
-    <state width="2517" height="347" key="GridCell.Tab.0.bottom/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605168037443" />
-    <state width="1877" height="463" key="GridCell.Tab.0.bottom/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1604757822685" />
-    <state width="2517" height="347" key="GridCell.Tab.0.center" timestamp="1605168037442">
-      <screen x="0" y="0" width="2560" height="1040" />
+    <state width="2517" height="347" key="GridCell.Tab.0.bottom/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605234210544" />
+    <state width="1877" height="347" key="GridCell.Tab.0.bottom/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1605250300556" />
+    <state width="1877" height="347" key="GridCell.Tab.0.center" timestamp="1605250300556">
+      <screen x="2560" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="191" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598532337894" />
-    <state width="2517" height="347" key="GridCell.Tab.0.center/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605168037442" />
-    <state width="1877" height="463" key="GridCell.Tab.0.center/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1604757822685" />
-    <state width="2517" height="347" key="GridCell.Tab.0.left" timestamp="1605168037442">
-      <screen x="0" y="0" width="2560" height="1040" />
+    <state width="2517" height="347" key="GridCell.Tab.0.center/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605234210544" />
+    <state width="1877" height="347" key="GridCell.Tab.0.center/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1605250300556" />
+    <state width="1877" height="347" key="GridCell.Tab.0.left" timestamp="1605250300556">
+      <screen x="2560" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="191" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598532337894" />
-    <state width="2517" height="347" key="GridCell.Tab.0.left/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605168037442" />
-    <state width="1877" height="463" key="GridCell.Tab.0.left/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1604757822684" />
-    <state width="2517" height="347" key="GridCell.Tab.0.right" timestamp="1605168037443">
-      <screen x="0" y="0" width="2560" height="1040" />
+    <state width="2517" height="347" key="GridCell.Tab.0.left/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605234210544" />
+    <state width="1877" height="347" key="GridCell.Tab.0.left/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1605250300556" />
+    <state width="1877" height="347" key="GridCell.Tab.0.right" timestamp="1605250300556">
+      <screen x="2560" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="191" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598532337894" />
-    <state width="2517" height="347" key="GridCell.Tab.0.right/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605168037443" />
-    <state width="1877" height="463" key="GridCell.Tab.0.right/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1604757822685" />
-    <state width="2517" height="347" key="GridCell.Tab.1.bottom" timestamp="1605168037443">
-      <screen x="0" y="0" width="2560" height="1040" />
+    <state width="2517" height="347" key="GridCell.Tab.0.right/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605234210544" />
+    <state width="1877" height="347" key="GridCell.Tab.0.right/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1605250300556" />
+    <state width="1877" height="347" key="GridCell.Tab.1.bottom" timestamp="1605250300556">
+      <screen x="2560" y="0" width="1920" height="1040" />
     </state>
     <state width="2517" height="347" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598532337890" />
-    <state width="2517" height="347" key="GridCell.Tab.1.bottom/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605168037443" />
-    <state width="2517" height="347" key="GridCell.Tab.1.bottom/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1604757822681" />
-    <state width="2517" height="347" key="GridCell.Tab.1.center" timestamp="1605168037443">
-      <screen x="0" y="0" width="2560" height="1040" />
+    <state width="2517" height="347" key="GridCell.Tab.1.bottom/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605234210544" />
+    <state width="1877" height="347" key="GridCell.Tab.1.bottom/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1605250300556" />
+    <state width="1877" height="347" key="GridCell.Tab.1.center" timestamp="1605250300556">
+      <screen x="2560" y="0" width="1920" height="1040" />
     </state>
     <state width="2517" height="347" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598532337890" />
-    <state width="2517" height="347" key="GridCell.Tab.1.center/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605168037443" />
-    <state width="2517" height="347" key="GridCell.Tab.1.center/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1604757822681" />
-    <state width="2517" height="347" key="GridCell.Tab.1.left" timestamp="1605168037443">
-      <screen x="0" y="0" width="2560" height="1040" />
+    <state width="2517" height="347" key="GridCell.Tab.1.center/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605234210544" />
+    <state width="1877" height="347" key="GridCell.Tab.1.center/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1605250300556" />
+    <state width="1877" height="347" key="GridCell.Tab.1.left" timestamp="1605250300556">
+      <screen x="2560" y="0" width="1920" height="1040" />
     </state>
     <state width="2517" height="347" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598532337890" />
-    <state width="2517" height="347" key="GridCell.Tab.1.left/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605168037443" />
-    <state width="2517" height="347" key="GridCell.Tab.1.left/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1604757822681" />
-    <state width="2517" height="347" key="GridCell.Tab.1.right" timestamp="1605168037443">
-      <screen x="0" y="0" width="2560" height="1040" />
+    <state width="2517" height="347" key="GridCell.Tab.1.left/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605234210544" />
+    <state width="1877" height="347" key="GridCell.Tab.1.left/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1605250300556" />
+    <state width="1877" height="347" key="GridCell.Tab.1.right" timestamp="1605250300556">
+      <screen x="2560" y="0" width="1920" height="1040" />
     </state>
     <state width="2517" height="347" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598532337890" />
-    <state width="2517" height="347" key="GridCell.Tab.1.right/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605168037443" />
-    <state width="2517" height="347" key="GridCell.Tab.1.right/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1604757822681" />
-    <state width="2517" height="347" key="GridCell.Tab.2.bottom" timestamp="1605168037443">
-      <screen x="0" y="0" width="2560" height="1040" />
+    <state width="2517" height="347" key="GridCell.Tab.1.right/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605234210544" />
+    <state width="1877" height="347" key="GridCell.Tab.1.right/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1605250300556" />
+    <state width="1877" height="347" key="GridCell.Tab.2.bottom" timestamp="1605250300557">
+      <screen x="2560" y="0" width="1920" height="1040" />
     </state>
     <state width="2517" height="347" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598532337890" />
-    <state width="2517" height="347" key="GridCell.Tab.2.bottom/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605168037443" />
-    <state width="2517" height="347" key="GridCell.Tab.2.bottom/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1604757822681" />
-    <state width="2517" height="347" key="GridCell.Tab.2.center" timestamp="1605168037443">
-      <screen x="0" y="0" width="2560" height="1040" />
+    <state width="2517" height="347" key="GridCell.Tab.2.bottom/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605234210544" />
+    <state width="1877" height="347" key="GridCell.Tab.2.bottom/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1605250300557" />
+    <state width="1877" height="347" key="GridCell.Tab.2.center" timestamp="1605250300557">
+      <screen x="2560" y="0" width="1920" height="1040" />
     </state>
     <state width="2517" height="347" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598532337890" />
-    <state width="2517" height="347" key="GridCell.Tab.2.center/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605168037443" />
-    <state width="2517" height="347" key="GridCell.Tab.2.center/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1604757822681" />
-    <state width="2517" height="347" key="GridCell.Tab.2.left" timestamp="1605168037443">
-      <screen x="0" y="0" width="2560" height="1040" />
+    <state width="2517" height="347" key="GridCell.Tab.2.center/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605234210544" />
+    <state width="1877" height="347" key="GridCell.Tab.2.center/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1605250300557" />
+    <state width="1877" height="347" key="GridCell.Tab.2.left" timestamp="1605250300557">
+      <screen x="2560" y="0" width="1920" height="1040" />
     </state>
     <state width="2517" height="347" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598532337890" />
-    <state width="2517" height="347" key="GridCell.Tab.2.left/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605168037443" />
-    <state width="2517" height="347" key="GridCell.Tab.2.left/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1604757822681" />
-    <state width="2517" height="347" key="GridCell.Tab.2.right" timestamp="1605168037443">
-      <screen x="0" y="0" width="2560" height="1040" />
+    <state width="2517" height="347" key="GridCell.Tab.2.left/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605234210544" />
+    <state width="1877" height="347" key="GridCell.Tab.2.left/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1605250300557" />
+    <state width="1877" height="347" key="GridCell.Tab.2.right" timestamp="1605250300557">
+      <screen x="2560" y="0" width="1920" height="1040" />
     </state>
     <state width="2517" height="347" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598532337890" />
-    <state width="2517" height="347" key="GridCell.Tab.2.right/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605168037443" />
-    <state width="2517" height="347" key="GridCell.Tab.2.right/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1604757822681" />
+    <state width="2517" height="347" key="GridCell.Tab.2.right/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605234210544" />
+    <state width="1877" height="347" key="GridCell.Tab.2.right/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1605250300557" />
     <state x="860" y="254" key="IDE.errors.dialog" timestamp="1605147583695">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -966,10 +952,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="760" y="94" key="SettingsEditor/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605099840463" />
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1605016925523">
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1605168112230">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605016925523" />
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605168112230" />
     <state x="697" y="249" width="1166" height="641" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1605148076873">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -995,16 +981,5 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="936" y="173" width="672" height="676" key="search.everywhere.popup/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1604223624940" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/runtime/MenuRuntimeRest.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
