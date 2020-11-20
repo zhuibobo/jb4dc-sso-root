@@ -31,6 +31,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPathExpressionException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URISyntaxException;
 import java.util.Date;
 import java.util.List;
 
@@ -108,11 +109,13 @@ public class OrganServiceImpl extends BaseServiceImpl<OrganEntity> implements IO
             e.printStackTrace();
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
         }
         return result;
     }
 
-    private void awareCreatedOrgan(JB4DCSession jb4DSession, OrganEntity organEntity) throws JBuild4DCGenerallyException, IOException, SAXException, ParserConfigurationException {
+    private void awareCreatedOrgan(JB4DCSession jb4DSession, OrganEntity organEntity) throws JBuild4DCGenerallyException, IOException, SAXException, ParserConfigurationException, URISyntaxException {
         xmlDocument=getOrganInitConfigDoc();
         try {
             List<Node> nodeList= XMLDocumentUtility.parseForNodeList(xmlDocument,"//Bean");
@@ -132,7 +135,7 @@ public class OrganServiceImpl extends BaseServiceImpl<OrganEntity> implements IO
         }
     }
 
-    private void awareUpdatedOrgan(JB4DCSession jb4DSession, OrganEntity organEntity) throws JBuild4DCGenerallyException, IOException, SAXException, ParserConfigurationException {
+    private void awareUpdatedOrgan(JB4DCSession jb4DSession, OrganEntity organEntity) throws JBuild4DCGenerallyException, IOException, SAXException, ParserConfigurationException, URISyntaxException {
         xmlDocument=getOrganInitConfigDoc();
         try {
             List<Node> nodeList= XMLDocumentUtility.parseForNodeList(xmlDocument,"//Bean");
@@ -152,7 +155,7 @@ public class OrganServiceImpl extends BaseServiceImpl<OrganEntity> implements IO
         }
     }
 
-    private Document getOrganInitConfigDoc() throws JBuild4DCGenerallyException, ParserConfigurationException, SAXException, IOException {
+    private Document getOrganInitConfigDoc() throws JBuild4DCGenerallyException, ParserConfigurationException, SAXException, IOException, URISyntaxException {
         //InputStream inputStream = this.getClass().getResourceAsStream(configResource);
         InputStream inputStream = FileUtility.getStreamByLevel(configResource);
         Document _xml = XMLDocumentUtility.parseForDoc(inputStream);

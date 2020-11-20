@@ -443,6 +443,12 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
                 menuName, menuName, menuName,
                 "", "", systemId, MenuTypeEnum.EmptyMenu, menuId, menuId);
 
+        menuId = "GridSystem-DataSearch-Gather-Terminal";
+        menuName = "采集设备";
+        createMenu(jb4DSession, dataSearchRoot.getMenuId(), menuId,
+                menuName, menuName, menuName,
+                "", "", systemId, MenuTypeEnum.EmptyMenu, menuId, menuId);
+
         menuId = "GridSystem-DataSearch-Build";
         menuName = "楼";
         createMenu(jb4DSession, dataSearchRoot.getMenuId(), menuId,
@@ -463,6 +469,12 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
 
         menuId = "GridSystem-DataSearch-SpecialBuild";
         menuName = "特殊建筑物";
+        createMenu(jb4DSession, dataSearchRoot.getMenuId(), menuId,
+                menuName, menuName, menuName,
+                "", "", systemId, MenuTypeEnum.EmptyMenu, menuId, menuId);
+
+        menuId = "GridSystem-DataSearch-Enterprise";
+        menuName = "企业法人";
         createMenu(jb4DSession, dataSearchRoot.getMenuId(), menuId,
                 menuName, menuName, menuName,
                 "", "", systemId, MenuTypeEnum.EmptyMenu, menuId, menuId);

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -29,7 +30,7 @@ public class UserRuntimeProxyImpl  extends RuntimeProxyBase implements IUserRunt
     _UserRuntimeRemote userRuntimeRemote;
 
     @Override
-    public JBuild4DCResponseVo<List<UserEntity>> getUserByOrganIdRT(String organId) throws JBuild4DCGenerallyException {
+    public JBuild4DCResponseVo<List<UserEntity>> getUserByOrganIdRT(String organId) throws JBuild4DCGenerallyException, IOException {
         String methodName = "getFullEnableOrganRT";
         JBuild4DCResponseVo<List<UserEntity>> jBuild4DCResponseVo =autoGetFromCache(this.getClass(), methodName, () -> userRuntimeRemote.getUserByOrganIdRT(organId));
         return jBuild4DCResponseVo;

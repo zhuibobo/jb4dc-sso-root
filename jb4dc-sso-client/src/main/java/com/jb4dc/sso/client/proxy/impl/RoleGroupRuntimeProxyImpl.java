@@ -12,6 +12,7 @@ import com.jb4dc.sso.dbentities.role.RoleGroupEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -27,7 +28,7 @@ public class RoleGroupRuntimeProxyImpl extends RuntimeProxyBase implements IRole
     _RoleGroupRuntimeRemote roleGroupRuntimeRemote;
 
     @Override
-    public JBuild4DCResponseVo<List<RoleGroupEntity>> getALLRoleGroup() throws JBuild4DCGenerallyException {
+    public JBuild4DCResponseVo<List<RoleGroupEntity>> getALLRoleGroup() throws JBuild4DCGenerallyException, IOException {
         String methodName = "getALLRoleGroup";
         JBuild4DCResponseVo<List<RoleGroupEntity>> jBuild4DCResponseVo =autoGetFromCache(this.getClass(), methodName, () -> roleGroupRuntimeRemote.getALLRoleGroup());
         return jBuild4DCResponseVo;

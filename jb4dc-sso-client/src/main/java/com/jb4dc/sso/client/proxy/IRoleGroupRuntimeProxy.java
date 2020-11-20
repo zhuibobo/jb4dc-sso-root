@@ -4,6 +4,7 @@ import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.sso.dbentities.role.RoleGroupEntity;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -13,5 +14,5 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public interface IRoleGroupRuntimeProxy {
-    JBuild4DCResponseVo<List<RoleGroupEntity>> getALLRoleGroup() throws JBuild4DCGenerallyException;
+    JBuild4DCResponseVo<List<RoleGroupEntity>> getALLRoleGroup() throws JBuild4DCGenerallyException, IOException;
 }

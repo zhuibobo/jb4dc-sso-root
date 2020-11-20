@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -28,7 +29,7 @@ public class RoleRuntimeProxyImpl extends RuntimeProxyBase implements IRoleRunti
     _RoleRuntimeRemote roleRuntimeRemote;
 
     @Override
-    public JBuild4DCResponseVo<List<RoleEntity>> getFullEnableRoleRT() throws JBuild4DCGenerallyException {
+    public JBuild4DCResponseVo<List<RoleEntity>> getFullEnableRoleRT() throws JBuild4DCGenerallyException, IOException {
         String methodName = "getFullEnableRoleRT";
         JBuild4DCResponseVo<List<RoleEntity>> jBuild4DCResponseVo =autoGetFromCache(this.getClass(), methodName, () -> roleRuntimeRemote.getFullEnableRoleRT());
         return jBuild4DCResponseVo;

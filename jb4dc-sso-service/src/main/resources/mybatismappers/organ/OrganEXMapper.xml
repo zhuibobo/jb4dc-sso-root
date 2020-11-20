@@ -9,6 +9,7 @@
         <result property="organCode" column="ORGAN_CODE"></result>
         <result property="organParentId" column="ORGAN_PARENT_ID"></result>
         <result property="organParentIdList" column="ORGAN_PARENT_ID_LIST"></result>
+        <result property="organTypeValue" column="ORGAN_TYPE_VALUE"></result>
     </resultMap>
     <select id="selectAll" resultMap="BaseResultMap">select<include refid="Base_Column_List"/> from TSSO_ORGAN ORDER by ORGAN_ORDER_NUM ASC</select>
     <delete id="deleteAll">delete from TSSO_ORGAN</delete>
@@ -66,6 +67,6 @@
     </select>
 
     <select id="selectAllEnableOrganMinProp" resultMap="MinProp">
-        select ORGAN_ID, ORGAN_NAME, ORGAN_SHORT_NAME, ORGAN_NO, ORGAN_CODE,ORGAN_PARENT_ID, ORGAN_PARENT_ID_LIST from TSSO_ORGAN where ORGAN_STATUS='启用'
+        select ORGAN_ID, ORGAN_NAME, ORGAN_SHORT_NAME, ORGAN_NO, ORGAN_CODE,ORGAN_PARENT_ID, ORGAN_PARENT_ID_LIST,ORGAN_TYPE_VALUE from TSSO_ORGAN where ORGAN_STATUS='启用' order by ORGAN_ORDER_NUM asc
     </select>
 </mapper>
