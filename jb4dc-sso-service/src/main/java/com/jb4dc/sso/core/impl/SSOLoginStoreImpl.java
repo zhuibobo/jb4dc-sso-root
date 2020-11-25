@@ -23,6 +23,11 @@ public class SSOLoginStoreImpl implements ISSOLoginStore {
     }
 
     @Override
+    public void removeSSOSession(String sessionToken){
+        ssoCacheManager.getCache("SSOSessionStore",String.class,JB4DCSession.class).remove(sessionToken);
+    }
+
+    @Override
     public JB4DCSession getSession(String token) {
         JB4DCSession jb4DSession=ssoCacheManager.getCache("SSOSessionStore",String.class,JB4DCSession.class).get(token);
         if(jb4DSession!=null) {
@@ -32,12 +37,13 @@ public class SSOLoginStoreImpl implements ISSOLoginStore {
     }
 
     @Override
-    public SSOTokenPO createSSOCode(String returnUrl, String appId) {
+    public SSOTokenPO createSSOCode(String returnUrl, String appId,String userId) {
         String jBuild4DSSOCode= UUIDUtility.getUUIDNotSplit();
         SSOTokenPO codeVo=new SSOTokenPO();
         codeVo.setToken(jBuild4DSSOCode);
         codeVo.setTime(DateUtility.getDate_yyyy_MM_dd_HH_mm_ss());
         codeVo.setRedirectUrl(returnUrl);
+        codeVo.setUserId(userId);
         return codeVo;
     }
 }

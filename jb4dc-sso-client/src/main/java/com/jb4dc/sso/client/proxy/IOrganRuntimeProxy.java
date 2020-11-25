@@ -5,6 +5,7 @@ import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.sso.dbentities.organ.OrganEntity;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,4 +17,6 @@ public interface IOrganRuntimeProxy {
     JBuild4DCResponseVo<List<OrganEntity>> getFullEnableOrganRT() throws JBuild4DCGenerallyException;
 
     JBuild4DCResponseVo<List<OrganEntity>> getEnableOrganMinPropRT() throws JBuild4DCGenerallyException;
+
+    Map<String,Map<String,String>> getEnableOrganMinMapJsonPropRT() throws JBuild4DCGenerallyException;
 }

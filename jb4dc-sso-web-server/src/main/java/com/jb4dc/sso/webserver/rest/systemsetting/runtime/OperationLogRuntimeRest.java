@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.jb4dc.base.service.general.JB4DCSessionUtility;
 import com.jb4dc.base.service.po.OperationLogPO;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
+import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.sso.webserver.rest.systemsetting.operationlog.OperationLogRest;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,7 +25,9 @@ public class OperationLogRuntimeRest extends OperationLogRest {
 
     @RequestMapping("/WriteOperationLogRT")
     public JBuild4DCResponseVo writeOperationLogRT(@RequestBody OperationLogPO logPO, HttpServletRequest request) throws JsonProcessingException, JBuild4DCGenerallyException {
-        operationLogService.writeOperationLog(JB4DCSessionUtility.getSession(),logPO.getLogSystemName(),logPO.getLogModuleName(),logPO.getLogActionName(),logPO.getLogType(),logPO.getLogText(),logPO.getLogData(),logPO.getLogClassName(),request);
+        //logPO.getLogUserId();
+        JB4DCSession tempJb4DCSession=JB4DCSessionUtility.getTempSession(logPO.getLogOrganId(),logPO.getLogOrganName(),logPO.getLogUserId(),logPO.getLogUserName());
+        operationLogService.writeOperationLog(tempJb4DCSession,logPO.getLogSystemName(),logPO.getLogModuleName(),logPO.getLogActionName(),logPO.getLogType(),logPO.getLogText(),logPO.getLogData(),logPO.getLogClassName(),request);
         return JBuild4DCResponseVo.opSuccess();
     }
 }

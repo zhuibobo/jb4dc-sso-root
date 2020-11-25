@@ -131,4 +131,10 @@ public class DepartmentUserRest {
             return JBuild4DCResponseVo.opError(e.getMessage());
         }
     }
+
+    @RequestMapping(value = "/Delete",method = RequestMethod.DELETE)
+    public JBuild4DCResponseVo delete(String recordId, HttpServletRequest request) throws JBuild4DCGenerallyException {
+        departmentUserService.deleteDepartUserAndUserByDuId(JB4DCSessionUtility.getSession(), recordId);
+        return JBuild4DCResponseVo.opSuccess();
+    }
 }

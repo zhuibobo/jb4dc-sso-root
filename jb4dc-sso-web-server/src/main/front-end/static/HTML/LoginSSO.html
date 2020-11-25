@@ -41,8 +41,8 @@
         el:"#app",
         data:{
             formItem: {
-                account: 'Alex4D',
-                password: 'j4d123456'
+                account: '',
+                password: ''
             }
         },
         mounted:function(){
@@ -53,7 +53,10 @@
                 var url = '/Rest/Login/ValidateAccountSSO';
                 var _self=this;
                 var redirectUrl=BaseUtility.GetUrlParaValue("JBuild4DCSSORedirectUrl");
-                //debugger;
+                if(StringUtility.IsNullOrEmpty(redirectUrl)){
+                    redirectUrl=BaseUtility.GetUrlOPParaValue("JBuild4DCSSOLogoutFromUrl");
+                }
+                debugger;
                 var senddata={
                     accountName:_self.formItem.account,
                     password:_self.formItem.password,
@@ -62,7 +65,7 @@
                 AjaxUtility.Post(url, senddata , function (result) {
                     if (result.success) {
                         if(result.data.redirectUrl) {
-                            window.location.href = result.data.redirectUrl + "?JBuild4DCSSOToken=" + result.data.token;
+                            window.location.href = result.data.redirectUrl + "?JBuild4DCSSOToken=" + result.data.token+"&ForceClearClientLocationSession=true&ts="+Date.now();
                         }
                         else{
                             window.location.href = BaseUtility.BuildAction("/HTML/FrameV2/FrameView.html");

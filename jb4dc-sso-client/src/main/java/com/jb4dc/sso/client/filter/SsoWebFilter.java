@@ -75,6 +75,10 @@ public class SsoWebFilter extends HttpServlet implements Filter {
 
         JB4DCSession jb4DSession= null;
 
+        String forceClearClientLocationSession=req.getParameter("ForceClearClientLocationSession");
+        if(StringUtility.isNotEmpty(forceClearClientLocationSession)&&forceClearClientLocationSession.toLowerCase().equals("true")){
+            JB4DCSessionUtility.clearMyLocationLoginedJB4DCSession();
+        }
         //判断是否存在本地Session
         //jb4DSession= JB4DClientSessionUtil.getSession(req);
         jb4DSession= JB4DCSessionUtility.getSessionNotException();

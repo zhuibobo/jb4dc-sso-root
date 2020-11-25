@@ -30,7 +30,7 @@ public class LoginedInterceptor implements HandlerInterceptor {
         igUrl.put("/Rest/Login/ValidateAccountSSO","");
         igUrl.put("/Rest/JBuild4DCYaml/GetClientSystemTitle","");
         igUrl.put("/Rest/SSO/Session/GetSession","");
-        igUrl.put("/Rest/SSO/Session/GetSession","");
+        igUrl.put("/Rest/SSO/Runtime/","");
         igUrl.put("/Rest/SSO/Session/LoginForRest","");
 
         igUrl.put("/HTML/Login.html","");
@@ -43,6 +43,9 @@ public class LoginedInterceptor implements HandlerInterceptor {
         String appName=request.getContextPath();
         String url=absPath.replaceAll(appName,"");
 
+        if(url.indexOf("Runtime")>0){
+            return true;
+        }
         if(igUrl.containsKey(url)){
             return true;
         }

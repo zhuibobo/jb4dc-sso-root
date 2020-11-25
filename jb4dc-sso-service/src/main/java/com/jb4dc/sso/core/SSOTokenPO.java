@@ -4,6 +4,7 @@ public class SSOTokenPO {
     private String token;
     private String time;
     private String redirectUrl;
+    private String userId;
 
     public String getToken() {
         return token;
@@ -27,5 +28,13 @@ public class SSOTokenPO {
 
     public void setRedirectUrl(String redirectUrl) {
         this.redirectUrl = redirectUrl;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

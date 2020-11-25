@@ -22,7 +22,7 @@
     </cache-template>
     <cache alias="JB4DCSsoClientProxyCache" uses-template="JB4DCCacheDefault">
         <expiry>
-            <ttl>600</ttl>
+            <ttl>120</ttl>
         </expiry>
     </cache>
     <cache alias="SSOSessionStore" uses-template="JB4DCCacheDefault">
@@ -30,7 +30,7 @@
         <value-type>com.jb4dc.core.base.session.JB4DCSession</value-type>
         <resources>
             <!--声明在堆上保存多达2,000个条目。-->
-            <heap unit="entries">8000</heap>
+            <heap unit="entries">4000</heap>
             <!--在它开始被驱逐之前，还有多达1MB的外堆内存-->
             <offheap unit="MB">10</offheap>
         </resources>

@@ -31,7 +31,7 @@ public class UserRuntimeProxyImpl  extends RuntimeProxyBase implements IUserRunt
 
     @Override
     public JBuild4DCResponseVo<List<UserEntity>> getUserByOrganIdRT(String organId) throws JBuild4DCGenerallyException, IOException {
-        String methodName = "getFullEnableOrganRT";
+        String methodName = "getFullEnableOrganRT"+organId;
         JBuild4DCResponseVo<List<UserEntity>> jBuild4DCResponseVo =autoGetFromCache(this.getClass(), methodName, () -> userRuntimeRemote.getUserByOrganIdRT(organId));
         return jBuild4DCResponseVo;
     }

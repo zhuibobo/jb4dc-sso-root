@@ -19,7 +19,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 @Primary
-@FeignClient(name= "${jb4dc.sso.server.name}",contextId = "AppRuntimeRemote",path = "${jb4dc.sso.server.context-path}/Rest/SSO/App/Application")
+@FeignClient(name= "${jb4dc.sso.server.name}",contextId = "AppRuntimeRemote",path = "${jb4dc.sso.server.context-path}/Rest/SSO/Runtime/ApplicationRuntime")
 public interface _AppRuntimeRemote {
     @RequestMapping(value = "/GetHasAuthorityAppSSO", method = RequestMethod.GET, produces = "application/json")
     JBuild4DCResponseVo getHasAuthorityAppSSO(@RequestParam("userId") String userId) throws JBuild4DCGenerallyException;

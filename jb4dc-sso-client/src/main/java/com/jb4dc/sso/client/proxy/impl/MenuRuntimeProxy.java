@@ -25,7 +25,7 @@ public class MenuRuntimeProxy extends RuntimeProxyBase implements IMenuRuntimePr
 
     @Override
     public JBuild4DCResponseVo<List<MenuPO>> getMyAuthMenusBySystemIdRT(String userId, String systemId) throws JBuild4DCGenerallyException {
-        String methodName = "getMyAuthMenusBySystemIdRT";
+        String methodName = "getMyAuthMenusBySystemIdRT"+userId+systemId;
         JBuild4DCResponseVo<List<MenuPO>> jBuild4DCResponseVo =autoGetFromCache(this.getClass(), methodName, () -> menuRuntimeRemote.getMyAuthMenusBySystemIdRT(userId,systemId));
         return jBuild4DCResponseVo;
     }

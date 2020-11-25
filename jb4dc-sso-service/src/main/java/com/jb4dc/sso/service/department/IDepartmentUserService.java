@@ -25,4 +25,7 @@ public interface IDepartmentUserService {
     void statusChange(JB4DCSession jb4DSession, String ids, String status) throws JBuild4DCGenerallyException;
 
     void deleteDepartUserAndUser(JB4DCSession jb4DSession, String userId) throws JBuild4DCGenerallyException;
+
+    void deleteDepartUserAndUserByDuId(JB4DCSession jb4DSession, String recordId) throws JBuild4DCGenerallyException;
+
 }

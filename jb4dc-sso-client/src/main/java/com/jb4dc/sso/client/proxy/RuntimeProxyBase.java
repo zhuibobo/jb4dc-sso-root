@@ -24,7 +24,7 @@ public class RuntimeProxyBase {
     Logger logger= LoggerFactory.getLogger(this.getClass());
 
     @Autowired(required = false)
-    SSOCacheManager proxyBuilderCacheManager;
+    protected SSOCacheManager proxyBuilderCacheManager;
 
     @Autowired
     CacheRuntimeRemote cacheRuntimeRemote;

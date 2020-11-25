@@ -76,7 +76,7 @@ public class SSOLoginImpl implements ISSOLogin {
                    b4DSession.setFullAuthority(false);
                }
 
-               code =ssoLoginStore.createSSOCode(JBuild4DCSSORedirectUrl,appId);
+               code =ssoLoginStore.createSSOCode(JBuild4DCSSORedirectUrl,appId,b4DSession.getUserId());
                b4DSession.setSsoSessionToken(code.getToken());
 
                ssoLoginStore.storeSSOSession(code,b4DSession);

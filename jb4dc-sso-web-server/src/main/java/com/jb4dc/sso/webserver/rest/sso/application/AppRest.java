@@ -123,9 +123,5 @@ public class AppRest {
         return JBuild4DCResponseVo.opSuccess();
     }
 
-    @RequestMapping(value = "/GetHasAuthorityAppSSO", method = RequestMethod.GET, produces = "application/json")
-    public JBuild4DCResponseVo getHasAuthorityAppSSO(String userId) throws JBuild4DCGenerallyException {
-        List<SsoAppEntity> ssoAppEntityList=ssoAppService.getHasAuthorityAppSSO(userId);
-        return JBuild4DCResponseVo.getDataSuccess(ssoAppEntityList);
-    }
+
 }

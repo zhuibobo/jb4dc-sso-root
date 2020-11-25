@@ -23,6 +23,6 @@ public interface _OrganRuntimeRemote {
     JBuild4DCResponseVo<List<OrganEntity>> getFullEnableOrganRT();
 
     @RequestMapping(value = "/GetEnableOrganMinPropRT", method = RequestMethod.POST)
-    JBuild4DCResponseVo getEnableOrganMinPropRT();
+    JBuild4DCResponseVo<List<OrganEntity>> getEnableOrganMinPropRT();
 }
 
