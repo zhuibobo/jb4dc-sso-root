@@ -36,4 +36,9 @@ public class UserRuntimeRest {
         return JBuild4DCResponseVo.success(JBuild4DCResponseVo.GETDATASUCCESSMSG,userEntityList);
     }
 
+    @RequestMapping(value = "/GetUserByAccountName", method = RequestMethod.GET)
+    public JBuild4DCResponseVo<UserEntity> getUserByAccountName(String accountName) {
+        UserEntity userEntity=userService.getByAccount(accountName);
+        return JBuild4DCResponseVo.success(JBuild4DCResponseVo.GETDATASUCCESSMSG,userEntity);
+    }
 }

@@ -8,6 +8,7 @@ import com.jb4dc.sso.client.proxy.RuntimeProxyBase;
 import com.jb4dc.sso.client.remote._UserRuntimeRemote;
 import com.jb4dc.sso.dbentities.organ.OrganEntity;
 import com.jb4dc.sso.dbentities.user.UserEntity;
+import net.sf.jsqlparser.statement.create.table.CreateTable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,13 +25,13 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 @Service
-public class UserRuntimeProxyImpl  extends RuntimeProxyBase implements IUserRuntimeProxy {
+public class UserRuntimeProxyImpl extends RuntimeProxyBase implements IUserRuntimeProxy {
 
     @Autowired
     _UserRuntimeRemote userRuntimeRemote;
 
     @Override
-    public JBuild4DCResponseVo<List<UserEntity>> getUserByOrganIdRT(String organId) throws JBuild4DCGenerallyException, IOException {
+    public JBuild4DCResponseVo<List<UserEntity>> getUserByOrganIdRT(String organId) throws JBuild4DCGenerallyException {
         String methodName = "getFullEnableOrganRT"+organId;
         JBuild4DCResponseVo<List<UserEntity>> jBuild4DCResponseVo =autoGetFromCache(this.getClass(), methodName, () -> userRuntimeRemote.getUserByOrganIdRT(organId));
         return jBuild4DCResponseVo;
@@ -41,5 +42,10 @@ public class UserRuntimeProxyImpl  extends RuntimeProxyBase implements IUserRunt
         String methodName = "getEnableUserMinPropRT";
         JBuild4DCResponseVo<List<UserEntity>> jBuild4DCResponseVo =autoGetFromCache(this.getClass(), methodName, () -> userRuntimeRemote.getEnableUserMinPropRT());
         return jBuild4DCResponseVo;
+    }
+
+    @Override
+    public JBuild4DCResponseVo<UserEntity> getUserByAccountName(String accountName) throws JBuild4DCGenerallyException {
+        return userRuntimeRemote.getUserByAccountName(accountName);
     }
 }

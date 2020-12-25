@@ -1,6 +1,7 @@
 package com.jb4dc.sso.webserver.rest.sso.runtime;
 
 import com.jb4dc.base.service.general.JB4DCSessionUtility;
+import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.sso.dbentities.organ.OrganEntity;
 import com.jb4dc.sso.webserver.rest.sso.organ.OrganRest;
@@ -21,14 +22,19 @@ import java.util.List;
 public class OrganRuntimeRest extends OrganRest {
 
     @RequestMapping(value = "/GetFullEnableOrganRT", method = RequestMethod.POST)
-    public JBuild4DCResponseVo getFullEnableOrganRT() {
+    public JBuild4DCResponseVo<List<OrganEntity>> getFullEnableOrganRT() {
         List<OrganEntity> organEntityList=organService.getALLEnableOrgan();
         return JBuild4DCResponseVo.success(JBuild4DCResponseVo.GETDATASUCCESSMSG,organEntityList);
     }
 
     @RequestMapping(value = "/GetEnableOrganMinPropRT", method = RequestMethod.POST)
-    public JBuild4DCResponseVo getEnableOrganMinPropRT() {
+    public JBuild4DCResponseVo<List<OrganEntity>> getEnableOrganMinPropRT() {
         List<OrganEntity> organEntityList=organService.getALLEnableOrganMinProp();
         return JBuild4DCResponseVo.success(JBuild4DCResponseVo.GETDATASUCCESSMSG,organEntityList);
+    }
+
+    @RequestMapping(value = "/GetOrganById", method = RequestMethod.GET)
+    public JBuild4DCResponseVo<OrganEntity> getOrganById(String organId) throws JBuild4DCGenerallyException {
+        return JBuild4DCResponseVo.getDataSuccess(organService.getByPrimaryKey(null,organId));
     }
 }

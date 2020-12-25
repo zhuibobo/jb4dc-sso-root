@@ -2,6 +2,7 @@ package com.jb4dc.sso.client.filter;
 
 import com.jb4dc.base.service.general.JB4DCSessionUtility;
 import com.jb4dc.base.tools.BeanUtility;
+import com.jb4dc.base.tools.JsonUtility;
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.core.base.tools.StringUtility;
 import com.jb4dc.sso.client.conf.Conf;
@@ -17,6 +18,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SsoWebFilter extends HttpServlet implements Filter {
 
@@ -27,10 +30,15 @@ public class SsoWebFilter extends HttpServlet implements Filter {
     SessionClientStore sessionClientStore;
 
     private String excludedPaths;
+    private ISSoWebFilterLocationPreCheck ssoWebFilterLocationPreCheck;
     private static final AntPathMatcher antPathMatcher = new AntPathMatcher();
 
     public void setCheckSessionSuccess(ICheckSessionSuccess checkSessionSuccess) {
         this.checkSessionSuccess = checkSessionSuccess;
+    }
+
+    public void setSsoWebFilterLocationPreCheck(ISSoWebFilterLocationPreCheck ssoWebFilterLocationPreCheck) {
+        this.ssoWebFilterLocationPreCheck = ssoWebFilterLocationPreCheck;
     }
 
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -74,6 +82,14 @@ public class SsoWebFilter extends HttpServlet implements Filter {
         String servletPath = req.getServletPath();
 
         JB4DCSession jb4DSession= null;
+        if(ssoWebFilterLocationPreCheck!=null&&ssoWebFilterLocationPreCheck.customSelfCheck()){
+            jb4DSession=ssoWebFilterLocationPreCheck.preCheckSession(absPath,request,response,chain);
+            if(jb4DSession!=null){
+                chain.doFilter(request, response);
+                return;
+            }
+        }
+
 
         String forceClearClientLocationSession=req.getParameter("ForceClearClientLocationSession");
         if(StringUtility.isNotEmpty(forceClearClientLocationSession)&&forceClearClientLocationSession.toLowerCase().equals("true")){
@@ -113,7 +129,15 @@ public class SsoWebFilter extends HttpServlet implements Filter {
                     //如果是Ajax请求?
                     //json msg
                     res.setContentType("application/json;charset=utf-8");
-                    res.getWriter().println("{\"code\":" + Conf.SSO_LOGIN_FAIL_RESULT.getErrorCode() + ", \"msg\":\"" + Conf.SSO_LOGIN_FAIL_RESULT.getMessage() + "\"}");
+                    Map<String,Object> result=new HashMap<>();
+                    result.put("success",false);
+                    result.put("message",Conf.SSO_LOGIN_FAIL_RESULT.getMessage());
+                    result.put("errorCode",Conf.SSO_LOGIN_FAIL_RESULT.getErrorCode());
+                    result.put("data",null);
+                    result.put("traceMsg","");
+                    result.put("exKVData",null);
+                    //res.getWriter().println("{\"code\":" + Conf.SSO_LOGIN_FAIL_RESULT.getErrorCode() + ", \"msg\":\"" + Conf.SSO_LOGIN_FAIL_RESULT.getMessage() + "\"}");
+                    res.getWriter().println(JsonUtility.toObjectString(result));
                     return;
                 } else {
                     // total link

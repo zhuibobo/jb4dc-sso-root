@@ -14,6 +14,7 @@ public class SSOClientFeignClientConfig {
 
     @Bean
     FeignRequestInterceptor feignRequestInterceptor() {
+
         return new FeignRequestInterceptor();
     }
 }

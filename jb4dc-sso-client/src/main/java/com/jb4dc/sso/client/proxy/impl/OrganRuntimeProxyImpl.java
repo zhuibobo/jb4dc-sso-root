@@ -44,6 +44,11 @@ public class OrganRuntimeProxyImpl extends RuntimeProxyBase implements IOrganRun
     }
 
     @Override
+    public JBuild4DCResponseVo<OrganEntity> getOrganById(String organId) throws JBuild4DCGenerallyException {
+        return organRuntimeRemote.getOrganById(organId);
+    }
+
+    @Override
     public Map<String,Map<String,String>> getEnableOrganMinMapJsonPropRT() throws JBuild4DCGenerallyException {
         String cacheKey =builderCacheKey(this.getClass(),"getEnableOrganMinMapPropRT",0);
         if(proxyBuilderCacheManager.exist(SSOCacheManager.SSO_CLIENT_PROXY_CACHE_NAME, cacheKey)){

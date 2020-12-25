@@ -37,7 +37,7 @@
 </div>
 <!-- build -->
 <script type="application/javascript">
-    new Vue({
+    var loginVue=new Vue({
         el:"#app",
         data:{
             formItem: {
@@ -56,7 +56,7 @@
                 if(StringUtility.IsNullOrEmpty(redirectUrl)){
                     redirectUrl=BaseUtility.GetUrlOPParaValue("JBuild4DCSSOLogoutFromUrl");
                 }
-                debugger;
+                //debugger;
                 var senddata={
                     accountName:_self.formItem.account,
                     password:_self.formItem.password,
