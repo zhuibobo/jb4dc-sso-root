@@ -42,4 +42,15 @@
     <select id="selectEnableUserMinProp" resultMap="MinProp">
         select USER_ID, USER_NAME, USER_ACCOUNT, USER_ORGAN_ID from TSSO_USER where USER_STATUS='启用'
     </select>
+
+    <select id="selectUserByOrganSearch" resultType="java.util.Map">
+        SELECT * FROM TSSO_USER
+        <where>
+            <if test="userName !=null and userName !=''"> and TSSO_USER.USER_NAME like #{userName} </if>
+            <if test="account !=null and account !=''"> and TSSO_USER.USER_ACCOUNT like #{account} </if>
+            <if test="userPhoneNumber !=null and userPhoneNumber !=''"> and TSSO_USER.USER_PHONE_NUMBER like #{userPhoneNumber} </if>
+            <if test="organId !=null and organId !=''"> and TSSO_USER.USER_ORGAN_ID like #{organId} </if>
+        </where>
+        ORDER by USER_ORDER_NUM asc
+    </select>
 </mapper>

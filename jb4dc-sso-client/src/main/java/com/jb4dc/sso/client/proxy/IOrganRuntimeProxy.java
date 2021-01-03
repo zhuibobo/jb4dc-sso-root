@@ -20,4 +20,6 @@ public interface IOrganRuntimeProxy extends _OrganRuntimeRemote {
     JBuild4DCResponseVo<List<OrganEntity>> getEnableOrganMinPropRT() throws JBuild4DCGenerallyException;*/
 
     Map<String,Map<String,String>> getEnableOrganMinMapJsonPropRT() throws JBuild4DCGenerallyException;
+
+
 }

@@ -29,5 +29,8 @@ public interface _OrganRuntimeRemote {
 
     @RequestMapping(value = "/GetOrganById", method = RequestMethod.GET)
     JBuild4DCResponseVo<OrganEntity> getOrganById(@RequestParam("organId") String organId) throws JBuild4DCGenerallyException;
+
+    @RequestMapping(value = "/GetAllChildOrganIdIncludeSelfRT", method = RequestMethod.GET)
+    public JBuild4DCResponseVo<List<String>> getAllChildOrganIdIncludeSelfRT(@RequestParam("organId") String organId) throws JBuild4DCGenerallyException;
 }
 

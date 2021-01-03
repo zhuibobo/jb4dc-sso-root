@@ -25,4 +25,6 @@ public interface IOrganService extends IBaseService<OrganEntity> {
 
     List<OrganEntity> getALLEnableOrganMinProp();
 
+    List<String> getAllChildOrganIdIncludeSelf(String organId);
+
 }

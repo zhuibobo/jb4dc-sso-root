@@ -1,21 +1,21 @@
 /*
 **Created by IntelliJ IDEA.
 **User: zhuangrb
-**Date: 2018/8/26
+**Date: 2021/01/03
 **To change this template use File | Settings | File Templates.
-**选择部门人员组件
+**选择组织人员组件
 */
-Vue.component("select-department-user-dialog", {
+Vue.component("select-organ-user-dialog", {
     data: function () {
         return {
             acInterface:{
                 //Department
-                getDepartmentTreeData:"/Rest/SSO/Dept/Department/GetDepartmentsByOrganId",
+                getOrganTreeData:"/Rest/SSO/Org/Organ/GetFullOrgan",
                 //List
-                reloadListData:"/Rest/SSO/Dept/DepartmentUser/GetListData"
+                reloadListData:"/Rest/SSO/Runtime/UserRuntime/GetUserByOrganSearch"
             },
             //Tree
-            treeIdFieldName:"deptId",
+            treeIdFieldName:"organId",
             treeObj:null,
             treeSelectedNode:null,
             treeSetting:{
@@ -27,12 +27,12 @@ Vue.component("select-department-user-dialog", {
                 // 必须使用data
                 data:{
                     key:{
-                        name:"deptName"
+                        name:"organName"
                     },
                     simpleData : {
                         enable : true,
-                        idKey : "deptId", // id编号命名
-                        pIdKey : "deptParentId"  // 父id编号命名
+                        idKey : "organId", // id编号命名
+                        pIdKey : "organParentId"  // 父id编号命名
                     }
                 },
                 // 回调函数
@@ -62,7 +62,7 @@ Vue.component("select-department-user-dialog", {
                     value: "",
                     type: SearchUtility.SearchFieldType.LikeStringType
                 },
-                departmentId: {
+                organId: {
                     value: "",
                     type: SearchUtility.SearchFieldType.StringType
                 },
@@ -84,11 +84,6 @@ Vue.component("select-department-user-dialog", {
                 },{
                     title: '手机号码',
                     key: 'USER_PHONE_NUMBER',
-                    width:140,
-                    align: "center"
-                }, {
-                    title: '组织机构',
-                    key: 'ORGAN_NAME',
                     width:140,
                     align: "center"
                 }, {
@@ -128,11 +123,11 @@ Vue.component("select-department-user-dialog", {
             this.tableData=[];
         },
         //DepartmentTree
-        initTree:function (organId) {
+        initTree:function () {
             //var _self=this;
-            AjaxUtility.Post(this.acInterface.getDepartmentTreeData, {"organId":organId}, function (result) {
+            AjaxUtility.Post(this.acInterface.getOrganTreeData, {}, function (result) {
                 if (result.success) {
-                    this.$refs.zTreeUL.setAttribute("id","select-department-user-dialog-"+StringUtility.Guid());
+                    this.$refs.zTreeUL.setAttribute("id","select-organ-user-dialog-"+StringUtility.Guid());
                     this.treeObj=$.fn.zTree.init($(this.$refs.zTreeUL), this.treeSetting,result.data);
                     this.treeObj.expandAll(true);
                     this.treeObj._host=this;
@@ -149,7 +144,7 @@ Vue.component("select-department-user-dialog", {
             this.selectionRows=null;
             this.pageNum=1;
             this.clearSearchCondition();
-            this.searchCondition.departmentId.value=this.treeSelectedNode[this.treeIdFieldName];
+            this.searchCondition.organId.value=this.treeSelectedNode[this.treeIdFieldName];
             this.reloadData();
             //appList.reloadTreeTableData();
             //}
@@ -189,7 +184,7 @@ Vue.component("select-department-user-dialog", {
             this.reloadData();
         },
         beginSelect:function () {
-            var elem=this.$refs.selectDepartmentUserModelDialogWrap;
+            var elem=this.$refs.selectOrganUserModelDialogWrap;
             //debugger;
             //this.getOrganDataInitTree();
             //alert();
@@ -203,8 +198,9 @@ Vue.component("select-department-user-dialog", {
                 modal: true,
                 width: 970,
                 height: dialogHeight,
-                title: "选择部门人员"
+                title: "选择组织机构人员"
             });
+            this.initTree();
         },
         completed:function () {
             console.log(this.selectionRows);
@@ -218,20 +214,19 @@ Vue.component("select-department-user-dialog", {
 
         },
         handleClose: function () {
-            DialogUtility.CloseDialogElem(this.$refs.selectDepartmentUserModelDialogWrap);
+            DialogUtility.CloseDialogElem(this.$refs.selectOrganUserModelDialogWrap);
         },
     },
-    template: `<div ref="selectDepartmentUserModelDialogWrap" class="c1-select-model-wrap general-edit-page-wrap" style="display: none">
+    template: `<div ref="selectOrganUserModelDialogWrap" class="c1-select-model-wrap general-edit-page-wrap" style="display: none">
                     <div class="list-2column">
-                        <div class="left-outer-wrap" style="width: 180px;top: 10px;left: 10px;bottom: 55px">
-                            <select-organ-single-comp @on-selected-organ="changeOrgan" ref="selectOrganComp"></select-organ-single-comp>
-                            <div class="inner-wrap" style="position:absolute;top: 30px;bottom: 10px;height: auto;overflow: auto">
+                        <div class="left-outer-wrap" style="width: 250px;top: 10px;left: 10px;bottom: 55px">
+                            <div class="inner-wrap" style="position:absolute;top: 2px;bottom: 10px;height: auto;overflow: auto">
                                 <div>
                                     <ul ref="zTreeUL" class="ztree"></ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="right-outer-wrap iv-list-page-wrap" style="padding: 10px;left: 200px;top: 10px;right: 10px;bottom: 55px">
+                        <div class="right-outer-wrap iv-list-page-wrap" style="padding: 10px;left: 270px;top: 10px;right: 10px;bottom: 55px">
                             <div class="list-simple-search-wrap">
                                 <table class="ls-table">
                                     <colgroup>

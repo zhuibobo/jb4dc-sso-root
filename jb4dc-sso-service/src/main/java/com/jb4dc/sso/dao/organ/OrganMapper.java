@@ -25,4 +25,5 @@ public interface OrganMapper extends BaseMapper<OrganEntity> {
 
     List<OrganEntity> selectAllEnableOrganMinProp();
 
+    List<String> selectAllChildOrganIdIncludeSelf(@Param("organId") String organId);
 }

@@ -190,6 +190,11 @@ public class OrganServiceImpl extends BaseServiceImpl<OrganEntity> implements IO
     }
 
     @Override
+    public List<String> getAllChildOrganIdIncludeSelf(String organId) {
+        return organMapper.selectAllChildOrganIdIncludeSelf(organId);
+    }
+
+    @Override
     public void deleteByOrganName(JB4DCSession session, String organName, String warningOperationCode) {
         if(JBuild4DCYaml.getWarningOperationCode().equals(warningOperationCode)){
             organMapper.deleteByOrganName(organName);

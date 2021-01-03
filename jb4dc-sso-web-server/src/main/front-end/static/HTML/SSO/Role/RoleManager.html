@@ -62,8 +62,9 @@
                 </p>
                 <div slot="extra">
                     <button-group size="small">
-                        <i-button type="success" @click="showAddUserToRoleDialog()" icon="md-add"></i-button>
-                        <i-button type="primary" @click="clearAllRoleMember()" icon="ios-trash"></i-button>
+                        <i-button type="success" @click="showAddDeptUserToRoleDialog()" icon="md-add">部门人员</i-button>
+                        <i-button type="success" @click="showAddOrganUserToRoleDialog()" icon="md-add">组织人员</i-button>
+                        <i-button type="primary" @click="clearAllRoleMember()" icon="ios-trash">清空</i-button>
                     </button-group>
                 </div>
                 <i-table :height="roleMemberList.roleMemberListHeight" stripe border
@@ -80,6 +81,8 @@
     </div>
     <select-department-user-dialog ref="selectDepartmentUserDialog"
                                    @on-selected-completed="bindUsersToRole"></select-department-user-dialog>
+    <select-organ-user-dialog ref="selectOrganUserDialog"
+                                   @on-selected-completed="bindUsersToRole"></select-organ-user-dialog>
 </div>
 <script>
     var appList = new Vue({
@@ -248,7 +251,7 @@
             }
         },
         methods: {
-            <!--Tree1-->
+            //region Tree
             initTree: function () {
                 /*this.treeSetting.async.url = BaseUtility.BuildAction(this.acInterface.getGroupTreeData, {});
                 this.treeObj = $.fn.zTree.init($("#zTreeUL"), this.treeSetting);*/
@@ -361,7 +364,8 @@
                 this.treeSelectedNode = $.extend(true, this.treeSelectedNode, newNodeData);
                 appList.treeObj.updateNode(this.treeSelectedNode);
             },
-            <!--List-->
+            //endregion
+            //region Role List
             RoleAuthButton: function (h, params, idField, pageAppObj) {
                 //alert(idField);
                 return h('Tooltip', {
@@ -475,7 +479,8 @@
                 this.roleMemberList.searchCondition.roleId.value = this.roleList.editMemberRow.roleId;
                 this.reloadUserRoleBindData();
             },
-            <!--RoleMember-->
+            //endregion
+            //region Role Auth
             reloadUserRoleBindData: function () {
                 var _self = this;
                 //debugger;
@@ -503,9 +508,16 @@
                 }
                 return "";
             },
-            showAddUserToRoleDialog: function () {
+            showAddDeptUserToRoleDialog: function () {
                 if (this.roleList.editMemberRow) {
                     this.$refs.selectDepartmentUserDialog.beginSelect();
+                } else {
+                    DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, "请先选中角色!", null);
+                }
+            },
+            showAddOrganUserToRoleDialog:function (){
+                if (this.roleList.editMemberRow) {
+                    this.$refs.selectOrganUserDialog.beginSelect();
                 } else {
                     DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, "请先选中角色!", null);
                 }
@@ -557,6 +569,7 @@
                     }, this);
                 });
             }
+            //endregion
         }
     });
 </script>

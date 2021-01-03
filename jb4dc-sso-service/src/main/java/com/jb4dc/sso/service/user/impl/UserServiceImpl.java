@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class UserServiceImpl extends BaseServiceImpl<UserEntity> implements IUserService
@@ -62,6 +63,15 @@ public class UserServiceImpl extends BaseServiceImpl<UserEntity> implements IUse
     @Override
     public List<UserEntity> getALLEnableUserMinProp() {
         return userMapper.selectEnableUserMinProp();
+    }
+
+    @Override
+    public PageInfo<List<Map<String, Object>>> getUserByOrganSearch(JB4DCSession jb4DSession, Integer pageNum, Integer pageSize, Map<String, Object> searchMap) {
+        PageHelper.startPage(pageNum, pageSize);
+        //PageHelper.
+        List<Map<String,Object>> list=userMapper.selectUserByOrganSearch(searchMap);
+        PageInfo<List<Map<String,Object>>> pageInfo = new PageInfo(list);
+        return pageInfo;
     }
 
     @Override

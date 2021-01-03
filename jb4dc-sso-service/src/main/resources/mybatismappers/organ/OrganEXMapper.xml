@@ -69,4 +69,9 @@
     <select id="selectAllEnableOrganMinProp" resultMap="MinProp">
         select ORGAN_ID, ORGAN_NAME, ORGAN_SHORT_NAME, ORGAN_NO, ORGAN_CODE,ORGAN_PARENT_ID, ORGAN_PARENT_ID_LIST,ORGAN_TYPE_VALUE from TSSO_ORGAN where ORGAN_STATUS='启用' order by ORGAN_ORDER_NUM asc
     </select>
+
+    <select id="selectAllChildOrganIdIncludeSelf" resultType="java.lang.String" parameterType="string">
+        <bind name="pattern" value="'%' + organId + '%'" />
+        select ORGAN_ID from TSSO_ORGAN where ORGAN_PARENT_ID_LIST like #{pattern} order by ORGAN_ORDER_NUM asc
+    </select>
 </mapper>

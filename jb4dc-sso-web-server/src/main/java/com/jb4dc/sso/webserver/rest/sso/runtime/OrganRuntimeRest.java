@@ -33,6 +33,12 @@ public class OrganRuntimeRest extends OrganRest {
         return JBuild4DCResponseVo.success(JBuild4DCResponseVo.GETDATASUCCESSMSG,organEntityList);
     }
 
+    @RequestMapping(value = "/GetAllChildOrganIdIncludeSelfRT", method = RequestMethod.GET)
+    public JBuild4DCResponseVo<List<String>> getAllChildOrganIdIncludeSelfRT(String organId) {
+        List<String> list=organService.getAllChildOrganIdIncludeSelf(organId);
+        return JBuild4DCResponseVo.success(JBuild4DCResponseVo.GETDATASUCCESSMSG,list);
+    }
+
     @RequestMapping(value = "/GetOrganById", method = RequestMethod.GET)
     public JBuild4DCResponseVo<OrganEntity> getOrganById(String organId) throws JBuild4DCGenerallyException {
         return JBuild4DCResponseVo.getDataSuccess(organService.getByPrimaryKey(null,organId));
