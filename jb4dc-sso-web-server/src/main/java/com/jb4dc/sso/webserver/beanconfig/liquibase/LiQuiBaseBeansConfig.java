@@ -50,7 +50,7 @@ public class LiQuiBaseBeansConfig {
             e.printStackTrace();
             throw new JBuild4DCGenerallyException(JBuild4DCGenerallyException.EXCEPTION_CONFIG_CODE,"执行数据库更新失败！");
         } finally {
-            if (liquibase != null) {
+            /*if (liquibase != null) {
                 Database database = liquibase.getDatabase();
                 if (database != null) {
                     try {
@@ -59,7 +59,7 @@ public class LiQuiBaseBeansConfig {
                         logger.warn("关闭数据库连接失败！", e);
                     }
                 }
-            }
+            }*/
         }
     }
 

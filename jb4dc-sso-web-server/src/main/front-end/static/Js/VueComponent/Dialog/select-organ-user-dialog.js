@@ -107,11 +107,11 @@ Vue.component("select-organ-user-dialog", {
         }
     },
     mounted:function(){
-        var oldSelectedOrganId=CookieUtility.GetCookie("DMORGSID");
-        if(oldSelectedOrganId){
-            this.$refs.selectOrganComp.setOldSelectedOrgan(oldSelectedOrganId);
-            this.initTree(oldSelectedOrganId);
-        }
+        //var oldSelectedOrganId=CookieUtility.GetCookie("DMORGSID");
+        //if(oldSelectedOrganId){
+            //this.$refs.selectOrganComp.setOldSelectedOrgan(oldSelectedOrganId);
+        //    this.initTree(oldSelectedOrganId);
+        //}
     },
     methods:{
         //Organ

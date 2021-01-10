@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class RoleServiceImpl extends BaseServiceImpl<RoleEntity> implements IRoleService
@@ -40,6 +41,11 @@ public class RoleServiceImpl extends BaseServiceImpl<RoleEntity> implements IRol
     @Override
     public int countInRoleGroup(String groupId) {
         return roleMapper.countInRoleGroup(groupId);
+    }
+
+    @Override
+    public List<RoleEntity> getUserRoleList(String userId) {
+        return roleMapper.selectUserRoleList(userId);
     }
 
     @Override

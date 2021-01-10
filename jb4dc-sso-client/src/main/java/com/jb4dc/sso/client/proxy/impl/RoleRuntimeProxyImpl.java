@@ -29,9 +29,16 @@ public class RoleRuntimeProxyImpl extends RuntimeProxyBase implements IRoleRunti
     _RoleRuntimeRemote roleRuntimeRemote;
 
     @Override
-    public JBuild4DCResponseVo<List<RoleEntity>> getFullEnableRoleRT() throws JBuild4DCGenerallyException, IOException {
+    public JBuild4DCResponseVo<List<RoleEntity>> getFullEnableRoleRT() throws JBuild4DCGenerallyException {
         String methodName = "getFullEnableRoleRT";
-        JBuild4DCResponseVo<List<RoleEntity>> jBuild4DCResponseVo =autoGetFromCache(this.getClass(), methodName, () -> roleRuntimeRemote.getFullEnableRoleRT());
+        JBuild4DCResponseVo<List<RoleEntity>> jBuild4DCResponseVo =autoGetFromCache(this.getClass(), methodName, () -> roleRuntimeRemote.getFullEnableRoleRT(),RoleEntity.class);
+        return jBuild4DCResponseVo;
+    }
+
+    @Override
+    public JBuild4DCResponseVo<List<RoleEntity>> getUserRolesRT(String userId) throws JBuild4DCGenerallyException {
+        String methodName = "getUserRolesRT"+userId;
+        JBuild4DCResponseVo<List<RoleEntity>> jBuild4DCResponseVo =autoGetFromCache(this.getClass(), methodName, () -> roleRuntimeRemote.getUserRolesRT(userId),RoleEntity.class);
         return jBuild4DCResponseVo;
     }
 }

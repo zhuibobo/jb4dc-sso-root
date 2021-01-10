@@ -33,29 +33,34 @@ public class RuntimeProxyBase {
         return aClass.getCanonicalName() +"_"+ classInnerSingleValue+"_"+version;
     }
 
-    public <T> JBuild4DCResponseVo<List<T>> autoGetFromCache(Class aClass, String classInnerSingleValue, IBuildGeneralObj<JBuild4DCResponseVo<List<T>>> builder) throws JBuild4DCGenerallyException {
+    public <T> JBuild4DCResponseVo<List<T>> autoGetFromCache(Class aClass, String classInnerSingleValue, IBuildGeneralObj<JBuild4DCResponseVo<List<T>>> builder,Class<T> valueType) throws JBuild4DCGenerallyException {
         try {
             int version = cacheRuntimeRemote.getPlatformGlobalCacheVersion().getData();
             String cacheKey = this.builderCacheKey(aClass, classInnerSingleValue, version);
-
+            String cacheValue;
             if (proxyBuilderCacheManager.exist(SSOCacheManager.SSO_CLIENT_PROXY_CACHE_NAME, cacheKey)) {
                 logger.info("从缓存中获取数据"+cacheKey);
-                String cacheValue = proxyBuilderCacheManager.getString(SSOCacheManager.SSO_CLIENT_PROXY_CACHE_NAME,cacheKey);
-                return JsonUtility.toObject(cacheValue,JBuild4DCResponseVo.class);
+                cacheValue = proxyBuilderCacheManager.getString(SSOCacheManager.SSO_CLIENT_PROXY_CACHE_NAME,cacheKey);
+                //return JsonUtility.toObject(cacheValue,JBuild4DCResponseVo.class);
             } else {
                 JBuild4DCResponseVo<List<T>> obj=builder.BuildObj();
                 if(obj==null){
                     throw new JBuild4DCGenerallyException(JBuild4DCGenerallyException.EXCEPTION_BUILDER_CODE, "不能将Null存入缓存,Key:"+cacheKey);
                 }
-                String json= null;
 
-                    json = JsonUtility.toObjectString(obj);
+                List<T> listData=obj.getData();
+                String json= null;
+                json = JsonUtility.toObjectString(listData);
 
                 proxyBuilderCacheManager.put(SSOCacheManager.SSO_CLIENT_PROXY_CACHE_NAME,cacheKey,json);
                 //proxyBuilderCacheManager.put(SSOCacheManager.SSO_CLIENT_PROXY_CACHE_NAME, cacheKey, obj);
             }
-            String cacheValue=proxyBuilderCacheManager.getString(SSOCacheManager.SSO_CLIENT_PROXY_CACHE_NAME,cacheKey);
-            return JsonUtility.toObject(cacheValue,JBuild4DCResponseVo.class);
+
+            cacheValue=proxyBuilderCacheManager.getString(SSOCacheManager.SSO_CLIENT_PROXY_CACHE_NAME,cacheKey);
+            List<T> listData=JsonUtility.toObjectList(cacheValue,valueType);
+
+            JBuild4DCResponseVo<List<T>> catchResult=JBuild4DCResponseVo.getDataSuccess(listData);
+            return catchResult;
 
         } catch (JsonProcessingException e) {
             throw new JBuild4DCGenerallyException(JBuild4DCGenerallyException.EXCEPTION_BUILDER_CODE,e);

@@ -6,6 +6,7 @@ import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.sso.dbentities.role.RoleEntity;
 import com.jb4dc.sso.dbentities.user.UserEntity;
 import com.jb4dc.sso.service.role.IRoleService;
+import com.jb4dc.sso.service.user.IUserRoleService;
 import com.jb4dc.sso.webserver.rest.sso.role.RoleRest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,10 +28,15 @@ public class RoleRuntimeRest extends RoleRest {
     @Autowired
     IRoleService roleService;
 
-    @RequestMapping(value = "GetFullEnableRoleRT", method = RequestMethod.POST)
+    @RequestMapping(value = "GetFullEnableRoleRT", method = RequestMethod.GET)
     public JBuild4DCResponseVo getFullEnableRoleRT() throws JBuild4DCGenerallyException {
         List<RoleEntity> roleEntities = roleService.getALL(null);
         return JBuild4DCResponseVo.getDataSuccess(roleEntities);
     }
 
+    @RequestMapping(value = "GetUserRolesRT", method = RequestMethod.GET)
+    public JBuild4DCResponseVo<List<RoleEntity>> getUserRolesRT(String userId){
+        List<RoleEntity> userRoleList=roleService.getUserRoleList(userId);
+        return JBuild4DCResponseVo.getDataSuccess(userRoleList);
+    }
 }

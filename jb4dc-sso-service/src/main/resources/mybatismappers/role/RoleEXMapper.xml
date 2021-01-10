@@ -40,4 +40,8 @@
     </select>
     
     <select id="countInRoleGroup" resultType="int">select count(ROLE_ID) from TSSO_ROLE where ROLE_GROUP_ID=#{id,jdbcType=NVARCHAR}</select>
+
+    <select id="selectUserRoleList" resultMap="BaseResultMap">
+        select * from TSSO_ROLE where ROLE_ID in (select BIND_ROLE_ID from TSSO_USER_ROLE where BIND_USER_ID=#{userId,jdbcType=NVARCHAR})
+    </select>
 </mapper>

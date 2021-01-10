@@ -32,14 +32,14 @@ public class OrganRuntimeProxyImpl extends RuntimeProxyBase implements IOrganRun
     @Override
     public JBuild4DCResponseVo<List<OrganEntity>> getFullEnableOrganRT() throws JBuild4DCGenerallyException {
         String methodName = "getFullEnableOrganRT";
-        JBuild4DCResponseVo<List<OrganEntity>> jBuild4DCResponseVo =autoGetFromCache(this.getClass(), methodName, () -> organRuntimeRemote.getFullEnableOrganRT());
+        JBuild4DCResponseVo<List<OrganEntity>> jBuild4DCResponseVo =autoGetFromCache(this.getClass(), methodName, () -> organRuntimeRemote.getFullEnableOrganRT(),OrganEntity.class);
         return jBuild4DCResponseVo;
     }
 
     @Override
     public JBuild4DCResponseVo<List<OrganEntity>> getEnableOrganMinPropRT() throws JBuild4DCGenerallyException {
         String methodName = "getEnableOrganMinPropRT";
-        JBuild4DCResponseVo<List<OrganEntity>> jBuild4DCResponseVo =autoGetFromCache(this.getClass(), methodName, () -> organRuntimeRemote.getEnableOrganMinPropRT());
+        JBuild4DCResponseVo<List<OrganEntity>> jBuild4DCResponseVo =autoGetFromCache(this.getClass(), methodName, () -> organRuntimeRemote.getEnableOrganMinPropRT(),OrganEntity.class);
         return jBuild4DCResponseVo;
     }
 
@@ -50,8 +50,8 @@ public class OrganRuntimeProxyImpl extends RuntimeProxyBase implements IOrganRun
 
     @Override
     public JBuild4DCResponseVo<List<String>> getAllChildOrganIdIncludeSelfRT(String organId) throws JBuild4DCGenerallyException {
-        String methodName = "getAllChildOrganIdIncludeSelfRT";
-        JBuild4DCResponseVo<List<String>> jBuild4DCResponseVo =autoGetFromCache(this.getClass(), methodName, () -> organRuntimeRemote.getAllChildOrganIdIncludeSelfRT(organId));
+        String methodName = "getAllChildOrganIdIncludeSelfRT"+organId;
+        JBuild4DCResponseVo<List<String>> jBuild4DCResponseVo =autoGetFromCache(this.getClass(), methodName, () -> organRuntimeRemote.getAllChildOrganIdIncludeSelfRT(organId),String.class);
         return jBuild4DCResponseVo;
     }
 

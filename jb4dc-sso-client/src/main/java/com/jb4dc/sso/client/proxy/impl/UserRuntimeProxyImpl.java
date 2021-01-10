@@ -33,14 +33,14 @@ public class UserRuntimeProxyImpl extends RuntimeProxyBase implements IUserRunti
     @Override
     public JBuild4DCResponseVo<List<UserEntity>> getUserByOrganIdRT(String organId) throws JBuild4DCGenerallyException {
         String methodName = "getFullEnableOrganRT"+organId;
-        JBuild4DCResponseVo<List<UserEntity>> jBuild4DCResponseVo =autoGetFromCache(this.getClass(), methodName, () -> userRuntimeRemote.getUserByOrganIdRT(organId));
+        JBuild4DCResponseVo<List<UserEntity>> jBuild4DCResponseVo =autoGetFromCache(this.getClass(), methodName, () -> userRuntimeRemote.getUserByOrganIdRT(organId),UserEntity.class);
         return jBuild4DCResponseVo;
     }
 
     @Override
     public JBuild4DCResponseVo<List<UserEntity>> getEnableUserMinPropRT() throws JBuild4DCGenerallyException {
         String methodName = "getEnableUserMinPropRT";
-        JBuild4DCResponseVo<List<UserEntity>> jBuild4DCResponseVo =autoGetFromCache(this.getClass(), methodName, () -> userRuntimeRemote.getEnableUserMinPropRT());
+        JBuild4DCResponseVo<List<UserEntity>> jBuild4DCResponseVo =autoGetFromCache(this.getClass(), methodName, () -> userRuntimeRemote.getEnableUserMinPropRT(),UserEntity.class);
         return jBuild4DCResponseVo;
     }
 

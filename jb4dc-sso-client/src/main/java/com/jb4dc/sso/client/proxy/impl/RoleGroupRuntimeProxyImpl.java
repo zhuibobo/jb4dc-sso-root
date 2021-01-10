@@ -30,7 +30,7 @@ public class RoleGroupRuntimeProxyImpl extends RuntimeProxyBase implements IRole
     @Override
     public JBuild4DCResponseVo<List<RoleGroupEntity>> getALLRoleGroup() throws JBuild4DCGenerallyException, IOException {
         String methodName = "getALLRoleGroup";
-        JBuild4DCResponseVo<List<RoleGroupEntity>> jBuild4DCResponseVo =autoGetFromCache(this.getClass(), methodName, () -> roleGroupRuntimeRemote.getALLRoleGroup());
+        JBuild4DCResponseVo<List<RoleGroupEntity>> jBuild4DCResponseVo =autoGetFromCache(this.getClass(), methodName, () -> roleGroupRuntimeRemote.getALLRoleGroup(),RoleGroupEntity.class);
         return jBuild4DCResponseVo;
     }
 }
