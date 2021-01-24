@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jb4dc.sso.dao.menu.MenuInnObjMapper">
+    <resultMap id="BaseResultMap" type="com.jb4dc.sso.dbentities.menu.MenuInnObjEntity">
+        <constructor>
+            <idArg column="MIO_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="MIO_MENU_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="MIO_AUTH_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="MIO_CATEGORY" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="MIO_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="MIO_VALUE" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="MIO_ACTION" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="MIO_ORDER_NUM" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <arg column="MIO_PARENT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="MIO_PARENT_ID_LIST" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="MIO_CREATE_TIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+            <arg column="MIO_DESCRIPTION" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
+    MIO_ID, MIO_MENU_ID, MIO_AUTH_TYPE, MIO_CATEGORY, MIO_NAME, MIO_VALUE, MIO_ACTION,
+    MIO_ORDER_NUM, MIO_PARENT_ID, MIO_PARENT_ID_LIST, MIO_CREATE_TIME, MIO_DESCRIPTION
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from TSSO_MENU_INN_OBJ
+        where MIO_ID = #{mioId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from TSSO_MENU_INN_OBJ
+    where MIO_ID = #{mioId,jdbcType=VARCHAR}
+  </delete>
+    <insert id="insert" parameterType="com.jb4dc.sso.dbentities.menu.MenuInnObjEntity">
+    insert into TSSO_MENU_INN_OBJ (MIO_ID, MIO_MENU_ID, MIO_AUTH_TYPE,
+      MIO_CATEGORY, MIO_NAME, MIO_VALUE,
+      MIO_ACTION, MIO_ORDER_NUM, MIO_PARENT_ID,
+      MIO_PARENT_ID_LIST, MIO_CREATE_TIME, MIO_DESCRIPTION
+      )
+    values (#{mioId,jdbcType=VARCHAR}, #{mioMenuId,jdbcType=VARCHAR}, #{mioAuthType,jdbcType=VARCHAR},
+      #{mioCategory,jdbcType=VARCHAR}, #{mioName,jdbcType=VARCHAR}, #{mioValue,jdbcType=VARCHAR},
+      #{mioAction,jdbcType=VARCHAR}, #{mioOrderNum,jdbcType=INTEGER}, #{mioParentId,jdbcType=VARCHAR},
+      #{mioParentIdList,jdbcType=VARCHAR}, #{mioCreateTime,jdbcType=TIMESTAMP}, #{mioDescription,jdbcType=VARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="com.jb4dc.sso.dbentities.menu.MenuInnObjEntity">
+        insert into TSSO_MENU_INN_OBJ
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="mioId != null">
+                MIO_ID,
+            </if>
+            <if test="mioMenuId != null">
+                MIO_MENU_ID,
+            </if>
+            <if test="mioAuthType != null">
+                MIO_AUTH_TYPE,
+            </if>
+            <if test="mioCategory != null">
+                MIO_CATEGORY,
+            </if>
+            <if test="mioName != null">
+                MIO_NAME,
+            </if>
+            <if test="mioValue != null">
+                MIO_VALUE,
+            </if>
+            <if test="mioAction != null">
+                MIO_ACTION,
+            </if>
+            <if test="mioOrderNum != null">
+                MIO_ORDER_NUM,
+            </if>
+            <if test="mioParentId != null">
+                MIO_PARENT_ID,
+            </if>
+            <if test="mioParentIdList != null">
+                MIO_PARENT_ID_LIST,
+            </if>
+            <if test="mioCreateTime != null">
+                MIO_CREATE_TIME,
+            </if>
+            <if test="mioDescription != null">
+                MIO_DESCRIPTION,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="mioId != null">
+                #{mioId,jdbcType=VARCHAR},
+            </if>
+            <if test="mioMenuId != null">
+                #{mioMenuId,jdbcType=VARCHAR},
+            </if>
+            <if test="mioAuthType != null">
+                #{mioAuthType,jdbcType=VARCHAR},
+            </if>
+            <if test="mioCategory != null">
+                #{mioCategory,jdbcType=VARCHAR},
+            </if>
+            <if test="mioName != null">
+                #{mioName,jdbcType=VARCHAR},
+            </if>
+            <if test="mioValue != null">
+                #{mioValue,jdbcType=VARCHAR},
+            </if>
+            <if test="mioAction != null">
+                #{mioAction,jdbcType=VARCHAR},
+            </if>
+            <if test="mioOrderNum != null">
+                #{mioOrderNum,jdbcType=INTEGER},
+            </if>
+            <if test="mioParentId != null">
+                #{mioParentId,jdbcType=VARCHAR},
+            </if>
+            <if test="mioParentIdList != null">
+                #{mioParentIdList,jdbcType=VARCHAR},
+            </if>
+            <if test="mioCreateTime != null">
+                #{mioCreateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="mioDescription != null">
+                #{mioDescription,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.jb4dc.sso.dbentities.menu.MenuInnObjEntity">
+        update TSSO_MENU_INN_OBJ
+        <set>
+            <if test="mioMenuId != null">
+                MIO_MENU_ID = #{mioMenuId,jdbcType=VARCHAR},
+            </if>
+            <if test="mioAuthType != null">
+                MIO_AUTH_TYPE = #{mioAuthType,jdbcType=VARCHAR},
+            </if>
+            <if test="mioCategory != null">
+                MIO_CATEGORY = #{mioCategory,jdbcType=VARCHAR},
+            </if>
+            <if test="mioName != null">
+                MIO_NAME = #{mioName,jdbcType=VARCHAR},
+            </if>
+            <if test="mioValue != null">
+                MIO_VALUE = #{mioValue,jdbcType=VARCHAR},
+            </if>
+            <if test="mioAction != null">
+                MIO_ACTION = #{mioAction,jdbcType=VARCHAR},
+            </if>
+            <if test="mioOrderNum != null">
+                MIO_ORDER_NUM = #{mioOrderNum,jdbcType=INTEGER},
+            </if>
+            <if test="mioParentId != null">
+                MIO_PARENT_ID = #{mioParentId,jdbcType=VARCHAR},
+            </if>
+            <if test="mioParentIdList != null">
+                MIO_PARENT_ID_LIST = #{mioParentIdList,jdbcType=VARCHAR},
+            </if>
+            <if test="mioCreateTime != null">
+                MIO_CREATE_TIME = #{mioCreateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="mioDescription != null">
+                MIO_DESCRIPTION = #{mioDescription,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where MIO_ID = #{mioId,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.jb4dc.sso.dbentities.menu.MenuInnObjEntity">
+    update TSSO_MENU_INN_OBJ
+    set MIO_MENU_ID = #{mioMenuId,jdbcType=VARCHAR},
+      MIO_AUTH_TYPE = #{mioAuthType,jdbcType=VARCHAR},
+      MIO_CATEGORY = #{mioCategory,jdbcType=VARCHAR},
+      MIO_NAME = #{mioName,jdbcType=VARCHAR},
+      MIO_VALUE = #{mioValue,jdbcType=VARCHAR},
+      MIO_ACTION = #{mioAction,jdbcType=VARCHAR},
+      MIO_ORDER_NUM = #{mioOrderNum,jdbcType=INTEGER},
+      MIO_PARENT_ID = #{mioParentId,jdbcType=VARCHAR},
+      MIO_PARENT_ID_LIST = #{mioParentIdList,jdbcType=VARCHAR},
+      MIO_CREATE_TIME = #{mioCreateTime,jdbcType=TIMESTAMP},
+      MIO_DESCRIPTION = #{mioDescription,jdbcType=VARCHAR}
+    where MIO_ID = #{mioId,jdbcType=VARCHAR}
+  </update>
+</mapper>

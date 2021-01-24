@@ -1,6 +1,7 @@
 package com.jb4dc.sso.service.authority.impl;
 
 import com.jb4dc.base.service.IAddBefore;
+import com.jb4dc.base.service.ISQLBuilderService;
 import com.jb4dc.base.service.impl.BaseServiceImpl;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
@@ -9,15 +10,22 @@ import com.jb4dc.core.base.tools.UUIDUtility;
 import com.jb4dc.sso.dao.authority.AuthorityMapper;
 import com.jb4dc.sso.dbentities.authority.AuthorityEntity;
 import com.jb4dc.sso.service.authority.IAuthorityService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class AuthorityServiceImpl extends BaseServiceImpl<AuthorityEntity> implements IAuthorityService
 {
     AuthorityMapper authorityMapper;
+
+    @Autowired
+    ISQLBuilderService isqlBuilderService;
+
     public AuthorityServiceImpl(AuthorityMapper _defaultBaseMapper){
         super(_defaultBaseMapper);
         authorityMapper=_defaultBaseMapper;
@@ -94,5 +102,43 @@ public class AuthorityServiceImpl extends BaseServiceImpl<AuthorityEntity> imple
     @Override
     public List<AuthorityEntity> getOwnerAuth(JB4DCSession session, String authOwnerType, String authOwnerId) {
         return authorityMapper.selectOwnerAuth(authOwnerType,authOwnerId);
+    }
+
+    @Override
+    public List<Map<String,Object>> getObjAuthOwnerDesc(JB4DCSession session, String authObjId)  throws JBuild4DCGenerallyException {
+        List<Map<String,Object>> result=new ArrayList<>();
+
+        String sql="select * from TSSO_AUTHORITY where AUTH_OBJ_ID=#{authObjId}";
+        List<Map<String,Object>> authorityList=isqlBuilderService.selectList(sql,authObjId);
+        if(authorityList!=null&&authorityList.size()>0){
+            for (Map<String, Object> stringObjectMap : authorityList) {
+                String authOwnerType=stringObjectMap.get("AUTH_OWNER_TYPE").toString();
+                String authOwnerId=stringObjectMap.get("AUTH_OWNER_ID").toString();
+                if(authOwnerType.toUpperCase().equals("ROLE")){
+
+
+                    String searchRoleAndUser="SELECT TSSO_ROLE.ROLE_ID,TSSO_ROLE.ROLE_NAME,TSSO_USER.USER_NAME,USER_ORGAN.ORGAN_NAME USER_ORGAN_NAME,PARENT_ORGAN.ORGAN_NAME PARENT_ORGAN_NAME FROM TSSO_ROLE" +
+                            "    LEFT JOIN TSSO_USER_ROLE ON TSSO_ROLE.ROLE_ID=TSSO_USER_ROLE.BIND_ROLE_ID" +
+                            "    JOIN TSSO_USER ON TSSO_USER_ROLE.BIND_USER_ID=TSSO_USER.USER_ID" +
+                            "    JOIN TSSO_ORGAN USER_ORGAN ON TSSO_USER.USER_ORGAN_ID=USER_ORGAN.ORGAN_ID" +
+                            "    JOIN TSSO_ORGAN PARENT_ORGAN ON USER_ORGAN.ORGAN_PARENT_ID=PARENT_ORGAN.ORGAN_ID where TSSO_ROLE.ROLE_ID=#{authOwnerId} order by PARENT_ORGAN_NAME,USER_ORGAN_NAME";
+                    List<Map<String,Object>> searchRoleAndUserList=isqlBuilderService.selectList(searchRoleAndUser,authOwnerId);
+                    Map<String,Object> singleResult=new HashMap<>();
+                    if(searchRoleAndUserList!=null&&searchRoleAndUserList.size()>0) {
+                        String roleId=searchRoleAndUserList.get(0).get("ROLE_ID").toString();
+                        String roleName=searchRoleAndUserList.get(0).get("ROLE_NAME").toString();
+                        singleResult.put("Key",roleId);
+                        singleResult.put("Name",roleName);
+                        singleResult.put("Type","角色");
+                        singleResult.put("Data",searchRoleAndUserList);
+                        result.add(singleResult);
+                        //result.put("Role*"+roleId+"*"+roleName,searchRoleAndUserList);
+                        //singleResult
+                    }
+                }
+            }
+        }
+
+        return result;
     }
 }

@@ -23,7 +23,7 @@ public class DepartmentRest extends GeneralRest<DepartmentEntity> {
 
     @Override
     public String getModuleName() {
-        return "部门";
+        return "单点登录系统-部门";
     }
 
     @Override

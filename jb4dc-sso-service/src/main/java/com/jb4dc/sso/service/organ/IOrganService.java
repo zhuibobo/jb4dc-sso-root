@@ -27,4 +27,5 @@ public interface IOrganService extends IBaseService<OrganEntity> {
 
     List<String> getAllChildOrganIdIncludeSelf(String organId);
 
+    List<OrganEntity> getEnableChildOrgan(String organId);
 }

@@ -17,7 +17,7 @@ public class OrganTypeRest extends GeneralRest<OrganTypeEntity> {
 
     @Override
     public String getModuleName() {
-        return "组织机构类型";
+        return "单点登录系统-组织机构类型";
     }
 
     @Override

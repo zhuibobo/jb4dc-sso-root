@@ -309,7 +309,28 @@
         <modifyDataType tableName="TSSO_MENU" columnName="MENU_OUTER_NAME" newDataType="NVARCHAR(500)"></modifyDataType>
     </changeSet>
 
-
+    <changeSet author="zhuangrb" id="changeSet-SSO-0004" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="TSSO_MENU_INN_OBJ" remarks="菜单内对象扩展标记表:存储菜单内容标记数据">
+            <column name="MIO_ID" type="NVARCHAR(100)" remarks="主键:UUID">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="MIO_MENU_ID" type="NVARCHAR(100)" remarks="所属菜单ID"/>
+            <column name="MIO_AUTH_TYPE" type="NVARCHAR(20)" remarks="扩展权限标记类型:绑定显示,绑定动作"/>
+            <column name="MIO_CATEGORY" type="NVARCHAR(20)" remarks="扩展标记分类:权限标记,一般标记"/>
+            <column name="MIO_NAME" type="NVARCHAR(100)" remarks="扩展标记名称"/>
+            <column name="MIO_VALUE" type="NVARCHAR(100)" remarks="扩展标记值"/>
+            <column name="MIO_ACTION" type="NVARCHAR(500)" remarks="绑定动作"/>
+            <column name="MIO_ORDER_NUM" type="INT" remarks="排序号"/>
+            <column name="MIO_PARENT_ID" type="NVARCHAR(100)" remarks="父节点ID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MIO_PARENT_ID_LIST" type="NVARCHAR(1200)" remarks="父节点ID列表">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MIO_CREATE_TIME" type="datetime(6)" remarks="创建时间"/>
+            <column name="MIO_DESCRIPTION" type="NVARCHAR(1000)" remarks="备注"/>
+        </createTable>
+    </changeSet>
     <!--系统设置-->
     <changeSet author="zhuangrb" id="changeSet-System-0001" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
 

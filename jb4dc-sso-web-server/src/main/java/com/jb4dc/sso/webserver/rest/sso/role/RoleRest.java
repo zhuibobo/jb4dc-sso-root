@@ -16,7 +16,7 @@ public class RoleRest extends GeneralRest<RoleEntity> {
 
     @Override
     public String getModuleName() {
-        return "角色";
+        return "单点登录系统-角色";
     }
 
     @Override

@@ -1,146 +1,4 @@
-<!DOCTYPE html>
-<html lang="zh" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <th:block th:replace="Fragment/GeneralLib::GeneralLib"></th:block>
-    <th:block th:replace="Fragment/GeneralLib::ZTreeExtendLib"></th:block>
-    <th:block th:replace="Fragment/GeneralLib::ThemesLib"></th:block>
-</head>
-<body>
-<div id="appList" class="list-2column">
-    <div class="left-outer-wrap">
-        <div class="inner-wrap" style="width: 250px">
-            <div class="tool-bar-wrap">
-            </div>
-            <div>
-                <ul id="zTreeUL" class="ztree"></ul>
-            </div>
-        </div>
-    </div>
-    <div class="right-outer-wrap" style="padding: 10px;left: 260px;right: 500px">
-        <div style="width: 100%">
-            <div style="float: right;margin-bottom: 15px;margin-top: 10px;margin-right: 10px">
-                <button-group>
-                    <i-button type="success" @click="add()" icon="md-add"> 新增 </i-button>
-                    <i-button type="primary" @click="edit()" icon="md-create"> 修改 </i-button>
-                    <i-button type="primary" @click="del()" icon="md-close"> 删除 </i-button>
-                    <i-button type="primary" @click="view()" icon="md-search"> 迁移 </i-button>
-                    <i-button type="primary" @click="move('up')" icon="md-arrow-up"> 上移</i-button>
-                    <i-button type="primary" @click="move('down')" icon="md-arrow-down"> 下移 </i-button>
-                    <i-button type="primary" @click="ownerRole()" icon="ios-contact"> 拥有角色 </i-button>
-                </button-group>
-            </div>
-        </div>
-        <div style="position: absolute;top: 60px;bottom: 10px;left: 0px;right: 0px;overflow: auto">
-            <div id="divTreeTable" style="width: 98%;margin: auto;"></div>
-        </div>
-    </div>
-    <div class="right-outer-wrap" style="padding: 10px;width: 490px;right: 0px">
-        <Spin size="large" fix v-if="menuInfoSpinShow"></Spin>
-        <tabs value="menu-info">
-            <tab-pane label="菜单信息" name="menu-info">
-                <div>
-                    <table class="light-gray-table">
-                        <tr>
-                            <td style="width: 90px">名称：</td>
-                            <td>
-                                {{viewMenuEntity.menuName}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>显示：</td>
-                            <td>
-                                {{viewMenuEntity.menuText}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>值：</td>
-                            <td>
-                                {{viewMenuEntity.menuValue}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>类型：</td>
-                            <td>
-                                {{viewMenuEntity.menuType}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>图标：</td>
-                            <td>
-                                {{viewMenuEntity.menuClassName}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>链接地址：</td>
-                            <td>
-                                {{viewMenuEntity.menuRightUrl}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>链接参数：</td>
-                            <td>
-                                <textarea readonly rows="10">{{formatToJsonStringCode(viewMenuEntity.menuRightUrlPara)}}</textarea>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>关联Id：</td>
-                            <td>
-                                {{viewMenuEntity.menuOuterId}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>关联说明：</td>
-                            <td>
-                                {{viewMenuEntity.menuOuterName}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>左链接地址：</td>
-                            <td>
-                                {{viewMenuEntity.menuLeftUrl}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>左链接参数：</td>
-                            <td>
-                                {{viewMenuEntity.menuLeftUrlPara}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>备注：</td>
-                            <td>
-                                {{viewMenuEntity.menuDescription}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>ID：</td>
-                            <td>
-                                {{viewMenuEntity.menuId}}
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </tab-pane>
-            <tab-pane label="权限标签" name="menu-inn-obj">
-                <div class="inner-wrap" style="width: 100%">
-                    <div class="tool-bar-wrap">
-                        <div alt="新增" title="新增" class="add" @click="addMenuInnerObj"></div>
-                        <div alt="修改" title="修改" class="edit" @click="editMenuInnerObj"></div>
-                        <div alt="删除" title="删除" class="del" @click="delMenuInnerObj"></div>
-                        <div alt="浏览" title="浏览" class="view" @click="viewMenuInnerObj"></div>
-                        <div alt="上移" title="上移" class="order-up" @click="moveMenuInnerObj('up')"></div>
-                        <div alt="下移" title="下移" class="order-down last" @click="moveMenuInnerObj('down')"></div>
-                    </div>
-                </div>
-            </tab-pane>
-        </tabs>
-    </div>
-    <view-authority-owner-dialog ref="viewAuthorityOwnerDialogObj"></view-authority-owner-dialog>
-</div>
-<script>
-    var treeTableObj=null;
+<!DOCTYPE html><html lang="zh" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><title>Title</title><title>JBuild4D</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript" src="../../../Js/External/JQuery-3.4.1/jquery-3.4.1.min.js"></script><script type="text/javascript" src="../../../Js/External/VUE-2.6.10/vue.js"></script><script type="text/javascript" src="../../../Js/External/IView-4.X/dist/iview.min.js"></script><script type="text/javascript" src="../../../Js/External/JQuery-UI-1.12.1/jquery-ui.js"></script><script type="text/javascript" src="../../../Js/External/ZTree-3.5.40/js/jquery.ztree.all.js"></script><script type="text/javascript" src="../../../Js/JBuild4DCLib.js?refVersion=1"></script><script type="text/javascript" src="../../../Js/UIEXComponent.js?refVersion=1"></script><script type="text/javascript" src="../../../Js/VueEXComponent.js?refVersion=1"></script><script type="text/javascript" src="../../../Js/SSOVueEXComponent.js?refVersion=1"></script><script type="text/javascript" src="../../../Js/External/ZTree-3.5.40/js/jquery.ztree.exhide.js"></script><script type="text/javascript" src="../../../Js/External/ZTree-3.5.40/js/fuzzysearch.js"></script><link rel="stylesheet" type="text/css" href="../../../Themes/Default/Css/JBuild4DC.css?refVersion=1"><link rel="stylesheet" type="text/css" href="../../../Themes/Default/IView-4.X/iview.css"><link rel="stylesheet" type="text/css" href="../../../Themes/Default/JQueryUI/jquery-ui.css"><link rel="stylesheet" type="text/css" href="../../../Themes/Default/JQueryUI/jquery-ui-important.css"><link rel="stylesheet" type="text/css" href="../../../Themes/Default/ZTree/zTreeStyle/zTreeStyle.css"></head><body><div id="appList" class="list-2column"><div class="left-outer-wrap"><div class="inner-wrap" style="width:250px"><div class="tool-bar-wrap"></div><div><ul id="zTreeUL" class="ztree"></ul></div></div></div><div class="right-outer-wrap" style="padding:10px;left:260px;right:400px"><div style="width:100%"><div style="float:right;margin-bottom:15px;margin-top:10px;margin-right:10px"><button-group><i-button type="success" @click="add()" icon="md-add">新增</i-button><i-button type="primary" @click="edit()" icon="md-create">修改</i-button><i-button type="primary" @click="del()" icon="md-close">删除</i-button><i-button type="primary" @click="view()" icon="md-search">浏览</i-button><i-button type="primary" @click="view()" icon="md-search">迁移</i-button><i-button type="primary" @click="move('up')" icon="md-arrow-up">上移</i-button><i-button type="primary" @click="move('down')" icon="md-arrow-down">下移</i-button><i-button type="primary" @click="ownerRole()" icon="ios-contact">拥有角色</i-button></button-group></div></div><div style="position:absolute;top:60px;bottom:10px;left:0;right:0;overflow:auto"><div id="divTreeTable" style="width:98%;margin:auto"></div></div></div><view-authority-owner-dialog ref="viewAuthorityOwnerDialogObj"></view-authority-owner-dialog></div><script>var treeTableObj=null;
     var appList=new Vue({
         el:"#appList",
         mounted:function () {
@@ -154,10 +12,9 @@
                 menuEditView:"/HTML/SSO/Menu/MenuEdit.html",
                 getMenusDataBySystemId:"/Rest/SSO/Mu/Menu/GetMenusBySystemId",
                 deleteMenu:"/Rest/SSO/Mu/Menu/Delete",
-                moveMenu:"/Rest/SSO/Mu/Menu/Move",
-                getMenuDataUrl: "/Rest/SSO/Mu/Menu/GetDetailData",
-                <!--MenuInnerObj-->
-                menuInnerObjEditView:"/HTML/SSO/Menu/MenuInnObjEdit.html"
+                statusChange:"/Rest/SSO/Mu/Menu/StatusChange",
+                setSelected:"/Rest/SSO/Mu/Menu/SetSelected",
+                move:"/Rest/SSO/Mu/Menu/Move"
             },
             treeObj:null,
             treeSelectedNode:null,
@@ -217,10 +74,6 @@
                 LoadChildFunc:null,
                 OpenLevel:2,
                 ChildTestField:"menuChildCount",//判断是否存在子节点的字段，是否>0或者为true，则支持展开
-                ClickRowEvent:function (rowId){
-                    console.log(rowId);
-                    appList.viewMenuDetail(rowId);
-                },
                 Templates:[
                     {
                         Title:"名称",
@@ -229,7 +82,16 @@
                         Renderer:"Lable",
                         Hidden:false,
                         TitleCellAttrs:{},
-                        Width:"40%"
+                        Width:"20%"
+                    },{
+                        Title:"链接地址",
+                        FieldName:"menuRightUrl",
+                        TitleCellClassName:"TitleCell",
+                        Renderer:"Lable",
+                        Hidden:false,
+                        TitleCellAttrs:{},
+                        Width:"40%",
+                        TextAlign:"center"
                     },{
                         Title:"备注",
                         FieldName:"menuDescription",
@@ -237,6 +99,16 @@
                         Renderer:"Lable",
                         Hidden:false,
                         TitleCellAttrs:{},
+                        Width:"20%",
+                        TextAlign:"center"
+                    },{
+                        Title:"菜单文本",
+                        FieldName:"menuText",
+                        TitleCellClassName:"TitleCell",
+                        Renderer:"Lable",
+                        Hidden:false,
+                        TitleCellAttrs:{},
+                        Width:"20%",
                         TextAlign:"center"
                     }
                 ],
@@ -244,46 +116,7 @@
                 RendererTo:"divTreeTable",//div elem
                 TableId:"TreeTable",
                 TableAttrs:{cellpadding:"0",cellspacing:"0",border:"0"}
-            },
-            viewMenuEntity:{
-                menuId: "",
-                menuName: "",//菜单名称
-                menuSystemId: "",//所属系统ID
-                menuText: "",//菜单文本:用于UI显示
-                menuValue: "",//菜单值
-                menuType: "",//菜单类型:超链接菜单,Web模块列表,Web模块窗体
-                menuOuterId: "",//外部关联ID
-                menuOuterName: "",//外部关联对象名称
-                menuCreatorId: "",//创建者ID
-                menuOrganId: "",//创建组织ID
-                menuOrganName: "",//创造组织名称
-                menuIsExpand: "",//是否展开
-                menuIsSystem: "",//是否系统所有
-                menuLeftUrl: "",//左侧链接地址
-                menuLeftUrlPara: "",//左侧链接参数
-                menuRightUrl: "",//链接地址
-                menuRightUrlPara: "",//链接参数
-                menuOrderNum: "",//排序号
-                menuParentId: "",//父节点ID
-                menuParentIdList: "",//父节点ID列表
-                menuTarget: "",//点击打开对象
-                menuCreateTime: null,//创建时间
-                menuUpdater: "",//更新人
-                menuUpdateTime: null,//更新时间
-                menuUseOrganName: "",//使用组织名称
-                menuUseOrganId: "",//使用组织ID
-                menuUseOrganTypeName: "",//使用组织类型名称
-                menuUseOrganTypeId: "",//使用组织类型ID
-                menuClassName: "",//样式类名
-                menuClassNameHover: "",//Hover时的样式类名
-                menuClassNameSelected: "",//样式选中的样式类名
-                menuChildCount: "",//子节点数量
-                menuDescription: "",//备注
-                menuStatus: "",//状态:启用,禁用
-                menuJsExpression: "",//扩展的JS表达式
-                menuOuterObject:""
-            },
-            menuInfoSpinShow: false
+            }
         },
         methods:{
             <!--System-->
@@ -424,36 +257,11 @@
                     DialogUtility.Frame_OpenIframeWindow(window, DialogUtility.DialogId, url, {title: "字典管理"}, 0);
                 });
             },
-            viewMenuDetail:function (menuId){
-                if(menuId!=0) {
-                    this.menuInfoSpinShow = true;
-                    AjaxUtility.Post(this.acInterface.getMenuDataUrl, {
-                        recordId: menuId,
-                        op: "view"
-                    }, function (result) {
-                        this.menuInfoSpinShow = false;
-                        if (result.success) {
-                            console.log(result.data);
-                            this.viewMenuEntity = result.data;
-                            DialogUtility.AlertJsonCode
-                        }
-                    }, this);
-                }
-            },
-            formatToJsonStringCode:function (jsonString){
-                if(jsonString) {
-                    if (jsonString.indexOf("[") == 0 || jsonString.indexOf("{") == 0) {
-                        var json = JsonUtility.StringToJson(jsonString);
-                        return JsonUtility.JsonToStringFormat(json);
-                    }
-                }
-                return jsonString;
-            },
             move:function(type){
                 this.mareSureSelectedTreeTableRow("选中").then(function (nodeData) {
                     var recordId = nodeData.menuId;
                     //var _self=this;
-                    AjaxUtility.Post(this.acInterface.moveMenu, {recordId: recordId,type:type}, function (result) {
+                    AjaxUtility.Post(this.acInterface.move, {recordId: recordId,type:type}, function (result) {
                         if (result.success) {
                             DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, function () {
                                 if(type=="down") {
@@ -499,33 +307,6 @@
                     var recordId=nodeData.menuId;
                     this.$refs.viewAuthorityOwnerDialogObj.showDialog(recordId,"菜单权限所有者");
                 })
-            },
-            <!--MenuInnerObj-->
-            addMenuInnerObj:function (){
-                this.mareSureSelectedTreeTableRow("添加内部标记").then(function (nodeData) {
-                    //debugger;
-                    var url = BaseUtility.BuildView(this.acInterface.menuInnerObjEditView, {
-                        "op": "add",
-                        "menuInnerObjParentId":"",
-                        "menuId":nodeData.menuId
-                    });
-                    DialogUtility.Frame_OpenIframeWindow(window, DialogUtility.DialogId, url, {title: "菜单内部标记管理"}, 2);
-                })
-            },
-            editMenuInnerObj:function (){
-
-            },
-            delMenuInnerObj:function (){
-
-            },
-            viewMenuInnerObj:function (){
-
-            },
-            moveMenuInnerObj:function (type){
-
             }
         }
-    });
-</script>
-</body>
-</html>
+    });</script></body></html>

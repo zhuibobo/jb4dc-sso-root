@@ -11,10 +11,10 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
 -->
 <configuration>
     <!-- 定义日志的根目录 -->
-    <property name="LogHomeDev" value="log"/>
-    <property name="AppNameDev" value="JB4DCLog"></property>
-    <property name="LogHomeProd" value="E:/JavaPlat/jb4dcsystem/sso/JB4DLog"/>
-    <property name="AppNameProd" value="JB4DCLog"></property>
+    <property name="LogHomeDev" value="Dev-Log"/>
+    <property name="AppNameDev" value="JB4DC-SSO"></property>
+    <property name="LogHomeProd" value="Prod-Log"/>
+    <property name="AppNameProd" value="JB4DC-SSO"></property>
     <!-- ch.qos.logback.core.ConsoleAppender 表示控制台输出 -->
     <appender name="ConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
         <!--
@@ -250,17 +250,19 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
     </appender>
 
     <springProfile name="xgprod">
-        <root level="info">
-            <appender-ref ref="ConsoleAppender"/>
-            <appender-ref ref="FileLogInfoAppenderProd"/>
+        <root level="warn">
             <appender-ref ref="FileLogWarnAppenderProd"/>
             <appender-ref ref="FileLogErrorAppenderProd"/>
         </root>
     </springProfile>
     <springProfile name="prod">
-        <root level="info">
-            <appender-ref ref="ConsoleAppender"/>
-            <appender-ref ref="FileLogInfoAppenderProd"/>
+        <root level="warn">
+            <appender-ref ref="FileLogWarnAppenderProd"/>
+            <appender-ref ref="FileLogErrorAppenderProd"/>
+        </root>
+    </springProfile>
+    <springProfile name="devjar">
+        <root level="warn">
             <appender-ref ref="FileLogWarnAppenderProd"/>
             <appender-ref ref="FileLogErrorAppenderProd"/>
         </root>

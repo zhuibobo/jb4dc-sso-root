@@ -11,6 +11,7 @@
     <title>Title</title>
     <th:block th:replace="Fragment/GeneralLib::GeneralLib"></th:block>
     <th:block th:replace="Fragment/GeneralLib::ThemesLib"></th:block>
+    <th:block th:replace="Fragment/GeneralLib::LineAwesomeLib"></th:block>
 </head>
 <body>
 <div id="appForm" class="general-edit-page-wrap" v-cloak>
@@ -94,6 +95,18 @@
         <form-item label="关联对象说明：" prop="menuOuterName" class="margin-bottom-12-imp">
             <i-input v-model="formEntity.menuOuterName"></i-input>
         </form-item>
+        <form-item label="图标：" prop="menuOuterName" class="margin-bottom-12-imp">
+            <row>
+                <i-col span="2">
+                    <i :class="formEntity.menuClassName" style="width: 32px;height: 32px;font-size: 32px;"></i>
+                </i-col>
+                <i-col span="4" style="text-align: center">
+                    <i-button type="success" @click="showSelectImageClassDialog">选择</i-button>
+                </i-col>
+                <i-col span="18">
+                </i-col>
+            </row>
+        </form-item>
         <form-item label="备注：" class="margin-bottom-12-imp">
             <i-input v-model="formEntity.menuDescription" type="textarea" :autosize="{minRows: 9,maxRows: 9}"></i-input>
         </form-item>
@@ -111,16 +124,6 @@
     <select-module-object-dialog ref="selectModuleObjectDialog"
                                  @on-selected-completed="bindModuleObjectTo"></select-module-object-dialog>
 </div>
-<style>
-    #urlParaDescWarp ul{
-        margin-left: 20px;
-        font-size: 14px;
-    }
-    #urlParaDescWarp ul li{
-        font-size: 14px;
-        line-height: 28px;
-    }
-</style>
 <div id="urlParaDescWarp" style="display: none">
     <ul>
         <li>url参数本质上是字符串,没有特殊的要求,可以为任意的字符串,可以根据开发的具体作用而定,以下的说明为特定功能下的扩展。</li>
@@ -144,6 +147,16 @@
         </li>
     </ul>
 </div>
+<style>
+    #urlParaDescWarp ul{
+        margin-left: 20px;
+        font-size: 14px;
+    }
+    #urlParaDescWarp ul li{
+        font-size: 14px;
+        line-height: 28px;
+    }
+</style>
 <script>
     var appForm = new Vue({
         el: "#appForm",
@@ -159,76 +172,41 @@
             },
             recordId: BaseUtility.GetUrlParaValue("recordId"),
             formEntity: {
-                //
                 menuId: "",
-                //菜单名称
-                menuName: "",
-                //所属系统ID
-                menuSystemId: BaseUtility.GetUrlParaValue("menuSystemId"),
-                //菜单文本:用于UI显示
-                menuText: "",
-                //菜单值
-                menuValue: "",
-                //菜单类型:超链接菜单,Web模块列表,Web模块窗体
-                menuType: "空",
-                //外部关联ID
-                menuOuterId: "",
-                //外部关联对象名称
-                menuOuterName: "",
-                //创建者ID
-                menuCreatorId: "",
-                //创建组织ID
-                menuOrganId: "",
-                //创造组织名称
-                menuOrganName: "",
-                //是否展开
-                menuIsExpand: "",
-                //是否系统所有
-                menuIsSystem: "否",
-                //左侧链接地址
-                menuLeftUrl: "",
-                //左侧链接参数
-                menuLeftUrlPara: "",
-                //链接地址
-                menuRightUrl: "",
-                //链接参数
-                menuRightUrlPara: "",
-                //排序号
-                menuOrderNum: "",
-                //父节点ID
-                menuParentId: BaseUtility.GetUrlParaValue("menuParentId"),
-                //父节点ID列表
-                menuParentIdList: "",
-                //点击打开对象
-                menuTarget: "",
-                //创建时间
-                menuCreateTime: DateUtility.GetCurrentData(),
-                //更新人
-                menuUpdater: "",
-                //更新时间
-                menuUpdateTime: DateUtility.GetCurrentData(),
-                //使用组织名称
-                menuUseOrganName: "",
-                //使用组织ID
-                menuUseOrganId: "",
-                //使用组织类型名称
-                menuUseOrganTypeName: "",
-                //使用组织类型ID
-                menuUseOrganTypeId: "",
-                //样式类名
-                menuClassName: "",
-                //Hover时的样式类名
-                menuClassNameHover: "",
-                //样式选中的样式类名
-                menuClassNameSelected: "",
-                //子节点数量
-                menuChildCount: "",
-                //备注
-                menuDescription: "",
-                //状态:启用,禁用
-                menuStatus: "启用",
-                //扩展的JS表达式
-                menuJsExpression: "",
+                menuName: "",//菜单名称
+                menuSystemId: BaseUtility.GetUrlParaValue("menuSystemId"),//所属系统ID
+                menuText: "",//菜单文本:用于UI显示
+                menuValue: "",//菜单值
+                menuType: "空",//菜单类型:超链接菜单,Web模块列表,Web模块窗体
+                menuOuterId: "",//外部关联ID
+                menuOuterName: "",//外部关联对象名称
+                menuCreatorId: "",//创建者ID
+                menuOrganId: "",//创建组织ID
+                menuOrganName: "",//创造组织名称
+                menuIsExpand: "",//是否展开
+                menuIsSystem: "否",//是否系统所有
+                menuLeftUrl: "",//左侧链接地址
+                menuLeftUrlPara: "",//左侧链接参数
+                menuRightUrl: "",//链接地址
+                menuRightUrlPara: "",//链接参数
+                menuOrderNum: "",//排序号
+                menuParentId: BaseUtility.GetUrlParaValue("menuParentId"),//父节点ID
+                menuParentIdList: "",//父节点ID列表
+                menuTarget: "",//点击打开对象
+                menuCreateTime: DateUtility.GetCurrentData(),//创建时间
+                menuUpdater: "",//更新人
+                menuUpdateTime: DateUtility.GetCurrentData(),//更新时间
+                menuUseOrganName: "",//使用组织名称
+                menuUseOrganId: "",//使用组织ID
+                menuUseOrganTypeName: "",//使用组织类型名称
+                menuUseOrganTypeId: "",//使用组织类型ID
+                menuClassName: "",//样式类名
+                menuClassNameHover: "",//Hover时的样式类名
+                menuClassNameSelected: "",//样式选中的样式类名
+                menuChildCount: "",//子节点数量
+                menuDescription: "",//备注
+                menuStatus: "启用",//状态:启用,禁用
+                menuJsExpression: "",//扩展的JS表达式
                 menuOuterObject:""
             },
             ruleValidate: {
@@ -331,6 +309,15 @@
                     height: 560,
                     title: "Url参数说明"
                 });
+            },
+            showSelectImageClassDialog:function (){
+                DialogUtility.ShowSelectImageClassDialog({},"appForm.selectImageClassEnd","appList.selectImageClassEnd");
+            },
+            selectImageClassEnd:function (className){
+                //debugger;
+                if(className){
+                    this.formEntity.menuClassName=className;
+                }
             }
         }
     });

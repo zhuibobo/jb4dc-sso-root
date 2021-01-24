@@ -23,7 +23,7 @@ public class RoleGroupRest extends GeneralRest<RoleGroupEntity> {
 
     @Override
     public String getModuleName() {
-        return "角色分组";
+        return "单点登录系统-角色分组";
     }
 
     @Override

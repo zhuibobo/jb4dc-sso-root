@@ -195,6 +195,11 @@ public class OrganServiceImpl extends BaseServiceImpl<OrganEntity> implements IO
     }
 
     @Override
+    public List<OrganEntity> getEnableChildOrgan(String organId) {
+        return organMapper.selectEnableChildOrgan(organId);
+    }
+
+    @Override
     public void deleteByOrganName(JB4DCSession session, String organName, String warningOperationCode) {
         if(JBuild4DCYaml.getWarningOperationCode().equals(warningOperationCode)){
             organMapper.deleteByOrganName(organName);

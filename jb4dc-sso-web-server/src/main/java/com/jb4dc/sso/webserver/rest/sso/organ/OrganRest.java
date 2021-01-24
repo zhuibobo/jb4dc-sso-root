@@ -48,7 +48,7 @@ public class OrganRest extends GeneralRest<OrganEntity> {
 
     @Override
     public String getModuleName() {
-        return "组织机构";
+        return "单点登录系统-组织机构";
     }
 
     @Autowired

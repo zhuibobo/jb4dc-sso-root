@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jb4dc.sso.dao.menu.MenuInnObjMapper">
+    <select id="selectAll" resultMap="BaseResultMap">select<include refid="Base_Column_List"/> from TSSO_MENU_INN_OBJ ORDER by MIO_ORDER_NUM DESC</select>
+    <select id="selectAllASC" resultMap="BaseResultMap">select<include refid="Base_Column_List"/> from TSSO_MENU_INN_OBJ ORDER by MIO_ORDER_NUM ASC</select>
+    <delete id="deleteAll">delete from TSSO_MENU_INN_OBJ</delete>
+    <select id="nextOrderNum" resultType="integer">select case when max(MIO_ORDER_NUM) is null then 1 else max(MIO_ORDER_NUM)+1 end ORDERNUM from TSSO_MENU_INN_OBJ</select>
+    <select id="selectBySearch" parameterType="java.util.Map" resultMap="BaseResultMap">select<include refid="Base_Column_List"/>from TSSO_MENU_INN_OBJ<where>
+        <if test="mioMenuId !=null and mioMenuId !=''"> and MIO_MENU_ID like #{mioMenuId} </if>
+        <if test="mioAuthType !=null and mioAuthType !=''"> and MIO_AUTH_TYPE like #{mioAuthType} </if>
+        <if test="mioCategory !=null and mioCategory !=''"> and MIO_CATEGORY like #{mioCategory} </if>
+        <if test="mioName !=null and mioName !=''"> and MIO_NAME like #{mioName} </if>
+        <if test="mioValue !=null and mioValue !=''"> and MIO_VALUE like #{mioValue} </if>
+        <if test="mioAction !=null and mioAction !=''"> and MIO_ACTION like #{mioAction} </if>
+        <if test="mioParentId !=null and mioParentId !=''"> and MIO_PARENT_ID like #{mioParentId} </if>
+        <if test="mioParentIdList !=null and mioParentIdList !=''"> and MIO_PARENT_ID_LIST like #{mioParentIdList} </if>
+        <if test="mioDescription !=null and mioDescription !=''"> and MIO_DESCRIPTION like #{mioDescription} </if>
+    </where>ORDER by MIO_ORDER_NUM DESC</select>
+    <select id="selectLessThanRecord" parameterType="java.lang.String" resultMap="BaseResultMap"><![CDATA[select * from TSSO_MENU_INN_OBJ
+ where MIO_ORDER_NUM = (select max(MIO_ORDER_NUM) from TSSO_MENU_INN_OBJ where MIO_ORDER_NUM<(select MIO_ORDER_NUM from TSSO_MENU_INN_OBJ where MIO_ID=#{Id,jdbcType=NVARCHAR}))]]></select>
+    <select id="selectGreaterThanRecord" parameterType="java.lang.String" resultMap="BaseResultMap"><![CDATA[select * from TSSO_MENU_INN_OBJ
+ where MIO_ORDER_NUM = (select min(MIO_ORDER_NUM) from TSSO_MENU_INN_OBJ where MIO_ORDER_NUM>(select MIO_ORDER_NUM from TSSO_MENU_INN_OBJ where MIO_ID=#{Id,jdbcType=NVARCHAR}))]]></select>
+</mapper>

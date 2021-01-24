@@ -44,6 +44,13 @@ public class OrganRuntimeProxyImpl extends RuntimeProxyBase implements IOrganRun
     }
 
     @Override
+    public JBuild4DCResponseVo<List<OrganEntity>> getEnableChildOrganRT(String organId) throws JBuild4DCGenerallyException {
+        String methodName = "getEnableChildOrganRT_"+organId;
+        JBuild4DCResponseVo<List<OrganEntity>> jBuild4DCResponseVo =autoGetFromCache(this.getClass(), methodName, () -> organRuntimeRemote.getEnableChildOrganRT(organId),OrganEntity.class);
+        return jBuild4DCResponseVo;
+    }
+
+    @Override
     public JBuild4DCResponseVo<OrganEntity> getOrganById(String organId) throws JBuild4DCGenerallyException {
         return organRuntimeRemote.getOrganById(organId);
     }

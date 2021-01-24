@@ -74,4 +74,8 @@
         <bind name="pattern" value="'%' + organId + '%'" />
         select ORGAN_ID from TSSO_ORGAN where ORGAN_PARENT_ID_LIST like #{pattern} order by ORGAN_ORDER_NUM asc
     </select>
+
+    <select id="selectEnableChildOrgan" resultMap="BaseResultMap">
+        select<include refid="Base_Column_List"/> from TSSO_ORGAN where ORGAN_STATUS='启用' and ORGAN_PARENT_ID=#{organId} order by ORGAN_ORDER_NUM desc
+    </select>
 </mapper>

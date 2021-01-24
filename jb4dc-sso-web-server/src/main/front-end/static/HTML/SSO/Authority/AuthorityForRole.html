@@ -170,7 +170,7 @@
             },
             methods: {
                 init:function(){
-                    AjaxUtility.Post(this.acInterface.getOwnerAuth, {
+                    AjaxUtility.Get(this.acInterface.getOwnerAuth, {
                         authOwnerType:BaseUtility.GetUrlParaValue("auth_owner_type"),
                         authOwnerId:BaseUtility.GetUrlParaValue("auth_owner_id")
                     }, function (result) {

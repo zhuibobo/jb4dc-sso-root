@@ -57,7 +57,7 @@ public class MenuRest extends GeneralRest<MenuEntity> {
 
     @Override
     public String getModuleName() {
-        return "菜单";
+        return "单点登录系统-菜单";
     }
 
     @Override

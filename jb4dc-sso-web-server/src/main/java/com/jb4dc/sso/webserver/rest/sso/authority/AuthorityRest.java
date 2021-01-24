@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -37,10 +38,15 @@ public class AuthorityRest {
         return JBuild4DCResponseVo.opSuccess();
     }
 
-    @RequestMapping(value = "/GetOwnerAuth", method = RequestMethod.POST)
+    @RequestMapping(value = "/GetOwnerAuth", method = RequestMethod.GET)
     public JBuild4DCResponseVo getOwnerAuth(String authOwnerType,String authOwnerId) throws JBuild4DCGenerallyException, IOException {
-        //List<AuthorityEntity> authorityEntities= JsonUtility.toObjectList(saveAuthEntitiesJsonString,AuthorityEntity.class);
         List<AuthorityEntity> authorityEntities = authorityService.getOwnerAuth(JB4DCSessionUtility.getSession(), authOwnerType, authOwnerId);
         return JBuild4DCResponseVo.getDataSuccess(authorityEntities);
+    }
+
+    @RequestMapping(value = "/GetObjAuthOwnerDesc", method = RequestMethod.GET)
+    public JBuild4DCResponseVo getObjAuthOwnerDesc(String authObjId) throws JBuild4DCGenerallyException {
+        List<Map<String,Object>> objAuthOwnerDesc = authorityService.getObjAuthOwnerDesc(JB4DCSessionUtility.getSession(), authObjId);
+        return JBuild4DCResponseVo.getDataSuccess(objAuthOwnerDesc);
     }
 }
