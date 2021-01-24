@@ -263,6 +263,7 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
     </springProfile>
     <springProfile name="devjar">
         <root level="warn">
+            <appender-ref ref="ConsoleAppender"/>
             <appender-ref ref="FileLogWarnAppenderProd"/>
             <appender-ref ref="FileLogErrorAppenderProd"/>
         </root>

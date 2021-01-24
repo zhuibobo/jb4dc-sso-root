@@ -23,50 +23,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5ded3b0-098e-45d9-b1b7-14a09bef04fb" name="Default Changelist" comment="新增接口">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/zhuib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-sso-pojo/src/main/java/com/jb4dc/sso/dbentities/menu/MenuInnObjEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/dao/menu/MenuInnObjMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/menu/IMenuInnObjService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/menu/impl/MenuInnObjServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/resources/mybatismappers/menu/MenuInnObjACMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/resources/mybatismappers/menu/MenuInnObjEXMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/HTML/SSO/Menu/MenuInnObjEdit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/Js/VueComponent/Dialog/view-authority-owner-dialog.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/menu/MenuInnObjRest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-devjar.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-tx.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/HTML/SSO/Menu/MenuInnObjEdit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/banner.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jb4dc-sso-root.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jb4dc-sso-root.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/impl/OrganRuntimeProxyImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/impl/OrganRuntimeProxyImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/_OrganRuntimeRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/_OrganRuntimeRemote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/dao/organ/OrganMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/dao/organ/OrganMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/authority/IAuthorityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/authority/IAuthorityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/authority/impl/AuthorityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/authority/impl/AuthorityServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/menu/impl/MenuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/menu/impl/MenuServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/organ/IOrganService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/organ/IOrganService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/organ/impl/OrganServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/organ/impl/OrganServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/resources/liquibase/jb4dc-sso-db-changelog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/resources/liquibase/jb4dc-sso-db-changelog.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/resources/mybatismappers/organ/OrganEXMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/resources/mybatismappers/organ/OrganEXMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/gulpfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/gulpfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/replaceBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/replaceBlock.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/HTML/SSO/Authority/AuthorityForRole.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/HTML/SSO/Authority/AuthorityForRole.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/HTML/SSO/Menu/MenuEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/HTML/SSO/Menu/MenuEdit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/HTML/SSO/Menu/MenuManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/HTML/SSO/Menu/MenuManager.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/beanconfig/mybatis/MybatisBeansConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/beanconfig/mybatis/MybatisBeansConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/authority/AuthorityRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/authority/AuthorityRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/department/DepartmentRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/department/DepartmentRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/menu/MenuRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/menu/MenuRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/organ/OrganRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/organ/OrganRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/organ/OrganTypeRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/organ/OrganTypeRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/role/RoleGroupRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/role/RoleGroupRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/role/RoleRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/role/RoleRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/runtime/OrganRuntimeRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/runtime/OrganRuntimeRest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-devjar.yml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-devjar.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/HTML/SSO/Authority/AuthorityForRole.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/HTML/SSO/Authority/AuthorityForRole.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/HTML/SSO/Menu/MenuEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/HTML/SSO/Menu/MenuEdit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/HTML/SSO/Menu/MenuManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/HTML/SSO/Menu/MenuManager.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/Js/SSOVueEXComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/Js/SSOVueEXComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -596,14 +559,7 @@
       <workItem from="1610890503644" duration="894000" />
       <workItem from="1610931266425" duration="11350000" />
       <workItem from="1611018777347" duration="37000" />
-      <workItem from="1611481366931" duration="3281000" />
-    </task>
-    <task id="LOCAL-00024" summary="创建工程">
-      <created>1563787029114</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1563787029114</updated>
+      <workItem from="1611481366931" duration="4364000" />
     </task>
     <task id="LOCAL-00025" summary="创建工程">
       <created>1563801045877</created>
@@ -941,7 +897,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610238957379</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="新增接口">
+      <created>1611492797986</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1611492797986</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1081,10 +1044,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="760" y="94" key="SettingsEditor/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605594410419" />
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1610798448990">
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1611492800195">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1610798448990" />
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1611492800195" />
     <state x="3214" y="253" key="Vcs.Push.Dialog.v2/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1605866621518" />
     <state x="697" y="249" width="1166" height="641" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1605148076873">
       <screen x="0" y="0" width="2560" height="1040" />

@@ -4,6 +4,8 @@
 target
 out
 log
+Dev-Log
+Prod-Log
 t3plibs
 node_modules
 GenerateCodeFiles/
