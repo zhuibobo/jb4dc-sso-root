@@ -19,19 +19,15 @@ public class SSOLoginedInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         //如果是来自SSO客户端的请求,判断是否登录过,是的话直接返回SSO_CODE;
-        //try
-        //{
-        if(request.getParameter("IsJBuild4DCSSOIntegrateSystem")!=null&&request.getParameter("IsJBuild4DCSSOIntegrateSystem").toLowerCase().equals("true")) {
-            String JBuild4DCSSORedirectUrl=request.getParameter("JBuild4DCSSORedirectUrl");
-            JB4DCSession session = JB4DCSessionUtility.getSessionNotException();
-            if(session!=null){
-                response.sendRedirect(JBuild4DCSSORedirectUrl+"?JBuild4DCSSOToken="+session.getSsoSessionToken());
+        if(false) {
+            if (request.getParameter("IsJBuild4DCSSOIntegrateSystem") != null && request.getParameter("IsJBuild4DCSSOIntegrateSystem").toLowerCase().equals("true")) {
+                String JBuild4DCSSORedirectUrl = request.getParameter("JBuild4DCSSORedirectUrl");
+                JB4DCSession session = JB4DCSessionUtility.getSessionNotException();
+                if (session != null) {
+                    response.sendRedirect(JBuild4DCSSORedirectUrl + "?JBuild4DCSSOToken=" + session.getSsoSessionToken());
+                }
             }
         }
-        //}
-        //catch (SessionTimeoutException exception){
-
-        //}
         return true;
     }
 

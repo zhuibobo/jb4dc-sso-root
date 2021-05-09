@@ -1,14 +1,6 @@
 package com.jb4dc.sso.client.beanconfig.cache;
 
-import com.jb4dc.base.service.spring.SpringContextHolder;
-import com.jb4dc.sso.client.cache.SSOCacheManager;
-import org.ehcache.CacheManager;
-import org.ehcache.config.builders.CacheManagerBuilder;
-import org.ehcache.xml.XmlConfiguration;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.net.URL;
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,7 +12,7 @@ import java.net.URL;
 @Configuration
 public class SSOCacheBeansConfig {
 
-    @Bean(name = "SSOCacheManager")
+    /*@Bean(name = "SSOCacheManager")
     public SSOCacheManager ssoCacheManager(SpringContextHolder springContextHolder) {
         //URL myUrl = getClass().getResource("/sso-ehcache.xml");
         URL myUrl = getClass().getResource("/sso-ehcache.xml");
@@ -35,5 +27,5 @@ public class SSOCacheBeansConfig {
         myCacheManager.init();
         SSOCacheManager ssoCacheManager=new SSOCacheManager(myCacheManager);
         return ssoCacheManager;
-    }
+    }*/
 }

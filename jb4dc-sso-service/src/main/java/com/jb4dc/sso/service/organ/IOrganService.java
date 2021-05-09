@@ -6,6 +6,7 @@ import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.sso.dbentities.organ.OrganEntity;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,7 +18,7 @@ public interface IOrganService extends IBaseService<OrganEntity> {
 
     OrganEntity createRootOrgan(JB4DCSession jb4DSession) throws JBuild4DCGenerallyException;
 
-    void deleteByOrganName(JB4DCSession session, String organName, String warningOperationCode);
+    void deleteByOrganName(JB4DCSession jb4DSession, String organName, String warningOperationCode);
 
     void initSystemData(JB4DCSession jb4DSession) throws JBuild4DCGenerallyException;
 
@@ -28,4 +29,6 @@ public interface IOrganService extends IBaseService<OrganEntity> {
     List<String> getAllChildOrganIdIncludeSelf(String organId);
 
     List<OrganEntity> getEnableChildOrgan(String organId);
+
+    Map<String, Map<String,String>> getEnableOrganMinMapJsonPropRT(JB4DCSession jb4DSession);
 }

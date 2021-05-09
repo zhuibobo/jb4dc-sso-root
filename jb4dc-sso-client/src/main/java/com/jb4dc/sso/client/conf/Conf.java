@@ -34,6 +34,7 @@ public class Conf {
 
     public static final String SSO_TOKEN_URL_PARA_NAME ="JBuild4DCSSOToken";
 
+    public static final String SSO_TOKEN_HEADER_PARA_NAME ="JBuild4DCSSOHeaderToken";
     /**
      * 跳转时候附带的USERID,用于验证与本地存储的Session中的用户是否一致,解决进入子系统后,关掉页面,切换账号,再次进入系统的问题
      */

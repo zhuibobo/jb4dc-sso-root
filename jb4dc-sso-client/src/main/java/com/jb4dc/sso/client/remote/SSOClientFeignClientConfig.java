@@ -13,8 +13,9 @@ import org.springframework.context.annotation.Configuration;
 public class SSOClientFeignClientConfig {
 
     @Bean
-    FeignRequestInterceptor feignRequestInterceptor() {
-
-        return new FeignRequestInterceptor();
+    FeignSSORequestInterceptor feignRequestInterceptor() {
+        return new FeignSSORequestInterceptor();
     }
+
+
 }

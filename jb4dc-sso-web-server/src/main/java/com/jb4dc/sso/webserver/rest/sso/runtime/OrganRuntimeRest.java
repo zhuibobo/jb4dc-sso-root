@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -48,5 +49,10 @@ public class OrganRuntimeRest extends OrganRest {
     @RequestMapping(value = "/GetOrganById", method = RequestMethod.GET)
     public JBuild4DCResponseVo<OrganEntity> getOrganById(String organId) throws JBuild4DCGenerallyException {
         return JBuild4DCResponseVo.getDataSuccess(organService.getByPrimaryKey(null,organId));
+    }
+
+    @RequestMapping(value = "/GetEnableOrganMinMapJsonPropRT", method = RequestMethod.GET)
+    public JBuild4DCResponseVo<Map<String, Map<String,String>>> getEnableOrganMinMapJsonPropRT() throws JBuild4DCGenerallyException {
+        return JBuild4DCResponseVo.getDataSuccess(organService.getEnableOrganMinMapJsonPropRT(null));
     }
 }

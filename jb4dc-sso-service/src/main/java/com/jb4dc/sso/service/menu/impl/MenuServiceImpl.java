@@ -100,8 +100,8 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         createSSOSystem(jb4DSession,rootMenuId);
         createDevDemoSystem(jb4DSession,rootMenuId);
         createBuilderSystem(jb4DSession,rootMenuId);
-        createGridSystem(jb4DSession,rootMenuId);
-        //createQCSystem(jb4DSession,rootMenuId);
+        //createGridSystem(jb4DSession,rootMenuId);
+        createQCSystem(jb4DSession,rootMenuId);
         //createHrSystem(jb4DSession,rootMenuId);
         //createKYGL(jb4DSession,rootMenuId);
         //createZSGL(jb4DSession,rootMenuId);
@@ -217,10 +217,24 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
 
 
         //根菜单->应用管理->API
-        createMenu(jb4DSession,appBuilderRootMenu.getMenuId(),"MENU-JB4DSystemAppBuilderAPIManager",
+        /*createMenu(jb4DSession,appBuilderRootMenu.getMenuId(),"MENU-JB4DSystemAppBuilderAPIManager",
                 "API","API","API",
-                "/HTML/Builder/API/Manager.html","las la-stream",systemId,MenuTypeEnum.LinkMenu,"","");
+                "/HTML/Builder/API/Manager.html","las la-stream",systemId,MenuTypeEnum.LinkMenu,"","");*/
 
+        //根菜单->应用管理->API
+        MenuEntity appBuilderAPIManagerMenu=createMenu(jb4DSession,appBuilderRootMenu.getMenuId(),"MENU-JB4DSystemAppBuilderAPIManager",
+                "API","API","API",
+                "","las la-stream",systemId,MenuTypeEnum.EmptyMenu,"","");
+
+        //根菜单->应用管理->API->构建按钮API
+        createMenu(jb4DSession,appBuilderAPIManagerMenu.getMenuId(),"MENU-JB4DSystemAppBuilderAPIManager-For-Builder-Button",
+                "构建按钮API","构建按钮API","构建按钮API",
+                "/HTML/Builder/API/Manager.html?GroupType=API_GROUP_BUILDER_BUTTON_ROOT","las la-stream",systemId,MenuTypeEnum.LinkMenu,"","");
+
+        //根菜单->应用管理->API->工作流动作API
+        createMenu(jb4DSession,appBuilderAPIManagerMenu.getMenuId(),"MENU-JB4DSystemAppBuilderAPIManager-For-WorkFlow-Action",
+                "工作流动作API","工作流动作API","工作流动作API",
+                "/HTML/Builder/API/Manager.html?GroupType=API_GROUP_WORKFLOW_ACTION_ROOT","las la-stream",systemId,MenuTypeEnum.LinkMenu,"","");
 
         //根菜单->应用管理->存储设计
         MenuEntity appManagerDataStorageMenu=createMenu(jb4DSession,appBuilderRootMenu.getMenuId(),"MENU-JB4DSystemAppBuilderDataStorageBuilder",
@@ -269,6 +283,11 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         createMenu(jb4DSession,systemSettingRootMenu.getMenuId(),"MENU-JB4DSystemSettingDictionaryManagerId",
                 "数据字典","数据字典","数据字典",
                 "/HTML/SystemSetting/Dictionary/DictionaryManager.html","", systemId,MenuTypeEnum.LinkMenu,"","");
+
+        //根菜单->系统设置分组->流程模型分组
+        createMenu(jb4DSession,systemSettingRootMenu.getMenuId(),"MENU-JB4DWorkFlowModelGroupManagerId",
+                "流程模型分组","流程模型分组","流程模型分组",
+                "/HTML/WorkFlow/ModelGroup/ModelGroupManager.html","", systemId,MenuTypeEnum.LinkMenu,"","");
 
         //根菜单->应用管理->菜单设计
         /*MenuEntity appBuilderMenuBuilderMenu=createMenu(jb4DSession,appBuilderRootMenu.getMenuId(),"MENU-JB4DSystemAppBuilderMenuBuilder",
@@ -324,7 +343,6 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
                 menuName,menuName,menuName,
                 "","",systemId,MenuTypeEnum.EmptyMenu,menuId,menuId);
 
-
         menuId="QCSystem-IssuesManage";
         menuName="运维问题管理";
         MenuEntity issuesManage=createMenu(jb4DSession,rootMenuId,menuId,
@@ -378,6 +396,25 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         MenuEntity jobPlan=createMenu(jb4DSession,rootMenuId,menuId,
                 menuName,menuName,menuName,
                 "","",systemId,MenuTypeEnum.EmptyMenu,menuId,menuId);
+
+        menuId="QCSystem-WorkFlow-Client";
+        menuName="事务流程";
+        MenuEntity workFlowClient=createMenu(jb4DSession,rootMenuId,menuId,
+                menuName,menuName,menuName,
+                "","",systemId,MenuTypeEnum.EmptyMenu,menuId,menuId);
+
+
+        menuId="QCSystem-WorkFlow-Client-Bootable";
+        menuName="事务发起";
+        MenuEntity workFlowClientBootable=createMenu(jb4DSession,workFlowClient.getMenuId(),menuId,
+                menuName,menuName,menuName,
+                "/HTML/WorkFlow/Runtime/MyBootableModels.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
+
+        menuId="QCSystem-WorkFlow-Client-MyTask";
+        menuName="待办事务";
+        MenuEntity workFlowClientMyTask=createMenu(jb4DSession,workFlowClient.getMenuId(),menuId,
+                menuName,menuName,menuName,
+                "/HTML/WorkFlow/Runtime/InstanceProcess.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
     }
 
     public void createGridSystem(JB4DCSession jb4DSession,String rootMenuId) throws JBuild4DCGenerallyException {

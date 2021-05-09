@@ -23,13 +23,80 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5ded3b0-098e-45d9-b1b7-14a09bef04fb" name="Default Changelist" comment="新增接口">
-      <change afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/banner.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jb4dc-sso-root.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jb4dc-sso-root.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_lettuce_lettuce_core_5_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_buffer_4_1_53_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_4_1_53_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_common_4_1_53_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_4_1_53_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_4_1_53_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_4_1_53_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_redis_2_2_11_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_2_11_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_keyvalue_2_2_11_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_redis_2_2_11_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_oxm_5_2_10_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/filter/RuntimeRestInterfaceValidate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/beanconfig/redis/RedisBeansConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/beanconfig/sys/SsoFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/controller/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_25.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_28.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/jb4dc-sso-client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/jb4dc-sso-client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/beanconfig/cache/SSOCacheBeansConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/beanconfig/cache/SSOCacheBeansConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/cache/SSOCacheManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/cache/SSOCacheManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/conf/Conf.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/conf/Conf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/filter/SsoWebFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/filter/SsoWebFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/provide/ClientSessionProvide.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/provide/ClientSessionProvide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/IAppRuntimeProxy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/IMenuRuntimeProxy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/IOrganRuntimeProxy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/IRoleGroupRuntimeProxy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/IRoleRuntimeProxy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/IUserRuntimeProxy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/RuntimeProxyBase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/impl/AppRuntimeProxy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/impl/MenuRuntimeProxy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/impl/OrganRuntimeProxyImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/impl/RoleGroupRuntimeProxyImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/impl/RoleRuntimeProxyImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/impl/UserRuntimeProxyImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/FeignRequestInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/FeignSSORequestInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/SSOClientFeignClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/SSOClientFeignClientConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/_AppRuntimeRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/AppRuntimeRemote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/_MenuRuntimeRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/MenuRuntimeRemote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/_OrganRuntimeRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/OrganRuntimeRemote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/_RoleGroupRuntimeRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/RoleGroupRuntimeRemote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/_RoleRuntimeRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/RoleRuntimeRemote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/_UserRuntimeRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/UserRuntimeRemote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/store/SessionClientStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/store/SessionClientStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-pojo/jb4dc-sso-pojo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-pojo/jb4dc-sso-pojo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/jb4dc-sso-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/jb4dc-sso-service.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/core/ISSOLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/core/ISSOLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/core/ISSOLoginStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/core/ISSOLoginStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/core/SSOTokenPO.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/core/SSOTokenPO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/core/impl/SSOLoginImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/core/impl/SSOLoginImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/core/impl/SSOLoginStoreImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/core/impl/SSOLoginStoreImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/provide/SessionProvide.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/provide/SessionProvide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/application/impl/SsoAppServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/application/impl/SsoAppServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/menu/impl/MenuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/menu/impl/MenuServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/organ/IOrganService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/organ/IOrganService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/organ/impl/OrganServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/organ/impl/OrganServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/jb4dc-sso-web-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/jb4dc-sso-web-server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/HTML/LoginSSO.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/HTML/LoginSSO.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/ApplicationSSOWebServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/ApplicationSSOWebServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/controller/LoginSSOController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/controller/LoginSSOController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/interceptor/LoginedInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/interceptor/LoginedInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/interceptor/SSOLoginedInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/interceptor/SSOLoginedInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/LoginRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/LoginRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/runtime/OrganRuntimeRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/runtime/OrganRuntimeRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/session/SessionRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/session/SessionRest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-dev.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-devjar.yml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-devjar.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-xgprod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-xgprod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/config/db.yml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/config/db.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/HTML/LoginSSO.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/HTML/LoginSSO.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/test/java/com/jb4dc/sso/webserver/rest/client/OrganRuntimeProxyImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/test/java/com/jb4dc/sso/webserver/rest/client/OrganRuntimeProxyImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,8 +128,8 @@
       <list>
         <option value="JavaScript File" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -122,6 +189,13 @@
     <selection>jr</selection>
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\JavaProject\jb4dc\jb4dc-sso-root\jb4dc-sso-web-server\src\main\resources" />
+      <recent name="D:\JavaProject\jb4dc\jb4dc-sso-root\jb4dc-sso-web-server\src\main\front-end\static\HTML\SSO\Menu" />
+      <recent name="D:\JavaProject\jb4dc\jb4dc-sso-root\jb4dc-sso-service\src\main\resources\mybatismappers\menu" />
+      <recent name="D:\JavaProject\jb4dc\jb4dc-sso-root\jb4dc-sso-web-server\src\main\resources\static\HTML\FrameV2\css\menu-types" />
+      <recent name="D:\JavaProject\jb4dc\jb4dc-sso-root\jb4dc-sso-client\src\main\resources" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\JavaProject\jb4dc\jb4dc-sso-root\jb4dc-sso-client\src\main\resources" />
       <recent name="D:\JavaProject\jb4dc\jb4dc-sso-root\jb4dc-sso-service\src\main\resources\mybatismappers\systemsetting" />
@@ -137,18 +211,11 @@
       <recent name="com.jb4dc.sso.client.beanconfig.cache" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.jb4dc.sso.webserver.rest.sso.menu" />
+      <recent name="com.jb4dc.sso.webserver.beanconfig.sys" />
       <recent name="com.jb4dc.sso.webserver.remote" />
+      <recent name="com.jb4dc.sso.webserver.rest.sso.menu" />
       <recent name="com.jb4dc.sso.client.remote" />
       <recent name="com.jb4dc.sso.client.provide" />
-      <recent name="com.jb4dc.sso.webserver.rest.sso.session" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\JavaProject\jb4dc\jb4dc-sso-root\jb4dc-sso-web-server\src\main\resources" />
-      <recent name="D:\JavaProject\jb4dc\jb4dc-sso-root\jb4dc-sso-web-server\src\main\front-end\static\HTML\SSO\Menu" />
-      <recent name="D:\JavaProject\jb4dc\jb4dc-sso-root\jb4dc-sso-service\src\main\resources\mybatismappers\menu" />
-      <recent name="D:\JavaProject\jb4dc\jb4dc-sso-root\jb4dc-sso-web-server\src\main\resources\static\HTML\FrameV2\css\menu-types" />
-      <recent name="D:\JavaProject\jb4dc\jb4dc-sso-root\jb4dc-sso-client\src\main\resources" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.ApplicationSSOWebServer">
@@ -159,6 +226,22 @@
         </value>
       </option>
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InitializationSystemRestTest.initializationSystem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jb4dc-sso-web-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jb4dc.sso.webserver.rest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jb4dc.sso.webserver.rest" />
+      <option name="MAIN_CLASS_NAME" value="com.jb4dc.sso.webserver.rest.InitializationSystemRestTest" />
+      <option name="METHOD_NAME" value="initializationSystem" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -179,7 +262,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrganRuntimeProxyImplTest.getAllChildOrganIdIncludeSelfRT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OrganRuntimeProxyImplTest.resd" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jb4dc-sso-web-server" />
       <extension name="coverage">
         <pattern>
@@ -189,55 +272,8 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.jb4dc.sso.webserver.rest.client" />
       <option name="MAIN_CLASS_NAME" value="com.jb4dc.sso.webserver.rest.client.OrganRuntimeProxyImplTest" />
-      <option name="METHOD_NAME" value="getAllChildOrganIdIncludeSelfRT" />
+      <option name="METHOD_NAME" value="resd" />
       <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="jb4dc-sso-service" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="jb4dc-sso-service" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -256,7 +292,7 @@
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <method v="2">
         <option name="Make" enabled="true" />
-        <option name="LaunchBrowser.Before.Run" browser="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" url="http://localhost:9103/SSOSystem/HTML/LoginSSO.html" />
+        <option name="LaunchBrowser.Before.Run" browser="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" url="http://127.0.0.1:9103/SSOSystem/Controller/Index" />
       </method>
     </configuration>
     <configuration default="true" type="js.build_tools.gulp">
@@ -290,32 +326,21 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="js-vue-ex-component" type="js.build_tools.gulp" temporary="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile>$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/gulpfile.js</gulpfile>
-      <tasks>
-        <task>js-vue-ex-component</task>
-      </tasks>
-      <arguments />
-      <envs />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Gulp.js.dist-watch" />
       <item itemvalue="Gulp.js.html-only" />
-      <item itemvalue="Gulp.js.js-vue-ex-component" />
       <item itemvalue="JUnit.OrganRuntimeProxyImplTest.addOrganAndDepartmentAndUserTest" />
-      <item itemvalue="JUnit.OrganRuntimeProxyImplTest.getAllChildOrganIdIncludeSelfRT" />
+      <item itemvalue="JUnit.OrganRuntimeProxyImplTest.resd" />
+      <item itemvalue="JUnit.InitializationSystemRestTest.initializationSystem" />
       <item itemvalue="Spring Boot.ApplicationSSOWebServer" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gulp.js.dist-watch" />
+        <item itemvalue="JUnit.InitializationSystemRestTest.initializationSystem" />
         <item itemvalue="Gulp.js.html-only" />
-        <item itemvalue="Gulp.js.js-vue-ex-component" />
+        <item itemvalue="Gulp.js.dist-watch" />
+        <item itemvalue="JUnit.OrganRuntimeProxyImplTest.resd" />
         <item itemvalue="JUnit.OrganRuntimeProxyImplTest.addOrganAndDepartmentAndUserTest" />
-        <item itemvalue="JUnit.OrganRuntimeProxyImplTest.getAllChildOrganIdIncludeSelfRT" />
       </list>
     </recent_temporary>
   </component>
@@ -559,14 +584,54 @@
       <workItem from="1610890503644" duration="894000" />
       <workItem from="1610931266425" duration="11350000" />
       <workItem from="1611018777347" duration="37000" />
-      <workItem from="1611481366931" duration="4364000" />
-    </task>
-    <task id="LOCAL-00025" summary="创建工程">
-      <created>1563801045877</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1563801045877</updated>
+      <workItem from="1611481366931" duration="5379000" />
+      <workItem from="1611536445550" duration="632000" />
+      <workItem from="1611542901634" duration="1986000" />
+      <workItem from="1611552271668" duration="11000" />
+      <workItem from="1612571244583" duration="2179000" />
+      <workItem from="1614678385830" duration="1998000" />
+      <workItem from="1614733776219" duration="822000" />
+      <workItem from="1614739367034" duration="13234000" />
+      <workItem from="1614816800463" duration="23728000" />
+      <workItem from="1614852586315" duration="2501000" />
+      <workItem from="1614902407053" duration="2534000" />
+      <workItem from="1616161852218" duration="122000" />
+      <workItem from="1616228653891" duration="3284000" />
+      <workItem from="1616285398071" duration="1487000" />
+      <workItem from="1616400872898" duration="602000" />
+      <workItem from="1616542750551" duration="1786000" />
+      <workItem from="1616631272911" duration="2995000" />
+      <workItem from="1617002328951" duration="348000" />
+      <workItem from="1617176370047" duration="1417000" />
+      <workItem from="1617242399449" duration="224000" />
+      <workItem from="1617710385840" duration="4858000" />
+      <workItem from="1617778865097" duration="199000" />
+      <workItem from="1617848156845" duration="3106000" />
+      <workItem from="1618018898295" duration="2051000" />
+      <workItem from="1618024187182" duration="670000" />
+      <workItem from="1618054121666" duration="605000" />
+      <workItem from="1618106966851" duration="114000" />
+      <workItem from="1618453100529" duration="249000" />
+      <workItem from="1618534083551" duration="2819000" />
+      <workItem from="1618538142192" duration="4534000" />
+      <workItem from="1618631359727" duration="4068000" />
+      <workItem from="1619074877604" duration="630000" />
+      <workItem from="1619181105181" duration="594000" />
+      <workItem from="1619230222619" duration="853000" />
+      <workItem from="1619345574190" duration="2965000" />
+      <workItem from="1619399245862" duration="750000" />
+      <workItem from="1619401959620" duration="595000" />
+      <workItem from="1619422635674" duration="736000" />
+      <workItem from="1619528855214" duration="1235000" />
+      <workItem from="1619568353055" duration="11733000" />
+      <workItem from="1619657063431" duration="5353000" />
+      <workItem from="1619675092520" duration="19733000" />
+      <workItem from="1619744997369" duration="6114000" />
+      <workItem from="1619827850764" duration="7247000" />
+      <workItem from="1619878924241" duration="7000" />
+      <workItem from="1619925506660" duration="9889000" />
+      <workItem from="1620371913660" duration="2710000" />
+      <workItem from="1620520437777" duration="4160000" />
     </task>
     <task id="LOCAL-00026" summary="创建工程">
       <created>1563801608172</created>
@@ -904,7 +969,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611492797986</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="新增接口">
+      <created>1611493715453</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1611493715454</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -937,140 +1009,6 @@
     <MESSAGE value="新增接口" />
     <option name="LAST_COMMIT_MESSAGE" value="新增接口" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="734" y="175" width="1186" height="690" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1610890948501">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="734" y="175" width="1186" height="690" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1610890948501" />
-    <state x="3111" y="175" width="1174" height="690" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1605178670817" />
-    <state x="1085" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1610873929718">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="1085" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1610873929718" />
-    <state x="1010" y="299" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1605144325900">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="1010" y="299" key="#com.intellij.ide.util.PackageChooserDialog/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605144325900" />
-    <state x="1030" y="387" width="672" height="274" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1605144326814">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="1030" y="387" width="672" height="274" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605144326814" />
-    <state x="165" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1606649462118">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="165" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1606649462118" />
-    <state x="1035" y="222" width="657" height="596" key="#xdebugger.evaluate" timestamp="1609919263260">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="1035" y="222" width="657" height="596" key="#xdebugger.evaluate/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1609919263260" />
-    <state x="3158" y="87" key="CommitChangelistDialog2" timestamp="1605258922816">
-      <screen x="2560" y="0" width="1920" height="1040" />
-    </state>
-    <state x="797" y="87" key="CommitChangelistDialog2/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605168109293" />
-    <state x="3158" y="87" key="CommitChangelistDialog2/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1605258922816" />
-    <state width="513" height="466" key="DebuggerActiveHint" timestamp="1609919232237">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state width="513" height="466" key="DebuggerActiveHint/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1609919232237" />
-    <state width="2517" height="339" key="GridCell.Tab.0.bottom" timestamp="1611481864265">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state width="2517" height="339" key="GridCell.Tab.0.bottom/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1611481864265" />
-    <state width="1877" height="339" key="GridCell.Tab.0.bottom/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1606949545764" />
-    <state width="2517" height="339" key="GridCell.Tab.0.center" timestamp="1611481864265">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state width="2517" height="339" key="GridCell.Tab.0.center/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1611481864265" />
-    <state width="1877" height="339" key="GridCell.Tab.0.center/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1606949545763" />
-    <state width="2517" height="339" key="GridCell.Tab.0.left" timestamp="1611481864265">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state width="2517" height="339" key="GridCell.Tab.0.left/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1611481864265" />
-    <state width="1877" height="339" key="GridCell.Tab.0.left/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1606949545763" />
-    <state width="2517" height="339" key="GridCell.Tab.0.right" timestamp="1611481864265">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state width="2517" height="339" key="GridCell.Tab.0.right/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1611481864265" />
-    <state width="1877" height="339" key="GridCell.Tab.0.right/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1606949545763" />
-    <state width="2517" height="339" key="GridCell.Tab.1.bottom" timestamp="1611481864266">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state width="2517" height="339" key="GridCell.Tab.1.bottom/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1611481864266" />
-    <state width="1877" height="339" key="GridCell.Tab.1.bottom/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1606949545764" />
-    <state width="2517" height="339" key="GridCell.Tab.1.center" timestamp="1611481864266">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state width="2517" height="339" key="GridCell.Tab.1.center/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1611481864266" />
-    <state width="1877" height="339" key="GridCell.Tab.1.center/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1606949545764" />
-    <state width="2517" height="339" key="GridCell.Tab.1.left" timestamp="1611481864266">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state width="2517" height="339" key="GridCell.Tab.1.left/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1611481864266" />
-    <state width="1877" height="339" key="GridCell.Tab.1.left/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1606949545764" />
-    <state width="2517" height="339" key="GridCell.Tab.1.right" timestamp="1611481864266">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state width="2517" height="339" key="GridCell.Tab.1.right/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1611481864266" />
-    <state width="1877" height="339" key="GridCell.Tab.1.right/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1606949545764" />
-    <state width="2517" height="339" key="GridCell.Tab.2.bottom" timestamp="1611481864266">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state width="2517" height="339" key="GridCell.Tab.2.bottom/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1611481864266" />
-    <state width="1877" height="339" key="GridCell.Tab.2.bottom/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1606949545764" />
-    <state width="2517" height="339" key="GridCell.Tab.2.center" timestamp="1611481864266">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state width="2517" height="339" key="GridCell.Tab.2.center/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1611481864266" />
-    <state width="1877" height="339" key="GridCell.Tab.2.center/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1606949545764" />
-    <state width="2517" height="339" key="GridCell.Tab.2.left" timestamp="1611481864266">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state width="2517" height="339" key="GridCell.Tab.2.left/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1611481864266" />
-    <state width="1877" height="339" key="GridCell.Tab.2.left/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1606949545764" />
-    <state width="2517" height="339" key="GridCell.Tab.2.right" timestamp="1611481864266">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state width="2517" height="339" key="GridCell.Tab.2.right/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1611481864266" />
-    <state width="1877" height="339" key="GridCell.Tab.2.right/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1606949545764" />
-    <state x="860" y="254" key="IDE.errors.dialog" timestamp="1605147583695">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="860" y="254" key="IDE.errors.dialog/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605147583695" />
-    <state x="948" y="221" key="RollbackChangesDialog" timestamp="1610874551835">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="948" y="221" key="RollbackChangesDialog/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1610874551835" />
-    <state x="760" y="94" key="SettingsEditor" timestamp="1605594410419">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="760" y="94" key="SettingsEditor/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605594410419" />
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1611492800195">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1611492800195" />
-    <state x="3214" y="253" key="Vcs.Push.Dialog.v2/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1605866621518" />
-    <state x="697" y="249" width="1166" height="641" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1605148076873">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="697" y="249" width="1166" height="641" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605148076873" />
-    <state x="2560" y="0" width="1936" height="1027" key="dock-window-1" timestamp="1605106457177">
-      <screen x="2560" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2560" y="0" width="1936" height="1027" key="dock-window-1/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605106457177" />
-    <state x="473" y="135" width="1626" height="776" key="find.popup" timestamp="1610788936868">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="473" y="135" width="1626" height="776" key="find.popup/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1610788936868" />
-    <state x="3222" y="252" width="690" height="536" key="find.popup/0.0.2560.1040/2560.0.1920.1040@2560.0.1920.1040" timestamp="1605967388508" />
-    <state x="936" y="240" key="run.anything.popup" timestamp="1605147873556">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="936" y="240" key="run.anything.popup/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1605147873556" />
-    <state x="936" y="173" width="672" height="676" key="search.everywhere.popup" timestamp="1604223624940">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="936" y="173" width="672" height="676" key="search.everywhere.popup/0.0.2560.1040/2560.0.1920.1040@0.0.2560.1040" timestamp="1604223624940" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -1078,6 +1016,11 @@
           <url>jar://$MAVEN_REPOSITORY$/jb4dc/jb4dc-front-end-base-dist/1.0-SNAPSHOT/jb4dc-front-end-base-dist-1.0-SNAPSHOT.jar!/static/Js/JBuild4DCLib.js</url>
           <line>810</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/jb4dc/jb4dc-base-service/1.0-SNAPSHOT/jb4dc-base-service-1.0-SNAPSHOT.jar!/com/jb4dc/base/service/general/JB4DCSessionUtility.class</url>
+          <line>171</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

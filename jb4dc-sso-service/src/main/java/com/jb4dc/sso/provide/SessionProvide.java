@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
  * Date: 2019/7/27
  * To change this template use File | Settings | File Templates.
  */
-@Primary
+/*@Primary
 @Service
 public class SessionProvide implements ISessionProvide {
 
@@ -44,4 +44,4 @@ public class SessionProvide implements ISessionProvide {
         }
         return null;
     }
-}
+}*/

@@ -1,5 +1,6 @@
 package com.jb4dc.sso.client.remote;
 
+import com.jb4dc.base.service.aspect.ClientCallRemoteCache;
 import com.jb4dc.base.service.general.JB4DCSessionUtility;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.sso.dbentities.role.RoleGroupEntity;
@@ -18,8 +19,9 @@ import java.util.List;
  */
 @Primary
 @FeignClient(name= "${jb4dc.sso.server.name}",contextId = "RoleGroupRuntimeRemote",path = "${jb4dc.sso.server.context-path}/Rest/SSO/Runtime/RoleGroupRuntime")
-public interface _RoleGroupRuntimeRemote {
+public interface RoleGroupRuntimeRemote {
 
     @RequestMapping(value = "GetALLRoleGroup", method = RequestMethod.POST)
+    @ClientCallRemoteCache
     JBuild4DCResponseVo<List<RoleGroupEntity>> getALLRoleGroup();
 }

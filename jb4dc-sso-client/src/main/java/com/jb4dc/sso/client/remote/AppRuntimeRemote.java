@@ -1,6 +1,8 @@
 package com.jb4dc.sso.client.remote;
 
+import com.jb4dc.base.service.aspect.ClientCallRemoteCache;
 import com.jb4dc.base.service.general.JB4DCSessionUtility;
+import com.jb4dc.base.service.po.SsoAppPO;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.sso.dbentities.application.SsoAppEntity;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,7 +23,8 @@ import java.util.List;
  */
 @Primary
 @FeignClient(name= "${jb4dc.sso.server.name}",contextId = "AppRuntimeRemote",path = "${jb4dc.sso.server.context-path}/Rest/SSO/Runtime/ApplicationRuntime")
-public interface _AppRuntimeRemote {
+public interface AppRuntimeRemote {
     @RequestMapping(value = "/GetHasAuthorityAppSSO", method = RequestMethod.GET, produces = "application/json")
-    JBuild4DCResponseVo getHasAuthorityAppSSO(@RequestParam("userId") String userId) throws JBuild4DCGenerallyException;
+    @ClientCallRemoteCache
+    JBuild4DCResponseVo<List<SsoAppPO>> getHasAuthorityAppSSO(@RequestParam("userId") String userId) throws JBuild4DCGenerallyException;
 }

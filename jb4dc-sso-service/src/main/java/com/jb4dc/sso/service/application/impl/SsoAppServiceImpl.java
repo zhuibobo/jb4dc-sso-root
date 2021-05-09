@@ -101,13 +101,13 @@ public class SsoAppServiceImpl extends BaseServiceImpl<SsoAppEntity> implements 
     public void initSystemData(JB4DCSession jb4DSession) throws JBuild4DCGenerallyException {
         try {
             //单点登录与统一用户管理系统
-            SsoAppComplexPO ssoAppBO = innerNewMainApp(jb4DSession, "SSOMainApp", "单点登录与统一用户管理系统","http://58.51.184.124:9103/SSOSystem","/HTML/FrameV2/FrameView.html");
+            SsoAppComplexPO ssoAppBO = innerNewMainApp(jb4DSession, "SSOMainApp", "单点登录与统一用户管理系统","http://58.51.184.121:9103/SSOSystem","/HTML/FrameV2/FrameView.html");
 
             //代码生产器
-            SsoAppComplexPO codeGenerateAppBO = innerNewMainApp(jb4DSession, "CodeGenerateAppBO", "代码生成器","http://58.51.184.124:9102/CodeGen","/HTML/Login.html");
+            SsoAppComplexPO codeGenerateAppBO = innerNewMainApp(jb4DSession, "CodeGenerateAppBO", "代码生成器","http://58.51.184.121:9102/CodeGen","/HTML/Login.html");
 
             //应用构建系统
-            SsoAppComplexPO builderAppBO = innerNewMainApp(jb4DSession, "BuilderMainApp", "应用构建系统","http://58.51.184.124:9104/JB4DCBuilder","/HTML/FrameV2/FrameView.html");
+            SsoAppComplexPO builderAppBO = innerNewMainApp(jb4DSession, "BuilderMainApp", "应用构建系统","http://58.51.184.121:9104/JB4DCBuilder","/HTML/FrameV2/FrameView.html");
 
             //开发样例系统
             //SSOAppPO devMockAppBO = innerNewMainApp(jb4DSession, "DevMockApp", "开发样例系统","http://127.0.0.1:9102/DevMock","/HTML/FrameV1/FrameView.html");
@@ -116,10 +116,10 @@ public class SsoAppServiceImpl extends BaseServiceImpl<SsoAppEntity> implements 
             //SSOAppPO hrAppBO = innerNewMainApp(jb4DSession, "HrSystem", "人力资源系统","http://127.0.0.1:9102/HrSystem","/HTML/FrameV1/FrameView.html");
 
             //服务运维系统
-            SsoAppComplexPO qcAppBO = innerNewMainApp(jb4DSession, "QCSystem", "服务运维系统","http://58.51.184.124:9105/QCSystem","/HTML/FrameV2/FrameView.html");
+            SsoAppComplexPO qcAppBO = innerNewMainApp(jb4DSession, "QCSystem", "服务运维系统","http://58.51.184.121:9105/QCSystem","/HTML/FrameV2/FrameView.html");
 
             //网格化系统
-            SsoAppComplexPO GridAppBO = innerNewMainApp(jb4DSession, "GridSystem", "网格化社会管理系统","http://58.51.184.124:9106/GridSystem","/HTML/FrameV2/FrameView.html");
+            SsoAppComplexPO GridAppBO = innerNewMainApp(jb4DSession, "GridSystem", "网格化社会管理系统","http://58.51.184.121:9106/GridSystem","/HTML/FrameV2/FrameView.html");
 
         } catch (Exception e) {
             throw new JBuild4DCGenerallyException(JBuild4DCGenerallyException.EXCEPTION_SSO_CODE,e.getMessage());
@@ -130,9 +130,9 @@ public class SsoAppServiceImpl extends BaseServiceImpl<SsoAppEntity> implements 
     public List getHasAuthorityAppSSO(String userId) throws JBuild4DCGenerallyException{
         try {
             List<SsoAppEntity> ssoAppEntityList=ssoAppMapper.selectHasAuthorityAppSSO(userId);
-            if(SpringContextHolder.getActiveProfile().equals("dev")){
+            if(SpringContextHolder.getActiveProfile().equals("dev")||SpringContextHolder.getActiveProfile().equals("devjar")){
                 for (SsoAppEntity ssoAppEntity : ssoAppEntityList) {
-                    ssoAppEntity.setAppDomain(ssoAppEntity.getAppDomain().replaceAll("58.51.184.124","127.0.0.1"));
+                    ssoAppEntity.setAppDomain(ssoAppEntity.getAppDomain().replaceAll("58.51.184.121","127.0.0.1"));
                 }
             }
             return ssoAppEntityList;

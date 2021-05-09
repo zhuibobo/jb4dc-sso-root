@@ -1,5 +1,6 @@
 package com.jb4dc.sso.webserver.rest.sso.session;
 
+import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.sso.core.ISSOLoginStore;
@@ -16,9 +17,10 @@ public class SessionRest {
     ISSOLoginStore ssoLoginStore;
 
     @RequestMapping(value = "GetSession", method = RequestMethod.POST)
-    public JBuild4DCResponseVo getSession(String JBuild4DCSSOToken){
-        JB4DCSession jb4DSession=ssoLoginStore.getSession(JBuild4DCSSOToken);
-        return JBuild4DCResponseVo.getDataSuccess(jb4DSession);
+    public JBuild4DCResponseVo getSession(String JBuild4DCSSOToken) throws JBuild4DCGenerallyException {
+        //JB4DCSession jb4DSession=ssoLoginStore.getSession(JBuild4DCSSOToken);
+        //return JBuild4DCResponseVo.getDataSuccess(jb4DSession);
+        throw JBuild4DCGenerallyException.getNotSupportMethodException(JBuild4DCGenerallyException.EXCEPTION_SSO_CODE);
     }
 
     @RequestMapping(value = "LoginForRest", method = RequestMethod.POST)

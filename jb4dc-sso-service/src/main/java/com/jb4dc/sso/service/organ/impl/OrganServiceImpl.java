@@ -33,7 +33,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -200,6 +202,19 @@ public class OrganServiceImpl extends BaseServiceImpl<OrganEntity> implements IO
     }
 
     @Override
+    public Map<String, Map<String, String>> getEnableOrganMinMapJsonPropRT(JB4DCSession jb4DSession) {
+        List<OrganEntity> organEntityList= getALLEnableOrganMinProp();
+        Map<String,Map<String,String>> organMinMap=new HashMap<>();
+        for (OrganEntity organ :organEntityList) {
+            Map<String,String> mapOrgan=new HashMap<>();
+            mapOrgan.put("organId",organ.getOrganId());
+            mapOrgan.put("organName",organ.getOrganName());
+            organMinMap.put(organ.getOrganId(),mapOrgan);
+        }
+        return organMinMap;
+    }
+
+    @Override
     public void deleteByOrganName(JB4DCSession session, String organName, String warningOperationCode) {
         if(JBuild4DCYaml.getWarningOperationCode().equals(warningOperationCode)){
             organMapper.deleteByOrganName(organName);
@@ -302,7 +317,7 @@ public class OrganServiceImpl extends BaseServiceImpl<OrganEntity> implements IO
         newDepartmentUserVo=getDepartmentUserPO(jb4DSession,userId,tlOrgan.getOrganId(),"manager","总管理员","13927425407",UserTypeEnum.manager,"管理员");
         departmentUserService.save(jb4DSession,userId,newDepartmentUserVo,"j4d123456");
 
-        OrganEntity zlOrgan=getOrganEntity("0002","10002","0002","卓联科技");
+        OrganEntity zlOrgan=getOrganEntity("0002","10002","0002","开发组织");
 
         this.deleteByKeyNotValidate(jb4DSession,zlOrgan.getOrganId(),JBuild4DCYaml.getWarningOperationCode());
         this.saveSimple(jb4DSession,zlOrgan.getOrganId(),zlOrgan);

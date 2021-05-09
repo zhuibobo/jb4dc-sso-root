@@ -8,6 +8,6 @@
 DBType: mysql
 DriverName: com.mysql.cj.jdbc.Driver
 DatabaseName: JB4DC_SSO_V02
-Url: jdbc:mysql://58.51.184.124:6316/JB4DC_SSO_V02?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true&autoReconnect=true&failOverReadOnly=false
+Url: jdbc:mysql://58.51.184.121:6316/JB4DC_SSO_V02?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true&autoReconnect=true&failOverReadOnly=false
 User: root
 Password: jb4dc#sz#1234

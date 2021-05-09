@@ -2,6 +2,7 @@ package com.jb4dc.sso.core;
 
 public class SSOTokenPO {
     private String token;
+    private String tempToken;
     private String time;
     private String redirectUrl;
     private String userId;
@@ -12,6 +13,14 @@ public class SSOTokenPO {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public String getTempToken() {
+        return tempToken;
+    }
+
+    public void setTempToken(String tempToken) {
+        this.tempToken = tempToken;
     }
 
     public String getTime() {

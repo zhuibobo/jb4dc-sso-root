@@ -1,19 +1,24 @@
 package com.jb4dc.sso.webserver.rest;
 
+import com.jb4dc.base.service.general.JB4DCSessionCenter;
 import com.jb4dc.base.service.general.JB4DCSessionUtility;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
+import com.jb4dc.core.base.tools.CookieUtility;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.sso.core.ISSOLogin;
 import com.jb4dc.sso.core.SSOTokenPO;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.ParseException;
 
@@ -48,10 +53,11 @@ public class LoginRest {
     @ApiOperation(value="验证用户", notes = "验证用户")
     @ApiImplicitParam(name="user", value="User", required = true, dataType = "User")
     @RequestMapping(value = "/ValidateAccountSSO", method = RequestMethod.POST)
-    public JBuild4DCResponseVo validateAccountSSO(String accountName, String password,String redirectUrl,String appId, HttpServletRequest request) throws IOException, ParseException, JBuild4DCGenerallyException {
-
-        SSOTokenPO code = ssoLogin.LoginSystem(accountName,password,redirectUrl,appId);
-        JB4DCSession jb4DSession=JB4DCSessionUtility.getSession();
+    public JBuild4DCResponseVo validateAccountSSO(String accountName, String password, String redirectUrl, HttpServletRequest req, HttpServletResponse res) throws IOException, ParseException, JBuild4DCGenerallyException {
+        String cookieSessionId= JB4DCSessionCenter.newCookieSessionId();
+        CookieUtility.set(res, JB4DCSessionCenter.WebClientCookieSessionKeyName, cookieSessionId, false,req.getContextPath());
+        SSOTokenPO code = ssoLogin.LoginSystem(accountName,password,redirectUrl,cookieSessionId,req.getSession().getId());
+        //JB4DCSession jb4DSession=JB4DCSessionCenter.getSession(newSessionId);
         return JBuild4DCResponseVo.opSuccess(code);
     }
 }

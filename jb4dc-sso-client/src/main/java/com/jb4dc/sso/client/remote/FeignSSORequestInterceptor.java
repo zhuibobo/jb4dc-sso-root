@@ -14,16 +14,16 @@ import org.springframework.stereotype.Component;
  * Date: 2019/7/25
  * To change this template use File | Settings | File Templates.
  */
-public class FeignRequestInterceptor implements RequestInterceptor {
+public class FeignSSORequestInterceptor implements RequestInterceptor {
     //public static String SessionToken="";
 
     @Override
     public void apply(RequestTemplate requestTemplate) {
         //传递当前登录用户的Token
-        JB4DCSession jb4DCSession= JB4DCSessionUtility.getSessionNotException();
+        JB4DCSession jb4DCSession= JB4DCSessionUtility.getSession();
         requestTemplate.header("content-type","application/json");
-        if(jb4DCSession!=null&& StringUtility.isNotEmpty(jb4DCSession.getSsoSessionToken())) {
-            requestTemplate.header(Conf.SSO_TOKEN_URL_PARA_NAME, jb4DCSession.getSsoSessionToken());
+        if(jb4DCSession!=null&& StringUtility.isNotEmpty(jb4DCSession.getCookieSessionId())) {
+            requestTemplate.header(Conf.SSO_TOKEN_HEADER_PARA_NAME, jb4DCSession.getCookieSessionId());
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.jb4dc.sso.client.remote;
 
+import com.jb4dc.base.service.aspect.ClientCallRemoteCache;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.sso.dbentities.organ.OrganEntity;
@@ -20,14 +21,17 @@ import java.util.List;
  */
 @Primary
 @FeignClient(name= "${jb4dc.sso.server.name}",contextId = "UserRuntimeRemote",path = "${jb4dc.sso.server.context-path}/Rest/SSO/Runtime/UserRuntime")
-public interface _UserRuntimeRemote {
+public interface UserRuntimeRemote {
 
     @RequestMapping(value = "/GetUserByOrganIdRT", method = RequestMethod.POST)
+    @ClientCallRemoteCache
     JBuild4DCResponseVo<List<UserEntity>> getUserByOrganIdRT(@RequestParam("organId") String organId)  throws JBuild4DCGenerallyException;
 
     @RequestMapping(value = "/GetEnableUserMinPropRT", method = RequestMethod.POST)
+    @ClientCallRemoteCache
     public JBuild4DCResponseVo<List<UserEntity>> getEnableUserMinPropRT()  throws JBuild4DCGenerallyException;
 
     @RequestMapping(value = "/GetUserByAccountName", method = RequestMethod.GET)
+    @ClientCallRemoteCache
     public JBuild4DCResponseVo<UserEntity> getUserByAccountName(@RequestParam("accountName") String accountName)  throws JBuild4DCGenerallyException;
 }

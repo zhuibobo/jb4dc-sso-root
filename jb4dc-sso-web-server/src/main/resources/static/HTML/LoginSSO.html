@@ -17,6 +17,7 @@
                 if(StringUtility.IsNullOrEmpty(redirectUrl)){
                     redirectUrl=BaseUtility.GetUrlOPParaValue("JBuild4DCSSOLogoutFromUrl");
                 }
+                //var cookieSessionId=BaseUtility.GetUrlParaValue("CookieSessionId");
                 //debugger;
                 var senddata={
                     accountName:_self.formItem.account,
@@ -26,7 +27,7 @@
                 AjaxUtility.Post(url, senddata , function (result) {
                     if (result.success) {
                         if(result.data.redirectUrl) {
-                            window.location.href = result.data.redirectUrl + "?JBuild4DCSSOToken=" + result.data.token+"&ForceClearClientLocationSession=true&ts="+Date.now();
+                            window.location.href = result.data.redirectUrl + "?JBuild4DCSSOToken=" + result.data.tempToken+"&ForceClearClientLocationSession=true&ts="+Date.now();
                         }
                         else{
                             window.location.href = BaseUtility.BuildAction("/HTML/FrameV2/FrameView.html");

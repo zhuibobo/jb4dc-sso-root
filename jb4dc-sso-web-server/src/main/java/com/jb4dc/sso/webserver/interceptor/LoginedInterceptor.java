@@ -25,42 +25,42 @@ public class LoginedInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         //response.setContentType("text/html;charset=UTF-8");
-        Map<String,String> igUrl=new HashMap<>();
-        igUrl.put("/Rest/Login/ValidateAccount","");
-        igUrl.put("/Rest/Login/ValidateAccountSSO","");
-        igUrl.put("/Rest/JBuild4DCYaml/GetClientSystemTitle","");
-        igUrl.put("/Rest/SSO/Session/GetSession","");
-        igUrl.put("/Rest/SSO/Runtime/","");
-        igUrl.put("/Rest/SSO/Session/LoginForRest","");
+        if(false) {
+            Map<String, String> igUrl = new HashMap<>();
+            igUrl.put("/Rest/Login/ValidateAccount", "");
+            igUrl.put("/Rest/Login/ValidateAccountSSO", "");
+            igUrl.put("/Rest/JBuild4DCYaml/GetClientSystemTitle", "");
+            igUrl.put("/Rest/SSO/Session/GetSession", "");
+            igUrl.put("/Rest/SSO/Runtime/", "");
+            igUrl.put("/Rest/SSO/Session/LoginForRest", "");
 
-        igUrl.put("/HTML/Login.html","");
-        igUrl.put("/HTML/LoginSSO.html","");
+            igUrl.put("/HTML/Login.html", "");
+            igUrl.put("/HTML/LoginSSO.html", "");
 
-        igUrl.put("/Controller/LoginSSOView","");
+            igUrl.put("/Controller/LoginSSOView", "");
+            igUrl.put("/Controller/CheckSSOSession", "");
+            igUrl.put("/Controller/Index", "");
 
+            String absPath = request.getRequestURI();
+            String appName = request.getContextPath();
+            String url = absPath.replaceAll(appName, "");
 
-        String absPath=request.getRequestURI();
-        String appName=request.getContextPath();
-        String url=absPath.replaceAll(appName,"");
-
-        if(url.indexOf("Runtime")>0){
-            return true;
-        }
-        if(igUrl.containsKey(url)){
-            return true;
-        }
-        else
-        {
-            try {
-                JB4DCSession session = JB4DCSessionUtility.getSession();
-                if (session == null) {
-                    response.sendRedirect(appName+"/HTML/LoginSSO.html");
+            if (url.indexOf("Runtime") > 0) {
+                return true;
+            }
+            if (igUrl.containsKey(url)) {
+                return true;
+            } else {
+                try {
+                    JB4DCSession session = JB4DCSessionUtility.getSession();
+                    if (session == null) {
+                        response.sendRedirect(appName + "/HTML/LoginSSO.html");
+                        return false;
+                    }
+                } catch (JBuild4DCSessionTimeoutException ex) {
+                    response.sendRedirect(appName + "/HTML/LoginSSO.html");
                     return false;
                 }
-            }
-            catch (JBuild4DCSessionTimeoutException ex){
-                response.sendRedirect(appName+"/HTML/LoginSSO.html");
-                return false;
             }
         }
         return true;
