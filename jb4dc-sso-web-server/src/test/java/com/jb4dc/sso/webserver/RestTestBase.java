@@ -1,5 +1,6 @@
 package com.jb4dc.sso.webserver;
 
+import com.jb4dc.base.service.general.JB4DCSessionUtility;
 import com.jb4dc.base.tools.JsonUtility;
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
@@ -18,6 +19,7 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.web.context.WebApplicationContext;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
@@ -48,14 +50,14 @@ public class RestTestBase {
         mockMvc = webAppContextSetup(context).build();
     }
 
-    public JB4DCSession getSession(){
+    /*public JB4DCSession getSession(){
         JB4DCSession b4DSession = new JB4DCSession();
         b4DSession.setOrganName("4D-UnitTest");
         b4DSession.setOrganId("OrganId-UnitTest");
         b4DSession.setUserName("Alex-UnitTest");
         b4DSession.setUserId("UserId-UnitTest");
         return b4DSession;
-    }
+    }*/
 
     public JBuild4DCResponseVo simpleDelete(String url, String recordId, Map<String,String> paras) throws Exception {
         MockHttpServletRequestBuilder requestDeleteBuilder = delete(url);
@@ -99,5 +101,31 @@ public class RestTestBase {
         String json = result.getResponse().getContentAsString();
         JBuild4DCResponseVo responseVo = JsonUtility.toObject(json, JBuild4DCResponseVo.class);
         return responseVo;
+    }
+
+    public JB4DCSession getSession(){
+        return JB4DCSessionUtility.getInitSystemSession();
+    }
+
+    public JB4DCSession getAlex4DSession(){
+        JB4DCSession jb4DCSession=new JB4DCSession();
+        jb4DCSession.setAppClientToken("");
+        jb4DCSession.setCookieSessionId("");
+        jb4DCSession.setJaSessionId("");
+        jb4DCSession.setOrganId("10001");
+        jb4DCSession.setOrganCode("");
+        jb4DCSession.setOrganName("10001Name");
+        jb4DCSession.setUserId("Alex4D");
+        jb4DCSession.setUserName("Alex");
+        jb4DCSession.setAccountId("Alex4D");
+        jb4DCSession.setAccountName("Alex");
+        jb4DCSession.setMainDepartmentId("");
+        jb4DCSession.setMainDepartmentName("");
+        jb4DCSession.setRoleKeys(new ArrayList<>());
+        jb4DCSession.setRoleNames(new ArrayList<>());
+        jb4DCSession.setExMap(null);
+        jb4DCSession.setFullAuthority(true);
+        jb4DCSession.setSsoSessionToken("");
+        return jb4DCSession;
     }
 }

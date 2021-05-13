@@ -44,7 +44,7 @@ public class RoleServiceImpl extends BaseServiceImpl<RoleEntity> implements IRol
     }
 
     @Override
-    public List<RoleEntity> getUserRoleList(String userId) {
+    public List<RoleEntity> getUserRoleList(JB4DCSession jb4DCSession, String userId) {
         return roleMapper.selectUserRoleList(userId);
     }
 

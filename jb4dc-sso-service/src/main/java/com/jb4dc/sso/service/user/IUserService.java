@@ -13,13 +13,17 @@ public interface IUserService extends IBaseService<UserEntity> {
     public static final String USER_TYPE_ORGAN_ADMIN = "组织管理员";
     public static final String USER_TYPE_NORMAL_USER="一般用户";
 
-    UserEntity getByAccount(String userAccount);
+    UserEntity getByAccount(JB4DCSession jb4DCSession,String userAccount);
 
-    PageInfo<UserEntity> getBindRoleUsers(String roleId, int pageNum, int pageSize);
+    PageInfo<UserEntity> getBindRoleUsers(JB4DCSession jb4DCSession,String roleId, int pageNum, int pageSize);
 
-    List<UserEntity> getByOrganId(String organId);
+    List<UserEntity> getByOrganId(JB4DCSession jb4DCSession,String organId);
 
-    List<UserEntity> getALLEnableUserMinProp();
+    List<UserEntity> getALLEnableUserMinProp(JB4DCSession jb4DCSession);
 
-    PageInfo<List<Map<String, Object>>> getUserByOrganSearch(JB4DCSession jb4DSession, Integer pageNum, Integer pageSize, Map<String, Object> searchMap);
+    PageInfo<List<Map<String, Object>>> getUserByOrganSearch(JB4DCSession jb4DCSession, Integer pageNum, Integer pageSize, Map<String, Object> searchMap);
+
+    List<UserEntity> getByUserIdList(JB4DCSession jb4DCSession, List<String> userIdList);
+
+    List<UserEntity> getUserByRoleId(JB4DCSession jb4DCSession, String roleId);
 }

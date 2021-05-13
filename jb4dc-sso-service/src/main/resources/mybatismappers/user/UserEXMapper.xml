@@ -53,4 +53,17 @@
         </where>
         ORDER by USER_ORDER_NUM asc
     </select>
+
+    <select id="selectByUserIdList" resultMap="BaseResultMap">
+        select * from TSSO_USER where USER_ID in
+            <foreach collection="list" item="id" index="index" open="(" close=")" separator=",">
+                #{id}
+            </foreach>
+        order by USER_ORDER_NUM DESC
+    </select>
+
+    <select id="selectUserByRoleId" resultMap="BaseResultMap">
+        select * from TSSO_USER where USER_ID in (select BIND_USER_ID from TSSO_USER_ROLE where BIND_ROLE_ID=#{roleId})
+        order by USER_ORDER_NUM DESC
+    </select>
 </mapper>

@@ -16,4 +16,8 @@ public interface UserMapper extends BaseMapper<UserEntity> {
     List<UserEntity> selectEnableUserMinProp();
 
     List<Map<String, Object>> selectUserByOrganSearch(Map<String, Object> searchMap);
+
+    List<UserEntity> selectByUserIdList(List<String> userIdList);
+
+    List<UserEntity> selectUserByRoleId(String roleId);
 }

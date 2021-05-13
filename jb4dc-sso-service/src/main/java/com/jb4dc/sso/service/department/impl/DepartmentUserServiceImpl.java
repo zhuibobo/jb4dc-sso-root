@@ -72,7 +72,7 @@ public class DepartmentUserServiceImpl implements IDepartmentUserService
 
         if(departmentUserEntity==null){
 
-            if (userService.getByAccount(record.getUserEntity().getUserAccount()) == null) {
+            if (userService.getByAccount(jb4DSession,record.getUserEntity().getUserAccount()) == null) {
                 //新增用户
                 UserEntity addUser = record.getUserEntity();
                 addUser.setUserPassword(MD5Utility.GetMD5Code(accountPassword, true));
@@ -101,7 +101,7 @@ public class DepartmentUserServiceImpl implements IDepartmentUserService
             }
         }
         else{
-            UserEntity oldEntity=userService.getByAccount(record.getUserEntity().getUserAccount());
+            UserEntity oldEntity=userService.getByAccount(jb4DSession,record.getUserEntity().getUserAccount());
             if (oldEntity!=null){
                 if(!oldEntity.getUserId().equals(record.getUserEntity().getUserId())){
                     throw new JBuild4DCGenerallyException(JBuild4DCGenerallyException.EXCEPTION_SSO_CODE,getValueExistErrorMsg(record.getUserEntity().getUserAccount()));

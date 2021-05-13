@@ -1,5 +1,6 @@
 package com.jb4dc.sso.webserver.rest.client;
 
+import com.jb4dc.base.service.general.JB4DCUnitSessionSessionUtility;
 import com.jb4dc.base.tools.RedisUtility;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.sso.client.remote.OrganRuntimeRemote;
@@ -34,7 +35,7 @@ public class OrganRuntimeProxyImplTest  extends RestTestBase {
         JBuild4DCResponseVo<List<OrganEntity>> jBuild4DCResponseVoOrganEntity=organRuntimeRemote.getFullEnableOrganRT();
         System.out.println(jBuild4DCResponseVoOrganEntity);
 
-        JBuild4DCResponseVo<List<RoleEntity>> jBuild4DCResponseVoRoleEntity=roleRuntimeRemote.getUserRolesRT("Zhuang_Rui_Bo_UID");
+        JBuild4DCResponseVo<List<RoleEntity>> jBuild4DCResponseVoRoleEntity=roleRuntimeRemote.getUserRoles("Zhuang_Rui_Bo_UID");
         System.out.println(jBuild4DCResponseVoRoleEntity);
         //organRuntimeProxy.getFullEnableOrganRT();
         //organRuntimeProxy.getFullEnableOrganRT();
@@ -42,6 +43,7 @@ public class OrganRuntimeProxyImplTest  extends RestTestBase {
 
     @Test
     public void getAllChildOrganIdIncludeSelfRT() throws Exception {
+        JB4DCUnitSessionSessionUtility.mockLogin(getAlex4DSession());
         JBuild4DCResponseVo<List<String>> responseVo=organRuntimeRemote.getAllChildOrganIdIncludeSelfRT("24655792-87a2-4057-887f-05db96e868be");
         System.out.println(responseVo);
 

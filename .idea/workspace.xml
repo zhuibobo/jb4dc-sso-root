@@ -23,79 +23,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5ded3b0-098e-45d9-b1b7-14a09bef04fb" name="Default Changelist" comment="新增接口">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_lettuce_lettuce_core_5_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_buffer_4_1_53_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_4_1_53_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_common_4_1_53_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_4_1_53_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_4_1_53_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_4_1_53_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_redis_2_2_11_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_2_11_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_keyvalue_2_2_11_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_redis_2_2_11_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_oxm_5_2_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/filter/RuntimeRestInterfaceValidate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/beanconfig/redis/RedisBeansConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/beanconfig/sys/SsoFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/controller/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_25.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_28.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/test/java/com/jb4dc/sso/webserver/rest/client/UserRuntimeRemoteTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/jb4dc-sso-client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/jb4dc-sso-client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/beanconfig/cache/SSOCacheBeansConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/beanconfig/cache/SSOCacheBeansConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/cache/SSOCacheManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/cache/SSOCacheManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/conf/Conf.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/conf/Conf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/filter/SsoWebFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/filter/SsoWebFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/provide/ClientSessionProvide.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/provide/ClientSessionProvide.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/IAppRuntimeProxy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/IMenuRuntimeProxy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/IOrganRuntimeProxy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/IRoleGroupRuntimeProxy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/IRoleRuntimeProxy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/IUserRuntimeProxy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/RuntimeProxyBase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/impl/AppRuntimeProxy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/impl/MenuRuntimeProxy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/impl/OrganRuntimeProxyImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/impl/RoleGroupRuntimeProxyImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/impl/RoleRuntimeProxyImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/proxy/impl/UserRuntimeProxyImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/FeignRequestInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/FeignSSORequestInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/SSOClientFeignClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/SSOClientFeignClientConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/_AppRuntimeRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/AppRuntimeRemote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/_MenuRuntimeRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/MenuRuntimeRemote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/_OrganRuntimeRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/OrganRuntimeRemote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/_RoleGroupRuntimeRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/RoleGroupRuntimeRemote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/_RoleRuntimeRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/RoleRuntimeRemote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/_UserRuntimeRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/UserRuntimeRemote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/store/SessionClientStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/store/SessionClientStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-pojo/jb4dc-sso-pojo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-pojo/jb4dc-sso-pojo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/jb4dc-sso-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/jb4dc-sso-service.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/core/ISSOLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/core/ISSOLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/core/ISSOLoginStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/core/ISSOLoginStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/core/SSOTokenPO.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/core/SSOTokenPO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/OrganRuntimeRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/OrganRuntimeRemote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/RoleRuntimeRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/RoleRuntimeRemote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/UserRuntimeRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/UserRuntimeRemote.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/core/impl/SSOLoginImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/core/impl/SSOLoginImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/core/impl/SSOLoginStoreImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/core/impl/SSOLoginStoreImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/provide/SessionProvide.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/provide/SessionProvide.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/application/impl/SsoAppServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/application/impl/SsoAppServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/menu/impl/MenuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/menu/impl/MenuServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/organ/IOrganService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/organ/IOrganService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/organ/impl/OrganServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/organ/impl/OrganServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/jb4dc-sso-web-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/jb4dc-sso-web-server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/HTML/LoginSSO.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/HTML/LoginSSO.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/ApplicationSSOWebServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/ApplicationSSOWebServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/controller/LoginSSOController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/controller/LoginSSOController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/interceptor/LoginedInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/interceptor/LoginedInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/interceptor/SSOLoginedInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/interceptor/SSOLoginedInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/LoginRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/LoginRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/runtime/OrganRuntimeRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/runtime/OrganRuntimeRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/session/SessionRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/session/SessionRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-devjar.yml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-devjar.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-xgprod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-xgprod.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/config/db.yml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/config/db.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/HTML/LoginSSO.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/static/HTML/LoginSSO.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/dao/user/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/dao/user/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/department/impl/DepartmentUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/department/impl/DepartmentUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/role/IRoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/role/IRoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/role/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/role/impl/RoleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/user/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/user/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/user/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/user/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/resources/mybatismappers/user/UserEXMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/resources/mybatismappers/user/UserEXMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/role/UserRoleBindRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/role/UserRoleBindRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/runtime/RoleRuntimeRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/runtime/RoleRuntimeRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/runtime/UserRuntimeRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/runtime/UserRuntimeRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/test/java/com/jb4dc/sso/webserver/RestTestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/test/java/com/jb4dc/sso/webserver/RestTestBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/test/java/com/jb4dc/sso/webserver/rest/client/OrganRuntimeProxyImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/test/java/com/jb4dc/sso/webserver/rest/client/OrganRuntimeProxyImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -211,25 +155,14 @@
       <recent name="com.jb4dc.sso.client.beanconfig.cache" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.jb4dc.sso.webserver.rest.client" />
       <recent name="com.jb4dc.sso.webserver.beanconfig.sys" />
       <recent name="com.jb4dc.sso.webserver.remote" />
       <recent name="com.jb4dc.sso.webserver.rest.sso.menu" />
       <recent name="com.jb4dc.sso.client.remote" />
-      <recent name="com.jb4dc.sso.client.provide" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.ApplicationSSOWebServer">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="InitializationSystemRestTest.initializationSystem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jb4dc-sso-web-server" />
       <extension name="coverage">
@@ -246,7 +179,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrganRuntimeProxyImplTest.addOrganAndDepartmentAndUserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OrganRuntimeProxyImplTest.getAllChildOrganIdIncludeSelfRT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jb4dc-sso-web-server" />
       <extension name="coverage">
         <pattern>
@@ -256,13 +189,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.jb4dc.sso.webserver.rest.client" />
       <option name="MAIN_CLASS_NAME" value="com.jb4dc.sso.webserver.rest.client.OrganRuntimeProxyImplTest" />
-      <option name="METHOD_NAME" value="addOrganAndDepartmentAndUserTest" />
+      <option name="METHOD_NAME" value="getAllChildOrganIdIncludeSelfRT" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrganRuntimeProxyImplTest.resd" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserRuntimeRemoteTest.searchUserByUserIdList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jb4dc-sso-web-server" />
       <extension name="coverage">
         <pattern>
@@ -271,8 +204,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.jb4dc.sso.webserver.rest.client" />
-      <option name="MAIN_CLASS_NAME" value="com.jb4dc.sso.webserver.rest.client.OrganRuntimeProxyImplTest" />
-      <option name="METHOD_NAME" value="resd" />
+      <option name="MAIN_CLASS_NAME" value="com.jb4dc.sso.webserver.rest.client.UserRuntimeRemoteTest" />
+      <option name="METHOD_NAME" value="searchUserByUserIdList" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -329,18 +262,18 @@
     <list>
       <item itemvalue="Gulp.js.dist-watch" />
       <item itemvalue="Gulp.js.html-only" />
-      <item itemvalue="JUnit.OrganRuntimeProxyImplTest.addOrganAndDepartmentAndUserTest" />
-      <item itemvalue="JUnit.OrganRuntimeProxyImplTest.resd" />
       <item itemvalue="JUnit.InitializationSystemRestTest.initializationSystem" />
+      <item itemvalue="JUnit.OrganRuntimeProxyImplTest.getAllChildOrganIdIncludeSelfRT" />
+      <item itemvalue="JUnit.UserRuntimeRemoteTest.searchUserByUserIdList" />
       <item itemvalue="Spring Boot.ApplicationSSOWebServer" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserRuntimeRemoteTest.searchUserByUserIdList" />
+        <item itemvalue="JUnit.OrganRuntimeProxyImplTest.getAllChildOrganIdIncludeSelfRT" />
         <item itemvalue="JUnit.InitializationSystemRestTest.initializationSystem" />
         <item itemvalue="Gulp.js.html-only" />
         <item itemvalue="Gulp.js.dist-watch" />
-        <item itemvalue="JUnit.OrganRuntimeProxyImplTest.resd" />
-        <item itemvalue="JUnit.OrganRuntimeProxyImplTest.addOrganAndDepartmentAndUserTest" />
       </list>
     </recent_temporary>
   </component>
@@ -631,14 +564,11 @@
       <workItem from="1619878924241" duration="7000" />
       <workItem from="1619925506660" duration="9889000" />
       <workItem from="1620371913660" duration="2710000" />
-      <workItem from="1620520437777" duration="4160000" />
-    </task>
-    <task id="LOCAL-00026" summary="创建工程">
-      <created>1563801608172</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1563801608172</updated>
+      <workItem from="1620520437777" duration="5446000" />
+      <workItem from="1620648499995" duration="3423000" />
+      <workItem from="1620695784700" duration="7847000" />
+      <workItem from="1620790041375" duration="1096000" />
+      <workItem from="1620867157947" duration="4283000" />
     </task>
     <task id="LOCAL-00027" summary="创建工程">
       <created>1563875338613</created>
@@ -976,7 +906,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611493715454</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="新增接口">
+      <created>1620526412235</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1620526412235</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

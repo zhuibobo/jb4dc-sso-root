@@ -63,7 +63,7 @@ public class SSOLoginImpl implements ISSOLogin {
     @Override
     public SSOTokenPO LoginSystem(String account, String password, String redirectUrl, String cookieSessionId,String jSessionId) throws JBuild4DCGenerallyException {
 
-        UserEntity userEntity=userService.getByAccount(account);
+        UserEntity userEntity=userService.getByAccount(null,account);
         if(userEntity!=null){
            String inputPassword=MD5Utility.GetMD5Code(password, true);
            if(inputPassword.equals(userEntity.getUserPassword())) {
@@ -83,7 +83,7 @@ public class SSOLoginImpl implements ISSOLogin {
                    jb4DCSession.setFullAuthority(false);
                }
 
-               List<RoleEntity> roleEntityList = roleService.getUserRoleList(userEntity.getUserOrganId());
+               List<RoleEntity> roleEntityList = roleService.getUserRoleList(jb4DCSession,userEntity.getUserOrganId());
                jb4DCSession.setRoleKeys(roleEntityList.stream().map(roleEntity -> roleEntity.getRoleId()).collect(Collectors.toList()));
                jb4DCSession.setRoleNames(roleEntityList.stream().map(roleEntity -> roleEntity.getRoleName()).collect(Collectors.toList()));
 

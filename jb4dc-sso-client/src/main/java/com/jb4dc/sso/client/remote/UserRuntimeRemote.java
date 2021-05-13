@@ -23,15 +23,29 @@ import java.util.List;
 @FeignClient(name= "${jb4dc.sso.server.name}",contextId = "UserRuntimeRemote",path = "${jb4dc.sso.server.context-path}/Rest/SSO/Runtime/UserRuntime")
 public interface UserRuntimeRemote {
 
-    @RequestMapping(value = "/GetUserByOrganIdRT", method = RequestMethod.POST)
+    @RequestMapping(value = "/GetUserByOrganIdRT", method = RequestMethod.GET)
     @ClientCallRemoteCache
     JBuild4DCResponseVo<List<UserEntity>> getUserByOrganIdRT(@RequestParam("organId") String organId)  throws JBuild4DCGenerallyException;
 
-    @RequestMapping(value = "/GetEnableUserMinPropRT", method = RequestMethod.POST)
+    @RequestMapping(value = "/GetEnableUserMinPropRT", method = RequestMethod.GET)
     @ClientCallRemoteCache
-    public JBuild4DCResponseVo<List<UserEntity>> getEnableUserMinPropRT()  throws JBuild4DCGenerallyException;
+    JBuild4DCResponseVo<List<UserEntity>> getEnableUserMinPropRT()  throws JBuild4DCGenerallyException;
 
     @RequestMapping(value = "/GetUserByAccountName", method = RequestMethod.GET)
     @ClientCallRemoteCache
-    public JBuild4DCResponseVo<UserEntity> getUserByAccountName(@RequestParam("accountName") String accountName)  throws JBuild4DCGenerallyException;
+    JBuild4DCResponseVo<UserEntity> getUserByAccountName(@RequestParam("accountName") String accountName)  throws JBuild4DCGenerallyException;
+
+    @RequestMapping(value = "/GetUserById", method = RequestMethod.GET)
+    @ClientCallRemoteCache
+    JBuild4DCResponseVo<UserEntity> getUserById(@RequestParam("userId") String userId)  throws JBuild4DCGenerallyException;
+
+    @RequestMapping(value = "/SearchUserByUserIdList", method = RequestMethod.POST)
+    @ClientCallRemoteCache
+    JBuild4DCResponseVo<List<UserEntity>> searchUserByUserIdList(@RequestParam("searchUserIdList") String searchUserIdList)  throws JBuild4DCGenerallyException;
+
+    @RequestMapping(value = "/GetUserByRoleId", method = RequestMethod.GET)
+    @ClientCallRemoteCache
+    JBuild4DCResponseVo<List<UserEntity>> getUserByRoleId(@RequestParam("roleId") String roleId)  throws JBuild4DCGenerallyException;
+
+
 }

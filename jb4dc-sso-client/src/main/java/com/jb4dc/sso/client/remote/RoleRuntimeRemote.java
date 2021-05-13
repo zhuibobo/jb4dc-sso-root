@@ -22,11 +22,15 @@ import java.util.List;
 @FeignClient(name= "${jb4dc.sso.server.name}",contextId = "RoleRuntimeRemote",path = "${jb4dc.sso.server.context-path}/Rest/SSO/Runtime/RoleRuntime")
 public interface RoleRuntimeRemote {
 
-    @RequestMapping(value = "GetFullEnableRoleRT", method = RequestMethod.GET)
+    @RequestMapping(value = "GetFullEnableRole", method = RequestMethod.GET)
     @ClientCallRemoteCache
-    public JBuild4DCResponseVo<List<RoleEntity>> getFullEnableRoleRT() throws JBuild4DCGenerallyException;
+    JBuild4DCResponseVo<List<RoleEntity>> getFullEnableRole() throws JBuild4DCGenerallyException;
 
-    @RequestMapping(value = "GetUserRolesRT", method = RequestMethod.GET)
+    @RequestMapping(value = "GetUserRoles", method = RequestMethod.GET)
     @ClientCallRemoteCache
-    public JBuild4DCResponseVo<List<RoleEntity>> getUserRolesRT(@RequestParam("userId") String userId) throws JBuild4DCGenerallyException;
+    JBuild4DCResponseVo<List<RoleEntity>> getUserRoles(@RequestParam("userId") String userId) throws JBuild4DCGenerallyException;
+
+    @RequestMapping(value = "GetRoleById", method = RequestMethod.GET)
+    @ClientCallRemoteCache
+    JBuild4DCResponseVo<RoleEntity> getRoleById(@RequestParam("roleId") String roleId) throws JBuild4DCGenerallyException;
 }

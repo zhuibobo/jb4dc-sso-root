@@ -39,29 +39,29 @@ public class UserServiceImpl extends BaseServiceImpl<UserEntity> implements IUse
     }
 
     @Override
-    public UserEntity getByAccount(String userAccount) {
+    public UserEntity getByAccount(JB4DCSession jb4DCSession,String userAccount) {
         return userMapper.selectByAccount(userAccount);
     }
 
     @Override
-    public PageInfo<UserEntity> getBindRoleUsers(String roleId,int pageNum,int pageSize) {
+    public PageInfo<UserEntity> getBindRoleUsers(JB4DCSession jb4DCSession,String roleId,int pageNum,int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<UserEntity> list=userMapper.selectBindRoleUsers(roleId);
         PageInfo<UserEntity> pageInfo = new PageInfo<UserEntity>(list);
         if(pageInfo.getSize()==0&&pageInfo.getPageNum()>1){
             //如果查询的结果为0,退回查询前一页的数据;
-            return getBindRoleUsers(roleId,pageNum-1,pageSize);
+            return getBindRoleUsers(jb4DCSession,roleId,pageNum-1,pageSize);
         }
         return pageInfo;
     }
 
     @Override
-    public List<UserEntity> getByOrganId(String organId) {
+    public List<UserEntity> getByOrganId(JB4DCSession jb4DCSession,String organId) {
         return userMapper.selectByOrganId(organId);
     }
 
     @Override
-    public List<UserEntity> getALLEnableUserMinProp() {
+    public List<UserEntity> getALLEnableUserMinProp(JB4DCSession jb4DCSession) {
         return userMapper.selectEnableUserMinProp();
     }
 
@@ -72,6 +72,16 @@ public class UserServiceImpl extends BaseServiceImpl<UserEntity> implements IUse
         List<Map<String,Object>> list=userMapper.selectUserByOrganSearch(searchMap);
         PageInfo<List<Map<String,Object>>> pageInfo = new PageInfo(list);
         return pageInfo;
+    }
+
+    @Override
+    public List<UserEntity> getByUserIdList(JB4DCSession jb4DCSession, List<String> userIdList) {
+        return userMapper.selectByUserIdList(userIdList);
+    }
+
+    @Override
+    public List<UserEntity> getUserByRoleId(JB4DCSession jb4DCSession, String roleId) {
+        return userMapper.selectUserByRoleId(roleId);
     }
 
     @Override

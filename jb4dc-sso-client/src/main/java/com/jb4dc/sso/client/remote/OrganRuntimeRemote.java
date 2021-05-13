@@ -34,7 +34,7 @@ public interface OrganRuntimeRemote {
 
     @RequestMapping(value = "/GetEnableChildOrganRT", method = RequestMethod.GET)
     @ClientCallRemoteCache
-    public JBuild4DCResponseVo<List<OrganEntity>> getEnableChildOrganRT(@RequestParam("organId") String organId) throws JBuild4DCGenerallyException;
+    JBuild4DCResponseVo<List<OrganEntity>> getEnableChildOrganRT(@RequestParam("organId") String organId) throws JBuild4DCGenerallyException;
 
     @RequestMapping(value = "/GetOrganById", method = RequestMethod.GET)
     @ClientCallRemoteCache
@@ -42,10 +42,10 @@ public interface OrganRuntimeRemote {
 
     @RequestMapping(value = "/GetAllChildOrganIdIncludeSelfRT", method = RequestMethod.GET)
     @ClientCallRemoteCache
-    public JBuild4DCResponseVo<List<String>> getAllChildOrganIdIncludeSelfRT(@RequestParam("organId") String organId) throws JBuild4DCGenerallyException;
+    JBuild4DCResponseVo<List<String>> getAllChildOrganIdIncludeSelfRT(@RequestParam("organId") String organId) throws JBuild4DCGenerallyException;
 
     @RequestMapping(value = "/GetEnableOrganMinMapJsonPropRT", method = RequestMethod.GET)
     @ClientCallRemoteCache
-    public JBuild4DCResponseVo<Map<String, Map<String,String>>> getEnableOrganMinMapJsonPropRT() throws JBuild4DCGenerallyException;
+    JBuild4DCResponseVo<Map<String, Map<String,String>>> getEnableOrganMinMapJsonPropRT() throws JBuild4DCGenerallyException;
 }
 

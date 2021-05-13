@@ -3,6 +3,7 @@ package com.jb4dc.sso.webserver.rest.sso.role;
 import com.github.pagehelper.PageInfo;
 import com.jb4dc.base.service.general.JB4DCSessionUtility;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
+import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.sso.dbentities.user.UserEntity;
 import com.jb4dc.sso.service.user.IUserRoleService;
@@ -33,7 +34,7 @@ public class UserRoleBindRest {
 
     @RequestMapping(value = "GetBindRoleUsers", method = RequestMethod.POST)
     public JBuild4DCResponseVo getBindRoleUsers(String roleId,Integer pageSize,Integer pageNum) throws JBuild4DCGenerallyException {
-        PageInfo<UserEntity> pageInfo = userService.getBindRoleUsers(roleId,pageNum,pageSize);
+        PageInfo<UserEntity> pageInfo = userService.getBindRoleUsers(JB4DCSessionUtility.getSession(),roleId,pageNum,pageSize);
         return JBuild4DCResponseVo.getDataSuccess(pageInfo);
     }
 
