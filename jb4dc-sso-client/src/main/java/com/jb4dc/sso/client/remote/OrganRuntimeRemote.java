@@ -1,6 +1,7 @@
 package com.jb4dc.sso.client.remote;
 
 import com.jb4dc.base.service.aspect.ClientCallRemoteCache;
+import com.jb4dc.base.service.cache.JB4DCCacheManagerV2;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.sso.dbentities.organ.OrganEntity;
@@ -37,7 +38,7 @@ public interface OrganRuntimeRemote {
     JBuild4DCResponseVo<List<OrganEntity>> getEnableChildOrganRT(@RequestParam("organId") String organId) throws JBuild4DCGenerallyException;
 
     @RequestMapping(value = "/GetOrganById", method = RequestMethod.GET)
-    @ClientCallRemoteCache
+    @ClientCallRemoteCache(expirationTimeSeconds = JB4DCCacheManagerV2.ExpirationTime_20Minutes)
     JBuild4DCResponseVo<OrganEntity> getOrganById(@RequestParam("organId") String organId) throws JBuild4DCGenerallyException;
 
     @RequestMapping(value = "/GetAllChildOrganIdIncludeSelfRT", method = RequestMethod.GET)

@@ -1,6 +1,7 @@
 package com.jb4dc.sso.client.remote;
 
 import com.jb4dc.base.service.aspect.ClientCallRemoteCache;
+import com.jb4dc.base.service.cache.JB4DCCacheManagerV2;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.sso.dbentities.organ.OrganEntity;
@@ -36,7 +37,7 @@ public interface UserRuntimeRemote {
     JBuild4DCResponseVo<UserEntity> getUserByAccountName(@RequestParam("accountName") String accountName)  throws JBuild4DCGenerallyException;
 
     @RequestMapping(value = "/GetUserById", method = RequestMethod.GET)
-    @ClientCallRemoteCache
+    @ClientCallRemoteCache(expirationTimeSeconds = JB4DCCacheManagerV2.ExpirationTime_20Minutes)
     JBuild4DCResponseVo<UserEntity> getUserById(@RequestParam("userId") String userId)  throws JBuild4DCGenerallyException;
 
     @RequestMapping(value = "/SearchUserByUserIdList", method = RequestMethod.POST)

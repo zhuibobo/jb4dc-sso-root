@@ -23,24 +23,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5ded3b0-098e-45d9-b1b7-14a09bef04fb" name="Default Changelist" comment="新增接口">
-      <change afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/test/java/com/jb4dc/sso/webserver/rest/client/UserRuntimeRemoteTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__de_odysseus_juel_juel_api_2_2_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__de_odysseus_juel_juel_impl_2_2_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__de_odysseus_juel_juel_spi_2_2_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/session/SSOSessionUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/zhuib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/zhuib.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/jb4dc-sso-client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/jb4dc-sso-client.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/OrganRuntimeRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/OrganRuntimeRemote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/RoleRuntimeRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/RoleRuntimeRemote.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/UserRuntimeRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/UserRuntimeRemote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/core/impl/SSOLoginImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/core/impl/SSOLoginImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/dao/user/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/dao/user/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/department/impl/DepartmentUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/department/impl/DepartmentUserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/role/IRoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/role/IRoleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/role/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/role/impl/RoleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/user/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/user/IUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/user/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/user/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/resources/mybatismappers/user/UserEXMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/resources/mybatismappers/user/UserEXMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/role/UserRoleBindRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/role/UserRoleBindRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/runtime/RoleRuntimeRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/runtime/RoleRuntimeRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/runtime/UserRuntimeRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/runtime/UserRuntimeRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/test/java/com/jb4dc/sso/webserver/RestTestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/test/java/com/jb4dc/sso/webserver/RestTestBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/test/java/com/jb4dc/sso/webserver/rest/client/OrganRuntimeProxyImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/test/java/com/jb4dc/sso/webserver/rest/client/OrganRuntimeProxyImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-pojo/jb4dc-sso-pojo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-pojo/jb4dc-sso-pojo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/jb4dc-sso-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/jb4dc-sso-service.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/menu/impl/MenuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/menu/impl/MenuServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/jb4dc-sso-web-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/jb4dc-sso-web-server.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +111,7 @@
     <property name="extract.method.default.visibility" value="private" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/node_modules/gulp" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../JavaTestProject/SpringMyBatisSQLServerProject5" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -162,7 +157,7 @@
       <recent name="com.jb4dc.sso.client.remote" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.ApplicationSSOWebServer">
+  <component name="RunManager" selected="JUnit.InitializationSystemRestTest.initializationSystem">
     <configuration name="InitializationSystemRestTest.initializationSystem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jb4dc-sso-web-server" />
       <extension name="coverage">
@@ -269,9 +264,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.InitializationSystemRestTest.initializationSystem" />
         <item itemvalue="JUnit.UserRuntimeRemoteTest.searchUserByUserIdList" />
         <item itemvalue="JUnit.OrganRuntimeProxyImplTest.getAllChildOrganIdIncludeSelfRT" />
-        <item itemvalue="JUnit.InitializationSystemRestTest.initializationSystem" />
         <item itemvalue="Gulp.js.html-only" />
         <item itemvalue="Gulp.js.dist-watch" />
       </list>
@@ -569,13 +564,15 @@
       <workItem from="1620695784700" duration="7847000" />
       <workItem from="1620790041375" duration="1096000" />
       <workItem from="1620867157947" duration="4283000" />
-    </task>
-    <task id="LOCAL-00027" summary="创建工程">
-      <created>1563875338613</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1563875338613</updated>
+      <workItem from="1620906627709" duration="24000" />
+      <workItem from="1620913439067" duration="638000" />
+      <workItem from="1621073434017" duration="1370000" />
+      <workItem from="1622627809768" duration="4034000" />
+      <workItem from="1622703661433" duration="2105000" />
+      <workItem from="1622768303878" duration="734000" />
+      <workItem from="1622897501814" duration="63000" />
+      <workItem from="1622968360565" duration="5539000" />
+      <workItem from="1623219744812" duration="60000" />
     </task>
     <task id="LOCAL-00028" summary="创建工程">
       <created>1563890574604</created>
@@ -913,7 +910,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620526412235</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="新增接口">
+      <created>1620906642855</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1620906642855</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
