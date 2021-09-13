@@ -16,8 +16,8 @@ import java.util.Date;
  */
 public class SsoAppEntity extends SsoAppPO {
 
-    public SsoAppEntity(String appId, String appCode, String appName, String appPublicKey, String appPrivateKey, String appDomain, String appIndexUrl, String appIntegratedType, String appMainImageId, String appType, String appMainId, String appCategory, String appDesc, Integer appOrderNum, Date appCreateTime, String appStatus, String appCreatorId, String appOrganId) {
-        super(appId, appCode, appName, appPublicKey, appPrivateKey, appDomain, appIndexUrl, appIntegratedType, appMainImageId, appType, appMainId, appCategory, appDesc, appOrderNum, appCreateTime, appStatus, appCreatorId, appOrganId);
+    public SsoAppEntity(String appId, String appCode, String appName, String appPublicKey, String appPrivateKey, String appDomain, String appIndexUrl, String appIntegratedType, String appMainImageId, String appType, String appMainId, String appCategory, String appDesc, Integer appOrderNum, Date appCreateTime, String appStatus, String appCreatorId, String appOrganId,String contextPath) {
+        super(appId, appCode, appName, appPublicKey, appPrivateKey, appDomain, appIndexUrl, appIntegratedType, appMainImageId, appType, appMainId, appCategory, appDesc, appOrderNum, appCreateTime, appStatus, appCreatorId, appOrganId,contextPath);
     }
 
     public SsoAppEntity() {

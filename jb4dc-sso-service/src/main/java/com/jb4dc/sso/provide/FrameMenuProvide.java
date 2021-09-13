@@ -1,5 +1,6 @@
 package com.jb4dc.sso.provide;
 
+import com.jb4dc.base.service.general.JB4DCSessionUtility;
 import com.jb4dc.base.service.po.MenuPO;
 import com.jb4dc.base.service.po.SsoAppPO;
 import com.jb4dc.base.service.provide.IFramePageProvide;
@@ -36,12 +37,16 @@ public class FrameMenuProvide implements IFramePageProvide {
     @Override
     public List<MenuPO> getMyFrameMenu(JB4DCSession jb4DCSession) {
         List all =  menuService.getMyFrameMenu(jb4DCSession,"SSOMainApp",jb4DCSession.getUserId());
+        if(jb4DCSession.isFullAuthority()){
+            all=menuService.getMenusBySystemId(jb4DCSession,"SSOMainApp");
+        }
         return all;
     }
 
     @Override
     public List<SsoAppPO> getMyFrameAuthorityApp(String userId) throws JBuild4DCGenerallyException {
-        List myAuthAppList =  ssoAppService.getHasAuthorityAppSSO(userId);
+        JB4DCSession jb4DCSession= JB4DCSessionUtility.getSession();
+        List myAuthAppList =  ssoAppService.getHasAuthorityAppSSO(jb4DCSession,userId);
         return myAuthAppList;
     }
 

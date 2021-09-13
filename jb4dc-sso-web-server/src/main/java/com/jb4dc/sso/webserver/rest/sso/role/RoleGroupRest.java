@@ -4,6 +4,7 @@ import com.jb4dc.base.service.IBaseService;
 import com.jb4dc.base.service.general.JB4DCSessionUtility;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.feb.dist.webserver.rest.base.GeneralRest;
+import com.jb4dc.sso.client.remote.RoleGroupRuntimeRemote;
 import com.jb4dc.sso.dbentities.role.RoleGroupEntity;
 import com.jb4dc.sso.service.role.IRoleGroupService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/Rest/SSO/Ro/RoleGroup")
-public class RoleGroupRest extends GeneralRest<RoleGroupEntity> {
+public class RoleGroupRest extends GeneralRest<RoleGroupEntity> implements RoleGroupRuntimeRemote {
 
     @Autowired
     IRoleGroupService roleGroupService;
@@ -31,7 +32,7 @@ public class RoleGroupRest extends GeneralRest<RoleGroupEntity> {
         return roleGroupService;
     }
 
-    @RequestMapping(value = "GetALLRoleGroup", method = RequestMethod.POST)
+    @Override
     public JBuild4DCResponseVo<List<RoleGroupEntity>> getALLRoleGroup() {
         List<RoleGroupEntity> datasetGroupEntityList=roleGroupService.getALLOrderByAsc(JB4DCSessionUtility.getSession());
         return JBuild4DCResponseVo.getDataSuccess(datasetGroupEntityList);

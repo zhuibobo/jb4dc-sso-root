@@ -22,5 +22,5 @@ public interface ISsoAppService extends IBaseService<SsoAppEntity> {
 
     void initSystemData(JB4DCSession jb4DSession) throws JBuild4DCGenerallyException;
 
-    List getHasAuthorityAppSSO(String userId) throws JBuild4DCGenerallyException;
+    List getHasAuthorityAppSSO(JB4DCSession jb4DSession,String userId) throws JBuild4DCGenerallyException;
 }

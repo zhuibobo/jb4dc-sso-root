@@ -6,10 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="jb4dc-sso-client" />
         <module name="jb4dc-sso-web-server" />
         <module name="jb4dc-sso-pojo" />
         <module name="jb4dc-sso-service" />
+        <module name="jb4dc-sso-client" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -28,6 +28,7 @@
       <module name="jb4dc-sso-client" options="-parameters" />
       <module name="jb4dc-sso-po" options="-parameters" />
       <module name="jb4dc-sso-pojo" options="-parameters" />
+      <module name="jb4dc-sso-root" options="" />
       <module name="jb4dc-sso-service" options="-parameters" />
       <module name="jb4dc-sso-web-server" options="-parameters" />
     </option>

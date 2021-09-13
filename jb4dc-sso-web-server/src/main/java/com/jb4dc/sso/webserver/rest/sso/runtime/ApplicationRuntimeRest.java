@@ -1,6 +1,9 @@
+/*
 package com.jb4dc.sso.webserver.rest.sso.runtime;
 
+import com.jb4dc.base.service.general.JB4DCSessionUtility;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
+import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.sso.dbentities.application.SsoAppEntity;
 import com.jb4dc.sso.service.application.ISsoAppService;
@@ -20,7 +23,9 @@ public class ApplicationRuntimeRest {
 
     @RequestMapping(value = "/GetHasAuthorityAppSSO", method = RequestMethod.GET, produces = "application/json")
     public JBuild4DCResponseVo getHasAuthorityAppSSO(String userId) throws JBuild4DCGenerallyException {
-        List<SsoAppEntity> ssoAppEntityList=ssoAppService.getHasAuthorityAppSSO(userId);
+        JB4DCSession jb4DCSession= JB4DCSessionUtility.getSession();
+        List<SsoAppEntity> ssoAppEntityList=ssoAppService.getHasAuthorityAppSSO(jb4DCSession,userId);
         return JBuild4DCResponseVo.getDataSuccess(ssoAppEntityList);
     }
 }
+*/

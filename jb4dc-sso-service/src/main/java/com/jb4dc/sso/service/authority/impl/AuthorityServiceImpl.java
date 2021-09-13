@@ -2,6 +2,7 @@ package com.jb4dc.sso.service.authority.impl;
 
 import com.jb4dc.base.service.IAddBefore;
 import com.jb4dc.base.service.ISQLBuilderService;
+import com.jb4dc.base.service.exenum.UserTypeEnum;
 import com.jb4dc.base.service.impl.BaseServiceImpl;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
@@ -9,7 +10,9 @@ import com.jb4dc.core.base.tools.StringUtility;
 import com.jb4dc.core.base.tools.UUIDUtility;
 import com.jb4dc.sso.dao.authority.AuthorityMapper;
 import com.jb4dc.sso.dbentities.authority.AuthorityEntity;
+import com.jb4dc.sso.dbentities.user.UserEntity;
 import com.jb4dc.sso.service.authority.IAuthorityService;
+import com.jb4dc.sso.service.user.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +28,9 @@ public class AuthorityServiceImpl extends BaseServiceImpl<AuthorityEntity> imple
 
     @Autowired
     ISQLBuilderService isqlBuilderService;
+
+    @Autowired
+    IUserService userService;
 
     public AuthorityServiceImpl(AuthorityMapper _defaultBaseMapper){
         super(_defaultBaseMapper);
@@ -140,5 +146,14 @@ public class AuthorityServiceImpl extends BaseServiceImpl<AuthorityEntity> imple
         }
 
         return result;
+    }
+
+    @Override
+    public boolean userIsFullAuth(JB4DCSession session,String userId) throws JBuild4DCGenerallyException {
+        UserEntity userEntity=userService.getByPrimaryKey(session,userId);
+        if (userEntity.getUserType().equals(UserTypeEnum.manager.getDisplayName())) {
+            return true;
+        }
+        return false;
     }
 }

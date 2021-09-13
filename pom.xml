@@ -18,6 +18,5 @@
         <module>jb4dc-sso-pojo</module>
     </modules>
     <dependencies>
-
     </dependencies>
 </project>

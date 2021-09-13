@@ -1,3 +1,4 @@
+/*
 package com.jb4dc.sso.webserver.rest.systemsetting.runtime;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -13,12 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 
+*/
 /**
  * Created with IntelliJ IDEA.
  * User: zhuangrb
  * Date: 2020/10/9
  * To change this template use File | Settings | File Templates.
- */
+ *//*
+
 @RestController
 @RequestMapping(value = "/Rest/SystemSetting/Runtime/OperationLogRuntime")
 public class OperationLogRuntimeRest extends OperationLogRest {
@@ -31,3 +34,4 @@ public class OperationLogRuntimeRest extends OperationLogRest {
         return JBuild4DCResponseVo.opSuccess();
     }
 }
+*/

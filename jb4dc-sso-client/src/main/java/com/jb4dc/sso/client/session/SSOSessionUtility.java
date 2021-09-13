@@ -8,6 +8,7 @@ import com.jb4dc.sso.client.remote.UserRuntimeRemote;
 import com.jb4dc.sso.dbentities.organ.OrganEntity;
 import com.jb4dc.sso.dbentities.user.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class SSOSessionUtility {
     static UserRuntimeRemote userRuntimeRemote;
 
     @Autowired
-    public SSOSessionUtility(OrganRuntimeRemote _organRuntimeRemote,UserRuntimeRemote _userRuntimeRemote) {
+    public SSOSessionUtility(@Lazy OrganRuntimeRemote _organRuntimeRemote,@Lazy UserRuntimeRemote _userRuntimeRemote) {
         organRuntimeRemote=_organRuntimeRemote;
         userRuntimeRemote=_userRuntimeRemote;
     }

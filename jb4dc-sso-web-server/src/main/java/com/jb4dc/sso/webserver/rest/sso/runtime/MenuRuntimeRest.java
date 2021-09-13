@@ -1,8 +1,7 @@
+/*
 package com.jb4dc.sso.webserver.rest.sso.runtime;
 
-import com.jb4dc.base.service.general.JB4DCSessionUtility;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
-import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.sso.dbentities.menu.MenuEntity;
 import com.jb4dc.sso.webserver.rest.sso.menu.MenuRest;
@@ -12,12 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+*/
 /**
  * Created with IntelliJ IDEA.
  * User: zhuangrb
  * Date: 2020/10/9
  * To change this template use File | Settings | File Templates.
- */
+ *//*
+
 @RestController
 @RequestMapping(value = "/Rest/SSO/Runtime/MenuRuntime")
 public class MenuRuntimeRest extends MenuRest {
@@ -28,3 +29,4 @@ public class MenuRuntimeRest extends MenuRest {
         return JBuild4DCResponseVo.getDataSuccess(menuEntities);
     }
 }
+*/

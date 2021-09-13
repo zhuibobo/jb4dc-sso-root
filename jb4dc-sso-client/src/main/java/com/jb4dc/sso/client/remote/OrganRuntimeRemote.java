@@ -22,7 +22,7 @@ import java.util.Map;
  * To change this template use File | Settings | File Templates.
  */
 @Primary
-@FeignClient(name= "${jb4dc.sso.server.name}",contextId = "OrganRuntimeRemote",path = "${jb4dc.sso.server.context-path}/Rest/SSO/Runtime/OrganRuntime")
+@FeignClient(name= "${jb4dc.sso.server.name}",contextId = "OrganRuntimeRemote",path = "${jb4dc.sso.server.context-path}/Rest/SSO/Org/Organ")
 public interface OrganRuntimeRemote {
 
     @RequestMapping(value = "/GetFullEnableOrganRT", method = RequestMethod.POST)

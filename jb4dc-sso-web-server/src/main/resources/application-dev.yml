@@ -1,3 +1,10 @@
+server:
+  port: 9103
+  servlet:
+    session:
+      timeout: 7200
+    context-path: /SSOSystem
+
 jb4dc:
   system-caption: 单点登录系统
   system-title: JBuild4DC-单点登录系统
@@ -10,16 +17,36 @@ jb4dc:
   sso:
     server:
       name: JB4DC-SSO-WEB-SERVER
-      address: http://127.0.0.1:9103
+      address: https://127.0.0.1:19103
       context-path: /SSOSystem
       view:
         login: /Controller/LoginSSOView
-        logout: http://127.0.0.1:9103/SSOSystem/Controller/LogoutSSOView
+        logout: https://127.0.0.1:19103/SSOSystem/Controller/LogoutSSOView
       excluded:
   builder:
     server:
       name: JB4DC-BUILDER-WEB-SERVER
       context-path: /JB4DCBuilder
+  #默认采用http协议提供eureka使用,扩展https附件连接器
+  sslConfig:
+    enabled: true
+    port: 19103
+    key-store-type: jks
+    key-store-password: jb4d82
+    key-alias: jb4dchttps
+    key-store: D:/JavaProject/jb4dc/https/jbu4dchttps.jks
+
+management:
+  server:
+  #port: #don't change it, then the port for actuator will be the same as server.port above
+  endpoints:
+    web:
+      base-path: /actuator  #the default value for sring boot 2.x is /actuator, even you don't specify it, don't forget to include this in the URL
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
 
 spring:
   application:
@@ -28,7 +55,7 @@ spring:
       #客户端的IP
       #preferred-networks: 192.168.3.153
       #preferred-networks: 192.168.18.118
-      preferred-networks: 127.0.0.1
+      preferred-networks: 192.168.3.206
   liquibase:
     enabled: false
   thymeleaf:
@@ -37,7 +64,7 @@ spring:
     enabled: true
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
-    joda-date-time-format: yyyy-MM-dd HH:mm:ss
+    #joda-date-time-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
   servlet:
     multipart:
@@ -48,25 +75,13 @@ spring:
     port: 6379
     database: 0
     password:
-
-server:
-  port: 9103
-  servlet:
-    session:
-      timeout: 7200
-    context-path: /SSOSystem
-
-eureka:
-  client:
-    serviceUrl:
-      #服务端的地址
-      #defaultZone: http://192.168.3.166:9092/eureka/
-      #defaultZone: http://192.168.18.118:9092/eureka/
-      defaultZone: http://127.0.0.1:9101/eureka/
-      #defaultZone: http://106.55.254.205:9101/eureka/
-  instance:
-    prefer-ip-address: true
-    instanceId: ${spring.cloud.inetutils.preferred-networks}:${server.port}
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yml
 
 logging:
   level:
@@ -77,3 +92,17 @@ logging:
             dao: TRACE
         sso:
           dao: TRACE
+
+#eureka:
+  #client:
+    #serviceUrl:
+      #服务端的地址
+      #defaultZone: http://192.168.3.166:9092/eureka/
+      #defaultZone: http://192.168.18.118:9092/eureka/
+      #defaultZone: http://127.0.0.1:9101/eureka/
+      #defaultZone: http://106.55.254.205:9101/eureka/
+  #instance:
+    #prefer-ip-address: true
+    #instanceId: ${spring.cloud.inetutils.preferred-networks}:${server.port}
+
+

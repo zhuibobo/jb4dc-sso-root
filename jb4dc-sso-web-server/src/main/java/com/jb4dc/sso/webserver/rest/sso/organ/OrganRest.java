@@ -8,6 +8,7 @@ import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.feb.dist.webserver.rest.base.GeneralRest;
 import com.jb4dc.files.dbentities.FileInfoEntity;
 import com.jb4dc.files.service.IFileInfoService;
+import com.jb4dc.sso.client.remote.OrganRuntimeRemote;
 import com.jb4dc.sso.dbentities.organ.OrganEntity;
 import com.jb4dc.sso.dbentities.organ.OrganTypeEntity;
 import com.jb4dc.sso.service.organ.IOrganService;
@@ -30,7 +31,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/Rest/SSO/Org/Organ")
-public class OrganRest extends GeneralRest<OrganEntity> {
+public class OrganRest extends GeneralRest<OrganEntity> implements OrganRuntimeRemote {
 
     byte[] defaultImageByte=null;
 
@@ -109,5 +110,39 @@ public class OrganRest extends GeneralRest<OrganEntity> {
     public JBuild4DCResponseVo deleteByOrganId(String organId,String warningOperationCode) throws JBuild4DCGenerallyException {
         organService.deleteByKeyNotValidate(JB4DCSessionUtility.getSession(),organId,warningOperationCode);
         return JBuild4DCResponseVo.deleteSuccess();
+    }
+
+    @Override
+    public JBuild4DCResponseVo<List<OrganEntity>> getFullEnableOrganRT() {
+        List<OrganEntity> organEntityList=organService.getALLEnableOrgan();
+        return JBuild4DCResponseVo.success(JBuild4DCResponseVo.GETDATASUCCESSMSG,organEntityList);
+    }
+
+    @Override
+    public JBuild4DCResponseVo<List<OrganEntity>> getEnableOrganMinPropRT() {
+        List<OrganEntity> organEntityList=organService.getALLEnableOrganMinProp();
+        return JBuild4DCResponseVo.success(JBuild4DCResponseVo.GETDATASUCCESSMSG,organEntityList);
+    }
+
+    @Override
+    public JBuild4DCResponseVo<List<OrganEntity>> getEnableChildOrganRT(String organId) {
+        List<OrganEntity> organEntityList=organService.getEnableChildOrgan(organId);
+        return JBuild4DCResponseVo.success(JBuild4DCResponseVo.GETDATASUCCESSMSG,organEntityList);
+    }
+
+    @Override
+    public JBuild4DCResponseVo<List<String>> getAllChildOrganIdIncludeSelfRT(String organId) {
+        List<String> list=organService.getAllChildOrganIdIncludeSelf(organId);
+        return JBuild4DCResponseVo.success(JBuild4DCResponseVo.GETDATASUCCESSMSG,list);
+    }
+
+    @Override
+    public JBuild4DCResponseVo<OrganEntity> getOrganById(String organId) throws JBuild4DCGenerallyException {
+        return JBuild4DCResponseVo.getDataSuccess(organService.getByPrimaryKey(null,organId));
+    }
+
+    @Override
+    public JBuild4DCResponseVo<Map<String, Map<String,String>>> getEnableOrganMinMapJsonPropRT() throws JBuild4DCGenerallyException {
+        return JBuild4DCResponseVo.getDataSuccess(organService.getEnableOrganMinMapJsonPropRT(null));
     }
 }

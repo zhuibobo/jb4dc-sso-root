@@ -4,9 +4,11 @@ import com.github.pagehelper.PageInfo;
 import com.jb4dc.base.service.IBaseService;
 import com.jb4dc.base.service.general.JB4DCSessionUtility;
 import com.jb4dc.base.service.search.GeneralSearchUtility;
+import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.feb.dist.webserver.rest.base.GeneralRest;
+import com.jb4dc.sso.client.remote.MenuRuntimeRemote;
 import com.jb4dc.sso.dbentities.menu.MenuEntity;
 import com.jb4dc.sso.dbentities.role.RoleEntity;
 import com.jb4dc.sso.service.menu.IMenuService;
@@ -30,7 +32,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping(value = "/Rest/SSO/Mu/Menu")
-public class MenuRest extends GeneralRest<MenuEntity> {
+public class MenuRest extends GeneralRest<MenuEntity> implements MenuRuntimeRemote {
 
     @Autowired
     protected IMenuService menuService;
@@ -88,5 +90,11 @@ public class MenuRest extends GeneralRest<MenuEntity> {
         proPageInfo.setTotal(1000);
         return JBuild4DCResponseVo.getDataSuccess(proPageInfo);
         //return moduleRuntimeRemote.getTreeData(dbLinkId);
+    }
+
+    @Override
+    public JBuild4DCResponseVo getMyAuthMenusBySystemIdRT(String userId,String systemId) throws JBuild4DCGenerallyException {
+        List<MenuEntity> menuEntities=menuService.getMyAuthMenusBySystemId(userId,systemId);
+        return JBuild4DCResponseVo.getDataSuccess(menuEntities);
     }
 }

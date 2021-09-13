@@ -17,7 +17,7 @@ import org.springframework.context.annotation.FilterType;
  */
 @SpringBootApplication
 //@ComponentScan(basePackages = "com.jb4dc",excludeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = {ClientSessionProvide.class}) )
-@ComponentScan(basePackages = "com.jb4dc",excludeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = {}) )
+@ComponentScan(basePackages = "com.jb4dc",excludeFilters = @ComponentScan.Filter(type = FilterType.ASPECTJ, classes = {}) )
 @EnableFeignClients("com.jb4dc")
 @EnableDiscoveryClient
 public class ApplicationSSOWebServer {

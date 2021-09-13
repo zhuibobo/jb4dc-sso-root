@@ -22,9 +22,13 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 @Primary
-@FeignClient(name= "${jb4dc.sso.server.name}",contextId = "AppRuntimeRemote",path = "${jb4dc.sso.server.context-path}/Rest/SSO/Runtime/ApplicationRuntime")
+@FeignClient(name= "${jb4dc.sso.server.name}",contextId = "AppRuntimeRemote",path = "${jb4dc.sso.server.context-path}/Rest/SSO/App/Application")
 public interface AppRuntimeRemote {
     @RequestMapping(value = "/GetHasAuthorityAppSSO", method = RequestMethod.GET, produces = "application/json")
     @ClientCallRemoteCache
     JBuild4DCResponseVo<List<SsoAppPO>> getHasAuthorityAppSSO(@RequestParam("userId") String userId) throws JBuild4DCGenerallyException;
+
+    @RequestMapping(value = "/GetAppSSO", method = RequestMethod.GET, produces = "application/json")
+    @ClientCallRemoteCache
+    JBuild4DCResponseVo<SsoAppPO> getAppSSO(@RequestParam("appId") String appId) throws JBuild4DCGenerallyException;
 }

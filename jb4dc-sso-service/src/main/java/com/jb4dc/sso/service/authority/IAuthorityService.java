@@ -16,4 +16,6 @@ public interface IAuthorityService extends IBaseService<AuthorityEntity> {
     List<AuthorityEntity> getOwnerAuth(JB4DCSession session, String authOwnerType, String authOwnerId);
 
     List<Map<String,Object>> getObjAuthOwnerDesc(JB4DCSession session, String authObjId)  throws JBuild4DCGenerallyException;
+
+    boolean userIsFullAuth(JB4DCSession session, String userId) throws JBuild4DCGenerallyException;
 }

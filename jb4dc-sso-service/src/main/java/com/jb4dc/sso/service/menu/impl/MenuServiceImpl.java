@@ -123,44 +123,44 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         //根菜单->统一用户与单点登录->组织类型
         createMenu(jb4DSession,ssoRootMenu.getMenuId(),"MENU-JB4DOrganTypeManage",
                 "组织类型","组织类型","组织类型",
-                "/HTML/SSO/OrganType/OrganTypeList.html","", systemId,MenuTypeEnum.LinkMenu,"","");
+                "/SSOSystem/HTML/SSO/OrganType/OrganTypeList.html","", systemId,MenuTypeEnum.LinkMenu,"","");
 
         //根菜单->统一用户与单点登录->组织机构
         createMenu(jb4DSession,ssoRootMenu.getMenuId(),"MENU-JB4DOrganManage",
                 "组织机构","组织机构","组织机构",
-                "/HTML/SSO/Organ/OrganList.html","", systemId,MenuTypeEnum.LinkMenu,"","");
+                "/SSOSystem/HTML/SSO/Organ/OrganList.html","", systemId,MenuTypeEnum.LinkMenu,"","");
 
         //根菜单->统一用户与单点登录->部门管理
         createMenu(jb4DSession,ssoRootMenu.getMenuId(),"MENU-JB4DDepartmentManage",
                 "部门管理","部门管理","部门管理",
-                "/HTML/SSO/Department/DepartmentManager.html","", systemId,MenuTypeEnum.LinkMenu,"","");
+                "/SSOSystem/HTML/SSO/Department/DepartmentManager.html","", systemId,MenuTypeEnum.LinkMenu,"","");
 
         //根菜单->统一用户与单点登录->角色管理
         createMenu(jb4DSession,ssoRootMenu.getMenuId(),"MENU-JB4DRoleManage",
                 "角色管理","角色管理","角色管理",
-                "/HTML/SSO/Role/RoleManager.html","", systemId,MenuTypeEnum.LinkMenu,"","");
+                "/SSOSystem/HTML/SSO/Role/RoleManager.html","", systemId,MenuTypeEnum.LinkMenu,"","");
 
         //根菜单->统一用户与单点登录->应用管理
         createMenu(jb4DSession,ssoRootMenu.getMenuId(),"MENU-JB4DAppManage",
                 "应用管理","应用管理","应用管理",
-                "/HTML/SSO/Application/ApplicationManager.html","", systemId,MenuTypeEnum.LinkMenu,"","");
+                "/SSOSystem/HTML/SSO/Application/ApplicationManager.html","", systemId,MenuTypeEnum.LinkMenu,"","");
 
         //根菜单->统一用户与单点登录->菜单管理
         createMenu(jb4DSession,ssoRootMenu.getMenuId(),"MENU-JB4DMenuManage",
                 "菜单管理","菜单管理","菜单管理",
-                "/HTML/SSO/Menu/MenuManager.html","", systemId,MenuTypeEnum.LinkMenu,"","");
+                "/SSOSystem/HTML/SSO/Menu/MenuManager.html","", systemId,MenuTypeEnum.LinkMenu,"","");
 
         MenuEntity systemSettingRootMenu=createMenu(jb4DSession,rootMenuId,"MENU-SSO-JB4DSystemSettingRoot","系统设置","系统设置","系统设置","","las la-stream", systemId,MenuTypeEnum.LinkMenu,"","");
 
         //根菜单->系统设置分组->操作日志
         createMenu(jb4DSession,systemSettingRootMenu.getMenuId(),"MENU-JB4DSystemSettingOperationLog",
                 "操作日志","操作日志","操作日志",
-                "/HTML/SystemSetting/OperationLog/OperationLogList.html","", systemId,MenuTypeEnum.LinkMenu,"","");
+                "/SSOSystem/HTML/SystemSetting/OperationLog/OperationLogList.html","", systemId,MenuTypeEnum.LinkMenu,"","");
 
         //根菜单->系统设置分组->参数设置
         createMenu(jb4DSession,systemSettingRootMenu.getMenuId(),"MENU-JB4DSystemSettingParasSetting",
                 "参数设置","参数设置","参数设置",
-                "/HTML/SystemSetting/ParasSetting/ParasSettingList.html","", systemId,MenuTypeEnum.LinkMenu,"","");
+                "/SSOSystem/HTML/SystemSetting/ParasSetting/ParasSettingList.html","", systemId,MenuTypeEnum.LinkMenu,"","");
     }
 
     public void createDevDemoSystem(JB4DCSession jb4DSession,String rootMenuId) throws JBuild4DCGenerallyException {
@@ -217,7 +217,7 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         //根菜单->应用管理->环境变量
         createMenu(jb4DSession,appBuilderRootMenu.getMenuId(),"MENU-JB4DSystemAppBuilderEnvVarManager",
                 "环境变量","环境变量","环境变量",
-                "/HTML/Builder/EnvVar/Manager.html","las la-stream",systemId,MenuTypeEnum.LinkMenu,"","");
+                "/JB4DCBuilder/HTML/Builder/EnvVar/Manager.html","las la-stream",systemId,MenuTypeEnum.LinkMenu,"","");
 
 
         //根菜单->应用管理->API
@@ -233,12 +233,12 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         //根菜单->应用管理->API->构建按钮API
         createMenu(jb4DSession,appBuilderAPIManagerMenu.getMenuId(),"MENU-JB4DSystemAppBuilderAPIManager-For-Builder-Button",
                 "构建按钮API","构建按钮API","构建按钮API",
-                "/HTML/Builder/API/Manager.html?GroupType=API_GROUP_BUILDER_BUTTON_ROOT","las la-stream",systemId,MenuTypeEnum.LinkMenu,"","");
+                "/JB4DCBuilder/HTML/Builder/API/Manager.html?GroupType=API_GROUP_BUILDER_BUTTON_ROOT","las la-stream",systemId,MenuTypeEnum.LinkMenu,"","");
 
         //根菜单->应用管理->API->工作流动作API
         createMenu(jb4DSession,appBuilderAPIManagerMenu.getMenuId(),"MENU-JB4DSystemAppBuilderAPIManager-For-WorkFlow-Action",
                 "工作流动作API","工作流动作API","工作流动作API",
-                "/HTML/Builder/API/Manager.html?GroupType=API_GROUP_WORKFLOW_ACTION_ROOT","las la-stream",systemId,MenuTypeEnum.LinkMenu,"","");
+                "/JB4DCBuilder/HTML/Builder/API/Manager.html?GroupType=API_GROUP_WORKFLOW_ACTION_ROOT","las la-stream",systemId,MenuTypeEnum.LinkMenu,"","");
 
         //根菜单->应用管理->存储设计
         MenuEntity appManagerDataStorageMenu=createMenu(jb4DSession,appBuilderRootMenu.getMenuId(),"MENU-JB4DSystemAppBuilderDataStorageBuilder",
@@ -254,32 +254,32 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         //根菜单->应用管理->存储设计->数据库连接
         MenuEntity appBuilderDBLinkMenu=createMenu(jb4DSession,appManagerDataStorageMenu.getMenuId(),"MENU-JB4DSystemAppBuilderDBLink",
                 "数据库连接","数据库连接","数据库连接",
-                "/HTML/Builder/DataStorage/DBLink/DBLinkList.html","frame-las la-stream",systemId,MenuTypeEnum.LinkMenu,"","");
+                "/JB4DCBuilder/HTML/Builder/DataStorage/DBLink/DBLinkList.html","frame-las la-stream",systemId,MenuTypeEnum.LinkMenu,"","");
 
         //根菜单->应用管理->存储设计->数据库管理
         MenuEntity appBuilderDataBaseMenu=createMenu(jb4DSession,appManagerDataStorageMenu.getMenuId(),"MENU-JB4DSystemAppBuilderDataBase",
                 "数据库管理","数据库管理","数据库管理",
-                "/HTML/Builder/DataStorage/DataBase/Manager.html","las la-stream",systemId,MenuTypeEnum.LinkMenu,"","");
+                "/JB4DCBuilder/HTML/Builder/DataStorage/DataBase/Manager.html","las la-stream",systemId,MenuTypeEnum.LinkMenu,"","");
 
         //根菜单->应用管理->存储设计->数据关系
         MenuEntity appBuilderDataRelationMenu=createMenu(jb4DSession,appManagerDataStorageMenu.getMenuId(),"MENU-JB4DSystemAppBuilderDataRelation",
                 "数据关系","数据关系","数据关系",
-                "/HTML/Builder/DataStorage/DataRelation/Manager.html","las la-stream",systemId,MenuTypeEnum.LinkMenu,"","");
+                "/JB4DCBuilder/HTML/Builder/DataStorage/DataRelation/Manager.html","las la-stream",systemId,MenuTypeEnum.LinkMenu,"","");
 
         //根菜单->应用管理->数据集设计
         MenuEntity appBuilderDataSetMenu=createMenu(jb4DSession,appBuilderRootMenu.getMenuId(),"MENU-JB4DSystemAppBuilderDataSetBuilder",
                 "数据集设计","数据集设计","数据集设计",
-                "/HTML/Builder/DataSet/Manager.html","las la-stream",systemId,MenuTypeEnum.LinkMenu,"","");
+                "/JB4DCBuilder/HTML/Builder/DataSet/Manager.html","las la-stream",systemId,MenuTypeEnum.LinkMenu,"","");
 
         //根菜单->应用管理->模块设计
         MenuEntity appBuilderModuleBuilderMenu=createMenu(jb4DSession,appBuilderRootMenu.getMenuId(),"MENU-JB4DSystemAppBuilderModuleBuilder",
                 "模块设计","模块设计","模块设计",
-                "/HTML/Builder/Module/Manager.html","las la-stream",systemId,MenuTypeEnum.LinkMenu,"","");
+                "/JB4DCBuilder/HTML/Builder/Module/Manager.html","las la-stream",systemId,MenuTypeEnum.LinkMenu,"","");
 
         //根菜单->应用管理->站点管理
         MenuEntity appBuilderSiteMenu=createMenu(jb4DSession,appBuilderRootMenu.getMenuId(),"MENU-JB4DSystemAppBuilderSite",
                 "站点管理","站点管理","站点管理",
-                "/HTML/Builder/Site/Manager.html","las la-stream",systemId,MenuTypeEnum.LinkMenu,"","");
+                "/JB4DCBuilder/HTML/Builder/Site/Manager.html","las la-stream",systemId,MenuTypeEnum.LinkMenu,"","");
 
 
         //根菜单->应用管理->菜单设计
@@ -290,7 +290,7 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         //根菜单->桌面设计
         MenuEntity appBuilderDesktopBuilderMenu=createMenu(jb4DSession,rootMenuId,"MENU-JB4DSystemAppBuilderDesktopBuilder",
                 "Portal设计","Portal设计","Portal设计",
-                "/HTML/Portal/LayoutPreview.html","las la-icons",systemId,MenuTypeEnum.LinkMenu,"","");
+                "/JB4DCBuilder/HTML/Portal/LayoutPreview.html","las la-icons",systemId,MenuTypeEnum.LinkMenu,"","");
 
         //根菜单->大屏设计
         createMenu(jb4DSession,rootMenuId,"MENU-JB4DSystemAppBuilderBigScreen",
@@ -303,17 +303,17 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         //根菜单->系统设置分组->数据字典分组
         createMenu(jb4DSession,systemSettingRootMenu.getMenuId(),"MENU-JB4DSystemSettingDictionaryManagerId",
                 "数据字典","数据字典","数据字典",
-                "/HTML/SystemSetting/Dictionary/DictionaryManager.html","", systemId,MenuTypeEnum.LinkMenu,"","");
+                "/JB4DCBuilder/HTML/SystemSetting/Dictionary/DictionaryManager.html","", systemId,MenuTypeEnum.LinkMenu,"","");
 
         //根菜单->系统设置->流程模型分组
         createMenu(jb4DSession,systemSettingRootMenu.getMenuId(),"MENU-JB4DWorkFlowModelGroupManagerId",
                 "流程模型分组","流程模型分组","流程模型分组",
-                "/HTML/WorkFlow/ModelGroup/ModelGroupManager.html","", systemId,MenuTypeEnum.LinkMenu,"","");
+                "/JB4DCBuilder/HTML/WorkFlow/ModelGroup/ModelGroupManager.html","", systemId,MenuTypeEnum.LinkMenu,"","");
 
         //根菜单->系统设置->流程模型分组
         createMenu(jb4DSession,systemSettingRootMenu.getMenuId(),"MENU-JB4DWorkFlowInstanceManagerId",
                 "流程实例管理","流程实例管理","流程实例管理",
-                "/HTML/WorkFlow/Manager/InstanceManager.html","las la-database",systemId,MenuTypeEnum.LinkMenu,"","");
+                "/JB4DCBuilder/HTML/WorkFlow/Manager/InstanceManager.html","las la-database",systemId,MenuTypeEnum.LinkMenu,"","");
 
         //根菜单->模块测试
         /*MenuEntity appBuilderModuleTestRootMenu=createMenu(jb4DSession,rootMenuId,"MENU-JB4DSystemAppBuilderModuleTestRoot",
@@ -419,13 +419,13 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         menuName="事务发起";
         MenuEntity workFlowClientBootable=createMenu(jb4DSession,workFlowClient.getMenuId(),menuId,
                 menuName,menuName,menuName,
-                "/HTML/WorkFlow/Runtime/MyBootableModels.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
+                "/${SystemContextPath}/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyBootableModels.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
 
         menuId="QCSystem-WorkFlow-Client-MyTask";
         menuName="待办事务";
         MenuEntity workFlowClientMyTask=createMenu(jb4DSession,workFlowClient.getMenuId(),menuId,
                 menuName,menuName,menuName,
-                "/HTML/WorkFlow/Runtime/InstanceMainTaskProcessList.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
+                "/${SystemContextPath}/JB4DCBuilderClient/HTML/WorkFlow/Runtime/InstanceMainTaskProcessList.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
     }
 
     public void createGridSystem(JB4DCSession jb4DSession,String rootMenuId) throws JBuild4DCGenerallyException {

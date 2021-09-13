@@ -1,17 +1,10 @@
 package com.jb4dc.sso.client.proxy;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jb4dc.core.base.session.JB4DCSession;
-import com.jb4dc.core.base.tools.CookieUtility;
-import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
-import com.jb4dc.sso.client.conf.Conf;
-import com.jb4dc.sso.client.utils.HttpClientUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.HashMap;
-import java.util.Map;
 
 public class LoginProxyUtility {
 
@@ -19,7 +12,7 @@ public class LoginProxyUtility {
 
         JB4DCSession jb4DSession=null;
 
-        String sessionCode = request.getParameter(Conf.SSO_TOKEN_URL_PARA_NAME);
+        /*String sessionCode = request.getParameter(Conf.SSO_TOKEN_URL_PARA_NAME);
 
         //如果URL中带有SSSCode的参数,则使用该参数尝试获取用户信息
         if(sessionCode==null||sessionCode.equals("")) {
@@ -51,7 +44,7 @@ public class LoginProxyUtility {
         }
 
         //将sessionCode写入Cookie中,用于本地Session超时时,可以使用该code重新拉取用户信息!
-        CookieUtility.set(response,Conf.JB4DC_SSO_CLIENT_COOKIE_STORE_KEY,sessionCode,false);
+        CookieUtility.set(response,Conf.JB4DC_SSO_CLIENT_COOKIE_STORE_KEY,sessionCode,false);*/
 
         return jb4DSession;
     }

@@ -3,57 +3,58 @@
 <mapper namespace="com.jb4dc.sso.dao.application.SsoAppMapper">
     <resultMap id="BaseResultMap" type="com.jb4dc.sso.dbentities.application.SsoAppEntity">
         <constructor>
-            <idArg column="APP_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
-            <arg column="APP_CODE" javaType="java.lang.String" jdbcType="NVARCHAR" />
-            <arg column="APP_NAME" javaType="java.lang.String" jdbcType="NVARCHAR" />
-            <arg column="APP_PUBLIC_KEY" javaType="java.lang.String" jdbcType="NVARCHAR" />
-            <arg column="APP_PRIVATE_KEY" javaType="java.lang.String" jdbcType="NVARCHAR" />
-            <arg column="APP_DOMAIN" javaType="java.lang.String" jdbcType="NVARCHAR" />
-            <arg column="APP_INDEX_URL" javaType="java.lang.String" jdbcType="NVARCHAR" />
-            <arg column="APP_INTEGRATED_TYPE" javaType="java.lang.String" jdbcType="NVARCHAR" />
-            <arg column="APP_MAIN_IMAGE_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
-            <arg column="APP_TYPE" javaType="java.lang.String" jdbcType="NVARCHAR" />
-            <arg column="APP_MAIN_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
-            <arg column="APP_CATEGORY" javaType="java.lang.String" jdbcType="NVARCHAR" />
-            <arg column="APP_DESC" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <idArg column="APP_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="APP_CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="APP_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="APP_PUBLIC_KEY" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="APP_PRIVATE_KEY" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="APP_DOMAIN" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="APP_INDEX_URL" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="APP_INTEGRATED_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="APP_MAIN_IMAGE_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="APP_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="APP_MAIN_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="APP_CATEGORY" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="APP_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
             <arg column="APP_ORDER_NUM" javaType="java.lang.Integer" jdbcType="INTEGER" />
             <arg column="APP_CREATE_TIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-            <arg column="APP_STATUS" javaType="java.lang.String" jdbcType="NVARCHAR" />
-            <arg column="APP_CREATOR_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
-            <arg column="APP_ORGAN_ID" javaType="java.lang.String" jdbcType="NVARCHAR" />
+            <arg column="APP_STATUS" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="APP_CREATOR_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="APP_ORGAN_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="APP_CONTEXT_PATH" javaType="java.lang.String" jdbcType="VARCHAR" />
         </constructor>
     </resultMap>
     <sql id="Base_Column_List">
-    APP_ID, APP_CODE, APP_NAME, APP_PUBLIC_KEY, APP_PRIVATE_KEY, APP_DOMAIN, APP_INDEX_URL,
+        APP_ID, APP_CODE, APP_NAME, APP_PUBLIC_KEY, APP_PRIVATE_KEY, APP_DOMAIN, APP_INDEX_URL,
     APP_INTEGRATED_TYPE, APP_MAIN_IMAGE_ID, APP_TYPE, APP_MAIN_ID, APP_CATEGORY, APP_DESC,
-    APP_ORDER_NUM, APP_CREATE_TIME, APP_STATUS, APP_CREATOR_ID, APP_ORGAN_ID
-  </sql>
+    APP_ORDER_NUM, APP_CREATE_TIME, APP_STATUS, APP_CREATOR_ID, APP_ORGAN_ID, APP_CONTEXT_PATH
+    </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List" />
         from TSSO_SSO_APP
-        where APP_ID = #{appId,jdbcType=NVARCHAR}
+        where APP_ID = #{appId,jdbcType=VARCHAR}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from TSSO_SSO_APP
-    where APP_ID = #{appId,jdbcType=NVARCHAR}
-  </delete>
+        delete from TSSO_SSO_APP
+        where APP_ID = #{appId,jdbcType=VARCHAR}
+    </delete>
     <insert id="insert" parameterType="com.jb4dc.sso.dbentities.application.SsoAppEntity">
-    insert into TSSO_SSO_APP (APP_ID, APP_CODE, APP_NAME,
-      APP_PUBLIC_KEY, APP_PRIVATE_KEY, APP_DOMAIN,
-      APP_INDEX_URL, APP_INTEGRATED_TYPE, APP_MAIN_IMAGE_ID,
-      APP_TYPE, APP_MAIN_ID, APP_CATEGORY,
-      APP_DESC, APP_ORDER_NUM, APP_CREATE_TIME,
-      APP_STATUS, APP_CREATOR_ID, APP_ORGAN_ID
-      )
-    values (#{appId,jdbcType=NVARCHAR}, #{appCode,jdbcType=NVARCHAR}, #{appName,jdbcType=NVARCHAR},
-      #{appPublicKey,jdbcType=NVARCHAR}, #{appPrivateKey,jdbcType=NVARCHAR}, #{appDomain,jdbcType=NVARCHAR},
-      #{appIndexUrl,jdbcType=NVARCHAR}, #{appIntegratedType,jdbcType=NVARCHAR}, #{appMainImageId,jdbcType=NVARCHAR},
-      #{appType,jdbcType=NVARCHAR}, #{appMainId,jdbcType=NVARCHAR}, #{appCategory,jdbcType=NVARCHAR},
-      #{appDesc,jdbcType=NVARCHAR}, #{appOrderNum,jdbcType=INTEGER}, #{appCreateTime,jdbcType=TIMESTAMP},
-      #{appStatus,jdbcType=NVARCHAR}, #{appCreatorId,jdbcType=NVARCHAR}, #{appOrganId,jdbcType=NVARCHAR}
-      )
-  </insert>
+        insert into TSSO_SSO_APP (APP_ID, APP_CODE, APP_NAME,
+                                  APP_PUBLIC_KEY, APP_PRIVATE_KEY, APP_DOMAIN,
+                                  APP_INDEX_URL, APP_INTEGRATED_TYPE, APP_MAIN_IMAGE_ID,
+                                  APP_TYPE, APP_MAIN_ID, APP_CATEGORY,
+                                  APP_DESC, APP_ORDER_NUM, APP_CREATE_TIME,
+                                  APP_STATUS, APP_CREATOR_ID, APP_ORGAN_ID,
+                                  APP_CONTEXT_PATH)
+        values (#{appId,jdbcType=VARCHAR}, #{appCode,jdbcType=VARCHAR}, #{appName,jdbcType=VARCHAR},
+                #{appPublicKey,jdbcType=VARCHAR}, #{appPrivateKey,jdbcType=VARCHAR}, #{appDomain,jdbcType=VARCHAR},
+                #{appIndexUrl,jdbcType=VARCHAR}, #{appIntegratedType,jdbcType=VARCHAR}, #{appMainImageId,jdbcType=VARCHAR},
+                #{appType,jdbcType=VARCHAR}, #{appMainId,jdbcType=VARCHAR}, #{appCategory,jdbcType=VARCHAR},
+                #{appDesc,jdbcType=VARCHAR}, #{appOrderNum,jdbcType=INTEGER}, #{appCreateTime,jdbcType=TIMESTAMP},
+                #{appStatus,jdbcType=VARCHAR}, #{appCreatorId,jdbcType=VARCHAR}, #{appOrganId,jdbcType=VARCHAR},
+                #{appContextPath,jdbcType=VARCHAR})
+    </insert>
     <insert id="insertSelective" parameterType="com.jb4dc.sso.dbentities.application.SsoAppEntity">
         insert into TSSO_SSO_APP
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -111,46 +112,49 @@
             <if test="appOrganId != null">
                 APP_ORGAN_ID,
             </if>
+            <if test="appContextPath != null">
+                APP_CONTEXT_PATH,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="appId != null">
-                #{appId,jdbcType=NVARCHAR},
+                #{appId,jdbcType=VARCHAR},
             </if>
             <if test="appCode != null">
-                #{appCode,jdbcType=NVARCHAR},
+                #{appCode,jdbcType=VARCHAR},
             </if>
             <if test="appName != null">
-                #{appName,jdbcType=NVARCHAR},
+                #{appName,jdbcType=VARCHAR},
             </if>
             <if test="appPublicKey != null">
-                #{appPublicKey,jdbcType=NVARCHAR},
+                #{appPublicKey,jdbcType=VARCHAR},
             </if>
             <if test="appPrivateKey != null">
-                #{appPrivateKey,jdbcType=NVARCHAR},
+                #{appPrivateKey,jdbcType=VARCHAR},
             </if>
             <if test="appDomain != null">
-                #{appDomain,jdbcType=NVARCHAR},
+                #{appDomain,jdbcType=VARCHAR},
             </if>
             <if test="appIndexUrl != null">
-                #{appIndexUrl,jdbcType=NVARCHAR},
+                #{appIndexUrl,jdbcType=VARCHAR},
             </if>
             <if test="appIntegratedType != null">
-                #{appIntegratedType,jdbcType=NVARCHAR},
+                #{appIntegratedType,jdbcType=VARCHAR},
             </if>
             <if test="appMainImageId != null">
-                #{appMainImageId,jdbcType=NVARCHAR},
+                #{appMainImageId,jdbcType=VARCHAR},
             </if>
             <if test="appType != null">
-                #{appType,jdbcType=NVARCHAR},
+                #{appType,jdbcType=VARCHAR},
             </if>
             <if test="appMainId != null">
-                #{appMainId,jdbcType=NVARCHAR},
+                #{appMainId,jdbcType=VARCHAR},
             </if>
             <if test="appCategory != null">
-                #{appCategory,jdbcType=NVARCHAR},
+                #{appCategory,jdbcType=VARCHAR},
             </if>
             <if test="appDesc != null">
-                #{appDesc,jdbcType=NVARCHAR},
+                #{appDesc,jdbcType=VARCHAR},
             </if>
             <if test="appOrderNum != null">
                 #{appOrderNum,jdbcType=INTEGER},
@@ -159,13 +163,16 @@
                 #{appCreateTime,jdbcType=TIMESTAMP},
             </if>
             <if test="appStatus != null">
-                #{appStatus,jdbcType=NVARCHAR},
+                #{appStatus,jdbcType=VARCHAR},
             </if>
             <if test="appCreatorId != null">
-                #{appCreatorId,jdbcType=NVARCHAR},
+                #{appCreatorId,jdbcType=VARCHAR},
             </if>
             <if test="appOrganId != null">
-                #{appOrganId,jdbcType=NVARCHAR},
+                #{appOrganId,jdbcType=VARCHAR},
+            </if>
+            <if test="appContextPath != null">
+                #{appContextPath,jdbcType=VARCHAR},
             </if>
         </trim>
     </insert>
@@ -173,40 +180,40 @@
         update TSSO_SSO_APP
         <set>
             <if test="appCode != null">
-                APP_CODE = #{appCode,jdbcType=NVARCHAR},
+                APP_CODE = #{appCode,jdbcType=VARCHAR},
             </if>
             <if test="appName != null">
-                APP_NAME = #{appName,jdbcType=NVARCHAR},
+                APP_NAME = #{appName,jdbcType=VARCHAR},
             </if>
             <if test="appPublicKey != null">
-                APP_PUBLIC_KEY = #{appPublicKey,jdbcType=NVARCHAR},
+                APP_PUBLIC_KEY = #{appPublicKey,jdbcType=VARCHAR},
             </if>
             <if test="appPrivateKey != null">
-                APP_PRIVATE_KEY = #{appPrivateKey,jdbcType=NVARCHAR},
+                APP_PRIVATE_KEY = #{appPrivateKey,jdbcType=VARCHAR},
             </if>
             <if test="appDomain != null">
-                APP_DOMAIN = #{appDomain,jdbcType=NVARCHAR},
+                APP_DOMAIN = #{appDomain,jdbcType=VARCHAR},
             </if>
             <if test="appIndexUrl != null">
-                APP_INDEX_URL = #{appIndexUrl,jdbcType=NVARCHAR},
+                APP_INDEX_URL = #{appIndexUrl,jdbcType=VARCHAR},
             </if>
             <if test="appIntegratedType != null">
-                APP_INTEGRATED_TYPE = #{appIntegratedType,jdbcType=NVARCHAR},
+                APP_INTEGRATED_TYPE = #{appIntegratedType,jdbcType=VARCHAR},
             </if>
             <if test="appMainImageId != null">
-                APP_MAIN_IMAGE_ID = #{appMainImageId,jdbcType=NVARCHAR},
+                APP_MAIN_IMAGE_ID = #{appMainImageId,jdbcType=VARCHAR},
             </if>
             <if test="appType != null">
-                APP_TYPE = #{appType,jdbcType=NVARCHAR},
+                APP_TYPE = #{appType,jdbcType=VARCHAR},
             </if>
             <if test="appMainId != null">
-                APP_MAIN_ID = #{appMainId,jdbcType=NVARCHAR},
+                APP_MAIN_ID = #{appMainId,jdbcType=VARCHAR},
             </if>
             <if test="appCategory != null">
-                APP_CATEGORY = #{appCategory,jdbcType=NVARCHAR},
+                APP_CATEGORY = #{appCategory,jdbcType=VARCHAR},
             </if>
             <if test="appDesc != null">
-                APP_DESC = #{appDesc,jdbcType=NVARCHAR},
+                APP_DESC = #{appDesc,jdbcType=VARCHAR},
             </if>
             <if test="appOrderNum != null">
                 APP_ORDER_NUM = #{appOrderNum,jdbcType=INTEGER},
@@ -215,36 +222,40 @@
                 APP_CREATE_TIME = #{appCreateTime,jdbcType=TIMESTAMP},
             </if>
             <if test="appStatus != null">
-                APP_STATUS = #{appStatus,jdbcType=NVARCHAR},
+                APP_STATUS = #{appStatus,jdbcType=VARCHAR},
             </if>
             <if test="appCreatorId != null">
-                APP_CREATOR_ID = #{appCreatorId,jdbcType=NVARCHAR},
+                APP_CREATOR_ID = #{appCreatorId,jdbcType=VARCHAR},
             </if>
             <if test="appOrganId != null">
-                APP_ORGAN_ID = #{appOrganId,jdbcType=NVARCHAR},
+                APP_ORGAN_ID = #{appOrganId,jdbcType=VARCHAR},
+            </if>
+            <if test="appContextPath != null">
+                APP_CONTEXT_PATH = #{appContextPath,jdbcType=VARCHAR},
             </if>
         </set>
-        where APP_ID = #{appId,jdbcType=NVARCHAR}
+        where APP_ID = #{appId,jdbcType=VARCHAR}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.jb4dc.sso.dbentities.application.SsoAppEntity">
-    update TSSO_SSO_APP
-    set APP_CODE = #{appCode,jdbcType=NVARCHAR},
-      APP_NAME = #{appName,jdbcType=NVARCHAR},
-      APP_PUBLIC_KEY = #{appPublicKey,jdbcType=NVARCHAR},
-      APP_PRIVATE_KEY = #{appPrivateKey,jdbcType=NVARCHAR},
-      APP_DOMAIN = #{appDomain,jdbcType=NVARCHAR},
-      APP_INDEX_URL = #{appIndexUrl,jdbcType=NVARCHAR},
-      APP_INTEGRATED_TYPE = #{appIntegratedType,jdbcType=NVARCHAR},
-      APP_MAIN_IMAGE_ID = #{appMainImageId,jdbcType=NVARCHAR},
-      APP_TYPE = #{appType,jdbcType=NVARCHAR},
-      APP_MAIN_ID = #{appMainId,jdbcType=NVARCHAR},
-      APP_CATEGORY = #{appCategory,jdbcType=NVARCHAR},
-      APP_DESC = #{appDesc,jdbcType=NVARCHAR},
-      APP_ORDER_NUM = #{appOrderNum,jdbcType=INTEGER},
-      APP_CREATE_TIME = #{appCreateTime,jdbcType=TIMESTAMP},
-      APP_STATUS = #{appStatus,jdbcType=NVARCHAR},
-      APP_CREATOR_ID = #{appCreatorId,jdbcType=NVARCHAR},
-      APP_ORGAN_ID = #{appOrganId,jdbcType=NVARCHAR}
-    where APP_ID = #{appId,jdbcType=NVARCHAR}
-  </update>
+        update TSSO_SSO_APP
+        set APP_CODE = #{appCode,jdbcType=VARCHAR},
+            APP_NAME = #{appName,jdbcType=VARCHAR},
+            APP_PUBLIC_KEY = #{appPublicKey,jdbcType=VARCHAR},
+            APP_PRIVATE_KEY = #{appPrivateKey,jdbcType=VARCHAR},
+            APP_DOMAIN = #{appDomain,jdbcType=VARCHAR},
+            APP_INDEX_URL = #{appIndexUrl,jdbcType=VARCHAR},
+            APP_INTEGRATED_TYPE = #{appIntegratedType,jdbcType=VARCHAR},
+            APP_MAIN_IMAGE_ID = #{appMainImageId,jdbcType=VARCHAR},
+            APP_TYPE = #{appType,jdbcType=VARCHAR},
+            APP_MAIN_ID = #{appMainId,jdbcType=VARCHAR},
+            APP_CATEGORY = #{appCategory,jdbcType=VARCHAR},
+            APP_DESC = #{appDesc,jdbcType=VARCHAR},
+            APP_ORDER_NUM = #{appOrderNum,jdbcType=INTEGER},
+            APP_CREATE_TIME = #{appCreateTime,jdbcType=TIMESTAMP},
+            APP_STATUS = #{appStatus,jdbcType=VARCHAR},
+            APP_CREATOR_ID = #{appCreatorId,jdbcType=VARCHAR},
+            APP_ORGAN_ID = #{appOrganId,jdbcType=VARCHAR},
+            APP_CONTEXT_PATH = #{appContextPath,jdbcType=VARCHAR}
+        where APP_ID = #{appId,jdbcType=VARCHAR}
+    </update>
 </mapper>

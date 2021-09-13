@@ -60,7 +60,8 @@ public class LoginSSOController {
     @RequestMapping(value = "/CheckSSOSession", method = RequestMethod.GET)
     public void checkSSOSession(String JBuild4DCSSORedirectUrl,HttpServletRequest req, HttpServletResponse res) throws IOException, ParseException, JBuild4DCGenerallyException {
         JB4DCSession jb4DSession = JB4DCSessionUtility.getSessionAndCheck();
-        JB4DCSessionUtility.sendJSessionIdToClient(req);
+        String jSessionId=req.getSession().getId();
+        //JB4DCSessionUtility.sendJSessionIdToClient(req);
         if(jb4DSession!=null){
             //返回原始页面,并提供一个临时Token用于获取Session
             SSOTokenPO code = ssoLogin.createTempSessionForClient(jb4DSession);

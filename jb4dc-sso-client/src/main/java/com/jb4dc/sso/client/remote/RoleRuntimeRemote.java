@@ -19,7 +19,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 @Primary
-@FeignClient(name= "${jb4dc.sso.server.name}",contextId = "RoleRuntimeRemote",path = "${jb4dc.sso.server.context-path}/Rest/SSO/Runtime/RoleRuntime")
+@FeignClient(name= "${jb4dc.sso.server.name}",contextId = "RoleRuntimeRemote",path = "${jb4dc.sso.server.context-path}/Rest/SSO/Ro/Role")
 public interface RoleRuntimeRemote {
 
     @RequestMapping(value = "GetFullEnableRole", method = RequestMethod.GET)
