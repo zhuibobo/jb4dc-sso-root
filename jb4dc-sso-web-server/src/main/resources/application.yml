@@ -1,4 +1,80 @@
 spring:
   profiles:
     active: dev
+  application:
+    name: JB4DC-SSO-WEB-SERVER
+    inetutils:
+      #客户端的IP
+      #preferred-networks: 192.168.3.153
+      #preferred-networks: 192.168.18.118
+      #preferred-networks: 192.168.3.206
+  liquibase:
+    enabled: false
+  thymeleaf:
+    prefix: classpath:/static/HTML/
+    suffix: .html
+    enabled: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    #joda-date-time-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 100MB
+
+server:
+  port: 9103
+  servlet:
+    session:
+      timeout: 7200
+    context-path: /SSOSystem
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 1000
+        readTimeout: 12000
+        retryer: feign.Retryer.Default
+
+management:
+  server:
+  #port: #don't change it, then the port for actuator will be the same as server.port above
+  endpoints:
+    web:
+      base-path: /actuator  #the default value for sring boot 2.x is /actuator, even you don't specify it, don't forget to include this in the URL
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    com:
+      jb4dc:
+        system:
+          setting:
+            dao: TRACE
+        sso:
+          dao: TRACE
+
+jb4dc:
+  system-caption: 单点登录系统
+  system-title: JBuild4DC-单点登录系统
+  warning-operation-code: jb4d82
+  is-debug: true
+  host:
+    operation-system: Window
+  file:
+    root-path: production-files
+  sso:
+    server:
+      name: JB4DC-SSO-WEB-SERVER
+      context-path: /SSOSystem
+  builder:
+    server:
+      name: JB4DC-BUILDER-WEB-SERVER
+      context-path: /JB4DCBuilder
 
