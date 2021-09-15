@@ -22,10 +22,10 @@ public class RoleGroupRest extends GeneralRest<RoleGroupEntity> implements RoleG
     @Autowired
     IRoleGroupService roleGroupService;
 
-    @Override
+    /*@Override
     public String getModuleName() {
         return "单点登录系统-角色分组";
-    }
+    }*/
 
     @Override
     protected IBaseService<RoleGroupEntity> getBaseService() {

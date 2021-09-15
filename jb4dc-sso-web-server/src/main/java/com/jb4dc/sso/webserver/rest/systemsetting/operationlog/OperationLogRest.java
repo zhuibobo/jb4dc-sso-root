@@ -27,10 +27,10 @@ public class OperationLogRest extends GeneralRest<OperationLogEntity> implements
     @Autowired
     protected IOperationLogService operationLogService;
 
-    @Override
+    /*@Override
     public String getModuleName() {
         return "操作日志";
-    }
+    }*/
 
     @Override
     protected IBaseService<OperationLogEntity> getBaseService() {

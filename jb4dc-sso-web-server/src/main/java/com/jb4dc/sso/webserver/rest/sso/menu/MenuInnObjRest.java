@@ -36,10 +36,10 @@ public class MenuInnObjRest extends GeneralRest<MenuInnObjEntity> {
     @Autowired
     IMenuInnObjService menuInnObjService;
 
-    @Override
+    /*@Override
     public String getModuleName() {
         return "单点登录系统-菜单内对象";
-    }
+    }*/
 
     @Override
     protected IBaseService<MenuInnObjEntity> getBaseService() {

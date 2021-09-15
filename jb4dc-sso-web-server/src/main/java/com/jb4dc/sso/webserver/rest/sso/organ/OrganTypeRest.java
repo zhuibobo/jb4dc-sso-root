@@ -15,10 +15,10 @@ public class OrganTypeRest extends GeneralRest<OrganTypeEntity> {
     @Autowired
     IOrganTypeService organTypeService;
 
-    @Override
+    /*@Override
     public String getModuleName() {
         return "单点登录系统-组织机构类型";
-    }
+    }*/
 
     @Override
     protected IBaseService<OrganTypeEntity> getBaseService() {

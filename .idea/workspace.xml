@@ -24,11 +24,17 @@
   <component name="ChangeListManager">
     <list default="true" id="a5ded3b0-098e-45d9-b1b7-14a09bef04fb" name="Default Changelist" comment="新增接口">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/beanconfig/sys/HttpsHttpConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/beanconfig/sys/HttpsHttpConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-devjar.yml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-devjar.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-xgprod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-xgprod.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/beanconfig/redis/RedisBeansConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/beanconfig/redis/RedisBeansConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/department/DepartmentRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/department/DepartmentRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/menu/MenuInnObjRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/menu/MenuInnObjRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/menu/MenuRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/menu/MenuRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/organ/OrganRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/organ/OrganRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/organ/OrganTypeRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/organ/OrganTypeRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/role/RoleGroupRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/role/RoleGroupRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/role/RoleRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/role/RoleRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/systemsetting/operationlog/OperationLogRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/systemsetting/operationlog/OperationLogRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/systemsetting/parassetting/ParasSettingRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/systemsetting/parassetting/ParasSettingRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/test/java/com/jb4dc/sso/webserver/RestTestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/test/java/com/jb4dc/sso/webserver/RestTestBase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -610,14 +616,7 @@
       <workItem from="1631522614918" duration="67000" />
       <workItem from="1631527461152" duration="755000" />
       <workItem from="1631583323404" duration="20000" />
-      <workItem from="1631672848749" duration="2679000" />
-    </task>
-    <task id="LOCAL-00030" summary="创建工程">
-      <created>1563944260922</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1563944260922</updated>
+      <workItem from="1631672848749" duration="6507000" />
     </task>
     <task id="LOCAL-00031" summary="创建工程">
       <created>1563947992860</created>
@@ -955,7 +954,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631527605360</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="新增接口">
+      <created>1631677172816</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1631677172816</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

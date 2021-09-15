@@ -14,10 +14,10 @@ public class ParasSettingRest extends GeneralRest<SettingEntity> {
     @Autowired
     ISettingService settingService;
 
-    @Override
+    /*@Override
     public String getModuleName() {
         return "系统参数设置";
-    }
+    }*/
 
     @Override
     protected IBaseService<SettingEntity> getBaseService() {

@@ -47,10 +47,10 @@ public class OrganRest extends GeneralRest<OrganEntity> implements OrganRuntimeR
         }
     }
 
-    @Override
+    /*@Override
     public String getModuleName() {
         return "单点登录系统-组织机构";
-    }
+    }*/
 
     @Autowired
     protected IOrganService organService;

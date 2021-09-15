@@ -21,10 +21,10 @@ public class DepartmentRest extends GeneralRest<DepartmentEntity> {
     @Autowired
     IDepartmentService departmentService;
 
-    @Override
+    /*@Override
     public String getModuleName() {
         return "单点登录系统-部门";
-    }
+    }*/
 
     @Override
     protected IBaseService<DepartmentEntity> getBaseService() {

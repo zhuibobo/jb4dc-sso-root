@@ -57,10 +57,10 @@ public class MenuRest extends GeneralRest<MenuEntity> implements MenuRuntimeRemo
         return JBuild4DCResponseVo.getDataSuccess(menuEntities);
     }
 
-    @Override
+    /*@Override
     public String getModuleName() {
         return "单点登录系统-菜单";
-    }
+    }*/
 
     @Override
     protected IBaseService<MenuEntity> getBaseService() {

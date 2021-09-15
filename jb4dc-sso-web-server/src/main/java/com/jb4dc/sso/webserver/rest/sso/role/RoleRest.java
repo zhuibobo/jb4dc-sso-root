@@ -21,10 +21,10 @@ public class RoleRest extends GeneralRest<RoleEntity> implements RoleRuntimeRemo
     @Autowired
     IRoleService roleService;
 
-    @Override
+    /*@Override
     public String getModuleName() {
         return "单点登录系统-角色";
-    }
+    }*/
 
     @Override
     protected IBaseService<RoleEntity> getBaseService() {
