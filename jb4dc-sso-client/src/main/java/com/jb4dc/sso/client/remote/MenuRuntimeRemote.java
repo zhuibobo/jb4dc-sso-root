@@ -22,7 +22,11 @@ import java.util.List;
 @FeignClient(name= "${jb4dc.sso.server.name}",contextId = "MenuRuntimeRemote",path = "${jb4dc.sso.server.context-path}/Rest/SSO/Mu/Menu")
 public interface MenuRuntimeRemote {
 
-    @RequestMapping(value = "/GetMyAuthMenusBySystemIdRT", method = RequestMethod.POST)
+    @RequestMapping(value = "/GetMyAuthMenusBySystemIdRT", method = RequestMethod.GET)
     @ClientCallRemoteCache
     JBuild4DCResponseVo<List<MenuPO>> getMyAuthMenusBySystemIdRT(@RequestParam("userId") String userId,@RequestParam("systemId") String systemId) throws JBuild4DCGenerallyException;
+
+    @RequestMapping(value = "/GetMenuById", method = RequestMethod.GET)
+    @ClientCallRemoteCache
+    JBuild4DCResponseVo<MenuPO> getMenuById(@RequestParam("menuId") String menuId) throws JBuild4DCGenerallyException;
 }

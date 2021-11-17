@@ -23,18 +23,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5ded3b0-098e-45d9-b1b7-14a09bef04fb" name="Default Changelist" comment="新增接口">
+      <change afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/remote/flow/ModelGroupRemote.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/remote/portlet/TemplatePageRemote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jb4dc-sso-root.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jb4dc-sso-root.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/beanconfig/redis/RedisBeansConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/beanconfig/redis/RedisBeansConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/department/DepartmentRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/department/DepartmentRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/MenuRuntimeRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-client/src/main/java/com/jb4dc/sso/client/remote/MenuRuntimeRemote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/application/impl/SsoAppServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/application/impl/SsoAppServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/menu/impl/MenuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-service/src/main/java/com/jb4dc/sso/service/menu/impl/MenuServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/jb4dc-sso-web-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/jb4dc-sso-web-server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/HTML/SSO/Menu/MenuEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/front-end/static/HTML/SSO/Menu/MenuEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/remote/DBLinkRuntimeRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/remote/builder/DBLinkRemote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/remote/ModuleRuntimeRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/remote/builder/ModuleRemote.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/menu/MenuInnObjRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/menu/MenuInnObjRest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/menu/MenuRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/menu/MenuRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/organ/OrganRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/organ/OrganRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/organ/OrganTypeRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/organ/OrganTypeRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/role/RoleGroupRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/role/RoleGroupRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/role/RoleRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/sso/role/RoleRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/systemsetting/operationlog/OperationLogRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/systemsetting/operationlog/OperationLogRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/systemsetting/parassetting/ParasSettingRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/java/com/jb4dc/sso/webserver/rest/systemsetting/parassetting/ParasSettingRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/test/java/com/jb4dc/sso/webserver/RestTestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/test/java/com/jb4dc/sso/webserver/RestTestBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-devjar.yml" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-sso-web-server/src/main/resources/application-devjar.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +76,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="JRebelWorkspace">
     <option name="jrebelEnabledAutocompile" value="true" />
@@ -118,7 +129,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.4174216" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="ReactorSettings">
@@ -143,18 +154,18 @@
       <recent name="D:\JavaProject\jb4dc\jb4dc-sso-root\jb4dc-sso-service\src\main\resources\mybatismappers\role" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.jb4dc.sso.webserver.remote.builder" />
       <recent name="com.jb4dc.sso.webserver.rest.systemsetting.cache" />
       <recent name="com.jb4dc.sso.client.proxy" />
       <recent name="com.jb4dc.sso.client.proxy.impl" />
       <recent name="com.jb4dc.sso.client.remote.proxy.impl" />
-      <recent name="com.jb4dc.sso.client.remote.proxy" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.jb4dc.sso.webserver.remote.flow" />
+      <recent name="com.jb4dc.sso.webserver.remote.portlet" />
       <recent name="com.jb4dc.sso.webserver.rest.client" />
       <recent name="com.jb4dc.sso.webserver.beanconfig.sys" />
       <recent name="com.jb4dc.sso.webserver.remote" />
-      <recent name="com.jb4dc.sso.webserver.rest.sso.menu" />
-      <recent name="com.jb4dc.sso.client.remote" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.ApplicationSSOWebServer">
@@ -264,11 +275,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.InitializationSystemRestTest.initializationSystem" />
         <item itemvalue="Gulp.js.html-only" />
         <item itemvalue="Gulp.js.dist-watch" />
         <item itemvalue="JUnit.UserRuntimeRemoteTest.searchUserByUserIdList" />
         <item itemvalue="JUnit.OrganRuntimeProxyImplTest.getAllChildOrganIdIncludeSelfRT" />
+        <item itemvalue="JUnit.InitializationSystemRestTest.initializationSystem" />
       </list>
     </recent_temporary>
   </component>
@@ -616,14 +627,41 @@
       <workItem from="1631522614918" duration="67000" />
       <workItem from="1631527461152" duration="755000" />
       <workItem from="1631583323404" duration="20000" />
-      <workItem from="1631672848749" duration="6507000" />
-    </task>
-    <task id="LOCAL-00031" summary="创建工程">
-      <created>1563947992860</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1563947992860</updated>
+      <workItem from="1631672848749" duration="6530000" />
+      <workItem from="1631784099343" duration="2962000" />
+      <workItem from="1631945982775" duration="3821000" />
+      <workItem from="1632218497951" duration="1499000" />
+      <workItem from="1632714515320" duration="626000" />
+      <workItem from="1633010170438" duration="594000" />
+      <workItem from="1633166135773" duration="6678000" />
+      <workItem from="1633220835521" duration="24000" />
+      <workItem from="1633681499820" duration="2285000" />
+      <workItem from="1634113938409" duration="3141000" />
+      <workItem from="1634132810783" duration="443000" />
+      <workItem from="1634133276801" duration="4000" />
+      <workItem from="1634134831991" duration="2778000" />
+      <workItem from="1634215860417" duration="497000" />
+      <workItem from="1634739067857" duration="792000" />
+      <workItem from="1634782931272" duration="7122000" />
+      <workItem from="1634891009771" duration="2000" />
+      <workItem from="1634911056221" duration="1288000" />
+      <workItem from="1634951649236" duration="3158000" />
+      <workItem from="1635923546000" duration="135000" />
+      <workItem from="1635925998509" duration="1043000" />
+      <workItem from="1635927237010" duration="2154000" />
+      <workItem from="1635986849684" duration="3147000" />
+      <workItem from="1636025704701" duration="2169000" />
+      <workItem from="1636070353256" duration="3909000" />
+      <workItem from="1636167074717" duration="1086000" />
+      <workItem from="1636440047359" duration="3397000" />
+      <workItem from="1636508313269" duration="227000" />
+      <workItem from="1636531387956" duration="1313000" />
+      <workItem from="1636617520271" duration="2044000" />
+      <workItem from="1636621127814" duration="1188000" />
+      <workItem from="1636681125705" duration="1876000" />
+      <workItem from="1636960145788" duration="1559000" />
+      <workItem from="1637157359300" duration="210000" />
+      <workItem from="1637157675738" duration="1166000" />
     </task>
     <task id="LOCAL-00032" summary="创建工程">
       <created>1563959160715</created>
@@ -961,7 +999,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631677172816</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="新增接口">
+      <created>1631691777500</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1631691777500</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -108,7 +108,7 @@ public class SsoAppServiceImpl extends BaseServiceImpl<SsoAppEntity> implements 
             SsoAppComplexPO ssoAppBO = innerNewMainApp(jb4DSession, "SSOMainApp", "单点登录与统一用户管理系统","JB4DCGateWay","/Gateway/HTML/Frame/FrameV2/FrameView.html","SSOSystem");
 
             //代码生产器
-            SsoAppComplexPO codeGenerateAppBO = innerNewMainApp(jb4DSession, "CodeGenerateAppBO", "代码生成器","http://58.51.184.121:9102/CodeGen","/HTML/Login.html","CodeGen");
+            //SsoAppComplexPO codeGenerateAppBO = innerNewMainApp(jb4DSession, "CodeGenerateAppBO", "代码生成器","http://58.51.184.121:9102/CodeGen","/HTML/Login.html","CodeGen");
 
             //应用构建系统
             SsoAppComplexPO builderAppBO = innerNewMainApp(jb4DSession, "BuilderMainApp", "应用构建系统","JB4DCGateWay","/Gateway/HTML/Frame/FrameV2/FrameView.html","JB4DCBuilder");
@@ -123,7 +123,7 @@ public class SsoAppServiceImpl extends BaseServiceImpl<SsoAppEntity> implements 
             SsoAppComplexPO qcAppBO = innerNewMainApp(jb4DSession, "QCSystem", "服务运维系统","JB4DCGateWay","/Gateway/HTML/Frame/FrameV2/FrameView.html","QCSystem");
 
             //网格化系统
-            SsoAppComplexPO GridAppBO = innerNewMainApp(jb4DSession, "GridSystem", "网格化社会管理系统","http://58.51.184.121:9106/GridSystem","/HTML/FrameV2/FrameView.html","GridSystem");
+            //SsoAppComplexPO GridAppBO = innerNewMainApp(jb4DSession, "GridSystem", "网格化社会管理系统","http://58.51.184.121:9106/GridSystem","/HTML/FrameV2/FrameView.html","GridSystem");
 
         } catch (Exception e) {
             throw new JBuild4DCGenerallyException(JBuild4DCGenerallyException.EXCEPTION_SSO_CODE,e.getMessage());

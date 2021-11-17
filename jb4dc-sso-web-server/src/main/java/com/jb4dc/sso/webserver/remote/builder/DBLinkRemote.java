@@ -1,4 +1,4 @@
-package com.jb4dc.sso.webserver.remote;
+package com.jb4dc.sso.webserver.remote.builder;
 
 import com.jb4dc.base.service.general.JB4DCSessionUtility;
 import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
@@ -17,9 +17,9 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 @Primary
-@FeignClient(name= "${jb4dc.builder.server.name}",contextId = "DBLinkRuntimeRemote",path = "${jb4dc.builder.server.context-path}/Rest/Builder/RunTime/DBLinkRuntime")
-public interface DBLinkRuntimeRemote {
+@FeignClient(name= "${jb4dc.builder.server.name}",contextId = "DBLinkRuntimeRemote",path = "${jb4dc.builder.server.context-path}/Rest/Builder/DataStorage/DBLink")
+public interface DBLinkRemote {
 
     @RequestMapping(value = "/GetFullDBLink", method = RequestMethod.POST)
-    public JBuild4DCResponseVo getFullDBLink();
+    JBuild4DCResponseVo getFullDBLink();
 }

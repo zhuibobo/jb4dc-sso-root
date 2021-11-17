@@ -287,10 +287,20 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
                 "菜单设计","菜单设计","菜单设计",
                 "","las la-stream",systemId);*/
 
-        //根菜单->桌面设计
-        MenuEntity appBuilderDesktopBuilderMenu=createMenu(jb4DSession,rootMenuId,"MENU-JB4DSystemAppBuilderDesktopBuilder",
-                "Portal设计","Portal设计","Portal设计",
-                "/JB4DCBuilder/HTML/Portal/LayoutPreview.html","las la-icons",systemId,MenuTypeEnum.LinkMenu,"","");
+        //根菜单->Portlet设计
+        MenuEntity appBuilderDesktopBuilderMenu=createMenu(jb4DSession,rootMenuId,"MENU-JB4DSystemAppBuilderPortletManager",
+                "Portlet设计","Portlet设计","Portlet设计",
+                "","las la-icons",systemId,MenuTypeEnum.EmptyMenu,"","");
+
+        //根菜单->Portlet设计->Widget管理
+        createMenu(jb4DSession,appBuilderDesktopBuilderMenu.getMenuId(),"MENU-JB4DSystemAppBuilderWidgetManager",
+                "Widget管理","Widget管理","Widget管理",
+                "/JB4DCBuilder/HTML/Portlet/Widget/WidgetManager.html","las la-icons",systemId,MenuTypeEnum.LinkMenu,"","");
+
+        //根菜单->Portlet设计->模板页面管理
+        createMenu(jb4DSession,appBuilderDesktopBuilderMenu.getMenuId(),"MENU-JB4DSystemAppBuilderTemplatePageManager",
+                "页面管理","页面管理","页面管理",
+                "/JB4DCBuilder/HTML/Portlet/TemplatePage/TemplatePageManager.html","las la-icons",systemId,MenuTypeEnum.LinkMenu,"","");
 
         //根菜单->大屏设计
         createMenu(jb4DSession,rootMenuId,"MENU-JB4DSystemAppBuilderBigScreen",
@@ -419,13 +429,19 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuEntity> implements IMen
         menuName="事务发起";
         MenuEntity workFlowClientBootable=createMenu(jb4DSession,workFlowClient.getMenuId(),menuId,
                 menuName,menuName,menuName,
-                "/${SystemContextPath}/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyBootableModels.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
+                "/%(appContextPath)s/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyBootableMyModels.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
 
         menuId="QCSystem-WorkFlow-Client-MyTask";
         menuName="待办事务";
         MenuEntity workFlowClientMyTask=createMenu(jb4DSession,workFlowClient.getMenuId(),menuId,
                 menuName,menuName,menuName,
-                "/${SystemContextPath}/JB4DCBuilderClient/HTML/WorkFlow/Runtime/InstanceMainTaskProcessList.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
+                "/%(appContextPath)s/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyProcessInstanceMainTaskList.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
+
+        menuId="QCSystem-WorkFlow-Client-MyTask-End";
+        menuName="已办事务";
+        MenuEntity workFlowClientMyTaskEnd=createMenu(jb4DSession,workFlowClient.getMenuId(),menuId,
+                menuName,menuName,menuName,
+                "/%(appContextPath)s/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyEndProcessInstanceMainTaskList.html","",systemId,MenuTypeEnum.LinkMenu,menuId,menuId);
     }
 
     public void createGridSystem(JB4DCSession jb4DSession,String rootMenuId) throws JBuild4DCGenerallyException {

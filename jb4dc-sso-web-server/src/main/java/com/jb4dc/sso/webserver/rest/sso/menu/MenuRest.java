@@ -3,6 +3,7 @@ package com.jb4dc.sso.webserver.rest.sso.menu;
 import com.github.pagehelper.PageInfo;
 import com.jb4dc.base.service.IBaseService;
 import com.jb4dc.base.service.general.JB4DCSessionUtility;
+import com.jb4dc.base.service.po.MenuPO;
 import com.jb4dc.base.service.search.GeneralSearchUtility;
 import com.jb4dc.core.base.exception.JBuild4DCGenerallyException;
 import com.jb4dc.core.base.session.JB4DCSession;
@@ -10,10 +11,11 @@ import com.jb4dc.core.base.vo.JBuild4DCResponseVo;
 import com.jb4dc.feb.dist.webserver.rest.base.GeneralRest;
 import com.jb4dc.sso.client.remote.MenuRuntimeRemote;
 import com.jb4dc.sso.dbentities.menu.MenuEntity;
-import com.jb4dc.sso.dbentities.role.RoleEntity;
 import com.jb4dc.sso.service.menu.IMenuService;
-import com.jb4dc.sso.webserver.remote.DBLinkRuntimeRemote;
-import com.jb4dc.sso.webserver.remote.ModuleRuntimeRemote;
+import com.jb4dc.sso.webserver.remote.builder.DBLinkRemote;
+import com.jb4dc.sso.webserver.remote.builder.ModuleRemote;
+import com.jb4dc.sso.webserver.remote.flow.ModelGroupRemote;
+import com.jb4dc.sso.webserver.remote.portlet.TemplatePageRemote;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,19 +40,25 @@ public class MenuRest extends GeneralRest<MenuEntity> implements MenuRuntimeRemo
     protected IMenuService menuService;
 
     @Autowired
-    DBLinkRuntimeRemote dbLinkRuntimeRemote;
+    DBLinkRemote dbLinkRuntimeRemote;
 
     @Autowired
-    ModuleRuntimeRemote moduleRuntimeRemote;
+    ModuleRemote moduleRuntimeRemote;
 
-    @RequestMapping(value = "/GetMenusBySystemId", method = RequestMethod.POST)
+    @Autowired
+    TemplatePageRemote templatePageRemote;
+
+    @Autowired
+    ModelGroupRemote modelGroupRemote;
+
+    @RequestMapping(value = "/GetMenusBySystemId", method = { RequestMethod.GET, RequestMethod.POST })
     public JBuild4DCResponseVo getMenusBySystemId(String systemId){
 
         List<MenuEntity> menuEntities=menuService.getMenusBySystemId(JB4DCSessionUtility.getSession(),systemId);
         return JBuild4DCResponseVo.getDataSuccess(menuEntities);
     }
 
-    @RequestMapping(value = "/GetMyAuthMenusBySystemId", method = RequestMethod.POST)
+    @RequestMapping(value = "/GetMyAuthMenusBySystemId", method = { RequestMethod.GET, RequestMethod.POST })
     public JBuild4DCResponseVo getMyAuthMenusBySystemId(String systemId){
         JB4DCSession jb4DCSession=JB4DCSessionUtility.getSession();
         List<MenuEntity> menuEntities=menuService.getMyAuthMenusBySystemId(JB4DCSessionUtility.getSession(),systemId);
@@ -72,12 +80,22 @@ public class MenuRest extends GeneralRest<MenuEntity> implements MenuRuntimeRemo
         return dbLinkRuntimeRemote.getFullDBLink();
     }
 
-    @RequestMapping(value = "/GetMouldTreeData", method = RequestMethod.POST)
+    @RequestMapping(value = "/GetMouldTreeData",  method = { RequestMethod.GET, RequestMethod.POST })
     public JBuild4DCResponseVo getMouldTreeData(String dbLinkId){
         return moduleRuntimeRemote.getTreeData(dbLinkId);
     }
 
-    @RequestMapping(value = "/GetSelectModuleObjectListByModuleId", method = RequestMethod.POST)
+    @RequestMapping(value = "/GetPortletPageTreeData",  method = { RequestMethod.GET, RequestMethod.POST })
+    public JBuild4DCResponseVo getPortletPageTreeData(){
+        return templatePageRemote.getTreeData();
+    }
+
+    @RequestMapping(value = "/GetFlowModelGroupTreeData",  method = { RequestMethod.GET, RequestMethod.POST })
+    public JBuild4DCResponseVo getFlowModelGroupTreeData(){
+        return modelGroupRemote.getTreeData();
+    }
+
+    @RequestMapping(value = "/GetSelectModuleObjectListByModuleId",  method = { RequestMethod.GET, RequestMethod.POST })
     public JBuild4DCResponseVo<List<Map<String,Object>>> getSelectModuleObjectListByModuleId(String searchCondition) throws IOException, ParseException {
         Map<String, Object> searchMap = GeneralSearchUtility.deserializationToMap(searchCondition);
         String selectModuleObjectType=searchMap.get("selectModuleObjectType").toString();
@@ -92,9 +110,15 @@ public class MenuRest extends GeneralRest<MenuEntity> implements MenuRuntimeRemo
         //return moduleRuntimeRemote.getTreeData(dbLinkId);
     }
 
+    @RequestMapping(value = "/GetMyAuthMenusBySystemIdRT", method = {RequestMethod.GET,RequestMethod.POST})
     @Override
     public JBuild4DCResponseVo getMyAuthMenusBySystemIdRT(String userId,String systemId) throws JBuild4DCGenerallyException {
         List<MenuEntity> menuEntities=menuService.getMyAuthMenusBySystemId(userId,systemId);
         return JBuild4DCResponseVo.getDataSuccess(menuEntities);
+    }
+
+    @Override
+    public JBuild4DCResponseVo<MenuPO> getMenuById(String menuId) throws JBuild4DCGenerallyException {
+        return JBuild4DCResponseVo.getDataSuccess(menuService.getByPrimaryKey(JB4DCSessionUtility.getSession(),menuId));
     }
 }
